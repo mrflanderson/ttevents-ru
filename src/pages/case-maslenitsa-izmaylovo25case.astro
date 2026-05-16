@@ -1,0 +1,29 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Масленица Измайлово';
+const pageDescription = 'Масленица в Измайлово. Народный праздник.';
+const keywords = 'масленица, народный праздник';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Масленица</h1>
+            <p>Народный праздник</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Народные гуляния</li>
+                <li>Блины</li>
+                <li>Аттракционы</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

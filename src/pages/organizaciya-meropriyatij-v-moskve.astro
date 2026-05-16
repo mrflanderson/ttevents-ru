@@ -1,0 +1,35 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Организация мероприятий в Москве';
+const pageDescription = 'Полная организация мероприятий в Москве. Концепция, площадка, программа, кейтеринг.';
+const keywords = 'организация мероприятий, Москва, под ключ';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Организация мероприятий в Москве</h1>
+            <p>Полный цикл организации</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Концепция мероприятия</li>
+                <li>Подбор площадки</li>
+                <li>Программа и сценарий</li>
+                <li>Кейтеринг</li>
+                <li>Техническое обеспечение</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

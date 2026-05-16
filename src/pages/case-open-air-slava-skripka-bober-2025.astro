@@ -1,0 +1,28 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Open Air Слава Скрипка';
+const pageDescription = 'Open Air мероприятие Слава Скрипка. Концерт на природе.';
+const keywords = 'open air, концерт';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Open Air Скрипка</h1>
+            <p>Концерт на природе</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Open air</li>
+                <li>Концерт</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

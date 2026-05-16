@@ -1,0 +1,34 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'IT-корпоратив';
+const pageDescription = 'IT-корпоратив. Современные форматы для IT-команд и стартапов.';
+const keywords = 'IT-корпоратив, стартап, хакатон';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>IT-корпоратив</h1>
+            <p>Форматы для IT-команд</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Хакатоны</li>
+                <li>Гейминг</li>
+                <li>Квестинг</li>
+                <li>Интеллектуальные игры</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

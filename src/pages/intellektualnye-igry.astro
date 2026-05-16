@@ -1,0 +1,33 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Интеллектуальные игры';
+const pageDescription = 'Интеллектуальные игры для корпоративов. Квизы, викторины, интеллектуальные командные игры.';
+const keywords = 'интеллектуальные игры, квиз, викторина';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Интеллектуальные игры</h1>
+            <p>Командный интеллект</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Квизы</li>
+                <li>Викторины</li>
+                <li>Командные игры</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

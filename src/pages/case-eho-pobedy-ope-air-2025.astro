@@ -1,0 +1,29 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Эхо Победы Open Air';
+const pageDescription = 'Open air мероприятие ко Дню Победы. Масштабный концерт.';
+const keywords = 'open air, День Победы, концерт';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Эхо Победы</h1>
+            <p>Open air мероприятие</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Открытая площадка</li>
+                <li>Концерт</li>
+                <li>10 000+ гостей</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

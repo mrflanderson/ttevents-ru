@@ -1,0 +1,33 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Королевский Новый год 2024';
+const pageDescription = 'Королевский новогодний корпоратив 2024. Роскошное мероприятие в отеле.';
+const keywords = 'новогодний корпоратив, кейс, королевский';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Королевский Новый год</h1>
+            <p>Роскошное мероприятие</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Премиум площадка</li>
+                <li>Банкет</li>
+                <li>Шоу-программа</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="/case" class="btn btn-primary">Все кейсы</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

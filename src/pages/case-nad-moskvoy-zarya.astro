@@ -1,0 +1,29 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Над Москвой заря';
+const pageDescription = 'Мероприятие Над Москвой заря. Рассвет на крыше.';
+const keywords = 'мероприятие, крыша, заря';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Над Москвой заря</h1>
+            <p>Мероприятие на крыше</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Крыша</li>
+                <li>Рассвет</li>
+                <li>Живая музыка</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

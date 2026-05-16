@@ -1,0 +1,29 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Иммерсивный театр';
+const pageDescription = 'Иммерсивный театр на корпоративе. Театрализованное шоу.';
+const keywords = 'иммерсивный театр, шоу, кейс';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Иммерсивный театр</h1>
+            <p>Театрализованное шоу</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Иммерсивный формат</li>
+                <li>Интерактив</li>
+                <li>Уникальный сценарий</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

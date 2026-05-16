@@ -1,0 +1,28 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Время Надежды ДФест';
+const pageDescription = 'Мероприятие Время Надежды ДФест. Благотворительный фестиваль.';
+const keywords = 'благотворительность, фестиваль';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Время Надежды</h1>
+            <p>Благотворительный фестиваль</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Благотворительность</li>
+                <li>Фестиваль</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

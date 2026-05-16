@@ -1,0 +1,28 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Медиaproект Суперсила';
+const pageDescription = 'Медиaproект и фотовыставка Суперсила.';
+const keywords = 'медиaproект, фотовыставка';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Суперсила</h1>
+            <p>Фотовыставка</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Фотовыставка</li>
+                <li>Медиaproект</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

@@ -1,0 +1,35 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = '10 форматов launch events';
+const pageDescription = '10 форматов презентации нового продукта. Как провести launch event.';
+const keywords = 'launch event, презентация, формат';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>10 форматов launch events</h1>
+            <p>Как представить новый продукт</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Шоу-презентация</li>
+                <li>Пресс-конференция</li>
+                <li>Open air</li>
+                <li>Иммерсивное шоу</li>
+                <li>Интерактив</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

@@ -1,0 +1,28 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Тендеры на организацию мероприятий';
+const pageDescription = 'Участие в тендерах на организацию корпоративных мероприятий. Госзакупки, коммерческие тендеры.';
+const keywords = 'тендер, организация мероприятий, закупка';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Тендеры</h1>
+            <p>Организация мероприятий под ключ</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <p>Мы участвуем в тендерах на организацию мероприятий.</p>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Обсудить тендер</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

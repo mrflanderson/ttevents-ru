@@ -1,0 +1,28 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Времена года';
+const pageDescription = 'Сезонное мероприятие Времена года. Арт-проект.';
+const keywords = 'арт-проект, кейс';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Времена года</h1>
+            <p>Сезонный арт-проект</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Арт-концепция</li>
+                <li>Сезонная программа</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

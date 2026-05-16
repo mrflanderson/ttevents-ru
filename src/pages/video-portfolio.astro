@@ -1,0 +1,28 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Видеопортфолио';
+const pageDescription = 'Видеопортфолио работ TT Events. Корпоративные фильмы, ролики, мероприятия.';
+const keywords = 'видеопортфолио, видео, ролики';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Видеопортфолио</h1>
+            <p>Наши видеоработы</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <p>Смотреть видео:</p>
+            <div class="cta-box mt-2 text-center">
+                <a href="/videoproduction" class="btn btn-primary">Смотреть портфолио</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

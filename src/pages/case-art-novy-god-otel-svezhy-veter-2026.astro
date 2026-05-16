@@ -1,0 +1,29 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Арт Новый год Отель Свежий Ветер';
+const pageDescription = 'Арт новогодний корпоратив в отеле Свежий Ветер.';
+const keywords = 'новогодний корпоратив, арт, отель';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Арт Новый год</h1>
+            <p>Новогодний арт-корпоратив</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Арт-концепция</li>
+                <li>Отель</li>
+                <li>Новогодняя программа</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

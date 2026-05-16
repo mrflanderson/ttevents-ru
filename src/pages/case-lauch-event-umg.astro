@@ -1,0 +1,29 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Кейс: Launch Event UMG';
+const pageDescription = 'Launch event для UMG. Презентация нового продукта.';
+const keywords = 'launch event, UMG, презентация';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Кейс: Launch Event UMG</h1>
+            <p>Презентация продукта</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Презентация</li>
+                <li>Шоу</li>
+                <li>Стендовая зона</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

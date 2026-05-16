@@ -1,0 +1,28 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Почему русские народные мотивы популярны';
+const pageDescription = 'Почему русские народные мотивы популярны в корпоративах. Тренды.';
+const keywords = 'русские народные мотивы, тренды';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Русские народные мотивы</h1>
+            <p>Почему это популярно</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Авторские программы</li>
+                <li>Народные игры</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

@@ -1,0 +1,36 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Организация корпоративов в Москве 2026';
+const pageDescription = 'Организация корпоративных мероприятий в Москве. Все форматы корпоративов 2026.';
+const keywords = 'корпоратив, Москва, организация мероприятий';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Организация корпоративов в Москве</h1>
+            <p>Профессиональная организация мероприятий</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Банкеты и фуршеты</li>
+                <li>Тематические вечеринки</li>
+                <li>Шоу-программы</li>
+                <li>Новогодние корпоративы</li>
+                <li>Выездные мероприятия</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать корпоратив</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.feature-list li { margin-bottom: var(--space-sm); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

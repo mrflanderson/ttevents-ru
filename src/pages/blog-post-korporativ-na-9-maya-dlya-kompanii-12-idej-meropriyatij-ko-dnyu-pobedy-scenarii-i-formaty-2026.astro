@@ -1,0 +1,34 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Корпоратив на 9 Мая 2026 в Москве';
+const pageDescription = 'Корпоратив на 9 Мая 2026 в Москве. 12 идей мероприятий ко Дню Победы.';
+const keywords = '9 Мая 2026, корпоратив, День Победы';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Корпоратив на 9 Мая 2026</h1>
+            <p>Мероприятия ко Дню Победы</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Тематические программы</li>
+                <li>Концерты</li>
+                <li>Встречи с ветеранами</li>
+                <li>Военная техника</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>
