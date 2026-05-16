@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.0.0"
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^4.0.0",
+    "yet-another-react-lightbox": "^3.32.0"
   }
 }
