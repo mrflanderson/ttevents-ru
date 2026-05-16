@@ -1,0 +1,9 @@
+---
+const { seo } = Astro.props;
+---
+
+<meta name="description" content={seo.description}>
+<meta name="keywords" content={seo.keywords}>
+{seo.ogTitle && <meta property="og:title" content={seo.ogTitle} />}
+{seo.ogDescription && <meta property="og:description" content={seo.ogDescription} />}
+{seo.ogImage && <meta property="og:image" content={seo.ogImage} />}

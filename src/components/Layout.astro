@@ -1,0 +1,33 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  children: import("astro").HTMLTemplateStrings;
+}
+
+const { title, description, children } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{title || 'TT Events'} </title>
+    <meta name="description" content={description || 'Event agency in Moscow'}>
+    <link rel="stylesheet" href="/styles/global.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Главная</a>
+        </nav>
+    </header>
+    <main>
+        <slot />
+    </main>
+    <footer>
+        <p>© 2024 TT Events</p>
+    </footer>
+</body>
+</html>

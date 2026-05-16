@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= pageData.title || 'TT Events' %></title>
+    <meta name="description" content="<%= pageData.description || '' %>">
+    <link rel="stylesheet" href="{{ '/styles/global.css' | url }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ '/' | url }}">Главная</a>
+        </nav>
+    </header>
+    <main>
+        <%- body %>
+    </main>
+    <footer>
+        <p>© 2024 TT Events</p>
+    </footer>
+</body>
+</html>

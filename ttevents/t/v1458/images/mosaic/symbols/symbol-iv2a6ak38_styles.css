@@ -1,0 +1,73 @@
+@font-face { font-family: "Exo2"; font-weight: 100; font-style: normal; font-display: swap; src: url("/g/fonts/exo_2/exo2-t.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-t.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 100; font-style: italic; font-display: swap; src: url("/g/fonts/exo_2/exo2-t-i.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-t-i.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 200; font-style: normal; font-display: swap; src: url("/g/fonts/exo_2/exo2-e-l.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-e-l.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 200; font-style: italic; font-display: swap; src: url("/g/fonts/exo_2/exo2-e-l-i.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-e-l-i.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 300; font-style: normal; font-display: swap; src: url("/g/fonts/exo_2/exo2-l.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-l.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 300; font-style: italic; font-display: swap; src: url("/g/fonts/exo_2/exo2-l-i.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-l-i.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 400; font-style: normal; font-display: swap; src: url("/g/fonts/exo_2/exo2-r.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-r.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 400; font-style: italic; font-display: swap; src: url("/g/fonts/exo_2/exo2-r-i.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-r-i.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 500; font-style: normal; font-display: swap; src: url("/g/fonts/exo_2/exo2-m.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-m.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 500; font-style: italic; font-display: swap; src: url("/g/fonts/exo_2/exo2-m-i.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-m-i.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 600; font-style: normal; font-display: swap; src: url("/g/fonts/exo_2/exo2-s-b.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-s-b.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 600; font-style: italic; font-display: swap; src: url("/g/fonts/exo_2/exo2-s-b-i.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-s-b-i.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 700; font-style: normal; font-display: swap; src: url("/g/fonts/exo_2/exo2-b.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-b.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 700; font-style: italic; font-display: swap; src: url("/g/fonts/exo_2/exo2-b-i.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-b-i.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 800; font-style: normal; font-display: swap; src: url("/g/fonts/exo_2/exo2-e-b.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-e-b.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 800; font-style: italic; font-display: swap; src: url("/g/fonts/exo_2/exo2-e-b-i.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-e-b-i.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 900; font-style: normal; font-display: swap; src: url("/g/fonts/exo_2/exo2-bl.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-bl.woff") format("woff");}
+@font-face { font-family: "Exo2"; font-weight: 900; font-style: italic; font-display: swap; src: url("/g/fonts/exo_2/exo2-bl-i.woff2") format("woff2"), url("/g/fonts/exo_2/exo2-bl-i.woff") format("woff");}
+:root {
+	--color-i67pu84mt: 255, 255, 255;
+	--color-ide6lcmac: 29, 147, 151;
+	--color-illpcrxbt: 0, 0, 0;
+	--color-ibc3suukc: 29, 147, 151;
+	--color-i726pjptt: 29, 147, 151;
+	--color-iwxtzh06q: 29, 147, 151;
+	--color-ic0j1y8bb: 29, 147, 151;
+	--color-ideduw2gk: 255, 255, 255;
+	--color-isnpnd57w: 0, 0, 0;
+	--color-imeb0yonp: 56, 163, 204;
+	--color-iygdvmsaq: 29, 147, 151;
+	--color-i91avqid7: 29, 147, 151;
+	--color-izmjhs7ln: 17, 17, 17;
+	--color-i4y3sv5ux: 17, 17, 17;
+	--color-igwrndsvr: 29, 147, 151;
+	--color-i5ptbxoq5: 255, 255, 255;
+	--color-idoyumgvb: 255, 255, 255;
+	--color-i2fup33gh: 47, 82, 120;
+	--color-i3dft7kr4: 255, 255, 255;
+}
+
+.container--u-iv2a6ak38 { width: 100%; max-width: 1200px; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; position: relative; background-color: rgba(var(--color-i67pu84mt), 1); background-image: linear-gradient(rgba(var(--color-ide6lcmac), 0.1) 0%, rgba(var(--color-ide6lcmac), 0.1) 100%); background-repeat: no-repeat; background-position: left 0px top 0px; background-size: auto; background-attachment: scroll; display: -webkit-box; display: -ms-flexbox; display: flex; padding-left: 40px; padding-right: 40px; padding-top: 40px; padding-bottom: 40px; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; color: rgba(var(--color-illpcrxbt), 1); cursor: auto; font-family: Exo2, sans-serif; font-size: 16px; font-style: normal; font-weight: 400; letter-spacing: normal; line-height: normal; overflow-wrap: break-word; text-align: left; text-indent: 0px; text-shadow: none; text-transform: none }
+.div--u-i9n88ufq4 { width: 60%; position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding-left: 30px; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; flex-shrink: 0; border-top-style: solid; border-top-width: 1px; border-right-style: none; border-right-width: 1px; border-bottom-style: solid; border-bottom-width: 1px; border-left-style: solid; border-left-width: 1px; border-top-color: rgba(var(--color-ibc3suukc), 0.2); border-right-color: rgba(var(--color-i726pjptt), 0.2); border-bottom-color: rgba(var(--color-iwxtzh06q), 0.2); border-left-color: rgba(var(--color-ic0j1y8bb), 0.2) }
+.div--u-ix7o3ufn2 { width: 100%; position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; margin-left: 0px; margin-right: 0px; padding-top: 10px; padding-left: 10px; padding-bottom: 10px; padding-right: 10px; background-color: rgba(var(--color-ideduw2gk), 1) }
+.div--u-i3jjq6g8u { width: 40%; position: relative; display: block; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; flex-shrink: 0 }
+.imageFit--u-iwa8xhbxn { position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; vertical-align: top; overflow-x: hidden; overflow-y: hidden; width: 100%; height: 100%; margin-left: 0px; margin-right: 0px }
+.imageFit__img--u-iy9tm7shs { object-fit: cover; width: 100%; height: 100% }
+.imageFit__overlay--u-i89djx2do { display: none; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; background-color: rgba(var(--color-isnpnd57w), 0.4) }
+.imageFit__zoom--u-iysxiak3v { display: none; position: absolute; right: 10px; bottom: 10px; width: 20px; height: 20px; background-color: rgba(var(--color-imeb0yonp), 1) }
+.svg_image--u-ityxt4vhr { position: relative; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; vertical-align: top; justify-content: center;  -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 20px; width: 20px; overflow-x: hidden; overflow-y: hidden }
+.svg_image--u-ityxt4vhr svg { flex-shrink: 0; width: 100%; height: 100% }
+.heading--u-iightoog9 { font-size: 32px; line-height: 120%; margin-top: 0px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; display: -webkit-box; display: -ms-flexbox; display: flex; position: relative; min-height: 0px; color: rgba(var(--color-iygdvmsaq), 1) }
+.div--u-ierabzivq { width: 140px; position: relative; display: block; height: 3px; background-color: rgba(var(--color-i91avqid7), 1); margin-bottom: 20px; margin-top: 0px }
+.text--u-i06964j8f { display: -webkit-box; display: -ms-flexbox; display: flex; vertical-align: top; position: relative; font-size: 20px; font-weight: 500; color: rgba(var(--color-izmjhs7ln), 1); margin-bottom: 10px }
+.text--u-i9ttw1dlb { display: -webkit-box; display: -ms-flexbox; display: flex; vertical-align: top; position: relative; color: rgba(var(--color-i4y3sv5ux), 0.8); line-height: 140%; margin-bottom: 10px }
+.link-universal--u-im9vlp5a3 { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; cursor: pointer; vertical-align: top; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; background-color: rgba(var(--color-igwrndsvr), 1); color: rgba(var(--color-i5ptbxoq5), 1); position: relative; text-decoration-line: none; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; flex-shrink: 1; width: 36px; height: 36px; margin-top: 10px; border-top-left-radius: 250px; border-top-right-radius: 250px; border-bottom-right-radius: 250px; border-bottom-left-radius: 250px }
+.link-universal--u-im9vlp5a3:hover, .link-universal--u-im9vlp5a3.is-hover { background-color: rgba(var(--color-i2fup33gh), 1) }
+.link-universal--u-im9vlp5a3:hover .svg_image--u-il1pe9kpz .path-iqdsh9kdj, .link-universal--u-im9vlp5a3.is-hover .svg_image--u-il1pe9kpz .path-iqdsh9kdj { fill: rgba(var(--color-i3dft7kr4), 1) }
+.svg_image--u-il1pe9kpz { position: relative; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; vertical-align: top; justify-content: center;  -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 16px; width: 16px; overflow-x: hidden; overflow-y: hidden }
+.svg_image--u-il1pe9kpz > svg { flex-shrink: 0 }
+.svg_image--u-il1pe9kpz svg { width: 100%; height: 100% }
+.svg_image--u-il1pe9kpz .path-iqdsh9kdj { fill: rgba(var(--color-idoyumgvb), 1) }
+.text--u-iik5l4p6k { display: none }
+
+@media (max-width: 991px) {
+	.container--u-iv2a6ak38 { padding-left: 30px; padding-right: 30px; padding-top: 30px; padding-bottom: 30px }
+}
+
+@media (max-width: 767px) {
+	.div--u-ix7o3ufn2 { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column }
+	.div--u-i9n88ufq4 { margin-left: 0px; margin-right: 0px; width: 100%; border-bottom-width: 0px; border-right-style: solid; padding-left: 20px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px }
+	.div--u-i3jjq6g8u { margin-left: 0px; margin-right: 0px; width: 100% }
+	.container--u-iv2a6ak38 { padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px }
+}
