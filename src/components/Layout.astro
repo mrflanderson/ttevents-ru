@@ -151,5 +151,18 @@ const fullTitle = title.includes('TT Events') ? title : `${title} | TT Events`;
             </div>
         </div>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.querySelector('.main-nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          toggle.classList.toggle('active');
+          nav.classList.toggle('active');
+        });
+      }
+    });
+    </script>
 </body>
 </html>
