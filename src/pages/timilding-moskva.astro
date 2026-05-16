@@ -25,15 +25,15 @@ const faqItems = [
 <Layout {...pageMeta}>
     <section class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="text-sm text-text-light mb-4">
-                <a href="/" class="hover:text-primary">Главная</a> / <span class="font-medium text-text">Тимбилдинги</span>
+            <nav class="text-sm text-text-light mb-4" aria-label="Навигация">
+                <a href="/" class="hover:text-primary">Главная</a> / <span class="font-medium text-text" aria-current="page">Тимбилдинги</span>
             </nav>
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8">Тимбилдинги в Москве</h1>
             <p class="text-lg text-text-light max-w-3xl mb-12">32+ формата тимбилдингов для команд от 10 до 1000+ человек. От активных квестов до иммерсивных шоу.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {services.map((service) => (
-                    <a href={service.href} class="block p-6 bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300">
+                    <a href={service.href} class="block p-6 bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300" aria-label={service.title}>
                         <h3 class="text-xl font-heading font-semibold text-dark hover:text-primary transition-colors">{service.title}</h3>
                     </a>
                 ))}

@@ -96,20 +96,15 @@ const cases = [
 ];
 ---
 
-<Layout
-    title={pageMeta.title}
-    description={pageMeta.description}
-    ogTitle={pageMeta.ogTitle}
-    ogDescription={pageMeta.ogDescription}
->
+<Layout {...pageMeta}>
     <!-- Hero Section -->
     <section class="py-16 md:py-24 bg-primary text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Breadcrumbs -->
-            <nav class="text-sm text-white/80 mb-4">
+            <nav class="text-sm text-white/80 mb-4" aria-label="Навигация">
                 <a href="/" class="hover:text-white">Главная</a> /
                 <a href="/uslugi" class="hover:text-white">Услуги</a> /
-                <span class="font-medium">Активный тимбилдинг</span>
+                <span class="font-medium" aria-current="page">Активный тимбилдинг</span>
             </nav>
             <h1
                 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-heading mb-8"
