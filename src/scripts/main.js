@@ -4,4 +4,8 @@ import './lazy-load.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('TT Events site initialized');
+  
+  // Инициализация lazy load
+  initLazyLoad();
+  initImageLoadEffects();
 });

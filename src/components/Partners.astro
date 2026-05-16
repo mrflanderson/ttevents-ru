@@ -15,7 +15,15 @@ const { partners } = Astro.props;
       <div class="partners-track">
         {partners.map(partner => (
           <div class="partner-item">
-            <img src={partner.image} alt={partner.name} loading="lazy" width="150" height="80">
+            <img 
+              src={partner.image} 
+              alt={partner.name} 
+              class="lazy-load"
+              data-src={partner.image}
+              width="150" 
+              height="80"
+              loading="lazy"
+            >
           </div>
         ))}
       </div>

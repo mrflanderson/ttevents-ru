@@ -49,3 +49,58 @@ a:hover {
 .text-center { text-align: center; }
 .mt-lg { margin-top: var(--spacing-lg); }
 .mb-lg { margin-bottom: var(--spacing-lg); }
+
+/* Image lazy load styles */
+img.lazy-load {
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+img.lazy-load.loaded {
+  opacity: 1;
+}
+
+img:not(.lazy-load) {
+  transition: opacity var(--transition-normal);
+}
+
+img.loaded {
+  opacity: 1;
+}
+
+/* Placeholder для изображений */
+img.lazy-load::before {
+  content: '';
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  background: var(--color-bg-alt);
+}
+
+img.lazy-load {
+  position: relative;
+}
+
+img.lazy-load::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--color-bg-alt) 25%, transparent 25%, transparent 50%, var(--color-bg-alt) 50%, var(--color-bg-alt) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+img.lazy-load.loaded::after {
+  display: none;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 20px;
+  }
+}

@@ -22,7 +22,7 @@ const { title, subtitle, ctaText, ctaHref, videoSrc, backgroundImage = '/g/s3/mo
       <a href={ctaHref} class="btn btn-primary">{ctaText}</a>
     </div>
   </div>
-  {videoSrc && <video autoplay muted loop playsinline class="hero-video">
+  {videoSrc && <video autoplay muted loop playsinline class="hero-video" preload="none">
     <source src={videoSrc} type="video/mp4">
   </video>}
 </section>

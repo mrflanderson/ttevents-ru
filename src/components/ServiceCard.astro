@@ -14,7 +14,16 @@ const { title, href, count, image = '/g/s3/mosaic/images/default-service.jpg' } 
 <article class="service-card">
   <a href={href} class="service-card-link">
     <div class="service-card-image">
-      <img src={image} alt={title} loading="lazy" width="400" height="300">
+      <img 
+        src={image} 
+        alt={title} 
+        class="lazy-load"
+        data-src={image}
+        width="400" 
+        height="300"
+        sizes="(max-width: 768px) 100vw, 33vw"
+        loading="lazy"
+      >
     </div>
     <div class="service-card-content">
       <h3>{title}</h3>

@@ -14,7 +14,16 @@ const { title, href, image = '/g/s3/mosaic/images/default-case.jpg', category = 
 <article class="case-card">
   <a href={href} class="case-card-link">
     <div class="case-card-image">
-      <img src={image} alt={title} loading="lazy" width="400" height="300">
+      <img 
+        src={image} 
+        alt={title} 
+        class="lazy-load"
+        data-src={image}
+        width="400" 
+        height="300"
+        sizes="(max-width: 768px) 100vw, 33vw"
+        loading="lazy"
+      >
       <span class="case-category">{category}</span>
     </div>
     <div class="case-card-content">
