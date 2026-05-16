@@ -1,11 +1,24 @@
 ---
+// src/components/Layout.astro
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
   children: import("astro").HTMLTemplateStrings;
 }
 
-const { title, description, children } = Astro.props;
+const {
+  title,
+  description,
+  keywords,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  children
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -13,21 +26,90 @@ const { title, description, children } = Astro.props;
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{title || 'TT Events'} </title>
-    <meta name="description" content={description || 'Event agency in Moscow'}>
+
+    <!-- SEO Meta -->
+    <title>{title || 'TT Events — Организация корпоративных мероприятий в Москве'}</title>
+    <meta name="description" content={description || 'TT Events — профессиональное организация корпоративных мероприятий, тимбилдингов, конференций и праздников в Москве. Работаем с 2015 года.'}>
+
+    {keywords && <meta name="keywords" content={keywords} />}
+
+    <!-- Open Graph -->
+    {ogTitle && <meta property="og:title" content={ogTitle} />}
+    {ogDescription && <meta property="og:description" content={ogDescription} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://ttevents.ru{Astro.url?.pathname || '/'}" />
+
+    <!-- Styles -->
     <link rel="stylesheet" href="/styles/global.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">{JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://ttevents.ru/",
+      "name": "TT Events",
+      "url": "https://ttevents.ru",
+      "telephone": "+7-916-906-44-90",
+      "email": "mail@ttevents.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Москва",
+        "addressCountry": "RU"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "12",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    })}</script>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Главная</a>
+    <!-- Header -->
+    <header class="tte-header">
+        <nav class="tte-nav">
+            <a href="/" class="tte-logo">
+                <img src="/g/s3/mosaic/images/spacer.gif" data-src="/g/s3/mosaic/images/tt-events-logo-new.png" alt="TT Events" class="lazy-load">
+            </a>
+            <ul class="tte-menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/korporativy-moskva">Корпоративы</a></li>
+                <li><a href="/timilding-moskva">Тимбилдинги</a></li>
+                <li><a href="/korporativ-na-prirode">На природе</a></li>
+                <li><a href="/case">Кейсы</a></li>
+                <li><a href="/blog">Блог</a></li>
+            </ul>
+            <div class="tte-contacts">
+                <a href="tel:+79169064490" class="tte-phone">+7 (916) 906-44-90</a>
+                <a href="mailto:mail@ttevents.ru" class="tte-email">mail@ttevents.ru</a>
+            </div>
         </nav>
     </header>
-    <main>
-        <slot />
+
+    <!-- Main Content -->
+    <main class="tte-main">
+        {children}
     </main>
-    <footer>
-        <p>© 2024 TT Events</p>
+
+    <!-- Footer -->
+    <footer class="tte-footer">
+        <div class="tte-footer__content">
+            <p>&copy; 2024 TT Events. Все права защищены.</p>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="/scripts/main.js" type="module"></script>
 </body>
 </html>
+
+---
+
+<slot />
+
+---
