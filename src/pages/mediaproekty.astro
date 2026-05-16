@@ -1,0 +1,34 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Медиaproекты';
+const pageDescription = 'Медиaproекты и видеопроизводство. Корпоративные фильмы, ролики, документалки.';
+const keywords = 'медиaproект, корпоративное видео, видеопроизводство';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Медиaproекты</h1>
+            <p>Видеопроизводство полного цикла</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Корпоративные фильмы</li>
+                <li>Документальные фильмы</li>
+                <li>Видеоролики</li>
+                <li>Съёмка мероприятий</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="/videoproduction" class="btn btn-primary">Смотреть портфолио</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

@@ -1,0 +1,36 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Event-агентство в Москве';
+const pageDescription = 'TT Events — event-агентство полного цикла в Москве. Более 2000 проектов с 2006 года.';
+const keywords = 'event-агентство, организация мероприятий, Москва';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Event-агентство TT Events</h1>
+            <p>Более 2000 реализованных проектов</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <p>Мы организуем мероприятия с 2006 года:</p>
+            <ul class="feature-list mt-2">
+                <li>Корпоративы</li>
+                <li>Тимбилдинги</li>
+                <li>Конференции</li>
+                <li>Фестивали</li>
+                <li>Кейтеринг</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Связаться</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

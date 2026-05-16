@@ -1,0 +1,33 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Мастер-классы';
+const pageDescription = 'Корпоративные мастер-классы: кулинарные, творческие, командные.';
+const keywords = 'мастер-класс, корпоративный мастер-класс';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Мастер-классы</h1>
+            <p>Творческие мастер-классы для команд</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Кулинарные мастер-классы</li>
+                <li>Творческие мастер-классы</li>
+                <li>Командное творчество</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

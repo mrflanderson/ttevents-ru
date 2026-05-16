@@ -1,0 +1,34 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Спортивные мероприятия';
+const pageDescription = 'Спортивные корпоративные мероприятия. Соревнования, забеги, командные виды спорта.';
+const keywords = 'спортивное мероприятие, корпоративный спорт, командные соревнования';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Спортивные мероприятия</h1>
+            <p>Командный спорт и соревнования</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Командные соревнования</li>
+                <li>Спортивные забеги</li>
+                <li>Футбол и волейбол</li>
+                <li>Интеллектуальные игры</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

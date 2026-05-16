@@ -1,0 +1,29 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = '3 тренда в организации корпоративов';
+const pageDescription = 'Актуальные тренды в организации корпоративных мероприятий 2024-2025. Что выбирают компании.';
+const keywords = 'тренды, корпоративы, 2024';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>3 тренда в организации корпоративов</h1>
+            <p>Актуальные форматы</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Иммерсивные форматы</li>
+                <li>Интерактивные шоу</li>
+                <li>Креативные концепции</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+</style>

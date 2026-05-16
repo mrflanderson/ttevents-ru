@@ -1,0 +1,36 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Как выбрать event-агентство в Москве';
+const pageDescription = 'Как выбрать event-агентство в Москве. На что обратить внимание при выборе подрядчика для организации мероприятия.';
+const keywords = 'выбрать event-агентство, организация мероприятий, критерии выбора';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Как выбрать event-агентство</h1>
+            <p>Руководство по выбору подрядчика</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <p>При выборе event-агентства обратите внимание на:</p>
+            <ul class="feature-list mt-2">
+                <li>Опыт и портфолио</li>
+                <li>Отзывы клиентов</li>
+                <li>Собственные ресурсы</li>
+                <li>Прозрачное ценообразование</li>
+                <li>Коммуникация и отношение</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Получить консультацию</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

@@ -1,0 +1,34 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Семинары и тренинги';
+const pageDescription = 'Организация семинаров и тренингов. Обучение персонала, корпоративные учебные программы.';
+const keywords = 'семинар, тренинг, обучение, корпоративное обучение';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Семинары и тренинги</h1>
+            <p>Корпоративное обучение и развитие</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Семинары</li>
+                <li>Тренинги</li>
+                <li>Мастер-классы</li>
+                <li>Обучающие программы</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

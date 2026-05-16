@@ -1,0 +1,37 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Конференции и форумы';
+const pageDescription = 'Организация конференций и бизнес-форумов в Москве. Профессиональная организация конференц-мероприятий под ключ.';
+const keywords = 'конференция, форум, бизнес-форум, организация конференций';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Конференции и форумы</h1>
+            <p>Профессиональная организация бизнес-конференций</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <p>Мы организуем конференции любого масштаба:</p>
+            <ul class="feature-list mt-2">
+                <li>Конференц-залы и площадки</li>
+                <li>Техническое обеспечение</li>
+                <li>Спикеры и модераторы</li>
+                <li>Онлайн-трансляции</li>
+                <li>Кейтеринг</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать конференцию</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.feature-list li { margin-bottom: var(--space-sm); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

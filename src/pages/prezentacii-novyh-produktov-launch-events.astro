@@ -1,0 +1,35 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Презентации и launch events';
+const pageDescription = 'Организация презентаций новых продуктов и launch events. Шоу, демонстрации, пресс-конференции.';
+const keywords = 'презентация, launch event, презентация продукта';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Презентации и launch events</h1>
+            <p>Яркие презентации вашего продукта</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Launch events</li>
+                <li>Пресс-конференции</li>
+                <li>Шоу-презентации</li>
+                <li>Демонстрации</li>
+                <li>Стенды и выставки</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать презентацию</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>

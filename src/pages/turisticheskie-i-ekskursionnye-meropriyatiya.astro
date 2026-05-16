@@ -1,0 +1,33 @@
+---
+import Layout from '../components/Layout.astro';
+
+const pageTitle = 'Туристические и экскурсионные мероприятия';
+const pageDescription = 'Туристические программы и экскурсии для корпоративов. Интересные маршруты и необычные локации.';
+const keywords = 'туры, экскурсии, корпоративный туризм';
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="page-header">
+        <div class="container">
+            <h1>Туры и экскурсии</h1>
+            <p>Корпоративный туризм и экскурсии</p>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <ul class="feature-list mt-2">
+                <li>Экскурсии по Москве</li>
+                <li>Загородные туры</li>
+                <li>Необычные маршруты</li>
+            </ul>
+            <div class="cta-box mt-2 text-center">
+                <a href="tel:+79169064490" class="btn btn-primary">Заказать</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.feature-list { list-style: disc; padding-left: var(--space-xl); }
+.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
+</style>
