@@ -1,0 +1,77 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  href: string;
+  image?: string;
+  category?: string;
+}
+
+const { title, href, image = '/g/s3/mosaic/images/default-case.jpg', category = 'Кейс' } = Astro.props;
+---
+
+<article class="case-card">
+  <a href={href} class="case-card-link">
+    <div class="case-card-image">
+      <img src={image} alt={title} loading="lazy" width="400" height="300">
+      <span class="case-category">{category}</span>
+    </div>
+    <div class="case-card-content">
+      <h3>{title}</h3>
+    </div>
+  </a>
+</article>
+
+<style>
+  .case-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal);
+  }
+  
+  .case-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .case-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .case-card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .case-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .case-category {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    background: var(--color-primary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .case-card-content {
+    padding: var(--spacing-lg);
+  }
+  
+  .case-card h3 {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+</style>

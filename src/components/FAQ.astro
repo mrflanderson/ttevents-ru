@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+import '../scripts/accordion.js';
+
+interface Props {
+  items: Array<{question: string; answer: string}>;
+}
+
+const { items } = Astro.props;
+---
+
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title">Часто задаваемые вопросы</h2>
+    <div class="faq-list">
+      {items.map(item => (
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span class="question">{item.question}</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-bg-alt);
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: 2rem;
+  }
+  
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .accordion-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .accordion-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: var(--spacing-lg) 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+  }
+  
+  .accordion-content p {
+    padding: 0 0 var(--spacing-lg);
+  }
+  
+  .accordion-item.open .accordion-content {
+    max-height: 500px;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    transition: transform var(--transition-fast);
+  }
+  
+  .accordion-item.open .icon {
+    transform: rotate(45deg);
+  }
+</style>

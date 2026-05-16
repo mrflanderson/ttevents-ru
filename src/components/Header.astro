@@ -1,0 +1,98 @@
+---
+import '../styles/global.css';
+---
+
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/" class="logo">
+        <img src="/g/s3/mosaic/images/logo.png" alt="TT Events Logo" width="150" height="40">
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="/">Главная</a></li>
+          <li><a href="/uslugi">Услуги</a></li>
+          <li><a href="/case">Кейсы</a></li>
+          <li><a href="/blog">Блог</a></li>
+          <li><a href="/o-nas">О нас</a></li>
+          <li><a href="/kontakty">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    background: white;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+  }
+  
+  .nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+  }
+  
+  .nav-menu a {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-dark);
+  }
+  
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .nav-menu.active {
+      display: block;
+    }
+    
+    .nav-menu ul {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .mobile-menu-toggle {
+      display: flex;
+    }
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+import Layout from '../components/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import FAQ from '../components/FAQ.astro';
+import Partners from '../components/Partners.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CaseCard from '../components/CaseCard.astro';
+
+const services = [
+  { title: 'Корпоративные мероприятия', href: '/korporativy-moskva', count: 48 },
+  { title: 'Тимбилдинги', href: '/timilding-moskva', count: 32 },
+  { title: 'Конференции и форумы', href: '/konferencii-i-forumy', count: 24 },
+  { title: 'Новогодние корпоративы', href: '/novogodniy-korporativ', count: 56 },
+  { title: 'Launch Events', href: '/prezentacii-novyh-produktov-launch-events', count: 18 },
+  { title: 'Кейсы', href: '/case', count: 45 },
+];
+
+const partners = [
+  { name: 'АОП', image: '/g/s3/mosaic/images/partners/logo_aop_t.webp' },
+  { name: 'ДКПНГ', image: '/g/s3/mosaic/images/partners/dkpng.png' },
+  { name: 'Измайлово', image: '/g/s3/mosaic/images/partners/logo_imzylovo.jpg' },
+  { name: 'Московские зёрнышки', image: '/g/s3/mosaic/images/partners/logo_mos_zezony.png' },
+  { name: 'Росатом', image: '/g/s3/mosaic/images/partners/rosatom.png' },
+  { name: 'ВДНХ', image: '/g/s3/mosaic/images/partners/vdnh.png' },
+  { name: 'Коломенское', image: '/g/s3/mosaic/images/partners/logo_kolomenskoe.jpg' },
+  { name: 'РЖД', image: '/g/s3/mosaic/images/partners/rzhd.jpg' },
+  { name: 'Сбер', image: '/g/s3/mosaic/images/partners/logo_sber.jpg' },
+  { name: 'Лукойл', image: '/g/s3/mosaic/images/partners/logo_lukoil.webp' },
+];
+
+const faqItems = [
+  {
+    question: 'Сколько стоит корпоратив в Москве в 2026?',
+    answer: 'Средний чек под ключ — от 15–22 тыс. ₽ на человека. 50 гостей ≈ 850–1,4 млн ₽, 100 гостей ≈ 1,4–2,8 млн ₽, 200+ ≈ 2,3–7+ млн ₽.'
+  },
+  {
+    question: 'За сколько реально организовать новогодний корпоратив?',
+    answer: 'Идеально — за 4–6 месяцев. Реально — от 45 дней.'
+  },
+  {
+    question: 'Работаете только в Москве или по всей России?',
+    answer: 'По всей России и СНГ. Основная команда в Москве.'
+  },
+];
+
+const cases = [
+  { title: 'Корпоратив для Росатома', href: '/case/rosatom', category: 'Корпоратив' },
+  { title: 'Тимбилдинг для Сбера', href: '/case/sber', category: 'Тимбилдинг' },
+  { title: 'Конференция ВДНХ', href: '/case/vdnh', category: 'Конференция' },
+];
+---
+
+<Layout title="TT Events — Организация мероприятий в Москве" description="Профессиональная организация корпоративов, тимбилдингов, конференций и других мероприятий в Москве.">
+  <Header />
+  
+  <Hero 
+    title="Организация мероприятий любой сложности" 
+    subtitle="Более 10 лет опыта в создании незабываемых событий" 
+    ctaText="Заказать мероприятие" 
+    ctaHref="/kontakty"
+    backgroundImage="/g/s3/mosaic/images/hero-bg.jpg"
+  />
+  
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">Наши услуги</h2>
+      <div class="services-grid">
+        {services.map(service => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <section class="cases">
+    <div class="container">
+      <h2 class="section-title">Наши кейсы</h2>
+      <div class="cases-grid">
+        {cases.map(caseItem => (
+          <CaseCard {...caseItem} />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <Partners partners={partners} />
+  
+  <FAQ items={faqItems} />
+  
+  <Footer />
+</Layout>
+
+<style>
+  .services, .cases {
+    padding: var(--spacing-xxl) 0;
+  }
+  
+  .services-grid, .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+  }
+</style>
