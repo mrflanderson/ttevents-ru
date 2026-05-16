@@ -1,5 +1,9 @@
 ---
-// src/components/Layout.astro
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import '../styles/global.css';
+import '../scripts/main.js';
+
 interface Props {
   title?: string;
   description?: string;
@@ -43,6 +47,11 @@ const {
     <!-- Canonical -->
     <link rel="canonical" href="https://ttevents.ru{Astro.url?.pathname || '/'}" />
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
+
     <!-- Styles -->
     <link rel="stylesheet" href="/styles/global.css">
 
@@ -71,25 +80,7 @@ const {
 </head>
 <body>
     <!-- Header -->
-    <header class="tte-header">
-        <nav class="tte-nav">
-            <a href="/" class="tte-logo">
-                <img src="/g/s3/mosaic/images/spacer.gif" data-src="/g/s3/mosaic/images/tt-events-logo-new.png" alt="TT Events" class="lazy-load">
-            </a>
-            <ul class="tte-menu">
-                <li><a href="/">Главная</a></li>
-                <li><a href="/korporativy-moskva">Корпоративы</a></li>
-                <li><a href="/timilding-moskva">Тимбилдинги</a></li>
-                <li><a href="/korporativ-na-prirode">На природе</a></li>
-                <li><a href="/case">Кейсы</a></li>
-                <li><a href="/blog">Блог</a></li>
-            </ul>
-            <div class="tte-contacts">
-                <a href="tel:+79169064490" class="tte-phone">+7 (916) 906-44-90</a>
-                <a href="mailto:mail@ttevents.ru" class="tte-email">mail@ttevents.ru</a>
-            </div>
-        </nav>
-    </header>
+    <Header />
 
     <!-- Main Content -->
     <main class="tte-main">
@@ -97,11 +88,7 @@ const {
     </main>
 
     <!-- Footer -->
-    <footer class="tte-footer">
-        <div class="tte-footer__content">
-            <p>&copy; 2024 TT Events. Все права защищены.</p>
-        </div>
-    </footer>
+    <Footer />
 
     <!-- Scripts -->
     <script src="/scripts/main.js" type="module"></script>
