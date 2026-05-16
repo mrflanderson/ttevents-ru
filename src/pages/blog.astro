@@ -44,49 +44,53 @@ const pageMeta = {
 ---
 
 <Layout {...pageMeta}>
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Breadcrumbs -->
-            <nav class="text-sm text-text-light mb-4">
-                <a href="/" class="hover:text-primary">Главная</a> / <span
-                    class="font-medium text-text">Блог</span
+    <main>
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Breadcrumbs -->
+                <nav class="text-sm text-text-light mb-4" aria-label="Навигация">
+                    <a href="/" class="hover:text-primary">Главная</a> / <span
+                        class="font-medium text-text"
+                    >Блог</span
+                    >
+                </nav>
+                <h1
+                    class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
                 >
-            </nav>
-            <h1
-                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
-            >
-                Блог
-            </h1>
-            <p class="text-lg text-text-light max-w-3xl">
-                Полезные статьи, идеи и советы по организации корпоративных
-                мероприятий в Москве.
-            </p>
-        </div>
-    </section>
-
-    <section class="py-16 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {
-                    blogPosts.map((post) => (
-                        <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
-                            <a
-                                href={post.href}
-                                class="block text-inherit no-underline"
-                            >
-                                <div class="p-6">
-                                    <h3 class="text-lg font-heading font-semibold mb-4">
-                                        {post.title}
-                                    </h3>
-                                    <span class="text-primary text-sm font-medium">
-                                        Читать далее →
-                                    </span>
-                                </div>
-                            </a>
-                        </article>
-                    ))
-                }
+                    Блог
+                </h1>
+                <p class="text-lg text-text-light max-w-3xl">
+                    Полезные статьи, идеи и советы по организации корпоративных
+                    мероприятий в Москве.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {
+                        blogPosts.map((post) => (
+                            <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                                <a
+                                    href={post.href}
+                                    class="block text-inherit no-underline"
+                                    aria-label={post.title}
+                                >
+                                    <div class="p-6">
+                                        <h3 class="text-lg font-heading font-semibold mb-4">
+                                            {post.title}
+                                        </h3>
+                                        <span class="text-primary text-sm font-medium">
+                                            Читать далее →
+                                        </span>
+                                    </div>
+                                </a>
+                            </article>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
 </Layout>
