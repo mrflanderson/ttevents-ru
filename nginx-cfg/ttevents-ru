@@ -1,0 +1,58 @@
+server {
+    listen 443 ssl; # managed by Certbot
+    server_name ttevents-ru.duckdns.org;
+
+    root /var/www/ttevents-ru;
+    index index.html;
+
+    # Основные типы файлов
+    include /etc/nginx/mime.types;
+
+    # Gzip компрессия для HTML/CSS/JS/SVG
+    gzip on;
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml image/svg+xml;
+
+    # Видео (mp4, webm, ogg) — поддержка перемотки и byte-range
+    location ~* \.\.(mp4|webm|ogg)$ {
+        add_header Accept-Ranges bytes always;
+        mp4;
+        mp4_buffer_size     1M;
+        mp4_max_buffer_size 5M;
+
+        try_files $uri =404;
+    }
+
+    # Статические ассеты (CSS, JS, изображения) — кэширование и компрессия
+    location ~* \.(css|js|png|jpg|jpeg|gif|webp|svg)$ {
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
+        access_log off;
+        try_files $uri =404;
+    }
+
+    # Главная страница и все генерированные страницы (SSG)
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Fallback при 404
+    error_page 404 /404.html;
+
+    ssl_certificate /etc/letsencrypt/live/ttevents-ru.duckdns.org/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/ttevents-ru.duckdns.org/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+
+# HTTP → HTTPS редирект
+server {
+    listen 80;
+    server_name ttevents-ru.duckdns.org;
+
+    if ($host = ttevents-ru.duckdns.org) {
+        return 301 https://$host$request_uri; # managed by Certbot
+    }
+}

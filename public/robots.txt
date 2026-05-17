@@ -1,15 +1,5 @@
 User-agent: *
 Allow: /
+Disallow:
 
-# Sitemap location
 Sitemap: https://ttevents.ru/sitemap.xml
-
-# Allow all bots
-User-agent: Googlebot
-Allow: /
-
-User-agent: Yandex
-Allow: /
-
-User-agent: Bingbot
-Allow: /
