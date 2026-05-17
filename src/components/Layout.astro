@@ -2,6 +2,7 @@
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import MobileMenu from "./client/MobileMenu.astro";
+import "../styles/global.css";
 
 interface Props {
     title?: string;
@@ -130,8 +131,6 @@ const breadcrumbSchema = {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
             rel="stylesheet"
         />
-
-        <link rel="stylesheet" href="/tailwind/tailwind.css" />
 
         <!-- JSON-LD Structured Data -->
         <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(organizationSchema)}</script>
