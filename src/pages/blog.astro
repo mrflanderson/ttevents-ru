@@ -134,7 +134,7 @@ const faqItems = [
                                 >
                                     <div class="relative h-48 overflow-hidden">
                                         <img
-                                            src={`/images/blog-${article.href.split("/").pop().replace(".astro", "")}.jpg`}
+                                            src={`/images/blog-${(article.href.split("/").pop() || "").replace(".astro", "")}.jpg`}
                                             alt={article.title}
                                             width="400"
                                             height="300"

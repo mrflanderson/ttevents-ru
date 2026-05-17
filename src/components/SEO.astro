@@ -1,6 +1,8 @@
 ---
 // src/components/SEO.astro
-// Оптимизированный компонент SEO - используется для специфичных мета-тегов
+// SEO компонент для дополнительных мета-тегов и структурированных данных
+// Основной SEO (Title, OG, Twitter) уже в Layout.astro
+// Используйте этот компонент для: schema.org, favicon, preload, additional meta
 interface Props {
     title?: string;
     description?: string;
@@ -9,6 +11,7 @@ interface Props {
     ogDescription?: string;
     ogImage?: string;
     canonical?: string;
+    additionalMeta?: Array<{ name: string; content: string }>;
 }
 
 const {
@@ -19,15 +22,42 @@ const {
     ogDescription,
     ogImage,
     canonical,
+    additionalMeta,
 } = Astro.props;
+
+// Additional page-specific structured data can be added here
+// Example: Article, Product, Event schemas
 ---
 
-<!-- SEO Component - For page-specific metadata -->{
+<!-- Additional Page-Specific Meta Tags (if not using Layout defaults) -->{
     title && <title>{title}</title>
 }
 {description && <meta name="description" content={description} />}
 {keywords && <meta name="keywords" content={keywords} />}
+{canonical && <link rel="canonical" href={canonical} />}
+
+<!-- Open Graph (Override Layout defaults if needed) -->
 {ogTitle && <meta property="og:title" content={ogTitle} />}
 {ogDescription && <meta property="og:description" content={ogDescription} />}
 {ogImage && <meta property="og:image" content={ogImage} />}
-{canonical && <link rel="canonical" href={canonical} />}
+
+<!-- Additional Meta Tags -->
+{
+    additionalMeta?.map((meta) => (
+        <meta name={meta.name} content={meta.content} />
+    ))
+}
+
+<!-- Preload Critical Resources (if needed) -->
+{ogImage && <link rel="preload" as="image" href={ogImage} />}
+
+<!-- Additional Schema.org for Pages (Article, Event, etc.) -->
+<!-- Usage: Add schema.org JSON-LD for specific page types -->
+<!-- <script type="application/ld+json" class="sr-only">
+    {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: "Page Title",
+        author: { name: "TT Events" }
+    })}
+</script> -->

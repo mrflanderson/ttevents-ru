@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://ttevents.ru",
-  integrations: [sitemap()],
+  integrations: [sitemap({ site: "https://ttevents.ru" })],
   build: {
     assets: "static",
   },

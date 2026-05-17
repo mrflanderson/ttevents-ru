@@ -1,20 +1,94 @@
 ---
-interface NavItem {
+
+
+interface SubNavItem {
     href: string;
     label: string;
 }
 
-const navItems: NavItem[] = [
-    { href: "/", label: "Главная" },
-    { href: "/uslugi", label: "Услуги" },
-    { href: "/case", label: "Кейсы" },
-    { href: "/blog", label: "Блог" },
-    { href: "/o-nas", label: "О нас" },
-    { href: "/kontakty", label: "Контакты" },
+interface NavSection {
+    label: string;
+    href?: string;
+    children?: SubNavItem[];
+}
+
+const navItems: NavSection[] = [
+    {
+        href: "/",
+        label: "Главная"
+    },
+    {
+        href: "/korporativy-moskva",
+        label: "Корпоративные мероприятия",
+        children: [
+            { href: "/novogodniy-korporativ", label: "Новогодний корпоратив" },
+            { href: "/letnij-korporativ", label: "Летний корпоратив" },
+            { href: "/korporativ-na-prirode", label: "Корпоратив на природе" },
+            { href: "/art-korporativ", label: "Тематический корпоратив" },
+            { href: "/yubilej-kompanii", label: "Юбилей компании" },
+            { href: "/immersivnyj-korporativ", label: "Иммерсивные мероприятия" },
+            { href: "/intellektualnye-igry", label: "Интеллектуальные игры" }
+        ]
+    },
+    {
+        href: "/delovye-meropriyatiya",
+        label: "Деловые мероприятия",
+        children: [
+            { href: "/konferencii-i-forumy", label: "Конференции и форумы" },
+            { href: "/strategicheskie-sessii-i-vorkshopy", label: "Стратегические сессии" },
+            { href: "/seminary-i-treningi", label: "Семинары и тренинги" },
+            { href: "/mice-delovoj-turizm", label: "MICE и Деловой туризм" },
+            { href: "/prezentacii-novyh-produktov-launch-events", label: "Презентации новых продуктов" },
+            { href: "/master-klassy", label: "Мастер-классы" }
+        ]
+    },
+    {
+        href: "/timbilding-moskva",
+        label: "Тимбилдинг",
+        children: [
+            { href: "/aktivnye-timbildingi", label: "Активные тимбилдинги" },
+            { href: "/kreativnye-timbildingi", label: "Креативные тимбилдинги" },
+            { href: "/timbilding-na-prirode", label: "Тимбилдинг на природе" }
+        ]
+    },
+    {
+        href: "/festivali",
+        label: "Фестивали",
+        children: [
+            { href: "/festivali",
+            label: "Фестивали и городские события" },
+            { href: "/gosudarstvennye-prazdniki", label: "Государственные праздники" }
+        ]
+    },
+    {
+        href: "/mediaproekty",
+        label: "Медиапроекты",
+        children: [
+            { href: "/mediaproekty", label: "Медиапроекты" },
+            { href: "/videoproduction", label: "Видеопродакшн" },
+            { href: "/video-portfolio", label: "Видео мероприятий" }
+        ]
+    },
+    {
+        href: "/case",
+        label: "Кейсы"
+    },
+    {
+        href: "/blog",
+        label: "Блог"
+    },
+    {
+        href: "/o-nas",
+        label: "О нас"
+    },
+    {
+        href: "/tendery",
+        label: "Тендеры"
+    }
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-white shadow-sm" client:once>
+<header class="sticky top-0 z-50 bg-white shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-4">
             <!-- Logo -->
@@ -53,9 +127,8 @@ const navItems: NavItem[] = [
             <!-- Mobile menu button -->
             <button
                 type="button"
-                class="md:hidden flex flex-col gap-1 bg-none border-none cursor-pointer p-2 rounded-md focus:outline-none"
+                class="md:hidden flex flex-col gap-1 bg-none border-none cursor-pointer p-2 rounded-md focus:outline-none mobile-menu-toggle"
                 aria-label="Открыть меню"
-                client:load
             >
                 <span class="block w-6 h-[2px] bg-dark"></span>
                 <span class="block w-6 h-[2px] bg-dark"></span>
@@ -64,24 +137,42 @@ const navItems: NavItem[] = [
 
             <!-- Navigation -->
             <nav
-                class="md:block absolute left-0 right-0 top-full bg-white shadow-md md:static md:shadow-none md:border-0 py-4 md:py-0 px-4 md:px-0 md:flex md:flex-row md:items-center md:gap-8 md:justify-end"
-                client:load
+                class="md:block absolute left-0 right-0 top-full bg-white shadow-md md:static md:shadow-none md:border-0 py-4 md:py-0 px-4 md:px-0 md:flex md:flex-row md:items-center md:gap-8 md:justify-end main-nav"
             >
                 <ul
                     class="flex flex-col md:flex-row md:items-center md:gap-8 list-none p-0 m-0"
                 >
-                    {
-                        navItems.map((item) => (
-                            <li>
+                    {navItems.map((section) => (
+                        <li class="relative group">
+                            {section.href ? (
                                 <a
-                                    href={item.href}
+                                    href={section.href}
                                     class="block py-2 md:py-0 text-text font-medium hover:text-primary transition-colors"
                                 >
-                                    {item.label}
+                                    {section.label}
                                 </a>
-                            </li>
-                        ))
-                    }
+                            ) : (
+                                <span class="block py-2 md:py-0 text-text font-medium hover:text-primary transition-colors">
+                                    {section.label}
+                                </span>
+                            )}
+
+                            {section.children && section.children.length > 0 && (
+                                <ul class="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg border border-gray-200 rounded-lg py-2 hidden group-hover:block z-50">
+                                    {section.children.map((child) => (
+                                        <li>
+                                            <a
+                                                href={child.href}
+                                                class="block px-4 py-2 text-sm text-text hover:bg-gray-100 hover:text-primary transition-colors"
+                                            >
+                                                {child.label}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </div>

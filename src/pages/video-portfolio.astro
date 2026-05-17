@@ -1,14 +1,26 @@
 ---
 import Layout from "../components/Layout.astro";
+import VideoEmbed from "../components/VideoEmbed.astro";
 
 const pageTitle = "Видео-портфолио — Мероприятия и события";
 const pageDescription = "Видео-портфолио — Мероприятия и события";
 const keywords = "видео-портфолио мероприятия";
+
+const portfolioVideos = [
+    { title: "Новый год 2026 в SPA-отеле", rutubeId: "7bf1d933085fa2e2835f299fe5102cd2" },
+    { title: "Королевский Новый год", rutubeId: "8b306fbf93655b846c5458733efa683c" },
+    { title: "День семьи в Екатерининском парке", rutubeId: "48a9ecbd88f5a5945060b728267b27e4" },
+    { title: "Митинг на 9 Мая", rutubeId: "2d58ed5d7eef2de355e653be1abd21d1" },
+    { title: "Над Москвой заря.2", rutubeId: "c9efc9859b605ca7ff9645a1df49e616" },
+    { title: "RUSSIAN SHOW Времена года", rutubeId: "1560bfcabc9055a270f632be9aa505ca" },
+    { title: "Над Москвой заря.1", rutubeId: "052c35b89e9f4a147f6e1103abd0adb8" },
+    { title: "Фестиваль в усадьбе Гребнево", rutubeId: "4f79019e12421121c1cc877e27a106b4" },
+];
 ---
 
 <Layout title={pageTitle} description={pageDescription} keywords={keywords}>
     <div class="py-16 md:py-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="text-sm text-text-light mb-4">
                 <a href="/" class="hover:text-primary">Главная</a> / <a
                     href="/case"
@@ -20,10 +32,29 @@ const keywords = "видео-портфолио мероприятия";
             >
                 Видео-портфолио
             </h1>
-            <div class="prose prose-lg max-w-none">
-                <p class="text-lg text-text-light mb-6">
+            <div class="prose prose-lg max-w-none mb-12">
+                <p class="text-lg text-text-light">
                     Видео-портфолио — Мероприятия и события
                 </p>
+                <p class="text-text-light mt-4">
+                    Наша команда снимает мероприятия любого масштаба — от камерных
+                    корпоративов до городских фестивалей. Посмотрите наши работы
+                    и убедитесь в профессионализме нашей команды.
+                </p>
+            </div>
+
+            <!-- Video Gallery -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {portfolioVideos.map((video) => (
+                    <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300">
+                        <VideoEmbed rutubeId={video.rutubeId} />
+                        <div class="p-6">
+                            <h3 class="text-lg font-heading font-semibold text-dark mb-2">
+                                {video.title}
+                            </h3>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     </div>

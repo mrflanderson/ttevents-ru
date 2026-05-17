@@ -1,6 +1,7 @@
 ---
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
+import MobileMenu from "./client/MobileMenu.astro";
 
 interface Props {
     title?: string;
@@ -23,6 +24,56 @@ const {
 } = Astro.props;
 
 const fullTitle = title.includes("TT Events") ? title : `${title} | TT Events`;
+
+// JSON-LD Structured Data
+const siteUrl = "https://ttevents.ru";
+const organizationName = "TT Events";
+const organizationUrl = `${siteUrl}`;
+
+const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: organizationName,
+    url: organizationUrl,
+    logo: `${siteUrl}/favicon.svg`,
+    description: "Event-агентство полного цикла в Москве",
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Москва",
+        addressCountry: "RU",
+    },
+    contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        availableLanguage: "Russian",
+    },
+};
+
+const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: organizationName,
+    url: siteUrl,
+    potentialAction: {
+        "@type": "SearchAction",
+        target: `${siteUrl}/search?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+    },
+};
+
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    name: "Navigation",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Главная",
+            item: `${siteUrl}/`,
+        },
+    ],
+};
 ---
 
 <!doctype html>
@@ -81,6 +132,11 @@ const fullTitle = title.includes("TT Events") ? title : `${title} | TT Events`;
         />
 
         <link rel="stylesheet" href="/tailwind/tailwind.css" />
+
+        <!-- JSON-LD Structured Data -->
+        <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(organizationSchema)}</script>
+        <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(websiteSchema)}</script>
+        <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(breadcrumbSchema)}</script>
     </head>
     <body>
         <Header />
@@ -91,17 +147,7 @@ const fullTitle = title.includes("TT Events") ? title : `${title} | TT Events`;
 
         <Footer />
 
-        <script client:only="dom">
-            document.addEventListener("DOMContentLoaded", () => {
-                const toggle = document.querySelector(".mobile-menu-toggle");
-                const nav = document.querySelector(".main-nav");
-                if (toggle && nav) {
-                    toggle.addEventListener("click", () => {
-                        toggle.classList.toggle("active");
-                        nav.classList.toggle("active");
-                    });
-                }
-            });
-        </script>
+        <!-- Mobile Menu Handler -->
+        <MobileMenu />
     </body>
 </html>

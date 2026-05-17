@@ -29,28 +29,16 @@ const isRutube = !!rutubeId;
 {isRutube ? (
     <!-- Rutube Embed -->
     <div class={`relative aspect-video ${videoClass}`}>
-        <div class="absolute inset-0 bg-black/10" />
         <iframe
             src={`https://rutube.ru/embed/${rutubeId}/`}
             width={width}
             height={height}
-            style="border:none;"
             allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-writing; autoplay"
             loading="lazy"
             frameborder="0"
             allowfullscreen
             class="w-full h-full"
         />
-        {poster && (
-            <img
-                src={poster}
-                alt="Video thumbnail"
-                class="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                style="display:none;"
-                aria-hidden="true"
-            />
-        )}
     </div>
 ) : (
     <!-- Regular MP4 Video -->
@@ -66,7 +54,6 @@ const isRutube = !!rutubeId;
             playsinline
             class="w-full h-full object-cover"
             preload="metadata"
-            loading="lazy"
         >
             Ваш браузер не поддерживает встроенное видео.
         </video>
@@ -75,28 +62,22 @@ const isRutube = !!rutubeId;
 
 ---
 
-```css
-<style>
-    .aspect-video {
-        aspect-ratio: 16 / 9;
-    }
-</style>
-```
+<!--
+  Пример использования:
 
----
+  <!-- MP4 видео -->
+  <!--
+    <VideoEmbed
+        src="/video/hero_new2.mp4"
+        poster="/video/hero_new2.png"
+    />
+  -->
 
-**Пример использования:**
-
-```html
-<!-- MP4 видео -->
-<VideoEmbed
-    src="/video/hero_new2.mp4"
-    poster="/video/hero_new2.png"
-/>
-
-<!-- Rutube встраивание -->
-<VideoEmbed
-    rutubeId="YOUR_VIDEO_ID"
-    poster="/images/video-cover.jpg"
-/>
-```
+  <!-- Rutube встраивание -->
+  <!--
+    <VideoEmbed
+        rutubeId="YOUR_VIDEO_ID"
+        poster="/images/video-cover.jpg"
+    />
+  -->
+-->

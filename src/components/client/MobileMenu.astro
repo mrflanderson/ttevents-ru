@@ -1,0 +1,20 @@
+---
+// src/components/client/MobileMenu.astro
+// Клиент-только компонент для мобильного меню
+// Script is automatically inlined as inline since it has attributes
+---
+
+<div class="mobile-menu-handler">
+    <script is:inline>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggle = document.querySelector(".mobile-menu-toggle");
+            const nav = document.querySelector(".main-nav");
+            if (toggle && nav) {
+                toggle.addEventListener("click", () => {
+                    toggle.classList.toggle("active");
+                    nav.classList.toggle("active");
+                });
+            }
+        });
+    </script>
+</div>

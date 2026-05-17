@@ -2,6 +2,7 @@
 import Layout from "../components/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import CaseCard from "../components/CaseCard.astro";
+import VideoEmbed from "../components/VideoEmbed.astro";
 
 const pageTitle =
     "TT Events — event-агентство полного цикла в Москве с 2006 года";
@@ -261,6 +262,26 @@ const topCases = [
                     >
                         Смотреть все кейсы →
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2
+                        class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
+                    >
+                        Видео
+                    </h2>
+                    <p class="text-lg text-text-light max-w-2xl mx-auto">
+                        Посмотрите, как мы создаём мероприятия — от идеи до реализации.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-card">
+                    <VideoEmbed rutubeId="e8a81853494652009fc0f58c40bea73b" />
                 </div>
             </div>
         </section>

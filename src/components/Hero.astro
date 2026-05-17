@@ -5,6 +5,7 @@ interface Props {
     ctaText: string;
     ctaHref: string;
     videoSrc?: string;
+    poster?: string;
     backgroundImage?: string;
 }
 
@@ -13,18 +14,17 @@ const {
     subtitle,
     ctaText,
     ctaHref,
-    videoSrc = "/video/m24_v2.mp4",
-    backgroundImage,
+    videoSrc = "/video/hero_new2.mp4",
+    poster = "/video/hero_new2.png",
+    backgroundImage = "/video/hero_new2.png",
 } = Astro.props;
-
-const defaultBackgroundImage = "/video/hero_new2.png";
 ---
 
 <section
     class="relative min-h-[600px] flex items-center text-white overflow-hidden"
 >
     <img
-        src={backgroundImage || defaultBackgroundImage}
+        src={backgroundImage}
         alt=""
         class="absolute inset-0 w-full h-full object-cover"
         aria-hidden="true"
@@ -54,18 +54,17 @@ const defaultBackgroundImage = "/video/hero_new2.png";
         </div>
     </div>
 
-    {
-        videoSrc && (
-            <video
-                autoplay
-                muted
-                loop
-                playsinline
-                class="absolute inset-0 w-full h-full object-cover -z-10"
-                preload="none"
-            >
-                <source src={videoSrc} type="video/mp4" />
-            </video>
-        )
-    }
+    {videoSrc && (
+        <video
+            autoplay
+            muted
+            loop
+            playsinline
+            class="absolute inset-0 w-full h-full object-cover -z-10"
+            preload="auto"
+            poster={poster}
+        >
+            <source src={videoSrc} type="video/mp4" />
+        </video>
+    )}
 </section>
