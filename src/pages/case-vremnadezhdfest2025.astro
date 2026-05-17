@@ -1,207 +1,33 @@
 ---
 import Layout from "../components/Layout.astro";
 
-const pageMeta = {
-    title: "Ретро-фестиваль «Время надежд» — Звенигород 2025 | TT Events",
-    description:
-        "Ретро-фестиваль «Время надежд» в Звенигороде 2025. Исторический фестиваль с живыми выступлениями, мастер-классами и атмосферой прошлых эпох.",
-    ogTitle: "Ретро-фестиваль «Время надежд» — Звенигород 2025 | TT Events",
-    ogDescription:
-        "Масштабный ретро-фестиваль для всей семьи с живыми выступлениями, историческими реконструкциями и мастер-классами.",
-};
-
-const caseImage = "/images/vrem_nad_cover.jpg";
-const caseVideo = "/video/vrem_nad_cut_v2.mp4";
-
-const keyStats = [
-    { value: "2000+", label: "гостей" },
-    { value: "3", label: "сцены" },
-    { value: "50+", label: "выступлений" },
-    { value: "2 дня", label: "длительность" },
-];
-
-const services = [
-    {
-        title: "Концепция фестиваля",
-        description: "Разработка уникальной темы и атмосферы",
-    },
-    {
-        title: "Лайнап артистов",
-        description: "Подбор музыкальных и развлекательных программ",
-    },
-    {
-        title: "Техническое обеспечение",
-        description: "Звук, свет, сцены, экраны",
-    },
-    { title: "Мастер-классы", description: "Интерактивные зоны для гостей" },
-    { title: "Фото и видеосъёмка", description: "Полный цикл медиапродакшена" },
-    {
-        title: "Организация площадки",
-        description: "Подбор и подготовка локации",
-    },
-];
-
-const faqItems = [
-    {
-        question: "Что включено в организацию фестиваля?",
-        answer: "Разработка концепции, подбор площадки, техническое оснащение, координация артистов, организация зон отдыха и развлечений, медиапродакшн.",
-    },
-    {
-        question: "Сколько длится подготовка к фестивалю?",
-        answer: "От 3 до 6 месяцев в зависимости от масштаба. Для ретро-фестиваля важно время на подготовку декораций и костюмов.",
-    },
-    {
-        question: "Можно ли провести фестиваль в закрытом помещении?",
-        answer: "Да, мы организуем мероприятия как на открытых площадках, так и в закрытых помещениях с полной трансформацией пространства.",
-    },
-];
+const pageTitle = "Кейс: Ретро-фестиваль «Время надежд» — Звенигород 2025";
+const pageDescription =
+    "Кейс: Ретро-фестиваль «Время надежд» — Звенигород 2025";
+const keywords = "кейс время надежд фест 2025";
 ---
 
-<!--
-  TT Events — Tailwind CSS Migration
-  Generated on: 2026-05-17
---><!--
-  TT Events — Tailwind CSS Migration
-  Generated on: 2026-05-17
--->
-<Layout {...pageMeta}>
-    <section class="py-16 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="text-sm text-text-light mb-4" aria-label="Навигация">
-                <a href="/" class="hover:text-primary">Главная</a> /
-                <a href="/case" class="hover:text-primary">Кейсы</a> /
-                <span class="font-medium text-text" aria-current="page">
-                    Ретро-фестиваль
-                </span>
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="py-16 md:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-text-light mb-4">
+                <a href="/" class="hover:text-primary">Главная</a> / <a
+                    href="/case"
+                    class="hover:text-primary">Кейсы</a
+                > / <span class="font-medium text-text"
+                    >Ретро-фестиваль «Время надежд» — Звенигород 2025</span
+                >
             </nav>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
-                <div>
-                    <h1
-                        class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6"
-                    >
-                        Ретро-фестиваль «Время надежд»
-                    </h1>
-                    <p class="text-lg text-text-light mb-8">
-                        Масштабный ретро-фестиваль в Звенигороде 2025 года —
-                        погружение в атмосферу прошлого с живыми выступлениями,
-                        историческими реконструкциями и мастер-классами для всей
-                        семьи.
-                    </p>
-
-                    <div class="flex flex-wrap gap-4 mb-8">
-                        <a
-                            href="/kontakty"
-                            class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-semibold"
-                        >
-                            Обсудить проект
-                        </a>
-                        <a
-                            href="/video"
-                            class="px-6 py-3 border-2 border-dark text-dark rounded-lg hover:bg-dark hover:text-white transition-all font-semibold"
-                        >
-                            Смотреть видео
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <div
-                        class="relative rounded-xl overflow-hidden shadow-card"
-                    >
-                        <img
-                            src={caseImage}
-                            alt="Ретро-фестиваль Время надежд Звенигород 2025"
-                            width="800"
-                            height="500"
-                            class="w-full h-auto"
-                        />
-                        <div
-                            class="absolute inset-0 bg-black/30 flex items-center justify-center"
-                        >
-                            <video
-                                src={caseVideo}
-                                controls
-                                class="w-3/4 max-w-md"
-                            >
-                                Ваш браузер не поддерживает видео.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-12 text-center"
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
             >
-                Ключевые показатели проекта
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {
-                    keyStats.map((stat) => (
-                        <div class="text-center">
-                            <div class="text-4xl md:text-5xl font-bold text-primary font-heading mb-2">
-                                {stat.value}
-                            </div>
-                            <div class="text-text-light">{stat.label}</div>
-                        </div>
-                    ))
-                }
+                Кейс: Ретро-фестиваль «Время надежд» — Звенигород 2025
+            </h1>
+            <div class="prose prose-lg max-w-none">
+                <p class="text-lg text-text-light mb-6">
+                    Кейс: Ретро-фестиваль «Время надежд» — Звенигород 2025
+                </p>
             </div>
         </div>
-    </section>
-
-    <section class="py-16 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-12 text-center"
-            >
-                Что было сделано
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {
-                    services.map((service) => (
-                        <div class="bg-white rounded-xl shadow-card p-8 hover:shadow-card-hover transition-all duration-300">
-                            <h3 class="text-xl font-heading font-semibold text-dark mb-4">
-                                {service.title}
-                            </h3>
-                            <p class="text-text-light leading-relaxed">
-                                {service.description}
-                            </p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 md:py-24 bg-gray-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8 text-center"
-            >
-                Часто задаваемые вопросы
-            </h2>
-            <div class="divide-y divide-gray-200">
-                {
-                    faqItems.map((item) => (
-                        <div class="py-4">
-                            <details>
-                                <summary class="font-semibold cursor-pointer text-dark list-none">
-                                    {item.question}
-                                </summary>
-                                <p class="mt-2 text-text-light leading-relaxed">
-                                    {item.answer}
-                                </p>
-                            </details>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
+    </div>
 </Layout>

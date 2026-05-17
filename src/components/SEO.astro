@@ -22,8 +22,9 @@ const {
 } = Astro.props;
 ---
 
-<!-- SEO Component - For page-specific metadata -->
-{title && <title>{title}</title>}
+<!-- SEO Component - For page-specific metadata -->{
+    title && <title>{title}</title>
+}
 {description && <meta name="description" content={description} />}
 {keywords && <meta name="keywords" content={keywords} />}
 {ogTitle && <meta property="og:title" content={ogTitle} />}

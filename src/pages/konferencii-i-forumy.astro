@@ -1,7 +1,6 @@
 ---
 import Layout from "../components/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import Hero from "../components/Hero.astro";
 import FAQ from "../components/FAQ.astro";
 
 const pageTitle =
@@ -50,119 +49,133 @@ const faqItems = [
     keywords={keywords}
     canonicalURL="/konferencii-i-forumy"
 >
-    <div class="page-service">
-        <!-- Hero Section -->
-        <Hero
-            title="Конференции и форумы в Москве"
-            subtitle="Организация деловых мероприятий любого масштаба. Стратегические сессии, семинары, MICE и Launch Events."
-            ctaText="Обсудить проект"
-            ctaHref="/kontakty"
-            backgroundImage="/g/s3/mosaic/images/conf-bg.jpg"
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-[500px] md:min-h-[600px] flex items-center text-white overflow-hidden"
+    >
+        <img
+            src="/images/conf-bg.jpg"
+            alt="Конференции и форумы в Москве"
+            class="absolute inset-0 w-full h-full object-cover"
         />
+        <div class="absolute inset-0 bg-black/50"></div>
 
-        <!-- About Section -->
-        <section class="py-16 md:py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div
-                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        <div
+            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
+        >
+            <div class="max-w-[800px]">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a
+                        href="/konferencii-i-forumy"
+                        class="hover:text-primary">Услуги</a
+                    > / <span class="font-medium text-text"
+                        >Конференции и форумы</span
+                    >
+                </nav>
+                <h1
+                    class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6"
                 >
-                    <div>
-                        <h2
-                            class="text-3xl md:text-4xl font-bold text-dark font-heading mb-6"
+                    Конференции и форумы в Москве
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-10">
+                    Организация деловых мероприятий любого масштаба.
+                    Стратегические сессии, семинары, MICE и Launch Events.
+                </p>
+                <a
+                    href="/kontakty"
+                    class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                    Обсудить проект
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2
+                        class="text-3xl md:text-4xl font-bold text-dark font-heading mb-6"
+                    >
+                        Деловые мероприятия — это стратегия вашего бизнеса
+                    </h2>
+                    <p class="text-lg text-text-light mb-4">
+                        Конференции и форумы — это не просто сбор людей в одном
+                        месте. Это инструмент для достижения бизнес-целей:
+                        нетворкинг, обучение, презентация новых идей.
+                    </p>
+                    <p class="text-lg text-text-light mb-6">
+                        Мы проектируем деловые мероприятия под конкретные задачи
+                        клиента: от стратегических сессий до масштабных
+                        отраслевых форумов.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/kontakty" class="btn-primary"
+                            >Получить предложение</a
                         >
-                            Деловые мероприятия — это стратегия вашего бизнеса
-                        </h2>
-                        <p class="text-lg text-text-light mb-4">
-                            Конференции и форумы — это не просто сбор людей в
-                            одном месте. Это инструмент для достижения
-                            бизнес-целей: нетворкинг, обучение, презентация
-                            новых идей.
-                        </p>
-                        <p class="text-lg text-text-light mb-6">
-                            Мы проектируем деловые мероприятия под конкретные
-                            задачи клиента: от стратегических сессий до
-                            масштабных отраслевых форумов.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="/kontakty" class="btn-primary"
-                                >Получить предложение</a
-                            >
-                            <a href="/case" class="btn-outline"
-                                >Смотреть кейсы</a
-                            >
-                        </div>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-card">
-                        <img
-                            src="/g/s3/mosaic/images/conf-main.jpg"
-                            alt="Конференция в Москве"
-                            width="600"
-                            height="400"
-                            class="w-full h-auto"
-                            loading="lazy"
-                        />
+                        <a href="/case" class="btn-outline">Смотреть кейсы</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Formats Grid -->
-        <section class="py-16 md:py-24 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title mb-16">Форматы деловых мероприятий</h2>
-                <div
-                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {formats.map((format) => <ServiceCard {...format} />)}
+                <div class="rounded-xl overflow-hidden shadow-card">
+                    <img
+                        src="/images/conf-main.jpg"
+                        alt="Конференция в Москве"
+                        width="600"
+                        height="400"
+                        class="w-full h-auto"
+                        loading="lazy"
+                    />
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Advantages -->
-        <section class="py-16 md:py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2
-                    class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark font-heading"
-                >
-                    Почему выбирают TT Events для деловых мероприятий
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="text-center p-6">
-                        <div class="text-4xl font-bold text-primary mb-4">
-                            20+
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Лет опыта</h3>
-                        <p class="text-text-light">
-                            Организация деловых мероприятий
-                        </p>
-                    </div>
-                    <div class="text-center p-6">
-                        <div class="text-4xl font-bold text-primary mb-4">
-                            500+
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">
-                            Проведённых конференций
-                        </h3>
-                        <p class="text-text-light">
-                            Масштаб от 20 до 5000+ гостей
-                        </p>
-                    </div>
-                    <div class="text-center p-6">
-                        <div class="text-4xl font-bold text-primary mb-4">
-                            100+
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">
-                            Площадок-партнёров
-                        </h3>
-                        <p class="text-text-light">
-                            Конференц-залы, отели, лофты
-                        </p>
-                    </div>
+    <!-- Formats Grid -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title mb-16">Форматы деловых мероприятий</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {formats.map((format) => <ServiceCard {...format} />)}
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark font-heading"
+            >
+                Почему выбирают TT Events для деловых мероприятий
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="text-4xl font-bold text-primary mb-4">20+</div>
+                    <h3 class="text-xl font-semibold mb-2">Лет опыта</h3>
+                    <p class="text-text-light">
+                        Организация деловых мероприятий
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-4xl font-bold text-primary mb-4">500+</div>
+                    <h3 class="text-xl font-semibold mb-2">
+                        Проведённых конференций
+                    </h3>
+                    <p class="text-text-light">Масштаб от 20 до 5000+ гостей</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-4xl font-bold text-primary mb-4">100+</div>
+                    <h3 class="text-xl font-semibold mb-2">
+                        Площадок-партнёров
+                    </h3>
+                    <p class="text-text-light">Конференц-залы, отели, лофты</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- FAQ Section -->
-        <FAQ items={faqItems} />
-    </div>
+    <!-- FAQ Section -->
+    <FAQ items={faqItems} />
 </Layout>

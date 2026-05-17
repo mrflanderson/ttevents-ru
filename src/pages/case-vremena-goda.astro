@@ -1,197 +1,28 @@
 ---
 import Layout from "../components/Layout.astro";
 
-const pageMeta = {
-    title: "Семейный фестиваль «Времена года» — TT Events",
-    description:
-        "Семейный фестиваль «Времена года» в Москве. Фестиваль для всей семьи с ярмаркой, мастер-классами и развлекательной программой.",
-    ogTitle: "Семейный фестиваль «Времена года» — TT Events",
-    ogDescription:
-        "Масштабный семейный фестиваль с ярмаркой, мастер-классами и программой для детей и взрослых.",
-};
-
-const caseImage = "/images/fhw2026.jpg";
-
-const keyStats = [
-    { value: "5000+", label: "гостей" },
-    { value: "4", label: "зоны" },
-    { value: "100+", label: "мастеров" },
-    { value: "1 день", label: "длительность" },
-];
-
-const services = [
-    {
-        title: "Концепция фестиваля",
-        description: "Разработка уникальной темы и атмосферы",
-    },
-    {
-        title: "Программа для детей",
-        description: "Мастер-классы, конкурсы, аниматоры",
-    },
-    {
-        title: "Ярмарка мастеров",
-        description: "Более 100 мастеров из разных регионов",
-    },
-    {
-        title: "Сценическая программа",
-        description: "Выступления артистов и шоу-программа",
-    },
-    { title: "Гастрономия", description: "Фуд-корт с блюдами разных народов" },
-    {
-        title: "Медиапродакшн",
-        description: "Фото и видеосъёмка всего мероприятия",
-    },
-];
-
-const faqItems = [
-    {
-        question: "Что включено в организацию фестиваля?",
-        answer: "Разработка концепции, подбор площадки, техническое оснащение, координация артистов, организация зон отдыха и развлечений, медиапродакшн.",
-    },
-    {
-        question: "Сколько длится подготовка к фестивалю?",
-        answer: "От 3 до 6 месяцев в зависимости от масштаба. Для семейного фестиваля важно время на подготовку зон и программ.",
-    },
-    {
-        question: "Можно ли провести фестиваль в закрытом помещении?",
-        answer: "Да, мы организуем мероприятия как на открытых площадках, так и в закрытых помещениях с полной трансформацией пространства.",
-    },
-];
+const pageTitle = "Кейс: Времена года";
+const pageDescription = "Кейс: Времена года";
+const keywords = "кейс времена года";
 ---
 
-<!--
-  TT Events — Tailwind CSS Migration
-  Generated on: 2026-05-17
---><!--
-  TT Events — Tailwind CSS Migration
-  Generated on: 2026-05-17
--->
-<Layout {...pageMeta}>
-    <section class="py-16 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="text-sm text-text-light mb-4" aria-label="Навигация">
-                <a href="/" class="hover:text-primary">Главная</a> /
-                <a href="/case" class="hover:text-primary">Кейсы</a> /
-                <span class="font-medium text-text" aria-current="page">
-                    Семейный фестиваль
-                </span>
+<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
+    <div class="py-16 md:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-text-light mb-4">
+                <a href="/" class="hover:text-primary">Главная</a> / <a
+                    href="/case"
+                    class="hover:text-primary">Кейсы</a
+                > / <span class="font-medium text-text">Времена года</span>
             </nav>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
-                <div>
-                    <h1
-                        class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6"
-                    >
-                        Семейный фестиваль «Времена года»
-                    </h1>
-                    <p class="text-lg text-text-light mb-8">
-                        Масштабный семейный фестиваль в Москве — праздник для
-                        всей семьи с ярмаркой мастеров, мастер-классами, игровой
-                        программой для детей и выступлением артистов.
-                    </p>
-
-                    <div class="flex flex-wrap gap-4 mb-8">
-                        <a
-                            href="/kontakty"
-                            class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-semibold"
-                        >
-                            Обсудить проект
-                        </a>
-                        <a
-                            href="/video"
-                            class="px-6 py-3 border-2 border-dark text-dark rounded-lg hover:bg-dark hover:text-white transition-all font-semibold"
-                        >
-                            Смотреть видео
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <div
-                        class="relative rounded-xl overflow-hidden shadow-card"
-                    >
-                        <img
-                            src={caseImage}
-                            alt="Семейный фестиваль Времена года Москва"
-                            width="800"
-                            height="500"
-                            class="w-full h-auto"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-12 text-center"
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
             >
-                Ключевые показатели проекта
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {
-                    keyStats.map((stat) => (
-                        <div class="text-center">
-                            <div class="text-4xl md:text-5xl font-bold text-primary font-heading mb-2">
-                                {stat.value}
-                            </div>
-                            <div class="text-text-light">{stat.label}</div>
-                        </div>
-                    ))
-                }
+                Кейс: Времена года
+            </h1>
+            <div class="prose prose-lg max-w-none">
+                <p class="text-lg text-text-light mb-6">Кейс: Времена года</p>
             </div>
         </div>
-    </section>
-
-    <section class="py-16 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-12 text-center"
-            >
-                Что было сделано
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {
-                    services.map((service) => (
-                        <div class="bg-white rounded-xl shadow-card p-8 hover:shadow-card-hover transition-all duration-300">
-                            <h3 class="text-xl font-heading font-semibold text-dark mb-4">
-                                {service.title}
-                            </h3>
-                            <p class="text-text-light leading-relaxed">
-                                {service.description}
-                            </p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 md:py-24 bg-gray-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8 text-center"
-            >
-                Часто задаваемые вопросы
-            </h2>
-            <div class="divide-y divide-gray-200">
-                {
-                    faqItems.map((item) => (
-                        <div class="py-4">
-                            <details>
-                                <summary class="font-semibold cursor-pointer text-dark list-none">
-                                    {item.question}
-                                </summary>
-                                <p class="mt-2 text-text-light leading-relaxed">
-                                    {item.answer}
-                                </p>
-                            </details>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
+    </div>
 </Layout>

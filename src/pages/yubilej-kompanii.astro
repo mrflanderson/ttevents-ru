@@ -1,46 +1,36 @@
 ---
 import Layout from "../components/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import CaseCard from "../components/CaseCard.astro";
+import FAQ from "../components/FAQ.astro";
 
 const pageTitle =
-    "Юбилей компании в Москве — организация юбилейных мероприятий под ключ";
+    "Юбилей компании — организация праздника для корпоратива | TT Events";
 const pageDescription =
-    "Организация юбилеев компании в Москве. Торжественные церемонии, юбилеи организации, дати-пати и commemorative events любой сложности.";
+    "Организация юбилеев компании в Москве: корпоративные дни рождения, праздники, церемонии. Полное сопровождение и креативные программы с 2006 года.";
 const keywords =
-    "юбилей компании москва, организация юбилея, дати-пати, commemorative event, юбилейное мероприятие";
+    "юбилей компании москва, организация корпоративного праздника, день рождения компании, корпоративный юбилей, празднование годовщины";
 
-const relatedServices = [
-    {
-        title: "Корпоративные мероприятия",
-        href: "/korporativy-moskva",
-        image: "/g/s3/mosaic/images/hero-bg.jpg",
-        count: 450,
-    },
-    {
-        title: "Тимбилдинги",
-        href: "/timbilding-moskva",
-        image: "/g/s3/mosaic/images/hero-bg.jpg",
-        count: 380,
-    },
-    {
-        title: "Деловые мероприятия",
-        href: "/delovye-meropriyatiya",
-        image: "/g/s3/mosaic/images/hero-bg.jpg",
-        count: 290,
-    },
+const services = [
+    { title: "День рождения компании", href: "/yubilej-kompanii", count: 45 },
+    { title: "Годовщина создания", href: "/yubilej-kompanii", count: 35 },
+    { title: "Корпоративный праздник", href: "/korporativy-moskva", count: 60 },
+    { title: "Церемония награждения", href: "/yubilej-kompanii", count: 40 },
+    { title: "Торжественный ужин", href: "/yubilej-kompanii", count: 50 },
+    { title: "Празднование юбилея", href: "/party", count: 55 },
 ];
 
-const relevantCases = [
+const faqItems = [
     {
-        title: "Корпоратив для Росатома",
-        href: "/case/rosatom",
-        image: "/g/s3/mosaic/images/hero-bg.jpg",
+        question: "Как вы планируете юбилей компании?",
+        answer: "Разрабатываем уникальную концепцию с учётом истории компании, возраста и пожеланий сотрудников. Каждое мероприятие — уникально.",
     },
     {
-        title: "Новогодний корпоратив 2026",
-        href: "/case/artpop",
-        image: "/g/s3/mosaic/images/hero-bg.jpg",
+        question: "Сколько стоит организация юбилея?",
+        answer: "Стоимость зависит от количества гостей, формата и площадки. Минимальный бюджет — от 1 500 000 ₽.",
+    },
+    {
+        question: "Можно ли организовать выездной юбилей?",
+        answer: "Да, мы организуем выездные юбилеи на природе, в загородных клубах и отелях.",
     },
 ];
 ---
@@ -49,154 +39,210 @@ const relevantCases = [
     title={pageTitle}
     description={pageDescription}
     keywords={keywords}
-    ogTitle={pageTitle}
-    ogDescription={pageDescription}
+    canonicalURL="/yubilej-kompanii"
 >
-    <div class="page-content">
-        <!-- Hero Section -->
-        <section
-            class="relative min-h-[500px] md:min-h-[600px] flex items-center text-white overflow-hidden"
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-[500px] md:min-h-[600px] flex items-center text-white overflow-hidden"
+    >
+        <img
+            src="/images/anniversary-hero.jpg"
+            alt="Юбилей компании — организация праздника"
+            class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <div
+            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
         >
-            <img
-                src="/g/s3/mosaic/images/hero-bg.jpg"
-                alt="Юбилей компании — организация мероприятий"
-                class="absolute inset-0 w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 bg-black/50"></div>
-
-            <div
-                class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
-            >
-                <div class="max-w-[800px]">
-                    <nav class="text-sm text-text-light mb-4">
-                        <a href="/" class="hover:text-primary">Главная</a> / <span
-                            class="font-medium text-text">Юбилей компании</span
-                        >
-                    </nav>
-                    <h1
-                        class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6"
+            <div class="max-w-[800px]">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a
+                        href="/korporativy-moskva"
+                        class="hover:text-primary">Услуги</a
+                    > / <span class="font-medium text-text"
+                        >Юбилей компании</span
                     >
-                        Организация юбилея компании в Москве
-                    </h1>
-                    <p class="text-lg md:text-xl text-white/90 mb-10">
-                        Торжественные церемонии, дати-пати и commemorative
-                        events для компаний любого масштаба.
-                    </p>
-                    <a
-                        href="/kontakty"
-                        class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                        Получить расчёт бюджета
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Content Section -->
-        <section class="py-16 md:py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="prose prose-lg max-w-none">
-                    <h2
-                        class="text-2xl md:text-3xl font-heading font-bold text-dark mb-6"
-                    >
-                        Что такое юбилей компании?
-                    </h2>
-                    <p class="text-lg text-text-light mb-8">
-                        Юбилей компании — это значимое событие, которое
-                        объединяет команду, партнёров и клиентов. TT Events
-                        организует торжественные церемонии, дати-пати и
-                        commemorative events любой сложности — от камерных
-                        встреч на 50 человек до масштабных фестивалей на 2000+
-                        гостей.
-                    </p>
-
-                    <h2
-                        class="text-2xl md:text-3xl font-heading font-bold text-dark mb-6"
-                    >
-                        Форматы юбилейных мероприятий
-                    </h2>
-                    <div
-                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
-                    >
-                        {
-                            relatedServices.map((service) => (
-                                <ServiceCard {...service} />
-                            ))
-                        }
-                    </div>
-
-                    <h2
-                        class="text-2xl md:text-3xl font-heading font-bold text-dark mb-6"
-                    >
-                        Наши кейсы
-                    </h2>
-                    <div
-                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
-                    >
-                        {
-                            relevantCases.map((caseItem) => (
-                                <CaseCard
-                                    title={caseItem.title}
-                                    href={caseItem.href}
-                                    image={caseItem.image}
-                                />
-                            ))
-                        }
-                    </div>
-
-                    <div class="text-center mt-12">
-                        <a
-                            href="/case"
-                            class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                        >
-                            Смотреть все кейсы →
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section
-            class="relative min-h-[400px] flex items-center text-white overflow-hidden py-24"
-        >
-            <img
-                src="/g/s3/mosaic/images/hero-bg.jpg"
-                alt=""
-                class="absolute inset-0 w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 bg-primary/80"></div>
-
-            <div
-                class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center"
-            >
-                <h2
-                    class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6"
+                </nav>
+                <h1
+                    class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6"
                 >
-                    Свяжитесь с нами
-                </h2>
-                <p
-                    class="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto"
-                >
-                    Предложим формат и рассчитаем бюджет в течение 1 дня
+                    Юбилей компании в Москве
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-10">
+                    Организация юбилеев компании под ключ: корпоративные дни
+                    рождения, праздники, церемонии. Полное сопровождение и
+                    креативные программы.
                 </p>
-                <div
-                    class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                <a
+                    href="/kontakty"
+                    class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                    <a
-                        href="tel:+79169064490"
-                        class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-white hover:bg-white/90 text-primary shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
-                    >
-                        +7 (916) 906-44-90
-                    </a>
-                    <a
-                        href="/kontakty"
-                        class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
-                    >
-                        Оставить заявку
-                    </a>
+                    Обсудить проект
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg max-w-none">
+                <h2
+                    class="text-2xl md:text-3xl font-heading font-bold text-dark mb-6"
+                >
+                    Форматы юбилейных мероприятий
+                </h2>
+                <p class="text-lg text-text-light mb-8">
+                    TT Events организует юбилеи компаний для корпоративов в
+                    Москве. Мы предлагаем разнообразные форматы — от
+                    торжественных церемоний до праздников на природе.
+                </p>
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+                >
+                    {services.map((service) => <ServiceCard {...service} />)}
+                </div>
+
+                <h2
+                    class="text-2xl md:text-3xl font-heading font-bold text-dark mb-6"
+                >
+                    Как мы работаем
+                </h2>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12"
+                >
+                    <div class="bg-white rounded-xl p-6 shadow-card">
+                        <div class="text-primary text-2xl font-bold mb-3">
+                            01
+                        </div>
+                        <h3 class="text-lg font-heading font-semibold mb-2">
+                            Брифинг
+                        </h3>
+                        <p class="text-text-light text-sm">
+                            Определяем цели, интересы и формат мероприятия.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-card">
+                        <div class="text-primary text-2xl font-bold mb-3">
+                            02
+                        </div>
+                        <h3 class="text-lg font-heading font-semibold mb-2">
+                            Концепция
+                        </h3>
+                        <p class="text-text-light text-sm">
+                            Разрабатываем уникальную идею и программу.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-card">
+                        <div class="text-primary text-2xl font-bold mb-3">
+                            03
+                        </div>
+                        <h3 class="text-lg font-heading font-semibold mb-2">
+                            Подготовка
+                        </h3>
+                        <p class="text-text-light text-sm">
+                            Площадка, декор, анимация и безопасность.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-card">
+                        <div class="text-primary text-2xl font-bold mb-3">
+                            04
+                        </div>
+                        <h3 class="text-lg font-heading font-semibold mb-2">
+                            Проведение
+                        </h3>
+                        <p class="text-text-light text-sm">
+                            Полное сопровождение праздника.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-card">
+                        <div class="text-primary text-2xl font-bold mb-3">
+                            05
+                        </div>
+                        <h3 class="text-lg font-heading font-semibold mb-2">
+                            Фото и видео
+                        </h3>
+                        <p class="text-text-light text-sm">
+                            Профессиональная съёмка и монтаж.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2
+                    class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
+                >
+                    Часто задаваемые вопросы
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                {
+                    faqItems.map((item) => (
+                        <div class="bg-white rounded-xl p-6 shadow-card">
+                            <details>
+                                <summary class="font-heading font-semibold cursor-pointer text-dark mb-2">
+                                    {item.question}
+                                </summary>
+                                <p class="text-text-light">{item.answer}</p>
+                            </details>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+        class="relative min-h-[400px] flex items-center text-white overflow-hidden py-24"
+    >
+        <img
+            src="/images/anniversary-hero.jpg"
+            alt=""
+            class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-primary/80"></div>
+
+        <div
+            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center"
+        >
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6"
+            >
+                Свяжитесь с нами
+            </h2>
+            <p class="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                Предложим формат и рассчитаем бюджет в течение 1 дня
+            </p>
+            <div
+                class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+                <a
+                    href="tel:+79169064490"
+                    class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-white hover:bg-white/90 text-primary shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
+                >
+                    +7 (916) 906-44-90
+                </a>
+                <a
+                    href="/kontakty"
+                    class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
+                >
+                    Оставить заявку
+                </a>
+            </div>
+        </div>
+    </section>
 </Layout>

@@ -6,6 +6,9 @@
 - [x] Tailwind CSS v4 + `@tailwindcss/vite` в `astro.config.mjs`
 - [x] `tailwind/tailwind.css` — кастомные компоненты, утилиты, анимации
 - [x] `tailwind/tailwind.config.js` — цвета, шрифты, тени
+- [x] Удалён устаревший `src/layouts/default.ejs` (EJS layout)
+- [x] Удалены дубликаты CSS из `src/styles/` (11 файлов)
+- [x] Layout.astro использует `/tailwind/tailwind.css`
 
 ### Компоненты (все на Tailwind, без inline `<style>`)
 - [x] `Layout.astro` — Header + Footer + SEO + JSON-LD Schema.org
@@ -25,6 +28,19 @@
 - [x] `novogodniy-korporativ.astro` — Новогодний корпоратив ✅
 - [x] `case.astro` — Список кейсов ✅
 - [ ] `home.astro` — дублирует index, удалить или переписать
+- [x] `404.astro` — переписан на Tailwind (был inline style)
+- [x] `konferencii-i-forumy.astro` — переписан на Tailwind ✅
+- [x] `sportivnye-meropriyatiya.astro` — переписан на Tailwind ✅
+- [x] `zimnij-korporativ.astro` — переписан на Tailwind ✅
+- [x] `timilding-na-prirode.astro` — переписан на Tailwind ✅
+- [x] `strategicheskie-sessii-i-vorkshopy.astro` — переписан на Tailwind ✅
+- [x] `tendery.astro` — переписан на Tailwind ✅
+- [x] `turisticheskie-i-ekskursionnye-meropriyatiya.astro` — переписан на Tailwind ✅
+- [x] `yubilej-kompanii.astro` — переписан на Tailwind ✅
+- [x] `art-korporativ.astro` — переписан на Tailwind ✅
+
+### Пути к изображениям
+- [x] Все пути `/g/s3/mosaic/images/` заменены на `/images/`
 
 ---
 
@@ -37,7 +53,7 @@
 - [x] `aktivnye-timbildingi.astro` — Активные тимбилдинги ✅
 - [x] `korporativy-moskva.astro` — Корпоративные мероприятия ✅
 - [x] `timbilding-moskva.astro` — Тимбилдинги ✅
-- [ ] `konferencii-i-forumy.astro` — Конференции и форумы
+- [x] `konferencii-i-forumy.astro` — Конференции и форумы ✅
 - [x] `novogodniy-korporativ.astro` — Новогодние корпоративы ✅
 - [x] `prezentacii-novyh-produktov-launch-events.astro` — Launch Events ✅
 - [x] `festivaly-i-gorodskie-meropriyatiya.astro` — Фестивали ✅
@@ -45,30 +61,30 @@
 - [x] `intellektualnye-igry.astro` — Интеллектуальные игры ✅
 - [x] `kvesty-i-igry.astro` — Квесты и игры ✅
 - [x] `master-klassy.astro` — Мастер-классы ✅
-- [ ] `sportivnye-meropriyatiya.astro` — Спортивные мероприятия
+- [x] `sportivnye-meropriyatiya.astro` — Спортивные мероприятия ✅
 - [x] `mice-delovoj-turizm.astro` — MICE и деловой туризм ✅
 - [x] `party.astro` — Party ✅
 - [x] `classic.astro` — Classic ✅
 - [x] `mediaproekty.astro` — Медиапроекты ✅
 - [x] `festivali.astro` — Фестивули ✅
-- [ ] `zimnij-korporativ.astro` — Зимний корпоратив
+- [x] `zimnij-korporativ.astro` — Зимний корпоратив ✅
 - [x] `letnij-korporativ.astro` — Летний корпоратив ✅
 - [x] `korporativ-na-prirode.astro` — Корпоратив на природе ✅
 - [x] `korporativ-na-9-maya.astro` — Корпоратив на 9 Мая ✅
-- [ ] `timilding-na-prirode.astro` — Тимбилдинг на природе
+- [x] `timilding-na-prirode.astro` — Тимбилдинг на природе ✅
 - [x] `immersivnyj-korporativ.astro` — Иммерсивный корпоратив ✅
 - [x] `kreativnye-timbildingi.astro` — Креативные тимбилдинги ✅
 - [x] `delovye-meropriyatiya.astro` — Деловые мероприятия ✅
 - [x] `seminary-i-treningi.astro` — Семинары и тренинги ✅
-- [ ] `strategicheskie-sessii-i-vorkshopy.astro` — Стратегические сессии
+- [x] `strategicheskie-sessii-i-vorkshopy.astro` — Стратегические сессии ✅
 - [x] `onlajn-meropriyatiya.astro` — Онлайн мероприятия ✅
-- [ ] `tendery.astro` — Тендеры
-- [ ] `turisticheskie-i-ekskursionnye-meropriyatiya.astro` — Туристические мероприятия
-- [ ] `yubilej-kompanii.astro` — Юбилей компании
+- [x] `tendery.astro` — Тендеры ✅
+- [x] `turisticheskie-i-ekskursionnye-meropriyatiya.astro` — Туристические мероприятия ✅
+- [x] `yubilej-kompanii.astro` — Юбилей компании ✅
 - [x] `event-agentstvo-moskva.astro` — Event агентство ✅
 - [x] `organizaciya-meropriyatij-v-moskve.astro` — Организация мероприятий ✅
-- [ ] `aktivnye-timbildingi.astro` — Активные тимбилдинги
-- [ ] `art-korporativ.astro` — Арт корпоратив
+- [x] `aktivnye-timbildingi.astro` — Активные тимбилдинги ✅
+- [x] `art-korporativ.astro` — Арт корпоратив ✅
 
 ### Кейсы (~15 страниц)
 - [ ] `case.astro` — список кейсов
