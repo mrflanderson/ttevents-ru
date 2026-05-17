@@ -1,88 +1,36 @@
 ---
-import '../styles/global.css';
-import '../scripts/accordion.js';
+import "../scripts/accordion.js";
 
 interface Props {
-  items: Array<{question: string; answer: string}>;
+    items: Array<{ question: string; answer: string }>;
 }
 
 const { items } = Astro.props;
 ---
 
-<section class="faq">
-  <div class="container">
-    <h2 class="section-title">Часто задаваемые вопросы</h2>
-    <div class="faq-list">
-      {items.map(item => (
-        <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span class="question">{item.question}</span>
-            <span class="icon">+</span>
-          </button>
-          <div class="accordion-content">
-            <p>{item.answer}</p>
-          </div>
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-dark font-heading"
+        >
+            Часто задаваемые вопросы
+        </h2>
+        <div class="max-w-3xl mx-auto">
+            {
+                items.map((item) => (
+                    <div class="border-b border-gray-200 accordion-item">
+                        <button class="accordion-trigger w-full flex justify-between items-center w-full py-6 bg-none border-none cursor-pointer text-left font-heading text-lg font-semibold text-dark hover:text-primary transition-colors">
+                            <span>{item.question}</span>
+                            <span class="icon text-2xl transition-transform duration-300 text-primary">
+                                +
+                            </span>
+                        </button>
+                        <div class="accordion-content overflow-hidden transition-[max-height] duration-300">
+                            <p class="py-6 text-text-light">{item.answer}</p>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
-      ))}
     </div>
-  </div>
 </section>
-
-<style>
-  .faq {
-    padding: var(--spacing-xxl) 0;
-    background: var(--color-bg-alt);
-  }
-  
-  .section-title {
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-    font-size: 2rem;
-  }
-  
-  .faq-list {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .accordion-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  
-  .accordion-trigger {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: var(--spacing-lg) 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
-  
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height var(--transition-normal);
-  }
-  
-  .accordion-content p {
-    padding: 0 0 var(--spacing-lg);
-  }
-  
-  .accordion-item.open .accordion-content {
-    max-height: 500px;
-  }
-  
-  .icon {
-    font-size: 1.5rem;
-    transition: transform var(--transition-fast);
-  }
-  
-  .accordion-item.open .icon {
-    transform: rotate(45deg);
-  }
-</style>

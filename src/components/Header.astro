@@ -1,106 +1,68 @@
 ---
-import '../styles/global.css';
+interface NavItem {
+    href: string;
+    label: string;
+}
+
+const navItems: NavItem[] = [
+    { href: "/", label: "Главная" },
+    { href: "/uslugi", label: "Услуги" },
+    { href: "/case", label: "Кейсы" },
+    { href: "/blog", label: "Блог" },
+    { href: "/o-nas", label: "О нас" },
+    { href: "/kontakty", label: "Контакты" },
+];
 ---
 
-<header class="header">
-  <div class="container">
-    <div class="header-content">
-      <a href="/" class="logo">
-        <img 
-          src="/g/s3/mosaic/images/logo.png" 
-          alt="TT Events Logo" 
-          class="lazy-load"
-          data-src="/g/s3/mosaic/images/logo.png"
-          width="150" 
-          height="40"
-          loading="lazy"
-        >
-      </a>
-      <button class="mobile-menu-toggle" aria-label="Открыть меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="/">Главная</a></li>
-          <li><a href="/uslugi">Услуги</a></li>
-          <li><a href="/case">Кейсы</a></li>
-          <li><a href="/blog">Блог</a></li>
-          <li><a href="/o-nas">О нас</a></li>
-          <li><a href="/kontakty">Контакты</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+<header class="sticky top-0 z-50 bg-white shadow-sm" client:once>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+            <!-- Logo -->
+            <a href="/" class="flex-shrink-0">
+                <img
+                    src="/images/logo.png"
+                    alt="TT Events Logo"
+                    width="150"
+                    height="40"
+                    class="h-10 w-auto"
+                    loading="lazy"
+                />
+            </a>
 
-<style>
-  .header {
-    background: white;
-    box-shadow: var(--shadow-sm);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-md) 0;
-  }
-  
-  .nav-menu ul {
-    display: flex;
-    list-style: none;
-    gap: var(--spacing-lg);
-  }
-  
-  .nav-menu a {
-    color: var(--color-text);
-    font-weight: 500;
-  }
-  
-  .mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .mobile-menu-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--color-dark);
-  }
-  
-  @media (max-width: 768px) {
-    .nav-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      padding: var(--spacing-lg);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .nav-menu.active {
-      display: block;
-    }
-    
-    .nav-menu ul {
-      flex-direction: column;
-      gap: var(--spacing-md);
-    }
-    
-    .mobile-menu-toggle {
-      display: flex;
-    }
-  }
-</style>
+            <!-- Mobile menu button -->
+            <button
+                type="button"
+                class="md:hidden flex flex-col gap-1 bg-none border-none cursor-pointer p-2 rounded-md focus:outline-none"
+                aria-label="Открыть меню"
+                client:load
+            >
+                <span class="block w-6 h-[2px] bg-dark"></span>
+                <span class="block w-6 h-[2px] bg-dark"></span>
+                <span class="block w-6 h-[2px] bg-dark"></span>
+            </button>
+
+            <!-- Navigation -->
+            <nav
+                class="md:block absolute left-0 right-0 top-full bg-white shadow-md md:static md:shadow-none md:border-0 py-4 md:py-0 px-4 md:px-0 md:flex md:flex-row md:items-center md:gap-8 md:justify-end"
+                client:load
+            >
+                <ul
+                    class="flex flex-col md:flex-row md:items-center md:gap-8 list-none p-0 m-0"
+                >
+                    {
+                        navItems.map((item) => (
+                            <li>
+                                <a
+                                    href={item.href}
+                                    class="block py-2 md:py-0 text-text font-medium hover:text-primary transition-colors"
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

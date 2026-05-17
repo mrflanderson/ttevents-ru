@@ -1,385 +1,170 @@
 ---
-import Layout from '../components/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/case.css';
-import '../scripts/articles.js';
-
-const pageMeta = {
-  title: 'TT Events — Портфолио: кейсы реализованных событий',
-  description: 'Портфолио TT Events: корпоративные мероприятия, городские фестивали, медиапроекты и события под ключ в Москве и области.',
-  keywords: 'портфолио, кейсы, корпоративы, фестивали, москва',
-  ogTitle: 'TT Events — Портфолио',
-  ogDescription: 'Портфолио TT Events: корпоративные мероприятия, городские фестивали, медиапроекты и события под ключ.',
-  ogImage: '/g/s3/mosaic/images/og-case.jpg',
-};
+import Layout from "../components/Layout.astro";
 
 const cases = [
-  {
-    title: 'Комплексный медиапроект и серия мероприятий на День НКО в Москве',
-    date: '25.03.2026',
-    excerpt: 'В рамках Всемирного дня НКО мы создали живой медиапроект, главной идеей которого стало: показать реальную работу некоммерческих организаций.',
-    href: '/case/post/den_nko_2024',
-    image: '/thumb/2/r4gkHg5pM8pq04y6GijrNQ/300r200/d/nko_video_den_nko_v1000_01_20_19still009.jpg',
-  },
-  {
-    title: 'Медиапроект и фотовыставка «Суперсила»',
-    date: '23.03.2026',
-    excerpt: '«Суперсила» — масштабный медиапроект о людях из некоммерческого сектора, которые ежедневно меняют жизнь города.',
-    href: '/case/post/mediaproekt-i-fotovystavka-supersila',
-    image: '/thumb/2/nN5NT5HoDMUsS6syODSd0w/300r200/d/supersila_18sub00_00_27_13still004.jpg',
-  },
-  {
-    title: 'Новый год 2026 в SPA-отеле «Свежий Ветер» (Подмосковье)',
-    date: '31.12.2025',
-    excerpt: 'Авторская концепция «Новогодняя сказка 2026» в стиле 90-х: свобода, драйв и тёплая ностальгия.',
-    href: '/case/art-novy-god-otel-svezhy-veter-2026',
-    image: '/thumb/2/HEi2FL_3PiS_-PGK21y8oA/300r200/d/sequence_0201_32_50_08still006.jpg',
-  },
-  {
-    title: 'Новогодний корпоратив для компании — организация под ключ',
-    date: '22.12.2025',
-    excerpt: 'Как мы превратили новогодний корпоратив для агентства недвижимости «Метриум» в яркое арт-событие с элементами поп-арта и стрит-арта!',
-    href: '/case/artpop',
-    image: '/thumb/2/j9aMwnIAk5YtyatTSvpR8Q/300r200/d/reel_1.jpg',
-  },
-  {
-    title: 'Как мы провели Ретро-фестиваль «Время надежд» в Звенигороде: полный разбор события',
-    date: '19.07.2025',
-    excerpt: 'Сегодня разбираем один интересный кейс — ретро-фестиваль «Время надежд», который прошел 19 июля 2025 года в Звенигороде.',
-    href: '/case/vremnadezhdfest2025',
-    image: '/thumb/2/6ihmWbxdffoIMvCpLt8Zrw/300r200/d/rol3-v1000_00_20_03still001.jpg',
-  },
-  {
-    title: 'Большой детский опен-эйр в усадьбе Гребнево 1 июня 2025: хит «Бобр», тысячи гостей и идеальное начало лета!',
-    date: '01.06.2025',
-    excerpt: '1 июня 2025 в усадьбе Гребнево прошёл грандиозный бесплатный праздник ко Дню защиты детей!',
-    href: '/case/open-air-slava-skripka-bober-2025',
-    image: '/thumb/2/oEABQZokbulVL2ognAjPpA/300r200/d/gr_2.jpg',
-  },
-  {
-    title: 'UMG E225C: Как технический продукт стал брендом-эпосом через метафору «Русский Богатырь»',
-    date: '15.05.2025',
-    excerpt: 'Презентация спецтехники как иммерсивный опыт: соединяем инженерную мощь и национальный культурный код.',
-    href: '/case/lauch-event-umg',
-    image: '/thumb/2/M6Vqm8zGbVjj3JBa731Hog/300r200/d/screenshot_2026-02-27_030714.png',
-  },
-  {
-    title: '9 Мая: Масштабный митинг и концерт в условиях плотной застройки по заказу Управы района (Москва)',
-    date: '09.05.2025',
-    excerpt: 'Комплексная патриотическая акция под ключ: торжественный митинг с шествием + праздничный концерт.',
-    href: '/case/9may',
-    image: '/thumb/2/84Ff7At-h8JGTdD9OcVKAw/300r200/d/9may_200_02_43_00still004.jpg',
-  },
-  {
-    title: 'Международный танцевальный флешмоб «Эхо Победы» в усадьбе Гребнево: «Синий платочек» объединил мир ко Дню Победы!',
-    date: '27.04.2025',
-    excerpt: '27 апреля 2025 года в усадьбе Гребнево стартовал масштабный международный флешмоб «Эхо Победы» под легендарную песню «Синий платочек».',
-    href: '/case/eho-pobedy-ope-air-2025',
-    image: '/thumb/2/Y1FcCCsQmo366RS8ekFiLg/300r200/d/screenshot_2026-02-27_031348.jpg',
-  },
-  {
-    title: 'Масленица в Измайловском парке — фестиваль на 1000+ гостей, 23 активности',
-    date: '02.03.2025',
-    excerpt: 'Мы спроектировали и провели Масленицу 2025 в Измайловском парке — масштабный уличный open-air без крыши.',
-    href: '/case/maslenitsa-izmaylovo25case',
-    image: '/thumb/2/dusLhYUAptGIYHEeRfeCTQ/300r200/d/masl.jpg',
-  },
-  {
-    title: 'Королевский Новый год в «Свежем Ветре»: как создать сказку в премиум-отеле',
-    date: '31.12.2024',
-    excerpt: 'Создали масштабную концепцию «Королевского Нового года» для подмосковного SPA-отеля «Свежий Ветер».',
-    href: '/case/korolevsky-novy-god-24',
-    image: '/thumb/2/Nw58URzu49iKMoVixr7rbQ/300r200/d/screenshot_2026-02-27_031249.jpg',
-  },
-  {
-    title: 'Инклюзивный театральный праздник «По обе стороны кулис» в Центре реабилитации имени Л.И. Швецовой',
-    date: '23.04.2024',
-    excerpt: 'Театр разрушает границы. Создали яркое инклюзивное музыкально-театрализованное представление для детей с ОВЗ.',
-    href: '/case/imersivny-thatr',
-    image: '/thumb/2/09Urqs5g7CcgPpkhiu3gLw/300r200/d/incl_teatr.webp',
-  },
-  {
-    title: 'День семьи любви и верности в Екатерининском парке 2023',
-    date: '28.07.2023',
-    excerpt: 'День семьи, любви и верности 2023. Ромашковые фотозоны, хороводы, обряды и награждение медалями «За любовь и верность».',
-    href: '/case/ek-park',
-    image: '/thumb/2/wRdN_4_vfBt55d7eF9vIxA/300r200/d/b3045187672_029173.png',
-  },
-  {
-    title: 'RUSSIAN SHOW "Времена года" Зима. Весна',
-    date: '04.01.2022',
-    excerpt: '«Традиция — это не поклонение пеплу, а передача огня». Шоу "Времена года" — это тот самый огонь.',
-    href: '/case/vremena-goda',
-    image: '/thumb/2/BafrOVALh3bLW6_lviFt8Q/300r200/d/screenshot_2026-02-27_025140.png',
-  },
-  {
-    title: 'Музыкальный спектакль-концерт «Над Москвой заря...» Патриотическое путешествие ко Дню народного единства',
-    date: '27.02.2020',
-    excerpt: '4 ноября — День народного единства. Живая фолк-постановка «Над Москвой заря...» от Театра Традиций.',
-    href: '/case/nad-moskvoy-zarya',
-    image: '/thumb/2/qIIord3sSE1ChrkYUQV4Bg/300r200/d/screenshot_2026-02-27_031746.jpg',
-  },
+    {
+        title: "Корпоратив Росатома",
+        href: "/case-korolevsky-novy-god-24",
+        category: "Корпоратив",
+        image: "/images/rosatom.png",
+    },
+    {
+        title: "Кейс 9 мая",
+        href: "/case-9may",
+        category: "Праздник",
+        image: "/images/9may_200_01_00_23still002.jpg",
+    },
+    {
+        title: "Art Pop — Новый год",
+        href: "/case-art-novy-god-otel-svezhy-veter-2026",
+        category: "Корпоратив",
+        image: "/images/12_12_artpop_1m_blondmp4_20260217_040321853_2.jpg",
+    },
+    {
+        title: "ArtPop",
+        href: "/case-artpop",
+        category: "Шоу",
+        image: "/images/reel_artpop_blond_1mmp4_20260221_034711113_2.jpg",
+    },
+    {
+        title: "Эхо Победы — Open Air 2025",
+        href: "/case-eho-pobedy-ope-air-2025",
+        category: "Open Air",
+        image: "/images/9maymp4_20260211_004245081.jpg",
+    },
+    {
+        title: "ЭК Парк",
+        href: "/case-ek-park",
+        category: "Тимбилдинг",
+        image: "/images/field-kitchen-300x225.webp",
+    },
+    {
+        title: "Иммерсивный театр",
+        href: "/case-imersivny-thatr",
+        category: "Иммерсив",
+        image: "/images/nc_jmandell_immersivetheatre_photo1.jpg",
+    },
+    {
+        title: "Корпоратив Росатома",
+        href: "/case-korolevsky-novy-god-24",
+        category: "Корпоратив",
+        image: "/images/rosatom.png",
+    },
+    {
+        title: "Launch Event UMG",
+        href: "/case-lauch-event-umg",
+        category: "Launch",
+        image: "/images/screenshot_2026-02-27_030714.png",
+    },
+    {
+        title: "Масленица Измайлово 2025",
+        href: "/case-maslenitsa-izmaylovo25case",
+        category: "Фестиваль",
+        image: "/images/masl.jpg",
+    },
+    {
+        title: "Над Москвой — Заря",
+        href: "/case-nad-moskvoy-zarya",
+        category: "Open Air",
+        image: "/images/vrem_nad_cover.jpg",
+    },
+    {
+        title: "Slava Skripka — Open Air 2025",
+        href: "/case-open-air-slava-skripka-bober-2025",
+        category: "Концерт",
+        image: "/images/9maymp4_20260211_004319603.jpg",
+    },
+    {
+        title: "День НКР 2024",
+        href: "/case-post-den_nko_2024",
+        category: "Праздник",
+        image: "/images/nko_video_den_nko_v1000_00_18_17still002.jpg",
+    },
+    {
+        title: "Медиапроект — Суперсила",
+        href: "/case-post-mediaproekt-i-fotovystavka-supersila",
+        category: "Фотовыставка",
+        image: "/images/supersila_18sub00_00_21_20still003.jpg",
+    },
+    {
+        title: "Времена года",
+        href: "/case-vremena-goda",
+        category: "Фестиваль",
+        image: "/images/sequence_0201_10_20_02still004.jpg",
+    },
+    {
+        title: "Время.Нэж ДЭФТ 2025",
+        href: "/case-vremnadezhdfest2025",
+        category: "Фестиваль",
+        image: "/images/vrem_nad_cover.jpg",
+    },
 ];
+
+const pageMeta = {
+    title: "Кейсы — реализованные мероприятия TT Events",
+    description:
+        "Кейсы по организации корпоративов, тимбилдингов, конференций, фестивалей и других мероприятий в Москве.",
+    ogTitle: "Кейсы TT Events",
+    ogDescription:
+        "Реализованные проекты: корпоративы, тимбилдинги, конференции, launch events.",
+};
 ---
 
 <Layout {...pageMeta}>
-  <Header />
-  
-  <main class="case-page">
-    <section class="case-hero">
-      <div class="container">
-        <div class="case-breadcrumbs">
-          <a href="/">Главная</a>
-          <span>/</span>
-          <span class="current">Портфолио / Кейсы</span>
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm text-text-light mb-4">
+                <a href="/" class="hover:text-primary">Главная</a> / <span
+                    class="font-medium text-text">Кейсы</span
+                >
+            </nav>
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
+            >
+                Кейсы
+            </h1>
+            <p class="text-lg text-text-light max-w-3xl">
+                Более 40 успешных проектов по организации корпоративных
+                мероприятий, тимбилдингов, конференций и фестивалей в Москве.
+            </p>
         </div>
-        <h1>Портфолио реализованных событий агентства TT Event: от B2B до городских фестивалей</h1>
-      </div>
     </section>
-    
-    <section class="case-intro">
-      <div class="container">
-        <p>В портфолио TT Events — корпоративные мероприятия, городские фестивали, медиапроекты и события под ключ в Москве и области. Мы реализуем проекты разного масштаба: от камерных B2B-мероприятий до массовых open-air фестивалей с тысячами участников.</p>
-        <p>Каждый кейс — это результат комплексной работы: разработка концепции, сценария, продакшн, техническое обеспечение и координация на площадке.</p>
-      </div>
-    </section>
-    
-    <section class="case-content">
-      <div class="container">
-        <div class="cases-grid">
-          {cases.map(caseItem => (
-            <article class="case-card">
-              <a href={caseItem.href} class="case-card-link">
-                <div class="case-card-image">
-                  <img 
-                    src={caseItem.image} 
-                    alt={caseItem.title} 
-                    class="lazy-load"
-                    data-src={caseItem.image}
-                    width="300" 
-                    height="200"
-                    loading="lazy"
-                  >
-                </div>
-                <div class="case-card-content">
-                  <time class="case-date">{caseItem.date}</time>
-                  <h3 class="case-title">{caseItem.title}</h3>
-                  <p class="case-excerpt">{caseItem.excerpt}</p>
-                  <span class="read-more">Читать далее →</span>
-                </div>
-              </a>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-    
-    <section class="case-contacts">
-      <div class="container">
-        <h2>Контакты</h2>
-        <div class="contacts-grid">
-          <div class="contact-item">
-            <a href="tel:+79169064490">+7 (916) 906-44-90</a>
-            <a href="https://t.me/+79169064490" target="_blank">Telegram</a>
-          </div>
-          <div class="contact-item">
-            <a href="tel:+79164086090">+7 (916) 408-60-90</a>
-            <a href="https://t.me/+79164086090" target="_blank">Telegram</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  
-  <Footer />
-</Layout>
 
-<style>
-  .case-page {
-    position: relative;
-  }
-  
-  .case-hero {
-    padding: 40px 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  }
-  
-  .case-breadcrumbs {
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .case-breadcrumbs a {
-    color: var(--color-primary);
-    text-decoration: none;
-  }
-  
-  .case-breadcrumbs .current {
-    color: var(--color-text);
-    font-weight: 600;
-  }
-  
-  .case-hero h1 {
-    font-size: 2.5rem;
-    margin: 0;
-    color: var(--color-dark);
-  }
-  
-  .case-intro {
-    padding: 40px 0;
-    background: var(--color-bg-alt);
-  }
-  
-  .case-intro p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--color-text);
-    margin-bottom: 20px;
-  }
-  
-  .case-content {
-    padding: 60px 0;
-  }
-  
-  .cases-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-  }
-  
-  .case-card {
-    background: white;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  }
-  
-  .case-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-  }
-  
-  .case-card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .case-card-image {
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .case-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .case-card-content {
-    padding: var(--spacing-lg);
-  }
-  
-  .case-date {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 11px;
-    color: #8e8e93;
-    margin-bottom: 8px;
-    padding-top: 4px;
-    display: block;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-  }
-  
-  .case-title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 1.2;
-    color: var(--color-dark);
-    margin: 0 0 12px 0;
-    padding: 0 4px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-  }
-  
-  .case-excerpt {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--color-text);
-    margin: 0;
-    text-align: left;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .read-more {
-    display: block;
-    margin-top: 12px;
-    color: var(--color-primary);
-    font-weight: 600;
-    text-align: center;
-  }
-  
-  .case-contacts {
-    padding: 40px 0;
-    background: var(--color-bg-alt);
-  }
-  
-  .case-contacts h2 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    color: var(--color-dark);
-  }
-  
-  .contacts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-  }
-  
-  .contact-item {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .contact-item a {
-    font-size: 1.3rem;
-    color: var(--color-dark);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  
-  .contact-item a:hover {
-    color: var(--color-primary);
-  }
-  
-  @media (max-width: 768px) {
-    .case-hero h1 {
-      font-size: 2rem;
-    }
-    
-    .cases-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .case-title {
-      font-size: 18px;
-    }
-    
-    .case-excerpt {
-      -webkit-line-clamp: 5;
-    }
-  }
-</style>
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    cases.map((caseItem) => (
+                        <article class="bg-white rounded-xl shadow-card hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                            <a
+                                href={caseItem.href}
+                                class="block text-inherit no-underline"
+                            >
+                                <div class="relative h-48 overflow-hidden">
+                                    <img
+                                        src={caseItem.image}
+                                        alt={caseItem.title}
+                                        width="400"
+                                        height="300"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        loading="lazy"
+                                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                    />
+                                    <span class="absolute top-4 left-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded">
+                                        {caseItem.category}
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-lg font-heading font-semibold">
+                                        {caseItem.title}
+                                    </h3>
+                                </div>
+                            </a>
+                        </article>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</Layout>

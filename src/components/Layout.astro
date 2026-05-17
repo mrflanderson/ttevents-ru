@@ -1,8 +1,6 @@
 ---
-import Header from './Header.astro';
-import Footer from './Footer.astro';
-import '../styles/global.css';
-import '../scripts/main.js';
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
 
 interface Props {
   title?: string;
@@ -13,82 +11,74 @@ interface Props {
   ogImage?: string;
 }
 
-const {
-  title,
-  description,
-  keywords,
-  ogTitle,
-  ogDescription,
-  ogImage,
-} = Astro.props;
+const { title, description, keywords, ogTitle, ogDescription, ogImage } =
+  Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- SEO Meta -->
-    <title>{title || 'TT Events — Организация корпоративных мероприятий в Москве'}</title>
-    <meta name="description" content={description || 'TT Events — профессиональное организация корпоративных мероприятий, тимбилдингов, конференций и праздников в Москве. Работаем с 2015 года.'}>
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {title || "TT Events — Организация корпоративных мероприятий в Москве"}
+    </title>
+    <meta
+      name="description"
+      content={
+        description ||
+        "TT Events — профессиональная организация корпоративных мероприятий, тимбилдингов, конференций и праздников в Москве. Работаем с 2015 года."
+      }
+    />
     {keywords && <meta name="keywords" content={keywords} />}
-
-    <!-- Open Graph -->
     {ogTitle && <meta property="og:title" content={ogTitle} />}
     {ogDescription && <meta property="og:description" content={ogDescription} />}
     {ogImage && <meta property="og:image" content={ogImage} />}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ru_RU" />
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://ttevents.ru{Astro.url?.pathname || '/'}" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="/styles/global.css">
-
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">{JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://ttevents.ru/",
-      "name": "TT Events",
-      "url": "https://ttevents.ru",
-      "telephone": "+7-916-906-44-90",
-      "email": "mail@ttevents.ru",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Москва",
-        "addressCountry": "RU"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "12",
-        "bestRating": "5",
-        "worstRating": "1"
-      }
-    })}</script>
-</head>
-<body>
-    <!-- Header -->
+    <link
+      rel="canonical"
+      href={"https://ttevents.ru" + (Astro.url?.pathname || "/")}
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Exo+2:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style is:global>
+      @import "../../tailwind/tailwind.css";
+    </style>
+    <script
+      type="application/ld+json"
+    >{
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://ttevents.ru/",
+        name: "TT Events",
+        url: "https://ttevents.ru",
+        telephone: "+7-916-906-44-90",
+        email: "mail@ttevents.ru",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Москва",
+          addressCountry: "RU",
+        },
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          reviewCount: "12",
+          bestRating: "5",
+          worstRating: "1",
+        },
+      })
+    }</script>
+  </head>
+  <body class="bg-white text-text font-sans antialiased">
     <Header />
-
-    <!-- Main Content -->
-    <main class="tte-main">
-        <slot />
+    <main class="min-h-screen">
+      <slot />
     </main>
-
-    <!-- Footer -->
     <Footer />
-
-    <!-- Scripts -->
     <script src="/scripts/main.js" type="module"></script>
-</body>
+  </body>
 </html>

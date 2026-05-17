@@ -1,79 +1,43 @@
 ---
-import '../styles/global.css';
-
 interface Props {
-  title: string;
-  href: string;
-  count?: number;
-  image?: string;
+    title: string;
+    href: string;
+    count?: number;
+    image?: string;
 }
 
-const { title, href, count, image = '/g/s3/mosaic/images/default-service.jpg' } = Astro.props;
+const {
+    title,
+    href,
+    count,
+    image = "/g/s3/mosaic/images/default-service.jpg",
+} = Astro.props;
 ---
 
-<article class="service-card">
-  <a href={href} class="service-card-link">
-    <div class="service-card-image">
-      <img 
-        src={image} 
-        alt={title} 
-        class="lazy-load"
-        data-src={image}
-        width="400" 
-        height="300"
-        sizes="(max-width: 768px) 100vw, 33vw"
-        loading="lazy"
-      >
-    </div>
-    <div class="service-card-content">
-      <h3>{title}</h3>
-      {count && <span class="service-count">{count} мероприятий</span>}
-    </div>
-  </a>
+<article
+    class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden"
+>
+    <a href={href} class="block text-inherit no-underline">
+        <div class="h-48 overflow-hidden">
+            <img
+                src={image}
+                alt={title}
+                width="400"
+                height="300"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                loading="lazy"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-heading font-semibold mb-2">{title}</h3>
+            {
+                count && (
+                    <span class="text-text-light text-sm">
+                        {count} мероприятий
+                    </span>
+                )
+            }
+        </div>
+    </a>
 </article>
-
-<style>
-  .service-card {
-    background: white;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  }
-  
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-  }
-  
-  .service-card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .service-card-image {
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .service-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .service-card-content {
-    padding: var(--spacing-lg);
-  }
-  
-  .service-card h3 {
-    margin: 0 0 var(--spacing-sm);
-    font-size: 1.25rem;
-  }
-  
-  .service-count {
-    color: var(--color-text-light);
-    font-size: 0.875rem;
-  }
-</style>

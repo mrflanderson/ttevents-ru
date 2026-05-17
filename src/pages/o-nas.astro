@@ -1,171 +1,403 @@
 ---
-import Layout from '../components/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/o-nas.css';
+import Layout from "../components/Layout.astro";
 
 const pageMeta = {
-  title: 'TT Events — О нас',
-  description: 'TT Events — event-агентство полного цикла с 20-летним опытом. Организация корпоративных мероприятий, тимбилдингов, конференций в Москве.',
-  keywords: 'о нас, tt events, агентство, москва, корпоративы',
-  ogTitle: 'TT Events — О нас',
-  ogDescription: 'TT Events — event-агентство полного цикла с 20-летним опытом.',
-  ogImage: '/g/s3/mosaic/images/og-about.jpg',
+    title: "TT Events — О нас",
+    description:
+        "TT Events — event-агентство полного цикла с 20-летним опытом. Организация корпоративных мероприятий, тимбилдингов, конференций в Москве.",
+    ogTitle: "TT Events — О нас",
+    ogDescription:
+        "TT Events — event-агентство полного цикла с 20-летним опытом.",
+    ogImage: "/g/s3/mosaic/images/og-about.jpg",
 };
 ---
 
 <Layout {...pageMeta}>
-  <Header />
-  
-  <main class="o-nas-page">
-    <section class="o-nas-hero">
-      <div class="container">
-        <div class="o-nas-breadcrumbs">
-          <a href="/">Главная</a>
-          <span>/</span>
-          <span class="current">О нас</span>
+    <!-- Hero -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-text-light mb-4">
+                <a href="/" class="hover:text-primary">Главная</a> / <span
+                    class="font-medium text-text">О нас</span
+                >
+            </nav>
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6"
+            >
+                Искусство, технологии и 20 лет безупречного опыта
+            </h1>
+            <p class="text-lg text-text-light max-w-3xl">
+                Мы начали путь в 2006 году как продюсерский центр с собственным
+                \u00abТеатром Традиций\u00bb. Сегодня TT Events — это
+                event-агентство полного цикла, объединяющее организацию
+                корпоративных мероприятий, театральные постановки и
+                видеопродакшн.
+            </p>
         </div>
-        <h1>Искусство, технологии и 20 лет безупречного опыта</h1>
-      </div>
     </section>
-    
-    <section class="o-nas-content">
-      <div class="container">
-        <div class="o-nas-intro">
-          <p>Мы начали путь в 2006 году как продюсерский центр с собственным «Театром Традиций». Сегодня TT Events — это event-агентство полного цикла, объединяющее организацию корпоративных мероприятий, театральные постановки и видеопродакшн.</p>
-        </div>
-        
-        <div class="o-nas-video">
-          <div class="video-wrapper">
-            <video controls playsinline>
-              <source src="/f/m24_v2.mp4" type="video/mp4">
-            </video>
-            <p class="video-caption">Телеканал Москва 24 о нас</p>
-          </div>
-        </div>
-        
-        <div class="o-nas-structure">
-          <h2>Сегодня TT Events — это не просто агентство. Это уникальная экосистема, объединившая четыре мощных направления в одно целое.</h2>
-          <ul>
-            <li><strong>Event-агентство полного цикла</strong>: Организация событий любого масштаба — от ВДНХ до камерных залов.</li>
-            <li><strong>Театральный департамент</strong>: Наш творческий фундамент — «Театр Традиций». Это не просто приглашённые исполнители, а собственная профессиональная труппа, представлявшая страну в культурной программе Олимпийских игр и международных фестивалях.</li>
-            <li><strong>Звездный букинг:</strong> Организуем выступление любого артиста. За 20 лет мы накопили такой вес в индустрии, что решаем вопросы со звездами быстро и по честным ценам, отсекая цепочки лишних посредников.</li>
-            <li><strong>Собственный видеопродакшн:</strong> Создание медиапроектов и имиджевого кино. Мы монтируем SDE-ролики прямо на мероприятии: гости еще не разошлись, а фильм о событии уже готов.</li>
-          </ul>
-        </div>
-        
-        <div class="o-nas-services">
-          <h2>Мы превращаем любое мероприятие в незабываемое зрелище:</h2>
-          <ul>
-            <li>Корпоративные юбилеи и тимбилдинги.</li>
-            <li>Деловые форумы, конференции и стратегические сессии.</li>
-            <li>Городские праздники (Масленица, ретро-фестивали)</li>
-            <li>Специальные медиапроекты и работа с НКО/госструктурами.</li>
-            <li>Частные торжества: свадьбы, дни рождения и театрализованные детские праздники.</li>
-            <li>Онлайн и гибридные мероприятия</li>
-          </ul>
-        </div>
-        
-        <div class="o-nas-approach">
-          <h2>Организация корпоративных мероприятий в Москве с режиссёрским подходом — TT Events (с 2006 года)</h2>
-          <p>TT Events — агентство по организации корпоративов в Москве с 20-летним опытом. Мы превращаем события в настоящий спектакль: с захватывающей драматургией, профессиональным сценарием, мощной визуальной концепцией и эмоциональными wow-моментами.</p>
-        </div>
-        
-        <div class="o-nas-process">
-          <h2>Организуем под ключ в Москве и по всей России/СНГ:</h2>
-          <ul>
-            <li>концептуальные корпоративные праздники и тимбилдинги</li>
-            <li>launch events и презентации новых продуктов</li>
-            <li>деловые мероприятия, форумы, конференции</li>
-            <li>юбилеи компаний и корпоративные награждения</li>
-            <li>квиз на корпоратив (интеллектуальные игры, которые сплачивают команду и заряжают энергией)</li>
-            <li>иммерсивные шоу в современном русском стиле</li>
-          </ul>
-          <p>Каждый проект — это не обычное проведение корпоративного мероприятия, а продуманная история, где бизнес-цели достигаются через искусство, эмоции и высококачественный продакшн. От идеи и сценария до полного продакшна, технической реализации (свет, звук, видео), логистики и монтажа SDE-ролика прямо на площадке — берём организацию корпоративного мероприятия под ключ.</p>
-          <p>Заказните корпоратив с квизом, launch event или юбилей, который запомнится и усилит бренд.</p>
-        </div>
-        
-        <div class="o-nas-why-us">
-          <h2>Почему нам доверяют крупнейшие заказчики?</h2>
-          <div class="why-us-grid">
-            <div class="why-us-item">
-              <div class="why-us-image">
-                <img src="/g/s3/mosaic/images/why-us-1.jpg" alt="Event-менеджер. Архитектор ваших впечатлений." loading="lazy">
-              </div>
-              <div class="why-us-content">
-                <h3>Ваше событие в надежных руках:</h3>
-                <p>Мы берем на себя весь процесс организации: от разработки уникального сценария и подбора площадки до технического оснащения (свет, звук, видео) и сложной логистики.</p>
-              </div>
+
+    <!-- Video -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-lg overflow-hidden shadow-lg">
+                <video controls playsinline class="w-full">
+                    <source src="/f/m24_v2.mp4" type="video/mp4" />
+                </video>
             </div>
-          </div>
-          
-          <ul>
-            <li><strong>Собственные ресурсы:</strong> Мы не перепродаем услуги случайных подрядчиков. Наш штат — это коллектив «Театра Традиций» с опытом двух Олимпиад, что гарантирует олимпийское качество постановки. В работе со звездами мы используем накопленный за 20 лет ресурс прямых контактов.</li>
-            <li><strong>Опыт в госсекторе:</strong> Мы понимаем специфику работы с Агентством общественных проектов и муниципальными структурами.</li>
-            <li><strong>Синтез ивента и медиа:</strong> Благодаря продакшну ваше событие получает цифровое продолжение в виде профессионального кино.</li>
-            <li><strong>Ответственность:</strong> 20 лет на рынке — это тысячи закрытых контрактов и безупречная юридическая чистота.</li>
-          </ul>
-          
-          <p>TT Event — когда бизнес становится искусством, а праздник — историей успеха.</p>
+            <p class="text-sm text-text-light mt-4 text-center">
+                Телеканал Москва 24 о нас
+            </p>
         </div>
-        
-        <div class="o-nas-process-steps">
-          <h2>Как мы работаем — просто и понятно</h2>
-          <div class="process-steps">
-            <div class="process-step">
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <h3>Заявка или техническое задание</h3>
-                <p>Вы оставляете заявку через форму на сайте, звоните или присылаете ТЗ по почте/мессенджеру.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <h3>Бриф и уточнение деталей</h3>
-                <p>Мы отправляем подробный бриф и обсуждаем ваши пожелания: формат, бюджет, сроки, особые акценты.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <h3>Концепция и коммерческое предложение</h3>
-                <p>Готовим презентацию с креативной концепцией, сценарием, подборкой артистов и точным расчётом стоимости.</p>
-              </div>
-            </div>
-            <div class="process-step">
-              <div class="step-number">4</div>
-              <div class="step-content">
-                <h3>Утверждение и реализация</h3>
-                <p>Согласовываем финальные детали, подписываем договор и запускаем проект. Вы получаете идеальное мероприятие под ключ.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="o-nas-cta">
-          <p>Готовы создать событие, которое запомнится надолго? Мы берём на себя всю организацию — от яркой идеи до идеальной реализации. Никаких сюрпризов, только эмоции и результат. Оставьте заявку прямо сейчас — и уже через 1 день вы получите персональную концепцию и расчёт!</p>
-          <a href="/kontakty" class="btn btn-primary">Оставить заявку</a>
-        </div>
-      </div>
     </section>
-    
-    <section class="o-nas-contacts">
-      <div class="container">
-        <h2>Контакты</h2>
-        <div class="contacts-grid">
-          <div class="contact-item">
-            <a href="tel:+79169064490">+7 (916) 906-44-90</a>
-            <a href="https://t.me/+79169064490" target="_blank">Telegram</a>
-          </div>
-          <div class="contact-item">
-            <a href="tel:+79164086090">+7 (916) 408-60-90</a>
-            <a href="https://t.me/+79164086090" target="_blank">Telegram</a>
-          </div>
+
+    <!-- Structure -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8"
+            >
+                Сегодня TT Events — это не просто агентство. Это уникальная
+                экосистема, объединившая четыре мощных направления в одно целое.
+            </h2>
+            <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    <div>
+                        <strong class="text-dark"
+                            >Event-агентство полного цикла</strong
+                        >: Организация событий любого масштаба — от ВДНХ до
+                        камерных залов.
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    <div>
+                        <strong class="text-dark"
+                            >Театральный департамент</strong
+                        >: Наш творческий фундамент — \u00abТеатр
+                        Традиций\u00bb. Это не просто приглашённые исполнители,
+                        а собственная профессиональная труппа, представлявшая
+                        страну в культурной программе Олимпийских игр и
+                        международных фестивалях.
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    <div>
+                        <strong class="text-dark">Звездный букинг</strong>:
+                        Организуем выступление любого артиста. За 20 лет мы
+                        накопили такой вес в индустрии, что решаем вопросы со
+                        звездами быстро и по честным ценам, отсекая цепочки
+                        лишних посредников.
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    <div>
+                        <strong class="text-dark"
+                            >Собственный видеопродакшн</strong
+                        >: Создание медиапроектов и имиджевого кино. Мы
+                        монтируем SDE-ролики прямо на мероприятии: гости еще не
+                        разошлись, а фильм о событии уже готов.
+                    </div>
+                </li>
+            </ul>
         </div>
-      </div>
     </section>
-  </main>
-  
-  <Footer />
+
+    <!-- Services list -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8"
+            >
+                Мы превращаем любое мероприятие в незабываемое зрелище:
+            </h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Корпоративные юбилеи и тимбилдинги.
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Деловые форумы, конференции и стратегические сессии.
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Городские праздники (Масленица, ретро-фестивали).
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Специальные медиапроекты и работа с НКО/госструктурами.
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Частные торжества: свадьбы, дни рождения и театрализованные детские
+                    праздники.
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Онлайн и гибридные мероприятия.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-6"
+            >
+                Организация корпоративных мероприятий в Москве с режиссёрским
+                подходом — TT Events (с 2006 года)
+            </h2>
+            <p class="text-lg text-text-light leading-relaxed mb-8">
+                TT Events — агентство по организации корпоративов в Москве с
+                20-летним опытом. Мы превращаем события в настоящий спектакль: с
+                захватывающей драматургией, профессиональным сценарием, мощной
+                визуальной концепцией и эмоциональными wow-моментами.
+            </p>
+
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-6"
+            >
+                Организуем под ключ в Москве и по всей России/СНГ:
+            </h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Концептуальные корпоративные праздники и тимбилдинги
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Launch events и презентации новых продуктов
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Деловые мероприятия, форумы, конференции
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Юбилеи компаний и корпоративные награждения
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Квиз на корпорив (интеллектуальные игры, которые сплачивают команду
+                    и заряжают энергией)
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    Иммерсивные шоу в современном русском стиле
+                </li>
+            </ul>
+            <p class="text-text-light leading-relaxed">
+                Каждый проект — это не обычное проведение корпоративного
+                мероприятия, а продуманная история, где бизнес-цели достигаются
+                через искусство, эмоции и высококачественный продакшн. От идеи и
+                сценария до полного продакшна, технической реализации (свет,
+                звук, видео), логистики и монтажа SDE-ролика прямо на площадке —
+                берём организацию корпоративного мероприятия под ключ.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why us -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8"
+            >
+                Почему нам доверяют крупнейшие заказчики?
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <img
+                    src="/g/s3/mosaic/images/why-us-1.jpg"
+                    alt="Event-менеджер. Архитектор ваших впечатлений."
+                    width="640"
+                    height="427"
+                    loading="lazy"
+                    class="rounded-lg shadow"
+                />
+                <div>
+                    <h3 class="text-xl font-bold text-dark mb-4">
+                        Ваше событие в надежных руках:
+                    </h3>
+                    <p class="text-text-light leading-relaxed">
+                        Мы берем на себя весь процесс организации: от разработки
+                        уникального сценария и подбора площадки до технического
+                        оснащения (свет, звук, видео) и сложной логистики.
+                    </p>
+                </div>
+            </div>
+            <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    <div>
+                        <strong class="text-dark">Собственные ресурсы</strong>:
+                        Мы не перепродаем услуги случайных подрядчиков. Наш штат
+                        — это коллектив \u00abТеатра Традиций\u00bb с опытом
+                        двух Олимпиад, что гарантирует олимпийское качество
+                        постановки.
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    <div>
+                        <strong class="text-dark">Опыт в госсекторе</strong>: Мы
+                        понимаем специфику работы с Агентством общественных
+                        проектов и муниципальными структурами.
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    <div>
+                        <strong class="text-dark">Синтез ивента и медиа</strong
+                        >: Благодаря продакшну ваше событие получает цифровое
+                        продолжение в виде профессионального кино.
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-primary mt-1">\u2022</span>
+                    <div>
+                        <strong class="text-dark">Ответственность</strong>: 20
+                        лет на рынке — это тысячи закрытых контрактов и
+                        безупречная юридическая чистота.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Process steps -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-12"
+            >
+                Как мы работаем — просто и понятно
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4"
+                    >
+                        1
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2">
+                        Заявка или техническое задание
+                    </h3>
+                    <p class="text-text-light text-sm">
+                        Вы оставляете заявку через форму на сайте, звоните или
+                        присылаете ТЗ по почте/мессенджеру.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4"
+                    >
+                        2
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2">
+                        Бриф и уточнение деталей
+                    </h3>
+                    <p class="text-text-light text-sm">
+                        Мы отправляем подробный бриф и обсуждаем ваши пожелания:
+                        формат, бюджет, сроки, особые акценты.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4"
+                    >
+                        3
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2">
+                        Концепция и коммерческое предложение
+                    </h3>
+                    <p class="text-text-light text-sm">
+                        Готовим презентацию с креативной концепцией, сценарием,
+                        подборкой артистов и точным расчётом стоимости.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4"
+                    >
+                        4
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2">
+                        Утверждение и реализация
+                    </h3>
+                    <p class="text-text-light text-sm">
+                        Согласовываем финальные детали, подписываем договор и
+                        запускаем проект. Вы получаете идеальное мероприятие под
+                        ключ.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg text-text-light mb-8">
+                Готовы создать событие, которое запомнится надолго? Мы берём на
+                себя всю организацию — от яркой идеи до идеальной реализации.
+                Никаких сюрпризов, только эмоции и результат. Оставьте заявку
+                прямо сейчас — и уже через 1 день вы получите персональную
+                концепцию и расчёт!
+            </p>
+            <a
+                href="/kontakty"
+                class="inline-block bg-primary text-white font-semibold px-8 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+            >
+                Оставить заявку
+            </a>
+        </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8 text-center"
+            >
+                Контакты
+            </h2>
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto"
+            >
+                <div class="text-center p-6 bg-white rounded-lg shadow">
+                    <a
+                        href="tel:+79169064490"
+                        class="text-xl font-bold text-dark block mb-2 hover:text-primary transition-colors"
+                        >+7 (916) 906-44-90</a
+                    >
+                    <a
+                        href="https://t.me/+79169064490"
+                        target="_blank"
+                        class="text-primary hover:text-primary-dark transition-colors"
+                        >Telegram</a
+                    >
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow">
+                    <a
+                        href="tel:+79164086090"
+                        class="text-xl font-bold text-dark block mb-2 hover:text-primary transition-colors"
+                        >+7 (916) 408-60-90</a
+                    >
+                    <a
+                        href="https://t.me/+79164086090"
+                        target="_blank"
+                        class="text-primary hover:text-primary-dark transition-colors"
+                        >Telegram</a
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
 </Layout>
+
+---

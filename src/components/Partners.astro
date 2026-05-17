@@ -1,69 +1,38 @@
 ---
-import '../styles/global.css';
-
 interface Props {
-  partners: Array<{name: string; image: string}>;
+    partners: Array<{ name: string; image: string }>;
 }
 
 const { partners } = Astro.props;
+
+// Дублируем партнёров для бесконечной прокрутки
+const doubled = [...partners, ...partners];
 ---
 
-<section class="partners">
-  <div class="container">
-    <h2 class="section-title">Наши партнеры</h2>
-    <div class="partners-slider">
-      <div class="partners-track">
-        {partners.map(partner => (
-          <div class="partner-item">
-            <img 
-              src={partner.image} 
-              alt={partner.name} 
-              class="lazy-load"
-              data-src={partner.image}
-              width="150" 
-              height="80"
-              loading="lazy"
-            >
-          </div>
-        ))}
-      </div>
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-dark font-heading"
+        >
+            Наши партнеры
+        </h2>
+        <div class="overflow-hidden relative">
+            <div class="flex gap-10 animate-scroll">
+                {
+                    doubled.map((partner) => (
+                        <div class="flex-shrink-0 w-[150px] h-[80px] flex items-center justify-center">
+                            <img
+                                src={partner.image}
+                                alt={partner.name}
+                                width="150"
+                                height="80"
+                                loading="lazy"
+                                class="max-w-full max-h-full object-contain"
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
     </div>
-  </div>
 </section>
-
-<style>
-  .partners {
-    padding: var(--spacing-xxl) 0;
-  }
-  
-  .partners-slider {
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .partners-track {
-    display: flex;
-    gap: var(--spacing-xl);
-    animation: scroll 30s linear infinite;
-  }
-  
-  .partner-item {
-    flex-shrink: 0;
-    width: 150px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .partner-item img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-</style>
