@@ -138,10 +138,10 @@ const breadcrumbSchema = {
         <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(websiteSchema)}</script>
         <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(breadcrumbSchema)}</script>
     </head>
-    <body>
+    <body class="bg-gray-50 min-h-screen flex flex-col">
         <Header />
 
-        <main>
+        <main class="flex-grow">
             <slot />
         </main>
 

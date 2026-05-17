@@ -1,124 +1,115 @@
-<footer class="bg-dark text-white py-16 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
-            <div>
-                <h3 class="text-xl font-heading font-bold mb-4">TT Events</h3>
-                <p class="text-white/80">
-                    Организация мероприятий любой сложности в Москве и по всей
-                    России.
+---
+// Helper function to translate slugs into readable text
+function getLinkText(href) {
+  const dict = {
+      '/korporativy-moskva': 'Корпоративные мероприятия',
+      '/novogodniy-korporativ': 'Новогодний корпоратив',
+      '/letnij-korporativ': 'Летний корпоратив',
+      '/korporativ-na-prirode': 'Корпоратив на природе',
+      '/timbilding-moskva': 'Тимбилдинги',
+      '/aktivnye-timbildingi': 'Активные тимбилдинги',
+      '/kreativnye-timbildingi': 'Креативные тимбилдинги',
+      '/konferencii-i-forumy': 'Конференции и форумы',
+      '/strategicheskie-sessii-i-vorkshopy': 'Стратегические сессии',
+      '/mice-delovoj-turizm': 'MICE и Деловой туризм'
+  };
+  return dict[href] || href;
+}
+
+const navLinks = [
+    {
+        title: 'Корпоративы',
+        links: [
+            { href: '/korporativy-moskva', label: 'Корпоративные мероприятия' },
+            { href: '/novogodniy-korporativ', label: 'Новогодний корпоратив' },
+            { href: '/letnij-korporativ', label: 'Летний корпоратив' },
+            { href: '/korporativ-na-prirode', label: 'Корпоратив на природе' }
+        ]
+    },
+    {
+        title: 'Тимбилдинг',
+        links: [
+            { href: '/timbilding-moskva', label: 'Тимбилдинги' },
+            { href: '/aktivnye-timbildingi', label: 'Активные тимбилдинги' },
+            { href: '/kreativnye-timbildingi', label: 'Креативные тимбилдинги' }
+        ]
+    },
+    {
+        title: 'Бизнес',
+        links: [
+            { href: '/konferencii-i-forumy', label: 'Конференции и форумы' },
+            { href: '/strategicheskie-sessii-i-vorkshopy', label: 'Стратегические сессии' },
+            { href: '/mice-delovoj-turizm', label: 'MICE и Деловой туризм' }
+        ]
+    }
+];
+---
+
+<footer class="relative bg-gradient-to-b from-[#0f172a] to-[#020617] text-white overflow-hidden">
+    <!-- Subtle background pattern -->
+    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+
+        <!-- Brand Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12">
+            <!-- Logo & Description (spans full width on mobile, 1 column on desktop) -->
+            <div class="lg:col-span-2">
+                <a href="/" class="inline-flex items-center mb-4 group">
+                    <span class="text-2xl font-heading font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:from-[#f15264] group-hover:to-[#ff7b8a] transition-all duration-300">TT Events</span>
+                </a>
+                <p class="text-base leading-relaxed text-gray-300 max-w-md">
+                    Полное циклическое агентство мероприятий в Москве и по всей России. Более 2000 реализованных проектов с 2006 года.
                 </p>
             </div>
-            <div>
-                <h4 class="text-lg font-semibold mb-4">Корпоративы</h4>
-                <ul class="space-y-2 list-none p-0">
-                    <li>
-                        <a
-                            href="/korporativy-moskva"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            Корпоративные мероприятия
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/novogodniy-korporativ"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            Новогодний корпоратив
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/letnij-korporativ"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            Летний корпоратив
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/korporativ-na-prirode"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            Корпоратив на природе
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold mb-4">Тимбилдинг</h4>
-                <ul class="space-y-2 list-none p-0">
-                    <li>
-                        <a
-                            href="/timbilding-moskva"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            Тимбилдинги
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/aktivnye-timbildingi"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            Активные тимбилдинги
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/kreativnye-timbildingi"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            Креативные тимбилдинги
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold mb-4">Деловые мероприятия</h4>
-                <ul class="space-y-2 list-none p-0">
-                    <li>
-                        <a
-                            href="/konferencii-i-forumy"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            Конференции и форумы
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/prezentacii-novyh-produktov-launch-events"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            Launch Events
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/strategicheskie-sessii-i-vorkshopy"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            Стратегические сессии
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/mice-delovoj-turizm"
-                            class="text-white/80 hover:text-white transition-colors"
-                        >
-                            MICE и Деловой туризм
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold mb-4">Контакты</h4>
-                <p class="text-white/80 mb-1">Телефон: +7 (916) 906-44-90</p>
-                <p class="text-white/80">Email: mail@ttevents.ru</p>
+
+            <!-- Navigation Columns -->
+            <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                {navLinks.map((section) => (
+                    <div>
+                        <h4 class="text-sm font-bold mb-4 text-white uppercase tracking-widest">{section.title}</h4>
+                        <ul class="space-y-2.5 list-none p-0 m-0">
+                            {section.links.map((link) => (
+                                <li>
+                                    <a href={link.href} class="inline-block text-sm text-gray-300 hover:text-[#f15264] transition-colors duration-200 ease-out hover:translate-x-1 transform">
+                                        {link.label}
+                                    </a>
+                                </li>)
+                            )}
+                        </ul>
+                    </div>)
+                )}
             </div>
         </div>
-        <div class="border-t border-white/10 pt-8 text-center text-white/60">
-            <p>&copy; 2026 TT Events. Все права защищены.</p>
+
+        <!-- Contact Section with distinct background -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 mb-12 border border-white/10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-1">Свяжитесь с нами</h4>
+                    <p class="text-sm text-gray-300">Обсудим ваш проект и предложим лучшие решения</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 md:text-right">
+                    <a href="tel:+79169064490" class="text-base font-semibold text-[#f15264] hover:text-white transition-colors duration-200">+7 (916) 906-44-90</a>
+                    <a href="mailto:mail@ttevents.ru" class="text-base font-medium text-gray-300 hover:text-[#f15264] transition-colors duration-200">mail@ttevents.ru</a>
+                </div>
+            </div>
         </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm text-gray-400 font-medium">
+                &copy; {new Date().getFullYear()} TT Events. Все права защищены.
+            </p>
+
+            <!-- Additional Links -->
+            <nav class="flex flex-wrap justify-center md:justify-end gap-6 text-sm text-gray-400">
+                 <a href="/o-nas" class="hover:text-[#f15264] transition-colors duration-200">О нас</a>
+                 <a href="/case" class="hover:text-[#f15264] transition-colors duration-200">Кейсы</a>
+                 <a href="/blog" class="hover:text-[#f15264] transition-colors duration-200">Блог</a>
+                 <a href="/tendery" class="hover:text-[#f15264] transition-colors duration-200">Тендеры</a>
+            </nav>
+        </div>
+
     </div>
 </footer>

@@ -20,51 +20,57 @@ const {
 } = Astro.props;
 ---
 
-<section
-    class="relative min-h-[600px] flex items-center text-white overflow-hidden"
->
-    <img
-        src={backgroundImage}
-        alt=""
-        class="absolute inset-0 w-full h-full object-cover"
-        aria-hidden="true"
-    />
-    <div class="absolute inset-0 bg-black/50"></div>
+<section class="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-screen flex items-center overflow-hidden bg-dark">
+    <!-- Background Image (fallback) -->
+    <div
+        class="absolute inset-0 w-full h-full"
+        style="background-image: url('{backgroundImage}'); background-size: cover; background-position: center;"
+    ></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div class="max-w-[800px]">
-            <h1
-                class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4"
-            >
-                {title}
-            </h1>
-            {
-                subtitle && (
-                    <p class="text-lg md:text-xl text-white/90 mb-10">
-                        {subtitle}
-                    </p>
-                )
-            }
-            <a
-                href={ctaHref}
-                class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-                {ctaText}
-            </a>
-        </div>
-    </div>
+    <!-- Robust Dark Overlay for Contrast -->
+    <div class="absolute inset-0 bg-black/60 lg:bg-black/50"></div>
 
+    <!-- Video Background (if available) - positioned behind overlay but above static image if present -->
     {videoSrc && (
         <video
             autoplay
             muted
             loop
             playsinline
-            class="absolute inset-0 w-full h-full object-cover -z-10"
+            class="absolute inset-0 w-full h-full object-cover"
             preload="auto"
             poster={poster}
         >
             <source src={videoSrc} type="video/mp4" />
         </video>
     )}
+
+    <!-- Content Container -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
+        <div class="max-w-[900px]">
+            <h1
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-white drop-shadow-lg"
+            >
+                {title}
+            </h1>
+
+            {subtitle && (
+                <p class="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed mb-8 max-w-2xl">
+                    {subtitle}
+                </p>
+            )}
+
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a
+                    href={ctaHref}
+                    class="inline-flex items-center justify-center px-8 py-3.5 rounded-lg font-semibold text-base bg-primary hover:bg-primary-dark focus:ring-2 focus:ring-offset-2 focus:ring-primary text-white shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition-all duration-300"
+                >
+                    {ctaText}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subtle Gradient at Bottom for Depth -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none"></div>
 </section>

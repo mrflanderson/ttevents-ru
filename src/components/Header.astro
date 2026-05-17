@@ -1,6 +1,4 @@
 ---
-
-
 interface SubNavItem {
     href: string;
     label: string;
@@ -55,8 +53,7 @@ const navItems: NavSection[] = [
         href: "/festivali",
         label: "Фестивали",
         children: [
-            { href: "/festivali",
-            label: "Фестивали и городские события" },
+            { href: "/festivali", label: "Фестивали и городские события" },
             { href: "/gosudarstvennye-prazdniki", label: "Государственные праздники" }
         ]
     },
@@ -88,36 +85,36 @@ const navItems: NavSection[] = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-white shadow-sm">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-4">
             <!-- Logo -->
-            <a href="/" class="flex-shrink-0">
+            <a href="/" class="flex-shrink-0 group">
                 <svg
                     width="120"
-                    height="28"
-                    viewBox="0 0 120 28"
+                    height="32"
+                    viewBox="0 0 120 32"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-7"
+                    class="h-8 transition-transform duration-300 group-hover:scale-[1.02]"
                 >
                     <text
                         x="0"
-                        y="22"
+                        y="24"
                         font-family="Inter, sans-serif"
                         font-weight="700"
-                        font-size="18"
-                        fill="#1a1a1a"
+                        font-size="20"
+                        fill="#f15264"
                     >
                         TT
                     </text>
                     <text
-                        x="28"
-                        y="22"
+                        x="32"
+                        y="24"
                         font-family="Inter, sans-serif"
-                        font-weight="400"
-                        font-size="18"
-                        fill="#666"
+                        font-weight="500"
+                        font-size="20"
+                        fill="#1a1a1a"
                     >
                         Events
                     </text>
@@ -127,43 +124,43 @@ const navItems: NavSection[] = [
             <!-- Mobile menu button -->
             <button
                 type="button"
-                class="md:hidden flex flex-col gap-1 bg-none border-none cursor-pointer p-2 rounded-md focus:outline-none mobile-menu-toggle"
+                class="md:hidden flex flex-col gap-1.5 p-2 text-dark focus:outline-none mobile-menu-toggle"
                 aria-label="Открыть меню"
             >
-                <span class="block w-6 h-[2px] bg-dark"></span>
-                <span class="block w-6 h-[2px] bg-dark"></span>
-                <span class="block w-6 h-[2px] bg-dark"></span>
+                <span class="block w-6 h-[2px] bg-current"></span>
+                <span class="block w-6 h-[2px] bg-current"></span>
+                <span class="block w-6 h-[2px] bg-current"></span>
             </button>
 
             <!-- Navigation -->
             <nav
-                class="md:block absolute left-0 right-0 top-full bg-white shadow-md md:static md:shadow-none md:border-0 py-4 md:py-0 px-4 md:px-0 md:flex md:flex-row md:items-center md:gap-8 md:justify-end main-nav"
+                class="md:flex absolute left-0 right-0 top-full bg-white border-b shadow-lg md:static md:shadow-none md:border-0 py-4 md:py-0 px-4 md:px-0 flex-col md:flex-row md:items-center md:gap-8 justify-end main-nav hidden md:block"
             >
                 <ul
-                    class="flex flex-col md:flex-row md:items-center md:gap-8 list-none p-0 m-0"
+                    class="flex flex-col gap-2 md:flex-row md:items-center md:gap-6 list-none p-0 m-0 w-full"
                 >
                     {navItems.map((section) => (
                         <li class="relative group">
                             {section.href ? (
                                 <a
                                     href={section.href}
-                                    class="block py-2 md:py-0 text-text font-medium hover:text-primary transition-colors"
+                                    class="block py-2 md:py-4 text-base font-medium text-text hover:text-primary transition-colors duration-200"
                                 >
                                     {section.label}
                                 </a>
                             ) : (
-                                <span class="block py-2 md:py-0 text-text font-medium hover:text-primary transition-colors">
+                                <span class="block py-2 md:py-4 text-base font-medium text-text cursor-default">
                                     {section.label}
                                 </span>
                             )}
 
                             {section.children && section.children.length > 0 && (
-                                <ul class="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg border border-gray-200 rounded-lg py-2 hidden group-hover:block z-50">
+                                <ul class="absolute top-full left-0 mt-1 w-60 bg-white shadow-xl border border-gray-100 rounded-lg py-2 hidden group-hover:flex flex-col z-50">
                                     {section.children.map((child) => (
                                         <li>
                                             <a
                                                 href={child.href}
-                                                class="block px-4 py-2 text-sm text-text hover:bg-gray-100 hover:text-primary transition-colors"
+                                                class="block px-4 py-2 text-sm text-text hover:bg-primary/10 hover:text-primary transition-colors duration-200"
                                             >
                                                 {child.label}
                                             </a>
