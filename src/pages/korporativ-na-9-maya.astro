@@ -1,34 +1,102 @@
 ---
-import Layout from '../components/Layout.astro';
+import Layout from "../components/Layout.astro";
 
-const pageTitle = 'Корпоратив на 9 Мая';
-const pageDescription = 'Организация корпоратива на 9 Мая в Москве. Идеи, сценарии, форматы к Дню Победы.';
-const keywords = '9 Мая, корпоратив, День Победы';
+const pageMeta = {
+    title: "Корпоратив на 9 Мая — TT Events",
+    description:
+        "Организация корпоратива на 9 Мая (День Победы) в Москве. Тематические программы, военная техника, ветераны встречи и концерты для компаний.",
+    ogTitle: "Корпоратив на 9 Мая — TT Events",
+    ogDescription: "Профессиональная организация корпоративов на День Победы.",
+};
+
+const services = [
+    { title: "Тематические программы", href: "/korporativ-na-9-maya" },
+    { title: "Военная техника", href: "/korporativ-na-9-maya" },
+    { title: "Ветераны встречи", href: "/korporativ-na-9-maya" },
+    { title: "Концерты", href: "/korporativ-na-9-maya" },
+];
+
+const faqItems = [
+    {
+        question: "Что включает организация корпоратива на 9 Мая?",
+        answer: "Тематическая программа, декорации, военная техника, ветераны встречи, концертная программа и координация под ключ.",
+    },
+    {
+        question: "Какой минимальный состав команды?",
+        answer: "От 10 человек до 1000+. Подбираем формат под ваш состав.",
+    },
+    {
+        question: "Сколько длится мероприятие на 9 Мая?",
+        answer: "От 2 часов до 1 дня. Стандарт — 3-4 часа.",
+    },
+];
 ---
 
-<Layout title={pageTitle} description={pageDescription} keywords={keywords}>
-    <div class="page-header">
-        <div class="container">
-            <h1>Корпоратив на 9 Мая</h1>
-            <p>Мероприятия к Дню Победы</p>
-        </div>
-    </div>
-    <div class="page-content">
-        <div class="container">
-            <ul class="feature-list mt-2">
-                <li>Тематические программы</li>
-                <li>Военная техника</li>
-                <li>Ветеран встречи</li>
-                <li>Концерты</li>
-            </ul>
-            <div class="cta-box mt-2 text-center">
-                <a href="tel:+79169064490" class="btn btn-primary">Заказать</a>
+<!--
+  TT Events — Tailwind CSS Migration
+  Generated on: 2026-05-17
+-->
+<Layout {...pageMeta}>
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-text-light mb-4" aria-label="Навигация">
+                <a href="/" class="hover:text-primary">Главная</a> / <span
+                    class="font-medium text-text"
+                    aria-current="page">9 Мая</span
+                >
+            </nav>
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
+            >
+                Корпоратив на 9 Мая
+            </h1>
+            <p class="text-lg text-text-light max-w-3xl mb-12">
+                Организация корпоратива на 9 Мая (День Победы) в Москве.
+                Тематические программы, военная техника, ветераны встречи и
+                концерты для компаний.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    services.map((service) => (
+                        <a
+                            href={service.href}
+                            class="block p-6 bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300"
+                            aria-label={service.title}
+                        >
+                            <h3 class="text-xl font-heading font-semibold text-dark hover:text-primary transition-colors">
+                                {service.title}
+                            </h3>
+                        </a>
+                    ))
+                }
             </div>
         </div>
-    </div>
-</Layout>
+    </section>
 
-<style>
-.feature-list { list-style: disc; padding-left: var(--space-xl); }
-.cta-box { background: var(--color-light); padding: var(--space-xl); border-radius: var(--radius-md); }
-</style>
+    <section class="py-16 md:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8 text-center"
+            >
+                Часто задаваемые вопросы
+            </h2>
+            <div class="divide-y divide-gray-200">
+                {
+                    faqItems.map((item) => (
+                        <div class="py-4">
+                            <details>
+                                <summary class="font-semibold cursor-pointer text-dark list-none">
+                                    {item.question}
+                                </summary>
+                                <p class="mt-2 text-text-light leading-relaxed">
+                                    {item.answer}
+                                </p>
+                            </details>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</Layout>

@@ -20,6 +20,11 @@
 
 ### Страницы
 - [x] `index.astro` — полностью на Tailwind
+- [x] `korporativy-moskva.astro` — Корпоративные мероприятия ✅
+- [x] `timbilding-moskva.astro` — Тимбилдинги ✅
+- [x] `novogodniy-korporativ.astro` — Новогодний корпоратив ✅
+- [x] `case.astro` — Список кейсов ✅
+- [ ] `home.astro` — дублирует index, удалить или переписать
 
 ---
 
@@ -30,37 +35,38 @@
 
 ### Страницы услуг (34 страницы)
 - [x] `aktivnye-timbildingi.astro` — Активные тимбилдинги ✅
-- [ ] `korporativy-moskva.astro` — Корпоративные мероприятия
-- [ ] `timilding-moskva.astro` — Тимбилдинги
+- [x] `korporativy-moskva.astro` — Корпоративные мероприятия ✅
+- [x] `timbilding-moskva.astro` — Тимбилдинги ✅
 - [ ] `konferencii-i-forumy.astro` — Конференции и форумы
-- [ ] `novogodniy-korporativ.astro` — Новогодние корпоративы
-- [ ] `prezentacii-novyh-produktov-launch-events.astro` — Launch Events
-- [ ] `festivaly-i-gorodskie-meropriyatiya.astro` — Фестивали
-- [ ] `gosudarstvennye-prazdniki.astro` — Государственные праздники
-- [ ] `intellektualnye-igry.astro` — Интеллектуальные игры
-- [ ] `kvesty-i-igry.astro` — Квесты и игры
-- [ ] `master-klassy.astro` — Мастер-классы
+- [x] `novogodniy-korporativ.astro` — Новогодние корпоративы ✅
+- [x] `prezentacii-novyh-produktov-launch-events.astro` — Launch Events ✅
+- [x] `festivaly-i-gorodskie-meropriyatiya.astro` — Фестивали ✅
+- [x] `gosudarstvennye-prazdniki.astro` — Государственные праздники ✅
+- [x] `intellektualnye-igry.astro` — Интеллектуальные игры ✅
+- [x] `kvesty-i-igry.astro` — Квесты и игры ✅
+- [x] `master-klassy.astro` — Мастер-классы ✅
 - [ ] `sportivnye-meropriyatiya.astro` — Спортивные мероприятия
-- [ ] `mice-delovoj-turizm.astro` — MICE и деловой туризм
-- [ ] `party.astro` — Party
-- [ ] `classic.astro` — Classic
-- [ ] `mediaproekty.astro` — Медиапроекты
-- [ ] `festivuli.astro` — Фестивули
+- [x] `mice-delovoj-turizm.astro` — MICE и деловой туризм ✅
+- [x] `party.astro` — Party ✅
+- [x] `classic.astro` — Classic ✅
+- [x] `mediaproekty.astro` — Медиапроекты ✅
+- [x] `festivali.astro` — Фестивули ✅
 - [ ] `zimnij-korporativ.astro` — Зимний корпоратив
-- [ ] `letnij-korporativ.astro` — Летний корпоратив
-- [ ] `korporativ-na-prirode.astro` — Корпоратив на природе
+- [x] `letnij-korporativ.astro` — Летний корпоратив ✅
+- [x] `korporativ-na-prirode.astro` — Корпоратив на природе ✅
+- [x] `korporativ-na-9-maya.astro` — Корпоратив на 9 Мая ✅
 - [ ] `timilding-na-prirode.astro` — Тимбилдинг на природе
-- [ ] `immersivnyj-korporativ.astro` — Иммерсивный корпоратив
-- [ ] `kreativnye-timbildingi.astro` — Креативные тимбилдинги
-- [ ] `delovye-meropriyatiya.astro` — Деловые мероприятия
-- [ ] `seminary-i-treningi.astro` — Семинары и тренинги
+- [x] `immersivnyj-korporativ.astro` — Иммерсивный корпоратив ✅
+- [x] `kreativnye-timbildingi.astro` — Креативные тимбилдинги ✅
+- [x] `delovye-meropriyatiya.astro` — Деловые мероприятия ✅
+- [x] `seminary-i-treningi.astro` — Семинары и тренинги ✅
 - [ ] `strategicheskie-sessii-i-vorkshopy.astro` — Стратегические сессии
-- [ ] `onlajn-meropriyatiya.astro` — Онлайн мероприятия
+- [x] `onlajn-meropriyatiya.astro` — Онлайн мероприятия ✅
 - [ ] `tendery.astro` — Тендеры
 - [ ] `turisticheskie-i-ekskursionnye-meropriyatiya.astro` — Туристические мероприятия
 - [ ] `yubilej-kompanii.astro` — Юбилей компании
-- [ ] `event-agentstvo-moskva.astro` — Event агентство
-- [ ] `organizaciya-meropriyatij-v-moskve.astro` — Организация мероприятий
+- [x] `event-agentstvo-moskva.astro` — Event агентство ✅
+- [x] `organizaciya-meropriyatij-v-moskve.astro` — Организация мероприятий ✅
 - [ ] `aktivnye-timbildingi.astro` — Активные тимбилдинги
 - [ ] `art-korporativ.astro` — Арт корпоратив
 
@@ -95,7 +101,7 @@
 - [ ] `blog-post-pochemu-russkie-narodnye-motivy-populyarny.astro`
 
 ### Прочее (5 страниц)
-- [ ] `o-nas.astro` — О нас
+- [x] `o-nas.astro` — О нас ✅
 - [ ] `video-portfolio.astro` — Видео портфолио
 - [ ] `videoproduction.astro` — Видеопродакшн
 
