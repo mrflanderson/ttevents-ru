@@ -3,6 +3,7 @@ import Layout from "../components/Layout.astro";
 import CaseCard from "../components/CaseCard.astro";
 import Hero from "../components/Hero.astro";
 import FAQ from "../components/FAQ.astro";
+import { getCollection } from "astro:content";
 
 const pageTitle = "Кейсы и портфолио — реализованные проекты | TT Events";
 const pageDescription =
@@ -10,44 +11,20 @@ const pageDescription =
 const keywords =
     "кейсы event агентства, портфолио мероприятий, реализованные проекты, case studies москва";
 
-const cases = [
-    {
-        title: "Новогодний корпоратив в SPA-отеле",
-        href: "/case/art-novy-god-otel-svezhy-veter-2026",
-        category: "Новогодний корпоратив",
-        image: "/images/case-ny.jpg",
-    },
-    {
-        title: "Арт-корпоратив для агентства недвижимости",
-        href: "/case/artpop",
-        category: "Арт-корпоратив",
-        image: "/images/case-artpop.jpg",
-    },
-    {
-        title: "Презентация спецтехники UMG",
-        href: "/case/lauch-event-umg",
-        category: "Launch Event",
-        image: "/images/case-umg.jpg",
-    },
-    {
-        title: "Корпоратив на 9 мая",
-        href: "/case/9may",
-        category: "Государственный праздник",
-        image: "/images/case-9may.jpg",
-    },
-    {
-        title: "Фестиваль в парке Заря",
-        href: "/case-nad-moskvoy-zarya",
-        category: "Фестиваль",
-        image: "/images/case-zarya.jpg",
-    },
-    {
-        title: "Корпоратив в отеле «Королёвский»",
-        href: "/case/korolevsky-novy-god-24",
-        category: "Новогодний корпоратив",
-        image: "/images/case-korolevsky.jpg",
-    },
-];
+const allCases = await getCollection("cases");
+
+const cases = allCases
+    .filter((post) => post.data?.published !== false)
+    .map((post) => {
+        const slug = post.id; // e.g. "artpop", "9may-corporate"
+        const tags = post.data?.tags ?? [];
+        return {
+            title: post.data?.title ?? "Кейс",
+            href: `/case/${slug}`,
+            category: tags?.[0] ?? "Кейс",
+            image: post.data?.coverImage ?? "/images/case-default.jpg",
+        };
+    });
 
 const faqItems = [
     {

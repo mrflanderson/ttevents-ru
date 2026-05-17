@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../components/Layout.astro";
 import Hero from "../components/Hero.astro";
 import FAQ from "../components/FAQ.astro";
@@ -9,53 +10,20 @@ const pageDescription =
 const keywords =
     "блог event агентства, статьи корпоративы, идеи мероприятий москва, новости ивент-индустрии";
 
-const articles = [
-    {
-        title: "3 тренда в организации корпоративов 2026",
-        href: "/blog-3-trenda",
-        category: "Тренды",
-    },
-    {
-        title: "Идеи корпоратива на 9 мая 2026 в Москве",
-        href: "/blog-korporativ-na-9-maya-2026-v-moskve",
-        category: "Праздники",
-    },
-    {
-        title: "Как организовать корпоратив в Москве 2026",
-        href: "/blog-organizatsiya-korporativov-moskva-2026",
-        category: "Гайд",
-    },
-    {
-        title: "Идеи для post-it корпоратива",
-        href: "/blog-post-it-corporativ-idei",
-        category: "Идеи",
-    },
-    {
-        title: "Post-it корпоратив: форматы и идеи",
-        href: "/blog-post-it-corporativ",
-        category: "Форматы",
-    },
-    {
-        title: "10 форматов презентации нового продукта",
-        href: "/blog-post-kak-provesti-launch-event-10-formatov-prezentacii-novogo-produkta",
-        category: "Launch",
-    },
-    {
-        title: "Как выбрать event-агентство в Москве",
-        href: "/blog-post-kak-vybrat-event-agentstvo-v-moskve",
-        category: "Выбор",
-    },
-    {
-        title: "12 идей корпоратива на 9 мая 2026",
-        href: "/blog-post-korporativ-na-9-maya-dlya-kompanii-12-idej-meropriyatij-ko-dnyu-pobedy-scenarii-i-formaty-2026",
-        category: "Идеи",
-    },
-    {
-        title: "Почему русские народные мотивы популярны",
-        href: "/blog-post-pochemu-russkie-narodnye-motivy-populyarny",
-        category: "Тематика",
-    },
-];
+const allPosts = await getCollection("blog");
+const articles = allPosts
+    .filter((p) => p.data.published !== false)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .map((p) => {
+        const slug = p.id; // e.g. "3-trendy-organizacii-korporativov-2026"
+        return {
+            title: p.data.title,
+            href: `/blog/${slug}`,
+            category: p.data.tags?.[0] || "Статья",
+            coverImage: p.data.coverImage,
+            description: p.data.description,
+        };
+    });
 
 const faqItems = [
     {
@@ -134,7 +102,7 @@ const faqItems = [
                                 >
                                     <div class="relative h-48 overflow-hidden">
                                         <img
-                                            src={`/images/blog-${(article.href.split("/").pop() || "").replace(".astro", "")}.jpg`}
+                                            src={article.coverImage ?? "/images/blog-hero-bg.jpg"}
                                             alt={article.title}
                                             width="400"
                                             height="300"

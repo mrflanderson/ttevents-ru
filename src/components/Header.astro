@@ -89,7 +89,7 @@ const navItems: NavSection[] = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-4">
             <!-- Logo -->
-            <a href="/" class="flex-shrink-0 group">
+            <a href="/" class="flex-shrink-0 group" aria-label="TT Events">
                 <svg
                     width="120"
                     height="32"
@@ -97,6 +97,7 @@ const navItems: NavSection[] = [
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-8 transition-transform duration-300 group-hover:scale-[1.02]"
+                    aria-hidden="true"
                 >
                     <text
                         x="0"
@@ -121,63 +122,250 @@ const navItems: NavSection[] = [
                 </svg>
             </a>
 
+            <!-- Desktop navigation -->
+            <nav
+                class="hidden md:block"
+                aria-label="Основная навигация"
+            >
+                <div class="flex items-center gap-8">
+                    {navItems.map((section) => {
+                        const hasChildren = section.children && section.children.length > 0;
+                        const menuId = hasChildren ? `menu-${section.label.toLowerCase().replace(/[^\wа-яё]/gi, '').trim()}` : null;
+
+                        return (
+                            <div class="relative group"> {section.href && !hasChildren ? (
+                                <a
+                                    href={section.href}
+                                    class="block py-4 text-base font-medium text-text hover:text-primary transition-colors duration-200"
+                                >
+                                    {section.label}
+                                </a>
+                            ) : hasChildren ? (
+                                <div class="relative">
+                                    <button
+                                        type="button"
+                                        class="inline-flex items-center gap-1 py-4 text-base font-medium text-text hover:text-primary transition-colors duration-200"  aria-haspopup="true" aria-controls={menuId} aria-expanded="false" aria-label={`${section.label}, открыть подменю`}
+                                        data-dropdown-trigger
+                                    >
+                                        {section.label}
+                                    </button>
+
+                                    <ul
+                                        id={menuId}
+                                        class="absolute top-full left-0 mt-1 w-60 bg-white shadow-xl border border-gray-100 rounded-lg py-2 hidden flex-col z-50"
+                                        aria-label={section.label}
+                                    >
+                                        {section.children.map((child) => (
+                                            <li>
+                                                <a
+                                                    href={child.href}
+                                                    class="block px-4 py-2 text-sm text-text hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+                                                >
+                                                    {child.label}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ) : (
+                                <span class="block py-4 text-base font-medium text-text cursor-default">
+                                    {section.label}
+                                </span>
+                            )}
+                            </div>
+                        );
+                    })}
+                </div>
+            </nav>
+
             <!-- Mobile menu button with proper accessibility -->
             <button
                 type="button"
                 class="md:hidden flex flex-col gap-1.5 p-2 text-dark focus:outline-none mobile-menu-toggle"
                 aria-label="Открыть меню"
                 aria-expanded="false"
+                aria-controls="mobile-main-nav"
                 id="mobile-menu-button"
-                aria-controls="main-nav"
             >
                 <span class="block w-6 h-[2px] bg-current"></span>
                 <span class="block w-6 h-[2px] bg-current"></span>
                 <span class="block w-6 h-[2px] bg-current"></span>
             </button>
 
-            <!-- Navigation with proper accessibility -->
-            <nav
-                class="md:flex absolute left-0 right-0 top-full bg-white border-b shadow-lg md:static md:shadow-none md:border-0 py-4 md:py-0 px-4 md:px-0 flex-col md:flex-row md:items-center md:gap-8 justify-end main-nav hidden md:block"
-                id="main-nav"
-                aria-label="Основная навигация"
-                role="navigation"
+            <!-- Mobile navigation wrapper -->
+            <div
+                class="md:hidden absolute left-0 right-0 top-full bg-white border-b shadow-lg flex-col py-4 px-4 main-nav hidden"
+                id="mobile-main-nav"
+                aria-label="Основная навигация (мобильное меню)"
+                role="region"
             >
-                <ul
-                    class="flex flex-col gap-2 md:flex-row md:items-center md:gap-6 list-none p-0 m-0 w-full"
-                >
-                    {navItems.map((section) => (
-                        <li class="relative group">
-                            {section.href ? (
-                                <a
-                                    href={section.href}
-                                    class="block py-2 md:py-4 text-base font-medium text-text hover:text-primary transition-colors duration-200"
-                                >
-                                    {section.label}
-                                </a>
-                            ) : (
-                                <span class="block py-2 md:py-4 text-base font-medium text-text cursor-default">
-                                    {section.label}
-                                </span>
-                            )}
+                <nav>
+                    <ul
+                        class="flex flex-col gap-2 list-none p-0 m-0 w-full"
+                    >
+                        {navItems.map((section) => {
+                            const hasChildren = section.children && section.children.length > 0;
+                            const submenuId = hasChildren ? `mobile-menu-${section.label.toLowerCase().replace(/[^\wа-яё]/gi, '').trim()}` : null;
 
-                            {section.children && section.children.length > 0 && (
-                                <ul class="absolute top-full left-0 mt-1 w-60 bg-white shadow-xl border border-gray-100 rounded-lg py-2 hidden group-hover:flex flex-col z-50">
-                                    {section.children.map((child) => (
-                                        <li>
-                                            <a
-                                                href={child.href}
-                                                class="block px-4 py-2 text-sm text-text hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+                            return (
+                                <li class="relative">
+                                    {section.href && !hasChildren ? (
+                                        <a
+                                            href={section.href}
+                                            class="block py-2 text-base font-medium text-text hover:text-primary transition-colors duration-200"
+                                        >
+                                            {section.label}
+                                        </a>
+                                    ) : hasChildren ? (
+                                        <>
+                                            <button
+                                                type="button"
+                                                class="w-full flex justify-between items-center py-2 text-base font-medium text-text hover:text-primary transition-colors duration-200"
+                                                aria-controls={submenuId}
+                                                aria-expanded="false"
+                                                aria-haspopup="true"
+                                                aria-label={`${section.label}, открыть подменю`}
+                                                data-mobile-accordion
                                             >
-                                                {child.label}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+                                                {section.label}
+                                            </button>
+                                            <ul
+                                                id={submenuId}
+                                                class="hidden mt-1 mb-1 pl-2 flex flex-col gap-1 border-l border-gray-100"
+                                                aria-label={section.label}
+                                            >
+                                                {section.children.map((child) => (
+                                                    <li>
+                                                        <a
+                                                            href={child.href}
+                                                            class="block py-1 text-sm text-text hover:text-primary transition-colors duration-200"
+                                                        >
+                                                            {child.label}
+                                                        </a>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </>
+                                    ) : (
+                                        <span class="block py-2 text-base font-medium text-text cursor-default">
+                                            {section.label}
+                                        </span>
+                                    )}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </header>
+
+<script>
+    // Desktop dropdown accessibility: hover-friendly + keyboard support
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.querySelector('header');
+        if (!header) return;
+
+        const dropdowns: { button: HTMLButtonElement; menu: HTMLElement }[] = [];
+
+        header.querySelectorAll('[data-dropdown-trigger]').forEach((el: HTMLElement) => {
+            const btn = el as HTMLButtonElement;
+            const menu = btn.parentElement?.querySelector('ul[id]');
+            if (!menu) return;
+            dropdowns.push({ button: btn, menu });
+        });
+
+        // Mouse: hover to show (keep existing feel)
+        header.addEventListener('mouseenter', (e) => {
+            const t = e.target as HTMLElement;
+            const btn = t?.closest<HTMLButtonElement>('[data-dropdown-trigger]');
+            if (!btn) return;
+            const dd = dropdowns.find((d) => d.button === btn);
+            if (!dd) return;
+
+            dropdowns.forEach((d) => {
+                d.menu.classList.add('hidden');
+                d.button.setAttribute('aria-expanded', 'false');
+            });
+
+            dd.menu.classList.remove('hidden');
+            dd.menu.classList.add('flex');
+            dd.button.setAttribute('aria-expanded', 'true');
+        });
+
+        // Click / keyboard: toggle dropdown
+        dropdowns.forEach((dd) => {
+            dd.button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const willExpand = dd.button.getAttribute('aria-expanded') !== 'true';
+
+                dropdowns.forEach((d) => {
+                    d.menu.classList.add('hidden');
+                    d.button.setAttribute('aria-expanded', 'false');
+                });
+
+                if (willExpand) {
+                    dd.menu.classList.remove('hidden');
+                    dd.menu.classList.add('flex');
+                    dd.button.setAttribute('aria-expanded', 'true');
+                    dd.menu.querySelector('a')?.focus();
+                }
+            });
+        });
+
+        // Keyboard: Enter, Space, ArrowDown -> open and move focus; Escape -> close
+        dropdowns.forEach((dd) => {
+            const links = Array.from(dd.menu.querySelectorAll('a'));
+            dd.button.addEventListener('keydown', (e) => {
+                const key = e.key;
+                const expanded = dd.button.getAttribute('aria-expanded') === 'true';
+
+                if (key === 'ArrowDown' && !expanded) {
+                    e.preventDefault();
+                    dropdowns.forEach((d) => {
+                        d.menu.classList.add('hidden');
+                        d.button.setAttribute('aria-expanded', 'false');
+                    });
+                    dd.menu.classList.remove('hidden');
+                    dd.menu.classList.add('flex');
+                    dd.button.setAttribute('aria-expanded', 'true');
+                    links[0]?.focus();
+                    return;
+                }
+
+                if (key === 'Escape') {
+                    e.preventDefault();
+                    dd.menu.classList.add('hidden');
+                    dd.button.setAttribute('aria-expanded', 'false');
+                    dd.button.focus();
+                    return;
+                }
+            });
+
+            // Arrow navigation inside dropdown
+            dd.menu.addEventListener('keydown', (e) => {
+                const key = e.key;
+                const current = document.activeElement as HTMLElement;
+                const idx = links.indexOf(current);
+
+                if (key === 'ArrowDown') {
+                    e.preventDefault();
+                    const next = links[(idx + 1) % links.length];
+                    next?.focus();
+                } else if (key === 'ArrowUp') {
+                    e.preventDefault();
+                    const prev = links[(idx - 1 + links.length) % links.length];
+                    prev?.focus();
+                } else if (key === 'Escape') {
+                    e.preventDefault();
+                    dd.menu.classList.add('hidden');
+                    dd.button.setAttribute('aria-expanded', 'false');
+                    dd.button.focus();
+                } else if (key === 'Tab') {
+                    dd.menu.classList.add('hidden');
+                }
+            });
+        });
+    });
+</script>

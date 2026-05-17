@@ -1,8 +1,9 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "NodeNext",
     "strict": true,
     "jsx": "preserve",
     "esModuleInterop": true,
@@ -14,6 +15,8 @@
     "paths": {
       "@/*": ["./src/*"],
     },
+    "types": ["astro/client", "vite/client"],
+    "verbatimModuleSyntax": true,
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"],

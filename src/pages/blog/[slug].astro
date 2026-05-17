@@ -1,0 +1,105 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../components/Layout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts
+    .filter((post) => post.data.published !== false)
+    .map((post) => {
+      const slug = post.id.replace(/^.*\//, ""); // e.g. "3-trendy-organizacii-korporativov-2026"
+      return {
+        route: `/blog/${slug}`,
+        params: { slug },
+        props: { slug, postId: post.id },
+      };
+    });
+}
+
+const allPosts = await getCollection("blog");
+const { slug, postId } = Astro.props;
+const post = allPosts.find((p) => p.id === postId);
+
+if (!post) throw new Error("Blog post not found");
+
+const meta = post.data;
+const title = meta.title || "Статья | TT Events";
+const description = meta.description || "";
+const canonicalURL = `/blog/${slug}`;
+
+const formatDate = (value: Date | string) => {
+  if (!value) return "";
+  const d = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toLocaleDateString("ru-RU", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalURL={canonicalURL}
+>
+  <article class="py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Breadcrumbs */}
+      <nav class="text-sm text-text-light mb-4">
+        <a href="/" class="hover:text-primary">Главная</a> /{" "}
+        <a href="/blog" class="hover:text-primary">Блог</a> /{" "}
+        <span class="font-medium text-text">{title}</span>
+      </nav>
+
+      {/* Title + metadata */}
+      <header class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-dark font-heading mb-4">
+          {meta.title}
+        </h1>
+
+        {meta.description && (
+          <p class="text-lg text-text-light mb-4">{meta.description}</p>
+        )}
+
+        <div class="flex flex-wrap items-center gap-4 text-sm text-text-light">
+          {meta.date && (
+            <span>{formatDate(meta.date)}</span>
+          )}
+
+          {meta.tags?.length && (
+            <span class="flex flex-wrap gap-2">
+              {meta.tags.map((tag: string) => (
+                <span
+                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs bg-gray-100 text-text-light"
+                >
+                  {tag}
+                </span>
+              ))}
+            </span>
+          )}
+        </div>
+      </header>
+
+      {/* Cover Image */}
+      {meta.coverImage && (
+        <div class="mb-10 overflow-hidden rounded-xl bg-gray-100">
+          <img
+            src={meta.coverImage}
+            alt={meta.title}
+            class="w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+      )}
+
+      {/* Article Body */}
+      <div
+        class="prose prose-lg max-w-none text-text"
+        dangerouslySetInnerHTML={{ __html: post.body }}
+      />
+    </div>
+  </article>
+</Layout>

@@ -1,43 +1,68 @@
 @import "tailwindcss";
 
-/* ===== BASE LAYOUT & TYPOGRAPHY (Agency-style foundation) ===== */
+/* ===== DESIGN TOKENS (Tailwind v4–style) ===== */
+
+@theme {
+  --font-sans:
+    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #fecaca;
+  --color-primary-500: #f15264;
+  --color-primary-600: #e61d3d;
+  --color-bg: #0f172a;
+  --color-bg-soft: #111827;
+  --color-text: #111827;
+  --color-text-soft: #4b5563;
+  --color-muted: #6b7280;
+  --radius-2xl: 1.5rem;
+  --radius-xl: 1.25rem;
+  --radius-lg: 1rem;
+}
+
+/* ===== BASE LAYOUT & TYPOGRAPHY ===== */
 
 @layer base {
-  html {
-    font-family:
-      "Inter",
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      sans-serif;
+  :root {
     scroll-behavior: smooth;
   }
+
   body {
-    @apply text-gray-800 leading-normal bg-gray-50;
+    @apply bg-gray-50 text-gray-800 leading-relaxed;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: "Exo 2", "Inter", sans-serif;
+    font-family: "Exo 2", var(--font-sans);
     @apply tracking-tight text-gray-900;
   }
+
   h1 {
     @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-snug;
   }
+
   h2 {
     @apply text-2xl md:text-3xl font-semibold leading-tight;
   }
+
   h3 {
     @apply text-xl md:text-2xl font-semibold leading-tight;
   }
+
   h4,
   h5,
   h6 {
     @apply text-lg font-medium;
   }
+
   p,
   li,
   td,
@@ -47,43 +72,87 @@
   figcaption {
     @apply text-base leading-relaxed;
   }
+
   a {
     @apply transition-colors duration-200;
   }
+
+  ::selection {
+    @apply bg-primary-500 text-white;
+  }
 }
 
-/* ===== CONTAINER NORMS + CARDS / BUTTONS / GRIDS ===== */
+/* ===== COMPONENT CLASSES (reusable) ===== */
 
 @layer components {
   .container {
     @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12;
   }
+
   .card {
-    @apply bg-neutral-900 rounded-xl border border-white/[0.03] p-5 flex-col shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden;
+    @apply bg-white rounded-2xl border border-gray-100 p-5
+      shadow-sm hover:shadow-md transition-all duration-300
+      flex-col overflow-hidden;
   }
+
+  .card-dark {
+    @apply bg-neutral-900/90 text-white rounded-2xl
+      border border-white/[0.03] p-5
+      shadow-md hover:shadow-lg transition-all duration-300
+      flex-col overflow-hidden;
+  }
+
   .grid-default {
     @apply grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))];
   }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2
+      rounded-xl font-medium border border-transparent
+      transition-all duration-200 cursor-pointer;
+  }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-yellow-400/90 text-neutral-900 px-3 py-1.5 text-xs font-semibold hover:bg-yellow-500 active:scale-[0.97] transition-all duration-200 cursor-pointer;
+    @extend .btn;
+    @apply bg-primary-500 text-white hover:bg-primary-600
+      active:scale-[0.97] shadow-md hover:shadow-lg;
   }
+
+  .btn-soft {
+    @extend .btn;
+    @apply bg-primary-50 text-primary-600 hover:bg-primary-100;
+  }
+
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 text-sm font-medium text-zinc-200 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-pointer;
+    @extend .btn;
+    @apply border-gray-200 text-gray-700
+      hover:bg-gray-50 hover:text-gray-900;
   }
+
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 leading-snug mb-8 md:mb-10 text-center;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold
+      tracking-tight text-gray-900 leading-snug
+      mb-8 md:mb-10 text-center;
   }
+
   .text-gradient {
-    @apply bg-gradient-to-r from-[#f15264] to-[#d93f50] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#f15264] to-[#d93f50]
+      bg-clip-text text-transparent;
+  }
+
+  .sr-only {
+    @apply absolute w-px h-px overflow-hidden -left-px
+      whitespace-nowrap opacity-0;
   }
 }
 
-/* ===== UTILITY ANIMATIONS (preserves existing behavior) ===== */
+/* ===== UTILITY ANIMATIONS ===== */
 
 @layer utilities {
   .animate-scroll {
     animation: scroll 30s linear infinite;
   }
+
   @keyframes scroll {
     0% {
       transform: translateX(0);
@@ -92,17 +161,19 @@
       transform: translateX(-50%);
     }
   }
+
   .fade-in {
-    animation: fadeIn 0.5s ease-in;
+    animation: fadeIn 0.5s ease-out;
   }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(14px);
     }
     to {
       opacity: 1;
-      transform: none;
+      transform: translateY(0);
     }
   }
 }
