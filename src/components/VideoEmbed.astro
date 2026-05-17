@@ -1,0 +1,102 @@
+---
+interface Props {
+    src?: string;
+    rutubeId?: string;
+    poster?: string;
+    width?: number;
+    height?: number;
+    autoplay?: boolean;
+    muted?: boolean;
+    loop?: boolean;
+    class?: string;
+}
+
+const {
+    src,
+    rutubeId,
+    poster = "/images/video-poster.jpg",
+    width = 800,
+    height = 450,
+    autoplay = false,
+    muted = true,
+    loop = true,
+    class: videoClass = "",
+} = Astro.props;
+
+const isRutube = !!rutubeId;
+---
+
+{isRutube ? (
+    <!-- Rutube Embed -->
+    <div class={`relative aspect-video ${videoClass}`}>
+        <div class="absolute inset-0 bg-black/10" />
+        <iframe
+            src={`https://rutube.ru/embed/${rutubeId}/`}
+            width={width}
+            height={height}
+            style="border:none;"
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-writing; autoplay"
+            loading="lazy"
+            frameborder="0"
+            allowfullscreen
+            class="w-full h-full"
+        />
+        {poster && (
+            <img
+                src={poster}
+                alt="Video thumbnail"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                style="display:none;"
+                aria-hidden="true"
+            />
+        )}
+    </div>
+) : (
+    <!-- Regular MP4 Video -->
+    <div class={`relative aspect-video overflow-hidden ${videoClass}`}>
+        <video
+            src={src}
+            poster={poster}
+            width={width}
+            height={height}
+            autoplay={autoplay}
+            muted={muted}
+            loop={loop}
+            playsinline
+            class="w-full h-full object-cover"
+            preload="metadata"
+            loading="lazy"
+        >
+            Ваш браузер не поддерживает встроенное видео.
+        </video>
+    </div>
+)}
+
+---
+
+```css
+<style>
+    .aspect-video {
+        aspect-ratio: 16 / 9;
+    }
+</style>
+```
+
+---
+
+**Пример использования:**
+
+```html
+<!-- MP4 видео -->
+<VideoEmbed
+    src="/video/hero_new2.mp4"
+    poster="/video/hero_new2.png"
+/>
+
+<!-- Rutube встраивание -->
+<VideoEmbed
+    rutubeId="YOUR_VIDEO_ID"
+    poster="/images/video-cover.jpg"
+/>
+```

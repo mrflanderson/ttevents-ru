@@ -13,16 +13,18 @@ const {
     subtitle,
     ctaText,
     ctaHref,
-    videoSrc = "/f/m24_v2.mp4",
-    backgroundImage = "/images/hero-bg.jpg",
+    videoSrc = "/video/m24_v2.mp4",
+    backgroundImage,
 } = Astro.props;
+
+const defaultBackgroundImage = "/video/hero_new2.png";
 ---
 
 <section
     class="relative min-h-[600px] flex items-center text-white overflow-hidden"
 >
     <img
-        src={backgroundImage}
+        src={backgroundImage || defaultBackgroundImage}
         alt=""
         class="absolute inset-0 w-full h-full object-cover"
         aria-hidden="true"
