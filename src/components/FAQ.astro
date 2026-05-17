@@ -15,11 +15,20 @@ const { items } = Astro.props;
         </h2>
 
         <div class="max-w-3xl mx-auto">
-            {items.map((item) => (
-                <details class="group border-b border-gray-200 transition-all duration-300 open:bg-white/50">
-                    <summary class="flex justify-between items-center py-6 cursor-pointer list-none text-left font-heading text-lg md:text-xl font-semibold text-dark hover:text-primary transition-colors duration-200">
+            {items.map((item, index) => (
+                <details
+                    class="group border-b border-gray-200 transition-all duration-300 open:bg-white/50"
+                    aria-expanded="false"
+                    id={`faq-item-${index}`}
+                >
+                    <summary
+                        class="flex justify-between items-center py-6 cursor-pointer list-none text-left font-heading text-lg md:text-xl font-semibold text-dark hover:text-primary transition-colors duration-200"
+                        role="button"
+                        aria-label={item.question}
+                    >
                         <span>{item.question}</span>
-                        <span class="text-2xl text-primary shrink-0 ml-4 group-[&[open]]:rotate-45 transition-transform duration-300 ease-in-out">
+                        <span class="text-2xl text-primary shrink-0 ml-4 group-[&[open]]:rotate-45 transition-transform duration-300 ease-in-out"
+                            aria-hidden="true">
                             +
                         </span>
                     </summary>

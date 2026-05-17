@@ -121,20 +121,26 @@ const navItems: NavSection[] = [
                 </svg>
             </a>
 
-            <!-- Mobile menu button -->
+            <!-- Mobile menu button with proper accessibility -->
             <button
                 type="button"
                 class="md:hidden flex flex-col gap-1.5 p-2 text-dark focus:outline-none mobile-menu-toggle"
                 aria-label="Открыть меню"
+                aria-expanded="false"
+                id="mobile-menu-button"
+                aria-controls="main-nav"
             >
                 <span class="block w-6 h-[2px] bg-current"></span>
                 <span class="block w-6 h-[2px] bg-current"></span>
                 <span class="block w-6 h-[2px] bg-current"></span>
             </button>
 
-            <!-- Navigation -->
+            <!-- Navigation with proper accessibility -->
             <nav
                 class="md:flex absolute left-0 right-0 top-full bg-white border-b shadow-lg md:static md:shadow-none md:border-0 py-4 md:py-0 px-4 md:px-0 flex-col md:flex-row md:items-center md:gap-8 justify-end main-nav hidden md:block"
+                id="main-nav"
+                aria-label="Основная навигация"
+                role="navigation"
             >
                 <ul
                     class="flex flex-col gap-2 md:flex-row md:items-center md:gap-6 list-none p-0 m-0 w-full"

@@ -86,6 +86,8 @@ const topCases = [
                 loop
                 muted
                 playsinline
+                preload="auto"
+                poster="/video/hero_new2.png"
                 class="absolute inset-0 w-full h-full object-cover"
             >
                 <source src="/video/hero_new2.mp4" type="video/mp4" />
@@ -574,45 +576,60 @@ const topCases = [
         </section>
 
         <!-- CTA Section -->
+        <!-- Contact CTA Section — контрастный дизайн с тёмным фоном -->
         <section
-            class="relative min-h-[400px] flex items-center text-white overflow-hidden py-24"
+            class="relative min-h-[400px] flex items-center text-white overflow-hidden py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"
         >
-            <img
-                src="/images/lp-fon-image.png"
-                alt=""
-                class="absolute inset-0 w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 bg-primary/80"></div>
+            <!-- Декоративный паттерн -->
+            <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
             <div
                 class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center"
             >
+                <!-- Бейдж -->
+                <span class="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary/20 border border-primary/30 text-sm font-medium text-white">
+                    Более 2000 проектов
+                </span>
+
                 <h2
                     class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6"
                 >
                     Свяжитесь с нами
                 </h2>
                 <p
-                    class="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto"
+                    class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
                 >
-                    Предложим формат и рассчитаем бюджет в течение 1 дня
+                    Предложим формат и рассчитаем бюджет в течение 1 дня.
+                    Бесплатная консультация без обязательств.
                 </p>
+
+                <!-- Контакты -->
                 <div
-                    class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                    class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
                 >
                     <a
                         href="tel:+79169064490"
-                        class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-white hover:bg-white/90 text-primary shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
+                        class="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/25 hover:shadow-xl transition-all duration-300 text-lg"
                     >
+                        <span class="w-5 h-5">📞</span>
                         +7 (916) 906-44-90
                     </a>
                     <a
                         href="/kontakty"
-                        class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
+                        class="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold bg-white/10 border-2 border-white/20 hover:bg-white hover:text-primary text-white backdrop-blur-sm shadow-lg transition-all duration-300 text-lg"
                     >
+                        <span>✉️</span>
                         Оставить заявку
                     </a>
                 </div>
+
+                <!-- Email -->
+                <p class="text-gray-400 text-sm">
+                    Или напишите нам на&nbsp;
+                    <a href="mailto:mail@ttevents.ru" class="text-primary hover:text-white transition-colors duration-200 underline font-medium">
+                        mail@ttevents.ru
+                    </a>
+                </p>
             </div>
         </section>
     </div>

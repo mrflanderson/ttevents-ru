@@ -1,9 +1,9 @@
 ---
 // src/components/client/MobileMenu.astro
-// Клиент-только компонент для мобильного меню
+// Клиентский компонент для мобильного меню с поддержкой доступности
 ---
 
-<div class="mobile-menu-handler hidden">
+<div class="mobile-menu-handler">
     <style>
         .main-nav.active {
             display: flex;
@@ -20,16 +20,18 @@
         }
     </style>
 
-    <script is:inline>
-        document.addEventListener("DOMContentLoaded", () => {
-            const toggle = document.querySelector(".mobile-menu-toggle");
-            const nav = document.querySelector(".main-nav");
-            if (toggle && nav) {
-                toggle.addEventListener("click", () => {
-                    toggle.classList.toggle("active");
-                    nav.classList.toggle("active");
-                });
-            }
-        });
+    <script is:inline define:visible>
+        const toggle = document.querySelector(".mobile-menu-toggle");
+        const nav = document.querySelector(".main-nav");
+        if (toggle && nav) {
+            toggle.addEventListener("click", () => {
+                toggle.classList.toggle("active");
+                nav.classList.toggle("active");
+
+                // Update aria-expanded for accessibility
+                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', !isExpanded ? 'true' : 'false');
+            });
+        }
     </script>
 </div>

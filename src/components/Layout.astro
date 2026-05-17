@@ -1,7 +1,7 @@
 ---
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
-import MobileMenu from "./client/MobileMenu.astro";
+import MobileMenu from "./client/MobileMenu.astro"; // client:visible директива в самом компоненте
 import "../styles/global.css";
 
 interface Props {
@@ -12,6 +12,7 @@ interface Props {
     ogDescription?: string;
     ogImage?: string;
     canonicalURL?: string;
+    jsonLd?: object; // Дополнительный JSON-LD для конкретных страниц (Article, Event и т.д.)
 }
 
 const {
@@ -22,11 +23,12 @@ const {
     ogDescription,
     ogImage,
     canonicalURL = Astro.url.pathname,
+    jsonLd,
 } = Astro.props;
 
 const fullTitle = title.includes("TT Events") ? title : `${title} | TT Events`;
 
-// JSON-LD Structured Data
+// JSON-LD Structured Data — только для существующих ресурсов
 const siteUrl = "https://ttevents.ru";
 const organizationName = "TT Events";
 const organizationUrl = `${siteUrl}`;
@@ -50,17 +52,8 @@ const organizationSchema = {
     },
 };
 
-const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: organizationName,
-    url: siteUrl,
-    potentialAction: {
-        "@type": "SearchAction",
-        target: `${siteUrl}/search?q={search_term_string}`,
-        "query-input": "required name=search_term_string",
-    },
-};
+// Search endpoint пока отсутствует — JSON-LD для WebSite будет добавлен после создания /search
+// const websiteSchema = { ... };
 
 const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -115,16 +108,13 @@ const breadcrumbSchema = {
             content={`https://ttevents.ru${canonicalURL}`}
         />
         <meta property="twitter:title" content={ogTitle || fullTitle} />
-        <meta
-            property="twitter:description"
-            content={ogDescription || description}
-        />
+        <meta property="twitter:description" content={ogDescription || description} />
         {ogImage && <meta property="twitter:image" content={ogImage} />}
 
         <!-- Favicon -->
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-        <!-- Fonts -->
+        <!-- Fonts — font-display:swap для устранения FOUT (Flash of Unstyled Text) -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -132,10 +122,14 @@ const breadcrumbSchema = {
             rel="stylesheet"
         />
 
-        <!-- JSON-LD Structured Data -->
+        <!-- JSON-LD Structured Data — только для валидных схем -->
         <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(organizationSchema)}</script>
-        <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(websiteSchema)}</script>
         <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(breadcrumbSchema)}</script>
+
+        <!-- Page-specific JSON-LD (Article, Event и т.д.) -->
+        {jsonLd && (
+            <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(jsonLd)}</script>
+        )}
     </head>
     <body class="bg-gray-50 min-h-screen flex flex-col">
         <Header />
@@ -146,7 +140,7 @@ const breadcrumbSchema = {
 
         <Footer />
 
-        <!-- Mobile Menu Handler -->
-        <MobileMenu />
+        <!-- Mobile Menu Handler — client:visible для выполнения JS при появлении в viewport -->
+        <MobileMenu client:visible />
     </body>
 </html>
