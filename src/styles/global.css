@@ -1,80 +1,108 @@
 @import "tailwindcss";
 
-@layer base {
-    html {
-        font-family:
-            "Inter",
-            system-ui,
-            -apple-system,
-            sans-serif;
-    }
+/* ===== BASE LAYOUT & TYPOGRAPHY (Agency-style foundation) ===== */
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Exo 2", "Inter", sans-serif;
-    }
+@layer base {
+  html {
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-gray-800 leading-normal bg-gray-50;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Exo 2", "Inter", sans-serif;
+    @apply tracking-tight text-gray-900;
+  }
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-snug;
+  }
+  h2 {
+    @apply text-2xl md:text-3xl font-semibold leading-tight;
+  }
+  h3 {
+    @apply text-xl md:text-2xl font-semibold leading-tight;
+  }
+  h4,
+  h5,
+  h6 {
+    @apply text-lg font-medium;
+  }
+  p,
+  li,
+  td,
+  th,
+  blockquote,
+  small,
+  figcaption {
+    @apply text-base leading-relaxed;
+  }
+  a {
+    @apply transition-colors duration-200;
+  }
 }
+
+/* ===== CONTAINER NORMS + CARDS / BUTTONS / GRIDS ===== */
 
 @layer components {
-    .container {
-        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-    }
-
-    .btn {
-        @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-300;
-    }
-
-    .btn-primary {
-        @apply bg-[#f15264] hover:bg-[#d93f50] text-white shadow-lg hover:shadow-xl;
-    }
-
-    .btn-outline {
-        @apply border-2 border-[#f15264] text-[#f15264] hover:bg-[#f15264] hover:text-white;
-    }
-
-    .section-title {
-        @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-[#1a1a1a];
-    }
-
-    .card {
-        @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden;
-    }
-
-    .text-gradient {
-        @apply bg-gradient-to-r from-[#f15264] to-[#d93f50] bg-clip-text text-transparent;
-    }
+  .container {
+    @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+  .card {
+    @apply bg-neutral-900 rounded-xl border border-white/[0.03] p-5 flex-col shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden;
+  }
+  .grid-default {
+    @apply grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))];
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-yellow-400/90 text-neutral-900 px-3 py-1.5 text-xs font-semibold hover:bg-yellow-500 active:scale-[0.97] transition-all duration-200 cursor-pointer;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 text-sm font-medium text-zinc-200 hover:bg-zinc-800 hover:text-white transition-all duration-300 cursor-pointer;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 leading-snug mb-8 md:mb-10 text-center;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#f15264] to-[#d93f50] bg-clip-text text-transparent;
+  }
 }
 
+/* ===== UTILITY ANIMATIONS (preserves existing behavior) ===== */
+
 @layer utilities {
-    .animate-scroll {
-        animation: scroll 30s linear infinite;
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
     }
-
-    @keyframes scroll {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-50%);
-        }
+    100% {
+      transform: translateX(-50%);
     }
-
-    .animate-fade-in {
-        animation: fadeIn 0.5s ease-in;
+  }
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    to {
+      opacity: 1;
+      transform: none;
     }
+  }
 }
