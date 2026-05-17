@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import Layout from '../components/Layout.astro';
 
@@ -683,4 +684,398 @@ TT Events — event-агентство в Москве. С 2006 года соз�
 </Fragment>
         </div>
     </div>
+=======
+<!--
+  TT Events — Tailwind CSS Migration
+  Auto-generated header for consistency
+-->
+
+---
+
+---
+import Layout from "../components/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CaseCard from "../components/CaseCard.astro";
+
+const pageMeta = {
+    title: "Организация мероприятий в Москве под ключ — TT Events",
+    description:
+        "Полный цикл организации мероприятий в Москве: от брифа и концепции до технического продакшна. Более 2000 проектов с 2006 года.",
+    keywords:
+        "организация мероприятий москва, event агентство москва, корпоративы, фестивали, городские праздники",
+    ogTitle: "Организация мероприятий в Москве — TT Events",
+    ogDescription:
+        "Полный цикл организации мероприятий в Москве: корпоративы, фестивали, городские праздники, презентации и launch events",
+    ogImage: "/images/og-organizaciya.jpg",
+};
+
+const services = [
+    {
+        title: "Корпоративные мероприятия",
+        href: "/korporativy-moskva",
+        count: 48,
+        image: "/images/korporativy.jpg",
+    },
+    {
+        title: "Фестивали и городские мероприятия",
+        href: "/festivaly-i-gorodskie-meropriyatiya",
+        count: 15,
+        image: "/images/festivali.jpg",
+    },
+    {
+        title: "Презентации и launch events",
+        href: "/prezentacii-novyh-produktov-launch-events",
+        count: 18,
+        image: "/images/launch.jpg",
+    },
+    {
+        title: "Новогодние корпоративы",
+        href: "/novogodniy-korporativ",
+        count: 56,
+        image: "/images/novy-god.jpg",
+    },
+    {
+        title: "Государственные праздники",
+        href: "/gosudarstvennye-prazdniki",
+        count: 12,
+        image: "/images/gos-prazdniki.jpg",
+    },
+    {
+        title: "Конференции и форумы",
+        href: "/konferencii-i-forumy",
+        count: 24,
+        image: "/images/konferencii.jpg",
+    },
+];
+
+const cases = [
+    {
+        title: "Новогодний корпоратив 2026 в стиле поп-арт",
+        href: "/case/artpop",
+        category: "Корпоратив",
+        image: "/images/case-artpop.jpg",
+    },
+    {
+        title: "Городской фестиваль «Время надежд»",
+        href: "/case/vremnadezhdfest2025",
+        category: "Фестиваль",
+        image: "/images/case-vremena-goda.jpg",
+    },
+    {
+        title: "День семьи, любви и верности",
+        href: "/case/ek-park",
+        category: "Городское мероприятие",
+        image: "/images/case-ek-park.jpg",
+    },
+];
+
+const relatedCases = [
+    {
+        title: "Флешмоб «Эхо Победы»",
+        href: "/case/eho-pobedy-ope-air-2025",
+        category: "Open-air",
+    },
+    {
+        title: "Launch Event UMG",
+        href: "/case/lauch-event-umg",
+        category: "Презентация",
+    },
+    {
+        title: "Масленица в Измайлово",
+        href: "/case/maslenitsa-izmaylovo25case",
+        category: "Городское мероприятие",
+    },
+];
+
+const faqItems = [
+    {
+        question: "Сколько времени требуется для организации мероприятия?",
+        answer: "Идеально — за 4–6 месяцев (лучшие площадки и артисты разбираются заранее). Реально — от 45 дней.",
+    },
+    {
+        question: "Каков средний бюджет корпоратива в Москве?",
+        answer: "Средний чек под ключ — от 15–22 тыс. ₽ на человека. 50 гостей ≈ 850–1,4 млн ₽, 100 гостей ≈ 1,4–2,8 млн ₽, 200+ ≈ 2,3–7+ млн ₽.",
+    },
+    {
+        question: "Работаете только в Москве или по всей России?",
+        answer: "По всей России и СНГ. Основная команда в Москве, но логистику и локальных подрядчиков выстраиваем за 2–3 недели.",
+    },
+    {
+        question: "Какие форматы мероприятий вы организуете?",
+        answer: "Корпоративы, тимбилдинги, конференции, фестивали, launch events, презентации, государственные праздники, городские мероприятия и другие форматы.",
+    },
+];
+---
+
+<Layout {...pageMeta}>
+    {/* Hero Section with Video Background */}
+    <section
+        class="relative min-h-[600px] md:min-h-[720px] flex items-center justify-center overflow-hidden bg-black"
+    >
+        <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/hero_new2.jpg"
+            class="absolute inset-0 w-full h-full object-cover"
+        >
+            <source src="/video/hero_new2.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-black/60 z-[2]"></div>
+        <div
+            class="relative z-[3] w-full max-w-[920px] px-4 md:px-6 lg:px-8 py-16 md:py-24"
+        >
+            <div class="text-center">
+                <p
+                    class="text-white text-lg md:text-xl lg:text-2xl leading-relaxed mb-12 md:mb-[45px] max-w-[780px] mx-auto text-shadow-black"
+                >
+                    От идеи и сценария до полной технической реализации и
+                    координации в день события.<br />
+                    <span class="font-extrabold text-primary"
+                        >Более 2000 реализованных проектов с 2006 года.</span
+                    ><br />
+                    Организация мероприятий под ключ для бизнеса, брендов и городских
+                    проектов в Москве.
+                </p>
+                <div
+                    class="flex flex-col md:flex-row gap-5 md:gap-6 justify-center items-center"
+                >
+                    <a
+                        href="tel:+79169064490"
+                        class="inline-flex items-center gap-2.5 px-9 py-4 rounded-full font-bold text-base md:text-lg transition-all duration-300 bg-primary hover:bg-primary-dark hover:-translate-y-1 hover:shadow-xl text-white"
+                    >
+                        📞 Позвонить сейчас
+                    </a>
+                    <a
+                        href="#brief-form"
+                        class="inline-flex items-center gap-2.5 px-9 py-4 rounded-full font-bold text-base md:text-lg transition-all duration-300 border-2 border-white bg-transparent hover:bg-white/10 hover:-translate-y-1 hover:shadow-xl text-white"
+                    >
+                        📝 Отправить бриф
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* SEO Intro Section */}
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8 leading-tight"
+            >
+                Организация мероприятий в Москве под ключ — event-агентство TT
+                Events
+            </h2>
+            <div class="max-w-[820px] mx-auto">
+                <p class="text-lg md:text-xl text-dark mb-6 leading-relaxed">
+                    Полный цикл организации мероприятий в Москве: от брифа и
+                    разработки концепции до технического продакшна, координации
+                    всех подрядчиков и проведения события «под ключ».
+                </p>
+                <p class="text-base md:text-lg text-text-light leading-relaxed">
+                    Работаем с корпоративными клиентами, брендами и
+                    государственными заказчиками. Более 2000 реализованных
+                    проектов с 2006 года — включая крупные городские праздники,
+                    фестивали в парках Москвы и масштабные корпоративные
+                    события.
+                </p>
+            </div>
+            <div class="mt-10">
+                <a
+                    href="#calculate"
+                    class="inline-flex items-center justify-center gap-2 px-12 py-5 rounded-full font-bold text-lg md:text-xl transition-all duration-300 bg-primary hover:bg-primary-dark hover:-translate-y-1 shadow-xl text-white"
+                >
+                    Рассчитать стоимость мероприятия
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {/* Cases Section */}
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-[60px] text-dark font-heading"
+            >
+                Реализованные кейсы организации мероприятий в Москве
+            </h2>
+
+            {/* Case 1 */}
+            <div
+                class="bg-white/80 backdrop-blur-lg border border-white rounded-3xl p-10 md:p-12 grid lg:grid-cols-[1.6fr_1fr] gap-10 mb-14"
+            >
+                <div class="rounded-2xl overflow-hidden bg-black">
+                    <video
+                        controls
+                        playsInline
+                        poster="/images/case-artpop.jpg"
+                        class="w-full"
+                    >
+                        <source src="/video/case-artpop.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div>
+                    <h3
+                        class="text-2xl md:text-3xl font-bold text-dark font-heading mb-6"
+                    >
+                        Новогодний корпоратив 2026 в стиле поп-арт
+                    </h3>
+                    <p
+                        class="text-base md:text-lg text-text-light mb-7 leading-relaxed"
+                    >
+                        Глубокий креативный ресерч, художественная концепция и
+                        полная реализация. Каждый успех команды превратили в
+                        настоящий шедевр поп-арта.
+                    </p>
+                    <a
+                        href="/case/artpop"
+                        class="inline-block border-b-2 border-primary text-primary font-bold text-base md:text-lg transition-colors hover:text-primary-dark"
+                    >
+                        Посмотреть полный кейс →
+                    </a>
+                </div>
+            </div>
+
+            {/* Case 2 */}
+            <div
+                class="bg-white/80 backdrop-blur-lg border border-white rounded-3xl p-10 md:p-12 grid lg:grid-cols-[1fr_1.6fr] gap-10 mb-20"
+            >
+                <div>
+                    <h3
+                        class="text-2xl md:text-3xl font-bold text-dark font-heading mb-6"
+                    >
+                        Городской фестиваль «Время надежд»
+                    </h3>
+                    <p
+                        class="text-base md:text-lg text-text-light mb-7 leading-relaxed"
+                    >
+                        Иммерсивная атмосфера, связь поколений и сложная
+                        логистика ретро-экспозиций. Полная организация
+                        сценической программы и интерактивных зон.
+                    </p>
+                    <a
+                        href="/case/vremnadezhdfest2025"
+                        class="inline-block border-b-2 border-primary text-primary font-bold text-base md:text-lg transition-colors hover:text-primary-dark"
+                    >
+                        Посмотреть полный кейс →
+                    </a>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-black">
+                    <video
+                        controls
+                        playsInline
+                        poster="/images/case-vremena-goda.jpg"
+                        class="w-full"
+                    >
+                        <source
+                            src="/video/case-vrem-na-dezh.mp4"
+                            type="video/mp4"
+                        />
+                    </video>
+                </div>
+            </div>
+
+            {/* Other Cases Grid */}
+            <h3
+                class="text-xl md:text-2xl font-bold text-center mb-10 md:mb-[40px] text-dark font-heading"
+            >
+                Другие реализованные проекты
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+                {
+                    relatedCases.map((item) => (
+                        <a
+                            href={item.href}
+                            class="bg-white rounded-2xl shadow-card hover:shadow-card-hover p-8 transition-all duration-300 no-underline"
+                        >
+                            <strong class="block text-lg md:text-xl font-bold text-dark mb-2">
+                                {item.title}
+                            </strong>
+                            <span class="text-text-light text-sm">
+                                {item.category}
+                            </span>
+                        </a>
+                    ))
+                }
+            </div>
+
+            <div class="mt-14 text-center">
+                <a
+                    href="/case"
+                    class="inline-block bg-white border-2 border-primary text-primary rounded-full font-bold text-base md:text-lg px-10 py-5 transition-all duration-300 hover:bg-primary hover:text-white"
+                >
+                    Посмотреть все кейсы →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {/* Services Section */}
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-dark font-heading"
+            >
+                Форматы мероприятий
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {services.map((service) => <ServiceCard {...service} />)}
+            </div>
+        </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8 text-center"
+            >
+                Часто задаваемые вопросы
+            </h2>
+            <div class="divide-y divide-gray-200">
+                {
+                    faqItems.map((item) => (
+                        <div class="py-4">
+                            <details>
+                                <summary class="font-semibold cursor-pointer text-dark list-none">
+                                    {item.question}
+                                </summary>
+                                <p class="mt-2 text-text-light leading-relaxed">
+                                    {item.answer}
+                                </p>
+                            </details>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    {/* CTA Section */}
+    <section class="py-16 md:py-24 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold font-heading mb-6">
+                Готовы организовать мероприятие?
+            </h2>
+            <p class="text-lg text-white/90 max-w-2xl mx-auto mb-8">
+                Наш менеджер подготовит 3 варианта программы под ваш бюджет и
+                количество участников в течение 24 часов.
+            </p>
+            <a
+                href="/kontakty"
+                class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-all duration-300 bg-white text-primary hover:bg-gray-100 shadow-lg hover:shadow-xl"
+            >
+                Получить консультацию
+            </a>
+        </div>
+    </section>
+>>>>>>> master
 </Layout>
+
+
+---
+<!--
+  TT Events — Tailwind CSS Migration
+  Generated on: 2026-05-17
+-->

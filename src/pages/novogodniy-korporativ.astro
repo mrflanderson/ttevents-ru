@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import Layout from '../components/Layout.astro';
 
@@ -670,4 +671,94 @@ TT Events — event-агентство в Москве. С 2006 года соз�
 </Fragment>
         </div>
     </div>
+=======
+<!--
+  TT Events — Tailwind CSS Migration
+  Auto-generated header for consistency
+-->
+
+---
+
+---
+import Layout from "../components/Layout.astro";
+
+const pageMeta = {
+    title: "Новогодний корпоратив в Москве — TT Events",
+    description:
+        "Организация новогодних корпоративов в Москве. 56+ форматов: от иммерсивных шоу до тематических вечеринок.",
+    ogTitle: "Новогодний корпоратив в Москве — TT Events",
+    ogDescription: "Новогодний корпоратив под ключ: сценарий, шоу, кейтеринг.",
+};
+
+const pageContent =
+    "<p>Новогодние корпоративы — одно из самых востребованных направлений. Мы предлагаем 56+ форматов: от иммерсивных театральных постановок до тематических вечеринок с DJS и конкурсами.</p>";
+
+const faqItems = [
+    {
+        question: "За сколько организовать новогодний корпоратив?",
+        answer: "Идеально — за 4–6 месяцев. Реально — от 45 дней.",
+    },
+    {
+        question: "Какие площадки доступны?",
+        answer: "Отель-рестораны, лофты, банкетные залы, открытые площадки с подогревом.",
+    },
+];
+---
+
+<Layout {...pageMeta}>
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-text-light mb-4" aria-label="Навигация">
+                <a href="/" class="hover:text-primary">Главная</a> / <span
+                    class="font-medium text-text"
+                    aria-current="page"
+                >Новогодний корпоратив</span
+                >
+            </nav>
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
+            >
+                Новогодний корпоратив в Москве
+            </h1>
+            <div
+                dangerouslySetInnerHTML={{ __html: pageContent }}
+                class="text-lg text-text-light max-w-3xl mb-12"
+            >
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8 text-center"
+            >
+                Часто задаваемые вопросы
+            </h2>
+            <div class="divide-y divide-gray-200">
+                {
+                    faqItems.map((item) => (
+                        <div class="py-4">
+                            <details>
+                                <summary class="font-semibold cursor-pointer text-dark list-none">
+                                    {item.question}
+                                </summary>
+                                <p class="mt-2 text-text-light leading-relaxed">
+                                    {item.answer}
+                                </p>
+                            </details>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+>>>>>>> master
 </Layout>
+
+
+---
+<!--
+  TT Events — Tailwind CSS Migration
+  Generated on: 2026-05-17
+-->

@@ -1,0 +1,38 @@
+---
+interface Props {
+    partners: Array<{ name: string; image: string }>;
+}
+
+const { partners } = Astro.props;
+
+// Дублируем партнёров для бесконечной прокрутки
+const doubled = [...partners, ...partners];
+---
+
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-dark font-heading"
+        >
+            Наши партнеры
+        </h2>
+        <div class="overflow-hidden relative">
+            <div class="flex gap-10 animate-scroll">
+                {
+                    doubled.map((partner) => (
+                        <div class="flex-shrink-0 w-[150px] h-[80px] flex items-center justify-center">
+                            <img
+                                src={partner.image}
+                                alt={partner.name}
+                                width="150"
+                                height="80"
+                                loading="lazy"
+                                class="max-w-full max-h-full object-contain"
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

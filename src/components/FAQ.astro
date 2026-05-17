@@ -1,0 +1,36 @@
+---
+import "../scripts/accordion.js";
+
+interface Props {
+    items: Array<{ question: string; answer: string }>;
+}
+
+const { items } = Astro.props;
+---
+
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-dark font-heading"
+        >
+            Часто задаваемые вопросы
+        </h2>
+        <div class="max-w-3xl mx-auto">
+            {
+                items.map((item) => (
+                    <div class="border-b border-gray-200 accordion-item">
+                        <button class="accordion-trigger w-full flex justify-between items-center w-full py-6 bg-none border-none cursor-pointer text-left font-heading text-lg font-semibold text-dark hover:text-primary transition-colors">
+                            <span>{item.question}</span>
+                            <span class="icon text-2xl transition-transform duration-300 text-primary">
+                                +
+                            </span>
+                        </button>
+                        <div class="accordion-content overflow-hidden transition-[max-height] duration-300">
+                            <p class="py-6 text-text-light">{item.answer}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

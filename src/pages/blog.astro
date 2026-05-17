@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import Layout from '../components/Layout.astro';
 
@@ -807,4 +808,115 @@ TT Events — event-агентство в Москве. С 2006 года соз�
 </Fragment>
         </div>
     </div>
+=======
+<!--
+  TT Events — Tailwind CSS Migration
+  Auto-generated header for consistency
+-->
+
+---
+
+---
+import Layout from "../components/Layout.astro";
+
+const blogPosts = [
+    { title: "3 главных тренда корпоративов 2026", href: "/blog-3-trenda" },
+    {
+        title: "Корпоратив на 9 мая 2026 в Москве",
+        href: "/blog-korporativ-na-9-maya-2026-v-moskve",
+    },
+    {
+        title: "Организация корпоративов в Москве 2026",
+        href: "/blog-organizatsiya-korporativov-moskva-2026",
+    },
+    {
+        title: "Post-it корпоратив: идеи",
+        href: "/blog-post-it-corporativ-idei",
+    },
+    { title: "Post-it корпоратив", href: "/blog-post-it-corporativ" },
+    {
+        title: "10 форматов презентации нового продукта",
+        href: "/blog-post-kak-provesti-launch-event-10-formatov-prezentacii-novogo-produkta",
+    },
+    {
+        title: "Как выбрать event-агентство в Москве",
+        href: "/blog-post-kak-vybrat-event-agentstvo-v-moskve",
+    },
+    {
+        title: "12 идей мероприятий ко Дню Победы 2026",
+        href: "/blog-post-korporativ-na-9-maya-dlya-kompanii-12-idej-meropriyatij-ko-dnyu-pobedy-scenarii-i-formaty-2026",
+    },
+    {
+        title: "Русские народные мотивы популярны",
+        href: "/blog-post-pochemu-russkie-narodnye-motivy-populyarny",
+    },
+];
+
+const pageMeta = {
+    title: "Блог — идеи и советы TT Events",
+    description:
+        "Полезные статьи об организации мероприятий, тимбилдингов, корпоративов и праздников в Москве.",
+    ogTitle: "Блог TT Events",
+    ogDescription: "Статьи, советы и идеи для корпоративных мероприятий.",
+};
+---
+
+<Layout {...pageMeta}>
+    <main>
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Breadcrumbs -->
+                <nav class="text-sm text-text-light mb-4" aria-label="Навигация">
+                    <a href="/" class="hover:text-primary">Главная</a> / <span
+                        class="font-medium text-text"
+                    >Блог</span
+                    >
+                </nav>
+                <h1
+                    class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
+                >
+                    Блог
+                </h1>
+                <p class="text-lg text-text-light max-w-3xl">
+                    Полезные статьи, идеи и советы по организации корпоративных
+                    мероприятий в Москве.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {
+                        blogPosts.map((post) => (
+                            <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                                <a
+                                    href={post.href}
+                                    class="block text-inherit no-underline"
+                                    aria-label={post.title}
+                                >
+                                    <div class="p-6">
+                                        <h3 class="text-lg font-heading font-semibold mb-4">
+                                            {post.title}
+                                        </h3>
+                                        <span class="text-primary text-sm font-medium">
+                                            Читать далее →
+                                        </span>
+                                    </div>
+                                </a>
+                            </article>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+>>>>>>> master
 </Layout>
+
+
+---
+<!--
+  TT Events — Tailwind CSS Migration
+  Generated on: 2026-05-17
+-->

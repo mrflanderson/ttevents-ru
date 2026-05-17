@@ -1,0 +1,48 @@
+.aider*
+
+# Dependencies
+/node_modules/
+
+# Build output
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# OS X
+**/.DS_Store
+**/Thumbs.db
+
+# Log files
+*.log
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Cache
+.cached
+.cache
+
+# Temp files
+tmp/
+temp/
+
+# Coverage
+coverage/
+
+# Generated files
+*.generated.js
+*.generated.ts
+
+# Lock files (optional - uncomment if needed)
+# package-lock.json
+# yarn.lock

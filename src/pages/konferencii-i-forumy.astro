@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import Layout from '../components/Layout.astro';
 
@@ -670,4 +671,117 @@ TT Events — event-агентство в Москве. С 2006 года соз�
 </Fragment>
         </div>
     </div>
+=======
+<!--
+  TT Events — Tailwind CSS Migration
+  Auto-generated header for consistency
+-->
+
+---
+
+---
+import Layout from "../components/Layout.astro";
+
+const pageMeta = {
+    title: "Конференции и форумы в Москве — TT Events",
+    description:
+        "Организация конференций и форумов в Москве. 24+ форматов деловых мероприятий для компаний любого размера.",
+    ogTitle: "Конференции и форумы в Москве — TT Events",
+    ogDescription: "Полный цикл организации деловых мероприятий.",
+};
+
+const services = [
+    { title: "Деловые мероприятия", href: "/delovye-meropriyatiya" },
+    { title: "Семинары и тренинги", href: "/seminary-i-treningi" },
+    {
+        title: "Стратегические сессии",
+        href: "/strategicheskie-sessii-i-vorkshopy",
+    },
+    { title: "Онлайн мероприятия", href: "/onlajn-meropriyatiya" },
+];
+
+const faqItems = [
+    {
+        question: "Какие площадки доступны для конференций?",
+        answer: "ВДНХ, Коломенское, Измайлово, конференц-залы отелей и бизнес-центров Москвы. Более 50 партнёров-площадок.",
+    },
+    {
+        question: "Сколько стоит организация конференции?",
+        answer: "Зависит от формата и количества участников. Средняя стоимость — от 3000 ₽ на человека.",
+    },
+    {
+        question: "Предоставляете ли оборудование?",
+        answer: "Да — проекторы, свет, звук, интерактивные экраны, трансляции. Полное техническое обеспечение.",
+    },
+];
+---
+
+<Layout {...pageMeta}>
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-text-light mb-4">
+                <a href="/" class="hover:text-primary">Главная</a> / <span
+                    class="font-medium text-text">Конференции</span
+                >
+            </nav>
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
+            >
+                Конференции и форумы в Москве
+            </h1>
+            <p class="text-lg text-text-light max-w-3xl mb-12">
+                24+ форматов деловых мероприятий для компаний любого размера. От
+                камерных семинаров до масштабных форумов.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    services.map((service) => (
+                        <a
+                            href={service.href}
+                            class="block p-6 bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300"
+                        >
+                            <h3 class="text-xl font-heading font-semibold text-dark hover:text-primary transition-colors">
+                                {service.title}
+                            </h3>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8 text-center"
+            >
+                Часто задаваемые вопросы
+            </h2>
+            <div class="divide-y divide-gray-200">
+                {
+                    faqItems.map((item) => (
+                        <div class="py-4">
+                            <details>
+                                <summary class="font-semibold cursor-pointer text-dark list-none">
+                                    {item.question}
+                                </summary>
+                                <p class="mt-2 text-text-light leading-relaxed">
+                                    {item.answer}
+                                </p>
+                            </details>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+>>>>>>> master
 </Layout>
+
+
+---
+<!--
+  TT Events — Tailwind CSS Migration
+  Generated on: 2026-05-17
+-->

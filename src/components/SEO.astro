@@ -1,9 +1,32 @@
 ---
-const { seo } = Astro.props;
+// src/components/SEO.astro
+// Оптимизированный компонент SEO - используется для специфичных мета-тегов
+interface Props {
+    title?: string;
+    description?: string;
+    keywords?: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: string;
+    canonical?: string;
+}
+
+const {
+    title,
+    description,
+    keywords,
+    ogTitle,
+    ogDescription,
+    ogImage,
+    canonical,
+} = Astro.props;
 ---
 
-<meta name="description" content={seo.description}>
-<meta name="keywords" content={seo.keywords}>
-{seo.ogTitle && <meta property="og:title" content={seo.ogTitle} />}
-{seo.ogDescription && <meta property="og:description" content={seo.ogDescription} />}
-{seo.ogImage && <meta property="og:image" content={seo.ogImage} />}
+<!-- SEO Component - For page-specific metadata -->
+{title && <title>{title}</title>}
+{description && <meta name="description" content={description} />}
+{keywords && <meta name="keywords" content={keywords} />}
+{ogTitle && <meta property="og:title" content={ogTitle} />}
+{ogDescription && <meta property="og:description" content={ogDescription} />}
+{ogImage && <meta property="og:image" content={ogImage} />}
+{canonical && <link rel="canonical" href={canonical} />}

@@ -1,0 +1,43 @@
+---
+interface Props {
+    title: string;
+    href: string;
+    count?: number;
+    image?: string;
+}
+
+const {
+    title,
+    href,
+    count,
+    image = "/g/s3/mosaic/images/default-service.jpg",
+} = Astro.props;
+---
+
+<article
+    class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden"
+>
+    <a href={href} class="block text-inherit no-underline">
+        <div class="h-48 overflow-hidden">
+            <img
+                src={image}
+                alt={title}
+                width="400"
+                height="300"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                loading="lazy"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-heading font-semibold mb-2">{title}</h3>
+            {
+                count && (
+                    <span class="text-text-light text-sm">
+                        {count} мероприятий
+                    </span>
+                )
+            }
+        </div>
+    </a>
+</article>

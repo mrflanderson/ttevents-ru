@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import Layout from '../components/Layout.astro';
 
@@ -669,4 +670,267 @@ TT Events — event-агентство в Москве. С 2006 года соз�
 </Fragment>
         </div>
     </div>
+=======
+<!--
+  TT Events — Tailwind CSS Migration
+  Auto-generated header for consistency
+-->
+
+---
+
+---
+import Layout from "../components/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CaseCard from "../components/CaseCard.astro";
+
+const pageMeta = {
+    title: "Активный тимбилдинг в Москве — организация корпоративных тимбилдингов",
+    description:
+        "Активный тимбилдинг для компаний в Москве. Соревнования, эстафеты, квесты на природе. Организация активного тимбилдинга от 50 до 500+ участников.",
+    ogTitle: "Активный тимбилдинг — TT Events",
+    ogDescription:
+        "Активный тимбилдинг для компаний в Москве. Соревнования, эстафеты, квесты на природе.",
+};
+
+const breadcrumb = {
+    section: "Услуги",
+    page: "Активный тимбилдинг",
+};
+
+const services = [
+    {
+        title: "Спортивные эстафеты",
+        href: "/uslugi/sportivnye-estafety",
+        count: 12,
+        image: "/images/gr_1.jpg",
+    },
+    {
+        title: "Квесты и игры",
+        href: "/kvesty-i-igry",
+        count: 24,
+        image: "/images/it_teambuilding.jpg",
+    },
+    {
+        title: "Соревнования",
+        href: "/uslugi/sorevnovaniya",
+        count: 18,
+        image: "/images/conf_2_1.jpg",
+    },
+];
+
+const relatedServices = [
+    {
+        title: "Спортивные мероприятия",
+        href: "/sportivnye-meropriyatiya",
+        count: 20,
+        image: "/images/gr_2.jpg",
+    },
+    {
+        title: "Квесты и игры",
+        href: "/kvesty-i-igry",
+        count: 24,
+        image: "/images/it_teambuilding.jpg",
+    },
+    {
+        title: "Тимбилдинг на природе",
+        href: "/timilding-na-prirode",
+        count: 15,
+        image: "/images/field-kitchen-300x225.webp",
+    },
+];
+
+const faqItems = [
+    {
+        question: "Сколько длится активный тимбилдинг?",
+        answer: "Стандартная программа — 3-4 часа. Возможны форматы от 2 часов до полного дня (6-8 часов) с обедом.",
+    },
+    {
+        question: "Какой минимальный состав участников?",
+        answer: "Минимальный состав — 20 человек. Оптимально — 30-100 человек для комфортного проведения игр.",
+    },
+    {
+        question: "Где проводится активный тимбилдинг?",
+        answer: "Наши партнёры: Измайлово, Коломенское, ВДНХ, парк Зарядье, а также загородные локации Подмосковья.",
+    },
+];
+
+const cases = [
+    {
+        title: "Тимбилдинг для Сбера",
+        href: "/case/sber",
+        category: "Тимбилдинг",
+        image: "/images/logo_sber.jpg",
+    },
+    {
+        title: "Корпоратив для Росатома",
+        href: "/case/rosatom",
+        category: "Корпоратив",
+        image: "/images/rosatom.png",
+    },
+    {
+        title: "Соревнования ВДНХ",
+        href: "/case/vdnh",
+        category: "Конференция",
+        image: "/images/vdnh.png",
+    },
+];
+---
+
+<Layout {...pageMeta}>
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm text-white/80 mb-4" aria-label="Навигация">
+                <a href="/" class="hover:text-white">Главная</a> /
+                <a href="/uslugi" class="hover:text-white">Услуги</a> /
+                <span class="font-medium" aria-current="page">Активный тимбилдинг</span>
+            </nav>
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-heading mb-8"
+            >
+                Активный тимбилдинг
+            </h1>
+            <p class="text-lg md:text-xl text-white/90 max-w-3xl">
+                Соревнования, эстафеты, квесты и активные игры для команд от 20
+                до 500+ человек. Организация тимбилдингов в Москве и Подмосковье
+                с 2006 года.
+            </p>
+        </div>
+    </section>
+
+    <!-- Description Section -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2
+                        class="text-3xl md:text-4xl font-bold text-dark font-heading mb-6"
+                    >
+                        Активный тимбилдинг — когда команда работает вместе
+                    </h2>
+                    <p class="text-lg text-text-light mb-6">
+                        Активный тимбилдинг — это один из самых эффективных
+                        форматов командообразования. В отличие от классических
+                        корпоративных мероприятий, где сотрудники выступают
+                        зрителями, активные программы вовлекают всех участников
+                        в совместную деятельность.
+                    </p>
+                    <p class="text-lg text-text-light mb-6">
+                        Команды двигаются, соревнуются, решают задачи и проходят
+                        испытания вместе — именно в таких условиях быстрее всего
+                        формируется доверие и настоящая командная работа.
+                    </p>
+                    <a
+                        href="/kontakty"
+                        class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl"
+                    >
+                        Заказать тимбилдинг
+                    </a>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-card">
+                    <img
+                        src="/images/gr_1.jpg"
+                        alt="Активный тимбилдинг для компании"
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                        class="w-full h-auto object-cover"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-dark font-heading"
+            >
+                Форматы активного тимбилдинга
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {services.map((service) => <ServiceCard {...service} />)}
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Services -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-dark font-heading"
+            >
+                Связанные услуги
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {relatedServices.map((service) => <ServiceCard {...service} />)}
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-dark font-heading"
+            >
+                Наши кейсы
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {cases.map((caseItem) => <CaseCard {...caseItem} />)}
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-dark font-heading"
+            >
+                Часто задаваемые вопросы
+            </h2>
+            <div class="space-y-6">
+                {
+                    faqItems.map((item) => (
+                        <div class="border-b border-gray-200 pb-6">
+                            <h3 class="text-lg font-heading font-semibold text-dark mb-2">
+                                {item.question}
+                            </h3>
+                            <p class="text-text-light">{item.answer}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold font-heading mb-6">
+                Готовы организовать активный тимбилдинг?
+            </h2>
+            <p class="text-lg text-white/90 max-w-2xl mx-auto mb-8">
+                Наш менеджер подготовит 3 варианта программы под ваш бюджет и
+                количество участников в течение 24 часов.
+            </p>
+            <a
+                href="/kontakty"
+                class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-all duration-300 bg-white text-primary hover:bg-gray-100 shadow-lg hover:shadow-xl"
+            >
+                Получить консультацию
+            </a>
+        </div>
+    </section>
+>>>>>>> master
 </Layout>
+
+
+---
+<!--
+  TT Events — Tailwind CSS Migration
+  Generated on: 2026-05-17
+-->

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import Layout from '../components/Layout.astro';
 
@@ -683,4 +684,119 @@ TT Events — event-агентство в Москве. С 2006 года соз�
 </Fragment>
         </div>
     </div>
+=======
+<!--
+  TT Events — Tailwind CSS Migration
+  Auto-generated header for consistency
+-->
+
+---
+
+---
+import Layout from "../components/Layout.astro";
+
+const pageMeta = {
+    title: "Корпоративные мероприятия в Москве — TT Events",
+    description:
+        "Организация корпоративных мероприятий в Москве под ключ. 48+ форматов корпоративов от 10 до 1000+ гостей.",
+    ogTitle: "Корпоративные мероприятия в Москве — TT Events",
+    ogDescription:
+        "Полный цикл организации корпоративов: от идеи до реализации.",
+};
+
+const services = [
+    { title: "Новогодний корпоратив", href: "/novogodniy-korporativ" },
+    { title: "Летний корпоратив", href: "/letnij-korporativ" },
+    { title: "Зимний корпоратив", href: "/zimnij-korporativ" },
+    { title: "Корпоратив на природе", href: "/korporativ-na-prirode" },
+    { title: "Иммерсивный корпоратив", href: "/immersivnyj-korporativ" },
+    { title: "Арт-корпоратив", href: "/art-korporativ" },
+];
+
+const faqItems = [
+    {
+        question: "Сколько стоит корпоратив в Москве в 2026?",
+        answer: "Средний чек под ключ — от 15–22 тыс. ₽ на человека. 50 гостей ≈ 850–1,4 млн ₽, 100 гостей ≈ 1,4–2,8 млн ₽, 200+ ≈ 2,3–7+ млн ₽.",
+    },
+    {
+        question: "За сколько реально организовать корпоратив?",
+        answer: "Идеально — за 4–6 месяцев (лучшие площадки и артисты разбираются заранее). Реально — от 45 дней.",
+    },
+    {
+        question: "Работаете только в Москве или по всей России?",
+        answer: "По всей России и СНГ. Основная команда в Москве, но логистику и локальных подрядчиков выстраиваем за 2–3 недели.",
+    },
+];
+---
+
+<Layout {...pageMeta}>
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-text-light mb-4" aria-label="Навигация">
+                <a href="/" class="hover:text-primary">Главная</a> / <span
+                    class="font-medium text-text"
+                >Корпоративы</span
+                >
+            </nav>
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
+            >
+                Корпоративные мероприятия в Москве
+            </h1>
+            <p class="text-lg text-text-light max-w-3xl mb-12">
+                48+ форматов корпоративов для компаний от 10 до 1000+ гостей.
+                Полное сопровождение от идеи до реализации.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    services.map((service) => (
+                        <a
+                            href={service.href}
+                            class="block p-6 bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300"
+                            aria-label={service.title}
+                        >
+                            <h3 class="text-xl font-heading font-semibold text-dark hover:text-primary transition-colors">
+                                {service.title}
+                            </h3>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8 text-center"
+            >
+                Часто задаваемые вопросы
+            </h2>
+            <div class="divide-y divide-gray-200">
+                {
+                    faqItems.map((item) => (
+                        <div class="py-4">
+                            <details>
+                                <summary class="font-semibold cursor-pointer text-dark list-none">
+                                    {item.question}
+                                </summary>
+                                <p class="mt-2 text-text-light leading-relaxed">
+                                    {item.answer}
+                                </p>
+                            </details>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+>>>>>>> master
 </Layout>
+
+
+---
+<!--
+  TT Events — Tailwind CSS Migration
+  Generated on: 2026-05-17
+-->

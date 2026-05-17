@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import Layout from '../components/Layout.astro';
 
@@ -895,4 +896,189 @@ TT Events — event-агентство в Москве. С 2006 года соз�
 </Fragment>
         </div>
     </div>
+=======
+<!--
+  TT Events — Tailwind CSS Migration
+  Auto-generated header for consistency
+-->
+
+---
+
+---
+import Layout from "../components/Layout.astro";
+
+const cases = [
+    {
+        title: "Корпоратив Росатома",
+        href: "/case-korolevsky-novy-god-24",
+        category: "Корпоратив",
+        image: "/images/rosatom.png",
+    },
+    {
+        title: "Кейс 9 мая",
+        href: "/case-9may",
+        category: "Праздник",
+        image: "/images/9may_200_01_00_23still002.jpg",
+    },
+    {
+        title: "Art Pop — Новый год",
+        href: "/case-art-novy-god-otel-svezhy-veter-2026",
+        category: "Корпоратив",
+        image: "/images/12_12_artpop_1m_blondmp4_20260217_040321853_2.jpg",
+    },
+    {
+        title: "ArtPop",
+        href: "/case-artpop",
+        category: "Шоу",
+        image: "/images/reel_artpop_blond_1mmp4_20260221_034711113_2.jpg",
+    },
+    {
+        title: "Эхо Победы — Open Air 2025",
+        href: "/case-eho-pobedy-ope-air-2025",
+        category: "Open Air",
+        image: "/images/9maymp4_20260211_004245081.jpg",
+    },
+    {
+        title: "ЭК Парк",
+        href: "/case-ek-park",
+        category: "Тимбилдинг",
+        image: "/images/field-kitchen-300x225.webp",
+    },
+    {
+        title: "Иммерсивный театр",
+        href: "/case-imersivny-thatr",
+        category: "Иммерсив",
+        image: "/images/nc_jmandell_immersivetheatre_photo1.jpg",
+    },
+    {
+        title: "Корпоратив Росатома",
+        href: "/case-korolevsky-novy-god-24",
+        category: "Корпоратив",
+        image: "/images/rosatom.png",
+    },
+    {
+        title: "Launch Event UMG",
+        href: "/case-lauch-event-umg",
+        category: "Launch",
+        image: "/images/screenshot_2026-02-27_030714.png",
+    },
+    {
+        title: "Масленица Измайлово 2025",
+        href: "/case-maslenitsa-izmaylovo25case",
+        category: "Фестиваль",
+        image: "/images/masl.jpg",
+    },
+    {
+        title: "Над Москвой — Заря",
+        href: "/case-nad-moskvoy-zarya",
+        category: "Open Air",
+        image: "/images/vrem_nad_cover.jpg",
+    },
+    {
+        title: "Slava Skripka — Open Air 2025",
+        href: "/case-open-air-slava-skripka-bober-2025",
+        category: "Концерт",
+        image: "/images/9maymp4_20260211_004319603.jpg",
+    },
+    {
+        title: "День НКР 2024",
+        href: "/case-post-den_nko_2024",
+        category: "Праздник",
+        image: "/images/nko_video_den_nko_v1000_00_18_17still002.jpg",
+    },
+    {
+        title: "Медиапроект — Суперсила",
+        href: "/case-post-mediaproekt-i-fotovystavka-supersila",
+        category: "Фотовыставка",
+        image: "/images/supersila_18sub00_00_21_20still003.jpg",
+    },
+    {
+        title: "Времена года",
+        href: "/case-vremena-goda",
+        category: "Фестиваль",
+        image: "/images/sequence_0201_10_20_02still004.jpg",
+    },
+    {
+        title: "Время.Нэж ДЭФТ 2025",
+        href: "/case-vremnadezhdfest2025",
+        category: "Фестиваль",
+        image: "/images/vrem_nad_cover.jpg",
+    },
+];
+
+const pageMeta = {
+    title: "Кейсы — реализованные мероприятия TT Events",
+    description:
+        "Кейсы по организации корпоративов, тимбилдингов, конференций, фестивалей и других мероприятий в Москве.",
+    ogTitle: "Кейсы TT Events",
+    ogDescription:
+        "Реализованные проекты: корпоративы, тимбилдинги, конференции, launch events.",
+};
+---
+
+<Layout {...pageMeta}>
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumbs -->
+            <nav class="text-sm text-text-light mb-4">
+                <a href="/" class="hover:text-primary">Главная</a> / <span
+                    class="font-medium text-text">Кейсы</span
+                >
+            </nav>
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
+            >
+                Кейсы
+            </h1>
+            <p class="text-lg text-text-light max-w-3xl">
+                Более 40 успешных проектов по организации корпоративных
+                мероприятий, тимбилдингов, конференций и фестивалей в Москве.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    cases.map((caseItem) => (
+                        <article class="bg-white rounded-xl shadow-card hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                            <a
+                                href={caseItem.href}
+                                class="block text-inherit no-underline"
+                            >
+                                <div class="relative h-48 overflow-hidden">
+                                    <img
+                                        src={caseItem.image}
+                                        alt={caseItem.title}
+                                        width="400"
+                                        height="300"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        loading="lazy"
+                                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                    />
+                                    <span class="absolute top-4 left-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded">
+                                        {caseItem.category}
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-lg font-heading font-semibold">
+                                        {caseItem.title}
+                                    </h3>
+                                </div>
+                            </a>
+                        </article>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+>>>>>>> master
 </Layout>
+
+
+---
+<!--
+  TT Events — Tailwind CSS Migration
+  Generated on: 2026-05-17
+-->

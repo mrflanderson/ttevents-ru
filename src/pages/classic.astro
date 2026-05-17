@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import Layout from '../components/Layout.astro';
 
@@ -703,4 +704,836 @@ TT Events — event-агентство в Москве. С 2006 года соз�
 </Fragment>
         </div>
     </div>
+=======
+<!--
+  TT Events — Tailwind CSS Migration
+  Auto-generated header for consistency
+-->
+
+---
+
+---
+import Layout from "../components/Layout.astro";
+
+const pageMeta = {
+    title: "TT Events — Классический корпоратив | Банкет с шоу-программой в Москве",
+    description:
+        "Классический корпоратив в Москве: изысканный банкет, профессиональный ведущий, живая музыка, артисты. С 2006 года. Стоимость от 800 тыс. ₽",
+    keywords:
+        "классический корпоратив, банкет с шоу-программой, корпоратив в Москве, новогодний корпоратив, юбилей компании",
+    ogTitle: "TT Events — Классический корпоратив в Москве",
+    ogDescription:
+        "Классический корпоратив под ключ: банкет, ведущий, живая музыка, артисты. С 2006 года.",
+    ogImage: "/g/s3/mosaic/images/og-classic.jpg",
+};
+
+// Features data
+const features = [
+    {
+        title: "Шоу-программа для корпоратива",
+        description:
+            "Мы разрабатываем индивидуальную программу под ваш коллектив.",
+        subtitle: "Ведущий на корпоратив в Москве",
+        subtitleDetail:
+            "Харизматичный конферансье с опытом работы с крупными компаниями.",
+    },
+    {
+        title: "Живая музыка",
+        items: [
+            "джаз-бэнд",
+            "струнный квартет",
+            "саксофонист",
+            "кавер-группа",
+            "вокалисты",
+        ],
+    },
+    {
+        title: "Артисты на корпоратив",
+        items: [
+            "театральные актёры",
+            "балет",
+            "цирковые номера",
+            "световые и лазерные шоу",
+        ],
+    },
+    {
+        title: "Техническое обеспечение корпоратива",
+        items: [
+            "профессиональный звук",
+            "сценическое освещение",
+            "LED-экраны",
+            "сцена",
+            "спецэффекты",
+        ],
+        note: "Собственное оборудование позволяет нам контролировать качество и оптимизировать бюджет.",
+    },
+];
+
+// Cases data
+const cases = [
+    {
+        title: "Новогодний корпоратив для IT-компании (150 гостей)",
+        description:
+            "Ресторан в центре Москвы, welcome-зона с джаз-бэндом, режиссированный сценарий, кавер-группа, брендированное световое шоу.",
+        image: "/g/s3/mosaic/images/case-newyear.jpg",
+    },
+    {
+        title: "Юбилей компании (200 гостей)",
+        description:
+            "Банкет в премиальном зале, струнный квартет, театральная миниатюра об истории бренда, финальный музыкальный сет.",
+        image: "/g/s3/mosaic/images/case-anniversary.jpg",
+    },
+    {
+        title: "Гала-ужин для федеральной корпорации",
+        description:
+            "Живой звук, актёрские сценки, элегантный декор, точный тайминг подачи блюд.",
+        image: "/g/s3/mosaic/images/case-gala.jpg",
+    },
+];
+
+// Steps data
+const steps = [
+    {
+        number: "1",
+        title: "Ваш звонок или заявка",
+        description:
+            "Оставьте заявку, вам перезвонит менеджер, узнает ваши желания, даст рекомендации",
+    },
+    {
+        number: "2",
+        title: "Брифинг и формирование концепции",
+        description:
+            "Обсуждаем цели, масштаб, аудиторию, пожелания и ограничения",
+    },
+    {
+        number: "3",
+        title: "Расчёт бюджета и сметы",
+        description:
+            "Готовим прозрачную смету с несколькими вариантами под ваш бюджет — фиксируем все позиции без скрытых доплат.",
+    },
+    {
+        number: "4",
+        title: "Разработка сценария",
+        description:
+            "Пишем детальный тайминг, программу, конкурсы, ведущего, сюрпризы и эмоциональные акценты мероприятия.",
+    },
+    {
+        number: "5",
+        title: "Подготовка подрядчиков",
+        description:
+            "Подбираем и бронируем проверенных артистов, техников, декораторов, кейтеринг, фотографов и других специалистов.",
+    },
+    {
+        number: "6",
+        title: "Реализация мероприятия",
+        description:
+            "Всё, что спланировали — воплощается: от монтажа сцены утром до финального салюта / афтерпати.",
+    },
+    {
+        number: "7",
+        title: "Контроль и сопровождение на площадке",
+        description:
+            "Наш менеджер / координатор присутствует весь день, решает вопросы в реальном времени, чтобы всё прошло гладко.",
+    },
+];
+
+// FAQ data
+const faqItems = [
+    {
+        question: "Вы посредники или сами проводите?",
+        answer: "Мы сами проводим: своя техническая база, штатные артисты и режиссёры. Экономьте до 40% без наценок агентств.",
+    },
+    {
+        question:
+            "Сколько стоит классический корпоратив на 100 человек в Москве?",
+        answer: `
+            <p>В 2026 году средняя стоимость классического банкета + шоу-программы (ресторан/банкетный зал в центре или Подмосковье, ведущий, живая музыка, артисты, звук/свет) — <strong>от 800 000 до 2 000 000 ₽</strong> за всё мероприятие (или примерно <strong>8 000–20 000 ₽ на человека</strong>).</p>
+            <ul class="list-disc pl-5 space-y-1 mt-2">
+                <li>Бюджетный вариант (ресторан среднего уровня, кавер-группа, простой ведущий): <strong>от 700–900 тыс. ₽</strong> всего.</li>
+                <li>Средний/премиум (статусный зал, джаз/струнный квартет + театральные номера, собственная техника): <strong>1,2–1,8 млн ₽</strong>.</li>
+                <li>VIP (отель, лазерное шоу, брендированный продакшн): <strong>от 2 млн ₽ и выше</strong>.</li>
+            </ul>
+            <p class="mt-2">В TT Event мы готовим индивидуальную смету без скрытых доплат — после брифа покажем 2–3 варианта под ваш бюджет. Цена зависит от даты (Новый год дороже на 30–50%), меню, артистов и техобеспечения.</p>
+        `,
+    },
+    {
+        question: "Как проходит подготовка классического корпоратива?",
+        answer: `
+            <p>Подготовка занимает обычно <strong>1,5–4 месяца</strong> (для новогодних — бронировать лучше за 6–9 месяцев).</p>
+            <ol class="list-decimal pl-5 space-y-2 mt-2">
+                <li><strong>Заявка и бриф</strong> (1–2 дня): звонок/форма → менеджер уточняет цели, количество гостей, бюджет, пожелания.</li>
+                <li><strong>Концепция и варианты</strong> (2–5 дней): предлагаем 2–3 площадки, примеры шоу-программы, черновик сценария.</li>
+                <li><strong>Смета и договор</strong> (1–3 дня): прозрачный расчёт по позициям. Фиксируем цену.</li>
+                <li><strong>Детальная проработка</strong> (2–6 недель): тайминг, подбор ведущего/музыкантов/артистов, декор, брендирование.</li>
+                <li><strong>Подготовка на площадке</strong> (за 1–2 недели): монтаж сцены, свет/звук, репетиция с ведущим.</li>
+                <li><strong>День мероприятия</strong>: координатор на месте весь день.</li>
+                <li><strong>После</strong>: отчёт, фото/видео, обратная связь от гостей.</li>
+            </ol>
+            <p class="mt-2">Мы сопровождаем на всех этапах — вы получаете только ключевые решения, остальное берём на себя.</p>
+        `,
+    },
+    {
+        question:
+            "Можно ли уложиться в бюджет 500 000 ₽ на корпоратив на 100 человек?",
+        answer: `
+            <p><strong>Сложно, но возможно</strong> — в классическом формате (с живой музыкой, профессиональным ведущим, хорошим банкетом и техникой) это будет очень эконом-вариант или компромисс по уровню.</p>
+            <ul class="list-disc pl-5 space-y-1 mt-2">
+                <li>Реалистично на 500 тыс. ₽: простой ресторан без аренды зала отдельно, фуршет/банкет от 4–5 тыс. ₽/чел., диджей вместо живой группы.</li>
+                <li>Для полного классического формата (джаз/струнный квартет, театр, световое шоу) бюджет обычно стартует от 800–900 тыс. ₽.</li>
+            </ul>
+            <p class="mt-2">Если бюджет жёстко ограничен 500 тыс. ₽ — лучше рассмотреть:</p>
+            <ul class="list-disc pl-5 space-y-1 mt-2">
+                <li>Меньше гостей (70–80 человек).</li>
+                <li>Выезд за МКАД (Подмосковье дешевле).</li>
+                <li>Фуршет вместо полного банкета.</li>
+                <li>Свою технику или минимум артистов.</li>
+            </ul>
+        `,
+    },
+];
+
+// Stats data
+const stats = [
+    {
+        number: "20 лет",
+        label: "успешной практики",
+        detail: "С 2006 года — ни одного сорванного корпоратива, даже в кризисы",
+    },
+    {
+        number: "5000+",
+        label: "проведённых мероприятий",
+        detail: "От камерных гала-ужинов до новогодних праздников на 500+ гостей — все под ключ и с восторженными отзывами.",
+    },
+    {
+        number: "90%",
+        label: "клиентов возвращаются снова",
+        detail: "HR и топ-менеджеры крупных компаний выбирают нас год за годом — доверие, проверенное временем",
+    },
+    {
+        number: "100%",
+        label: "контроль качества на площадке",
+        detail: "Собственная техническая база, продюсерский ресурс и «Театр Традиций» — мы не посредники, всё делаем сами.",
+    },
+];
+---
+
+<Layout {...pageMeta}>
+    <!-- Breadcrumbs + Title -->
+    <section class="py-8 md:py-12 bg-gradient-to-r from-[#f8f9fa] to-[#e9ecef]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-text-light mb-5">
+                <a href="/" class="hover:text-primary">Главная</a>
+                <span class="mx-2">/</span>
+                <a href="/korporativy-moskva" class="hover:text-primary"
+                    >Корпоративные мероприятия</a
+                >
+                <span class="mx-2">/</span>
+                <span class="font-medium text-text">Банкет/шоу-программа</span>
+            </nav>
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading"
+            >
+                Банкет с шоу-программой
+            </h1>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <p class="text-lg text-text-light leading-relaxed mb-6">
+                        Концептуальный корпоратив в Москве — это не банкет «как
+                        у всех», а событие с идеей, сценографией и драматургией.
+                        TT Events создаёт арт-вечеринки, иммерсивные шоу и
+                        тематические корпоративы под ключ — от разработки
+                        концепции до мультимедийного продакшна.
+                    </p>
+                    <p class="text-lg text-text-light leading-relaxed">
+                        С 2006 года мы реализуем нестандартные корпоративные
+                        мероприятия: иммерсивные форматы, вечеринки в стиле 90-х
+                        и MTV 2000-х, арт-корпоративы и события в современном
+                        русском культурном коде.
+                    </p>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <img
+                        src="/g/s3/mosaic/images/corp-tort.jpg"
+                        alt="Организация классического корпоратива в Москве под ключ"
+                        width="1280"
+                        height="853"
+                        loading="lazy"
+                        class="rounded-2xl shadow-lg w-full object-cover"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Control Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <h2
+                    class="text-2xl md:text-3xl font-heading font-bold text-dark mb-8"
+                >
+                    Мы проводим корпоративы полностью под своим контролем: от
+                    подбора площадки и разработки сценария до режиссуры,
+                    постановки и сопровождения на мероприятии.
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
+                <img
+                    src="/g/s3/mosaic/images/pexels-pavel-danilyuk-6405771.jpg"
+                    alt="Организация корпоративного мероприятия"
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                    class="rounded-xl shadow-md w-full h-64 object-cover"
+                />
+                <img
+                    src="/g/s3/mosaic/images/manager-event.jpg"
+                    alt="Координация корпоратива"
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                    class="rounded-xl shadow-md w-full h-64 object-cover"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+        class="py-12 md:py-16 bg-gradient-to-r from-primary to-primary-dark"
+    >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a
+                href="#contact-form"
+                class="inline-block bg-white text-primary font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors text-lg"
+            >
+                Оставьте контакты, и продюсер свяжется с вами в течение дня.
+            </a>
+        </div>
+    </section>
+
+    <!-- What is classic corporate -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2
+                        class="text-2xl md:text-3xl font-heading font-bold text-dark mb-6"
+                    >
+                        Что такое классический корпоратив:
+                    </h2>
+                    <ul class="space-y-3 text-lg text-text-light">
+                        <li class="flex items-start">
+                            <svg
+                                class="w-6 h-6 text-primary mt-1 mr-3 flex-shrink-0"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                ><path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path></svg
+                            >
+                            Изысканный банкет в ресторане или банкетном зале
+                        </li>
+                        <li class="flex items-start">
+                            <svg
+                                class="w-6 h-6 text-primary mt-1 mr-3 flex-shrink-0"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                ><path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path></svg
+                            >
+                            Профессиональный ведущий
+                        </li>
+                        <li class="flex items-start">
+                            <svg
+                                class="w-6 h-6 text-primary mt-1 mr-3 flex-shrink-0"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                ><path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path></svg
+                            >
+                            Живая музыка
+                        </li>
+                        <li class="flex items-start">
+                            <svg
+                                class="w-6 h-6 text-primary mt-1 mr-3 flex-shrink-0"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                ><path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path></svg
+                            >
+                            Артисты оригинального жанра
+                        </li>
+                        <li class="flex items-start">
+                            <svg
+                                class="w-6 h-6 text-primary mt-1 mr-3 flex-shrink-0"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                ><path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path></svg
+                            >
+                            Продуманная режиссура
+                        </li>
+                        <li class="flex items-start">
+                            <svg
+                                class="w-6 h-6 text-primary mt-1 mr-3 flex-shrink-0"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                ><path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path></svg
+                            >
+                            Комфортная атмосфера для общения.
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img
+                        src="/g/s3/mosaic/images/vedushy.jpg"
+                        alt="Профессиональный ведущий для корпоратива"
+                        width="1280"
+                        height="853"
+                        loading="lazy"
+                        class="rounded-2xl shadow-lg w-full object-cover"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Difference section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2
+                    class="text-2xl md:text-3xl font-heading font-bold text-dark mb-6"
+                >
+                    Чем <a
+                        href="/art-concept"
+                        class="text-primary hover:underline"
+                        >концептуальный корпоратив</a
+                    > отличается от <a
+                        href="/classic"
+                        class="text-primary hover:underline"
+                        >классического банкета</a
+                    >
+                </h2>
+                <p class="text-lg text-text-light leading-relaxed">
+                    В отличие от банкетного формата с шоу-программой,
+                    концептуальный корпоратив строится вокруг идеи и сценарной
+                    драматургии. Здесь важна атмосфера, сценография и единый
+                    визуальный стиль — от приглашений до финального перформанса.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optimal format -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2
+                        class="text-2xl md:text-3xl font-heading font-bold text-dark mb-6"
+                    >
+                        Это оптимальный формат для:
+                    </h2>
+                    <ul class="space-y-3 text-lg text-text-light">
+                        <li>
+                            <a
+                                href="/ny_corp"
+                                class="text-primary hover:underline"
+                                >Новогоднего корпоратива в Москве</a>
+                        </li>
+                        <li>
+                            <a
+                                href="#contact-form"
+                                class="text-primary hover:underline"
+                                >Юбилея компании</a
+                            > с торжественной премьерой документального фильма «<a
+                                href="/corporate_anniversary"
+                                class="text-primary hover:underline"
+                                >История успеха</a
+                            >» компании
+                        </li>
+                        <li>
+                            <a
+                                href="#contact-form"
+                                class="text-primary hover:underline"
+                                >Гала-ужина</a>
+                        </li>
+                        <li>Торжественного приёма</li>
+                        <li>Подведения итогов года</li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <img
+                        src="/g/s3/mosaic/images/pexels-reneterp-10970274.jpg"
+                        alt="Гала-ужин для корпоратива"
+                        width="1280"
+                        height="853"
+                        loading="lazy"
+                        class="rounded-2xl shadow-lg w-full object-cover"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classic vs Conceptual -->
+    <section class="py-12 md:py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg text-text-light leading-relaxed">
+                В отличие от <a
+                    href="/immersivnyj-korporativ"
+                    class="text-primary hover:underline"
+                    >концептуальных и арт-вечеринок</a
+                >, классический формат делает акцент на статусе, качестве и
+                комфорте гостей.
+            </p>
+        </div>
+    </section>
+
+    <!-- Details section -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2
+                class="text-2xl md:text-3xl font-heading font-bold text-dark mb-8"
+            >
+                Корпоратив — это детали.
+            </h2>
+            <p class="text-lg text-text-light leading-relaxed">
+                Свет не бьёт в глаза. Звук не мешает разговорам. Ведущий не
+                переходит границы. Программа не перегружена.
+            </p>
+            <p class="text-lg text-text-light leading-relaxed mt-4">
+                Гости чувствуют себя комфортно, а руководство — уверенно.
+            </p>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl font-bold text-dark font-heading text-center mb-12"
+            >
+                Примеры организации корпоративов в Москве
+            </h2>
+            <div class="space-y-12">
+                {
+                    cases.map((item) => (
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-heading font-bold text-dark mb-4">
+                                    {item.title}
+                                </h3>
+                                <p class="text-lg text-text-light leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </div>
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                width="1280"
+                                height="853"
+                                loading="lazy"
+                                class="rounded-xl shadow-md w-full h-64 object-cover"
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl font-bold text-dark font-heading text-center mb-12"
+            >
+                Этапы организации корпоратива
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    steps.map((step) => (
+                        <div class="bg-white rounded-xl shadow-card p-8 hover:-translate-y-1 transition-transform duration-300">
+                            <div class="text-4xl font-bold text-primary mb-4">
+                                {step.number}
+                            </div>
+                            <h3 class="text-lg font-heading font-bold text-dark mb-3">
+                                {step.title}
+                            </h3>
+                            <p class="text-text-light leading-relaxed">
+                                {step.description}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-lg text-text-light">
+                    Мы обеспечиваем полный цикл организации корпоративного
+                    мероприятия в Москве.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Services Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl font-bold text-dark font-heading text-center mb-12"
+            >
+                Организация корпоративов в Москве: что мы берём на себя
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {
+                    features.map((feature) => (
+                        <div class="bg-white rounded-xl shadow-card p-6 hover:-translate-y-1 transition-transform duration-300">
+                            <h3 class="text-lg font-heading font-bold text-dark mb-4">
+                                {feature.title}
+                            </h3>
+                            {feature.subtitle && (
+                                <p class="text-text-light mb-2">
+                                    {feature.subtitle}
+                                </p>
+                            )}
+                            {feature.subtitleDetail && (
+                                <p class="text-text-light mb-3">
+                                    {feature.subtitleDetail}
+                                </p>
+                            )}
+                            {feature.items && (
+                                <ul class="space-y-2 text-text-light">
+                                    {feature.items.map((item) => (
+                                        <li class="flex items-start">
+                                            <svg
+                                                class="w-5 h-5 text-primary mt-0.5 mr-2 flex-shrink-0"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                            {feature.note && (
+                                <p class="mt-4 text-sm text-text-light italic">
+                                    {feature.note}
+                                </p>
+                            )}
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {
+                    stats.map((stat) => (
+                        <div class="text-center">
+                            <div class="text-4xl md:text-5xl font-bold text-primary mb-2">
+                                {stat.number}
+                            </div>
+                            <div class="text-lg font-heading font-semibold text-dark mb-2">
+                                {stat.label}
+                            </div>
+                            <p class="text-text-light text-sm">{stat.detail}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-3xl md:text-4xl font-bold text-dark font-heading text-center mb-12"
+            >
+                Часто задаваемые вопросы
+            </h2>
+            <div class="space-y-4">
+                {
+                    faqItems.map((item, index) => (
+                        <div class="faq-item bg-white rounded-xl shadow-card overflow-hidden">
+                            <button
+                                class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors"
+                                onclick="toggleFaq({index})"
+                            >
+                                <span class="font-heading font-semibold text-dark text-lg">
+                                    {item.question}
+                                </span>
+                                <svg
+                                    class="faq-icon w-6 h-6 text-primary flex-shrink-0 ml-4 transition-transform duration-300"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l-7 7-7-7"
+                                    />
+                                </svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                                <div
+                                    class="p-6 pt-0 text-text-light leading-relaxed"
+                                    innerHTML={item.answer}
+                                />
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section
+        id="contact-form"
+        class="py-16 md:py-24 bg-gradient-to-r from-[#1a1a1a] to-[#2d2d2d] text-white"
+    >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold font-heading mb-6">
+                Заказать организацию корпоратива в Москве
+            </h2>
+            <p class="text-lg text-gray-300 mb-4">
+                Если вам нужна профессиональная организация корпоратива —
+                свяжитесь с нами:
+            </p>
+            <p class="text-xl font-semibold mb-2">
+                <a href="tel:+79169064490" class="text-primary hover:underline"
+                    >📞 +7 (916) 906-44-90</a
+                >
+            </p>
+            <p class="text-xl font-semibold mb-6">
+                <a href="tel:+79164086090" class="text-primary hover:underline"
+                    >📞 +7 (916) 408-60-90</a
+                >
+            </p>
+            <p class="text-lg font-semibold text-primary">
+                TT Event — организация корпоративов в Москве с 2006 года.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="py-12 md:py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8"
+            >
+                Контакты
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="flex flex-col gap-3">
+                    <a
+                        href="tel:+79169064490"
+                        class="text-xl font-semibold text-dark no-underline hover:text-primary transition-colors"
+                    >
+                        +7 (916) 906-44-90
+                    </a>
+                    <a
+                        href="https://t.me/+79169064490"
+                        target="_blank"
+                        class="text-primary font-semibold no-underline hover:underline"
+                    >
+                        Telegram
+                    </a>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <a
+                        href="tel:+79164086090"
+                        class="text-xl font-semibold text-dark no-underline hover:text-primary transition-colors"
+                    >
+                        +7 (916) 408-60-90
+                    </a>
+                    <a
+                        href="https://t.me/+79164086090"
+                        target="_blank"
+                        class="text-primary font-semibold no-underline hover:underline"
+                    >
+                        Telegram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-[#1a1a1a] text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>
+                TT Events — event-агентство в Москве. С 2006 года создаём
+                корпоративные и деловые события для бизнеса: от камерных встреч
+                до масштабных проектов с продакшном и видеосъёмкой.
+            </p>
+            <p class="mt-2">Москва © 2006–2026</p>
+        </div>
+    </footer>
+
+    <!-- Button Up -->
+    <button
+        id="button-up"
+        class="fixed bottom-6 right-6 z-50 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-primary-dark"
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    >
+        <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M12 4L4 12L6.5 14.5L12 9L17.5 14.5L20 12L12 4Z"
+                fill="currentColor"></path>
+        </svg>
+    </button>
+>>>>>>> master
 </Layout>
+
+<!-- Inline Scripts -->
+
+
+<!-- Styles -->
+
+
+---
+<!--
+  TT Events — Tailwind CSS Migration
+  Generated on: 2026-05-17
+-->
