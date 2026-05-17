@@ -46,3 +46,7 @@ coverage/
 # Lock files (optional - uncomment if needed)
 # package-lock.json
 # yarn.lock
+
+# Windows special files
+nul
+NUL
