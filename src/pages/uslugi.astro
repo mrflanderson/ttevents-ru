@@ -1,0 +1,135 @@
+---
+import Layout from "../components/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+
+const pageMeta = {
+    title: "Услуги — TT Events",
+    description:
+        "Полный спектр услуг event-агентства TT Events: корпоративы, тимбилдинги, конференции, фестивали, launch events, иммерсивные мероприятия.",
+    ogTitle: "Услуги — TT Events",
+    ogDescription:
+        "Event-агентство полного цикла в Москве. Более 2000 проектов с 2006 года.",
+};
+
+const services = [
+    {
+        title: "Корпоративные мероприятия",
+        href: "/korporativy-moskva",
+        image: "/images/big_corp_2.jpg",
+        count: 450,
+    },
+    {
+        title: "Тимбилдинги",
+        href: "/timbilding-moskva",
+        image: "/images/it_teambuilding.jpg",
+        count: 380,
+    },
+    {
+        title: "Новогодние корпоративы",
+        href: "/novogodniy-korporativ",
+        image: "/images/corp_tort.jpg",
+        count: 520,
+    },
+    {
+        title: "Деловые мероприятия",
+        href: "/delovye-meropriyatiya",
+        image: "/images/del2_2.jpg",
+        count: 290,
+    },
+    {
+        title: "Launch Events",
+        href: "/prezentacii-novyh-produktov-launch-events",
+        image: "/images/dela_prez_prog.jpg",
+        count: 180,
+    },
+    {
+        title: "Фестивали и городские события",
+        href: "/festivaly-i-gorodskie-meropriyatiya",
+        image: "/images/pexels-pavel-danilyuk-6405655_2.jpg",
+        count: 150,
+    },
+    {
+        title: "Иммерсивные мероприятия",
+        href: "/immersivnyj-korporativ",
+        image: "/images/nc_jmandell_immersivetheatre_photo1.jpg",
+        count: 85,
+    },
+    {
+        title: "Конференции и форумы",
+        href: "/konferencii-i-forumy",
+        image: "/images/conf_2_1.jpg",
+        count: 220,
+    },
+    {
+        title: "Видеопродакшн",
+        href: "/videoproduction",
+        image: "/images/reel_1.jpg",
+        count: 340,
+    },
+];
+
+const faqItems = [
+    {
+        question: "Какие форматы мероприятий вы организуете?",
+        answer: "Корпоративы, тимбилдинги, конференции, форумы, фестивали, презентации продуктов, мастер-классы, интеллектуальные игры и многое другое.",
+    },
+    {
+        question: "Работаете ли вы за пределами Москвы?",
+        answer: "Да, мы работаем по всей России и СНГ. Основная команда в Москве, но логистику и локальных подрядчиков выстраиваем за 2–3 недели.",
+    },
+    {
+        question: "Какой минимальный состав команды для мероприятия?",
+        answer: "От 10 человек до 1000+. Подбираем формат под ваш состав и бюджет.",
+    },
+];
+---
+
+<Layout {...pageMeta}>
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-text-light mb-4" aria-label="Навигация">
+                <a href="/" class="hover:text-primary">Главная</a> / <span
+                    class="font-medium text-text"
+                    aria-current="page">Услуги</span
+                >
+            </nav>
+            <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-8"
+            >
+                Услуги event-агентства
+            </h1>
+            <p class="text-lg text-text-light max-w-3xl mb-12">
+                TT Events организует события любого масштаба — от камерных
+                VIP-встреч на 50 человек до городских фестивалей на 2000+ гостей.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {services.map((service) => <ServiceCard {...service} />)}
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8 text-center"
+            >
+                Часто задаваемые вопросы
+            </h2>
+            <div class="divide-y divide-gray-200">
+                {faqItems.map((item) => (
+                    <div class="py-4">
+                        <details>
+                            <summary class="font-semibold cursor-pointer text-dark list-none">
+                                {item.question}
+                            </summary>
+                            <p class="mt-2 text-text-light leading-relaxed">
+                                {item.answer}
+                            </p>
+                        </details>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+</Layout>
