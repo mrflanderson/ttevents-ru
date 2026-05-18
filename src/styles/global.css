@@ -184,20 +184,26 @@
     animation: scroll 30s linear infinite;
   }
 
-  /* Pause animation on user preference for reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .animate-scroll {
-      animation-duration: 60s;
-      animation-iteration-count: 2;
-    }
+  /* Smooth marquee for partner logos */
+  .animate-marquee {
+    animation: marquee 45s linear infinite;
   }
 
-  @keyframes scroll {
+  @keyframes marquee {
     0% {
       transform: translateX(0);
     }
     100% {
       transform: translateX(-50%);
+    }
+  }
+
+  /* Pause animation on user preference for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll,
+    .animate-marquee {
+      animation-duration: 90s;
+      animation-iteration-count: 2;
     }
   }
 

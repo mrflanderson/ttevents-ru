@@ -6,6 +6,7 @@ import VideoEmbed from "../components/VideoEmbed.astro";
 import FAQSection from "../components/sections/FAQSection.astro";
 import ProcessSteps from "../components/sections/ProcessSteps.astro";
 import CTASection from "../components/sections/CTASection.astro";
+import Partners from "../components/Partners.astro";
 
 // SEO
 const pageTitle =
@@ -130,26 +131,7 @@ const partners = [
           </div>
         </div>
 
-        {/* Clients strip */}
-        <div class="border-t border-gray-200 pt-8">
-          <p class="text-xs sm:text-sm text-gray-400 mb-4 text-center lg:text-left">
-            Нам доверяют лидеры рынка и государственные структуры
-          </p>
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8">
-            {partners.map((p) => (
-              <div class="flex-shrink-0 w-[100px] sm:w-[120px]">
-                <img
-                  src={p.src}
-                  alt={`Партнёр ${p.name}`}
-                  class="h-7 sm:h-8 lg:h-10 w-auto max-w-[120px] opacity-60 hover:opacity-100 transition-opacity duration-200 grayscale-[30%] hover:grayscale-0"
-                  loading="lazy"
-                  width="120"
-                  height="32"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <Partners partners={partners} />
       </div>
     </section>
 
