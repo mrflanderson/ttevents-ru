@@ -1,5 +1,6 @@
 ---
 import Layout from "../components/Layout.astro";
+import FAQSection from "../components/sections/FAQSection.astro";
 
 const pageMeta = {
     title: "Интеллектуальные игры в Москве — TT Events",
@@ -74,29 +75,5 @@ const faqItems = [
         </div>
     </section>
 
-    <section class="py-16 md:py-24">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-                class="text-2xl md:text-3xl font-bold text-dark font-heading mb-8 text-center"
-            >
-                Часто задаваемые вопросы
-            </h2>
-            <div class="divide-y divide-gray-200">
-                {
-                    faqItems.map((item) => (
-                        <div class="py-4">
-                            <details>
-                                <summary class="font-semibold cursor-pointer text-dark list-none">
-                                    {item.question}
-                                </summary>
-                                <p class="mt-2 text-text-light leading-relaxed">
-                                    {item.answer}
-                                </p>
-                            </details>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
+    <FAQSection items={faqItems} />
 </Layout>

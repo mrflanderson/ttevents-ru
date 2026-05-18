@@ -1,0 +1,127 @@
+---
+// src/layouts/BaseLayout.astro
+// Canonical base layout for all public pages (1:1 SEO skeleton, no redirects).
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  canonical?: string;
+  jsonLd?: object;
+}
+
+const {
+  title = "TT Events — организация корпоративных мероприятий в Москве",
+  description = "TT Events — event-агентство полного цикла в Москве. Более 2000 проектов с 2006 года: корпоративы, тимбилдинги, launch events, фестивали и арт-концепции.",
+  keywords = "организация корпоративных мероприятий, event агентство москва, tt events, тимбилдинг, корпоратив",
+  ogTitle,
+  ogDescription,
+  ogImage,
+  canonical,
+  jsonLd,
+} = Astro.props;
+
+// Build page title
+const baseBrand = "TT Events";
+const hasBrand = title && title.includes(baseBrand);
+const fullTitle = (title && hasBrand) ? title : `${title || "TT Events"} | TT Events`;
+
+// Canonical URL: use explicit canonical if provided; otherwise derive from Astro
+const canonicalPath = canonical || Astro.url.pathname;
+const baseUrl = "https://ttevents.ru";
+const canonicalUrl = `${baseUrl}${canonicalPath}`;
+
+// JSON-LD: Organization
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TT Events",
+  "url": baseUrl,
+  "description": "Event-агентство полного цикла в Москве",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Москва",
+    "addressCountry": "RU"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "availableLanguage": "Russian"
+  }
+};
+
+// JSON-LD: WebSite (basic)
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "TT Events",
+  "url": baseUrl
+};
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Astro" />
+
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="author" content="TT Events" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={ogTitle || fullTitle} />
+    <meta property="og:description" content={ogDescription || description} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={ogTitle || fullTitle} />
+    <meta property="twitter:description" content={ogDescription || description} />
+    {ogImage && <meta property="twitter:image" content={ogImage} />}
+
+    <!-- JSON-LD: Organization -->
+    <script is:inline type="application/ld+json">
+      {JSON.stringify(organizationSchema)}
+    </script>
+
+    <!-- JSON-LD: WebSite -->
+    <script is:inline type="application/ld+json">
+      {JSON.stringify(websiteSchema)}
+    </script>
+
+    <!-- Page-specific JSON-LD -->
+    {jsonLd && (
+      <script is:inline type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
+    )}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    {/* Header and Footer are placeholders until components are connected */}
+    <header class="w-full">
+      <!-- Header -->
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="w-full">
+      <!-- Footer -->
+    </footer>
+  </body>
+</html>
+---

@@ -1,8 +1,8 @@
 ---
 import Layout from "../components/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import Hero from "../components/Hero.astro";
-import FAQ from "../components/FAQ.astro";
+import PageHero from "../components/sections/PageHero.astro";
+import FAQSection from "../components/sections/FAQSection.astro";
 
 const pageTitle =
     "Корпоративные мероприятия в Москве — организация корпоративов под ключ | TT Events";
@@ -62,11 +62,10 @@ const faqItems = [
 >
     <div class="page-service">
         <!-- Hero Section -->
-        <Hero
+        <PageHero
             title="Корпоративные мероприятия в Москве"
             subtitle="Организация корпоративов любой сложности с 2006 года. Более 2000 реализованных проектов."
-            ctaText="Обсудить мероприятие"
-            ctaHref="/kontakty"
+            cta={{ label: "Обсудить мероприятие", href: "/kontakty" }}
             backgroundImage="/images/korporativ-bg.jpg"
         />
 
@@ -174,7 +173,16 @@ const faqItems = [
             </div>
         </section>
 
+        <!-- Hub link -->
+        <section class="py-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-sm text-text-light">
+                    Все корпоративные мероприятия → <a href="/services/corporate-events" class="underline hover:text-primary">/services/corporate-events</a>
+                </p>
+            </div>
+        </section>
+
         <!-- FAQ Section -->
-        <FAQ items={faqItems} />
+        <FAQSection items={faqItems} />
     </div>
 </Layout>

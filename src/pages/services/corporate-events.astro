@@ -1,0 +1,139 @@
+---
+import Layout from "../../components/Layout.astro";
+import Hero from "../../components/Hero.astro";
+
+const pageTitle =
+    "Корпоративные мероприятия — TT Events (hub)";
+const pageDescription =
+    "Центр корпоративных мероприятий TT Events: новогодние, летние, на природе, арт- и иммерсивные форматы, юбилеи компаний."
+const keywords =
+    "корпоративные мероприятия, корпоратив, праздники, новогодний корпоратив, арт корпоратив, юбилей компании";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/services/corporate-events"
+>
+    <div class="page-service w-full overflow-x-hidden">
+        <Hero
+            title="Корпоративные мероприятия"
+            subtitle="Праздники, которые работают на культуру компании и имидж бренда. Более 500 корпоративов с 2006 года."
+            ctaText="Обсудить мероприятие"
+            ctaHref="/kontakty"
+            backgroundImage="/images/big_corp_2.jpg"
+        />
+
+        <!-- Intro -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-lg text-text-light mb-4">
+                    Корпоративные мероприятия — это больше, чем просто праздник.
+                    Это инструмент мотивации, укрепления команд и коммуникации бренда.
+                </p>
+                <p class="text-lg text-text-light">
+                    В этом разделе собраны основные форматы корпоративных событий: от новогодних праздников до арт- и иммерсивных проектов, выездных мероприятий и юбилеев.
+                </p>
+            </div>
+        </section>
+
+        <!-- Child services -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title mb-12">Форматы корпоративных мероприятий</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden">
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/corporate-events/novogodnie" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/corp_tort.jpg" alt="Новогодние корпоративы" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Новогодние корпоративы</h3>
+                                <p class="text-text-light text-sm">Атмосферные праздники под ключ: площадки, шоу, программа, антураж.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/corporate-events/na-prirode" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/korporativ-bg.jpg" alt="Корпоратив на природе" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Корпоратив на природе</h3>
+                                <p class="text-text-light text-sm">Летние праздники, пикники, шашлыки, глэминг, локации и атмосфера.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/corporate-events/art" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/nc_jmandell_immersivetheatre_photo1.jpg" alt="Арт-корпоратив" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Арт-корпоратив</h3>
+                                <p class="text-text-light text-sm">Стилизованные события: ретро, кино, гала-вечера, fashion, art-перформансы.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/corporate-events/immersivnye" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/nc_jmandell_immersivetheatre_photo1.jpg" alt="Иммерсивные мероприятия" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Иммерсивные мероприятия</h3>
+                                <p class="text-text-light text-sm">Погружение в историю, квест, интерактив, роль каждого гостя.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/corporate-events/yubilei" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/big_corp_2.jpg" alt="Юбилей компании" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Юбилей компании</h3>
+                                <p class="text-text-light text-sm">Торжественные программы, истории бренда, награждение, медиа.</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to all services -->
+        <section class="py-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-text-light">
+                    <span>
+                        ← <a href="/services" class="underline hover:text-primary">Все услуги</a>
+                    </span>
+                    <span>
+                        Посмотреть кейсы: <a href="/case" class="underline hover:text-primary">/case</a>
+                    </span>
+                    <span>
+                        Для бизнеса: <a href="/for-business" class="underline hover:text-primary">/for-business</a>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 md:py-24 bg-dark text-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Обсудить проект
+                </h2>
+                <p class="text-lg text-gray-300 mb-6">
+                    Расскажите о задаче — мы предложем формат, площадку и бюджет для вашего корпоратива.
+                </p>
+                <a href="/kontakty" class="btn-primary w-full sm:w-auto inline-flex justify-center min-h-[44px]">Обсудить проект</a>
+            </div>
+        </section>
+    </div>
+</Layout>

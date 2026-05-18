@@ -1,0 +1,43 @@
+---
+import Layout from "@/components/Layout.astro";
+
+const pageTitle =
+    "Конференции — TT Events";
+const pageDescription =
+    "TT Events организует конференции: модерация, сценография, регистрация, контент, техобеспечение.";
+const keywords = "конференция, организация конференции, конференция москва";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/services/mice-business/konferencii"
+>
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a href="/services" class="hover:text-primary">Услуги</a> / <a href="/services/mice-business" class="hover:text-primary">Деловые мероприятия</a> / <span class="font-medium text-text">Конференции</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">
+                    Конференции
+                </h1>
+                <p class="text-lg text-text-light mb-8">
+                    Конференции, которые работают на имидж: от концепции до отчёта.
+                    Модерация, техобеспечение, визуал, контент-производство.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Программирование, модерация, работа со спикерами.</li>
+                    <li>Сцена, свет, звук, трансляции.</li>
+                    <li>Регистрация, бейджи, навигация, гостевой опыт.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить конференцию</a>
+                    <a href="/services/mice-business" class="btn-outline">← Деловые мероприятия</a>
+                </div>
+                <p class="text-sm text-text-light">Примеры → <a href="/case" class="underline hover:text-primary">/case</a></p>
+            </div>
+        </section>
+    </div>
+</Layout>

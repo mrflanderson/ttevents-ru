@@ -1,7 +1,9 @@
 ---
 import Layout from "../components/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import FAQ from "../components/FAQ.astro";
+import PageHero from "../components/sections/PageHero.astro";
+import FAQSection from "../components/sections/FAQSection.astro";
+import CTASection from "../components/sections/CTASection.astro";
 
 const pageTitle =
     "Тендеры и госзакупки (44-ФЗ / 223-ФЗ) — организация мероприятий для государственных структур | TT Events";
@@ -53,46 +55,14 @@ const faqItems = [
     keywords={keywords}
     canonicalURL="/tendery"
 >
+    <div class="w-full overflow-x-hidden">
     <!-- Hero Section -->
-    <section
-        class="relative min-h-[500px] md:min-h-[600px] flex items-center text-white overflow-hidden"
-    >
-        <img
-            src="/images/tender-hero.jpg"
-            alt="Тендеры и госзакупки — организация мероприятий"
-            class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-black/50"></div>
-
-        <div
-            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
-        >
-            <div class="max-w-[800px]">
-                <nav class="text-sm text-text-light mb-4">
-                    <a href="/" class="hover:text-primary">Главная</a> / <a
-                        href="/korporativy-moskva"
-                        class="hover:text-primary">Услуги</a
-                    > / <span class="font-medium text-text">Тендеры</span>
-                </nav>
-                <h1
-                    class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6"
-                >
-                    Тендеры и госзакупки
-                </h1>
-                <p class="text-lg md:text-xl text-white/90 mb-10">
-                    Организация мероприятий для государственных структур по
-                    тендерной документации 44-ФЗ и 223-ФЗ. Полный цикл
-                    сопровождения.
-                </p>
-                <a
-                    href="/kontakty"
-                    class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                    Обсудить проект
-                </a>
-            </div>
-        </div>
-    </section>
+    <PageHero
+        title="Тендеры и госзакупки"
+        subtitle="Организация мероприятий для государственных структур по тендерной документации 44-ФЗ и 223-ФЗ. Полный цикл сопровождения."
+        cta={{ label: "Обсудить проект", href: "/kontakty" }}
+        backgroundImage="/images/tender-hero.jpg"
+    />
 
     <!-- Content Section -->
     <section class="py-16 md:py-24">
@@ -122,7 +92,7 @@ const faqItems = [
                     Как мы работаем
                 </h2>
                 <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12"
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 overflow-hidden mb-12"
                 >
                     <div class="bg-white rounded-xl p-6 shadow-card">
                         <div class="text-primary text-2xl font-bold mb-3">
@@ -189,71 +159,19 @@ const faqItems = [
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-16 md:py-24 bg-gray-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2
-                    class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
-                >
-                    Часто задаваемые вопросы
-                </h2>
-            </div>
+    <FAQSection items={faqItems} />
 
-            <div class="space-y-4">
-                {
-                    faqItems.map((item) => (
-                        <div class="bg-white rounded-xl p-6 shadow-card">
-                            <details>
-                                <summary class="font-heading font-semibold cursor-pointer text-dark mb-2">
-                                    {item.question}
-                                </summary>
-                                <p class="text-text-light">{item.answer}</p>
-                            </details>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
+    </div>
     <!-- CTA Section -->
-    <section
-        class="relative min-h-[400px] flex items-center text-white overflow-hidden py-24"
-    >
-        <img
-            src="/images/tender-hero.jpg"
-            alt=""
-            class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-primary/80"></div>
-
-        <div
-            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center"
-        >
-            <h2
-                class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6"
-            >
-                Свяжитесь с нами
-            </h2>
-            <p class="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                Предложим формат и рассчитаем бюджет в течение 1 дня
-            </p>
-            <div
-                class="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            >
-                <a
-                    href="tel:+79169064490"
-                    class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-white hover:bg-white/90 text-primary shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
-                >
-                    +7 (916) 906-44-90
-                </a>
-                <a
-                    href="/kontakty"
-                    class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
-                >
-                    Оставить заявку
-                </a>
-            </div>
-        </div>
-    </section>
+    <CTASection
+        title="Свяжитесь с нами"
+        description="Предложим формат и рассчитаем бюджет в течение 1 дня"
+        button1Label="+7 (916) 906-44-90"
+        button1Href="tel:+79169064490"
+        button1Type="primary"
+        button2Label="Оставить заявку"
+        button2Href="/kontakty"
+        showPhone={false}
+        showEmail={false}
+    />
 </Layout>

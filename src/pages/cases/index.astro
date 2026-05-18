@@ -1,0 +1,28 @@
+---
+import Layout from "../../components/Layout.astro";
+
+const pageTitle = "Кейсы и портфолио — TT Events";
+const pageDescription =
+    "Портфолио реализованных проектов TT Events: корпоративы, форумы, фестивали, media. Все кейсы с результатами.";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    canonicalURL="/case"
+>
+    <div class="py-16 md:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">
+                Кейсы и портфолио
+            </h1>
+            <p class="text-lg text-text-light mb-8">
+                Все кейсы TT Events собраны в одном месте. Мы показываем формат, масштаб и качество наших проектов.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/case" class="btn-primary">Смотреть портфолио → /case</a>
+                <a href="/for-business" class="btn-outline">Для бизнеса</a>
+            </div>
+        </div>
+    </div>
+</Layout>

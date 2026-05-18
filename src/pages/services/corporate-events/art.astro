@@ -1,0 +1,43 @@
+---
+import Layout from "@/components/Layout.astro";
+
+const pageTitle =
+    "Арт-корпоратив — TT Events";
+const pageDescription =
+    "TT Events организует арт-корпоративы: тематические праздники, fashion, ретро, гала, кино-стилистика и иммерсив.";
+const keywords = "арт корпоратив, тематический корпоратив, стильный корпоратив";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/services/corporate-events/art"
+>
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a href="/services" class="hover:text-primary">Услуги</a> / <a href="/services/corporate-events" class="hover:text-primary">Корпоративные мероприятия</a> / <span class="font-medium text-text">Арт-корпоратив</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">
+                    Арт-корпоратив
+                </h1>
+                <p class="text-lg text-text-light mb-8">
+                    Стильные тематические события: от fashion-вечеров до кино- и ретро-форматов. Мы создаём антураж,
+                    в который хочется вернуться.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Авторские сценарии, стиль и визуальный код мероприятия.</li>
+                    <li>Сценография, костюмы, арт-объекты, флористика.</li>
+                    <li>Интерактивы: мастер-классы, перформансы, арт-зоны.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить арт-корпоратив</a>
+                    <a href="/services/corporate-events" class="btn-outline">← Все корпоративные мероприятия</a>
+                </div>
+                <p class="text-sm text-text-light">Примеры → <a href="/case" class="underline hover:text-primary">/case</a></p>
+            </div>
+        </section>
+    </div>
+</Layout>

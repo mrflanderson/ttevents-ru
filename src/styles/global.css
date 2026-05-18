@@ -3,19 +3,28 @@
 /* ===== DESIGN TOKENS (Tailwind v4–style) ===== */
 
 @theme {
+  /* Typography */
   --font-sans:
-    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    sans-serif;
+    "Inter", "Exo 2", system-ui, -apple-system, BlinkMacSystemFont,
+    "SF Pro Text", sans-serif;
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-  --color-primary-50: #fef2f2;
+
+  /* Primary (kept) */
+  --color-primary-50: #fff1f2;
   --color-primary-100: #fecaca;
   --color-primary-500: #f15264;
   --color-primary-600: #e61d3d;
-  --color-bg: #0f172a;
-  --color-bg-soft: #111827;
+
+  /* Backgrounds: soft, premium neutrals */
+  --color-bg: #0b1222;
+  --color-bg-soft: #0f172a;
+
+  /* Text: readable, consistent scale */
   --color-text: #111827;
   --color-text-soft: #4b5563;
   --color-muted: #6b7280;
+
+  /* Radii */
   --radius-2xl: 1.5rem;
   --radius-xl: 1.25rem;
   --radius-lg: 1rem;
@@ -29,12 +38,14 @@
   }
 
   body {
-    @apply bg-gray-50 text-gray-800 leading-relaxed;
-    text-rendering: optimizeLegibility;
+    @apply bg-slate-50 text-slate-900 leading-relaxed;
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
+  /* Headings: consistent + readable scale */
   h1,
   h2,
   h3,
@@ -42,27 +53,27 @@
   h5,
   h6 {
     font-family: "Exo 2", var(--font-sans);
-    @apply tracking-tight text-gray-900;
+    @apply tracking-tight text-slate-900;
   }
 
   h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-snug;
+    @apply text-[1.5625rem] sm:text-[1.95rem] md:text-[2.4rem] lg:text-[2.75rem] font-extrabold leading-tight;
   }
-
-  h2 {
-    @apply text-2xl md:text-3xl font-semibold leading-tight;
+  \n h2 {
+    @apply text-[1.44rem] sm:text-[1.7rem] md:text-[2rem] font-bold leading-snug;
   }
 
   h3 {
-    @apply text-xl md:text-2xl font-semibold leading-tight;
+    @apply text-[1.3rem] sm:text-[1.56rem] md:text-[1.75rem] font-semibold leading-snug;
   }
 
   h4,
   h5,
   h6 {
-    @apply text-lg font-medium;
+    @apply text-[1rem] sm:text-[1.06rem] font-semibold leading-snug;
   }
 
+  /* Body text: mobile-friendly, good contrast */
   p,
   li,
   td,
@@ -70,13 +81,15 @@
   blockquote,
   small,
   figcaption {
-    @apply text-base leading-relaxed;
+    @apply text-[0.95rem] sm:text-[1rem] leading-relaxed;
   }
 
+  /* Links */
   a {
-    @apply transition-colors duration-200;
+    @apply text-primary-600 underline-offset-2 hover:text-primary-500 transition-colors duration-200;
   }
 
+  /* Selection */
   ::selection {
     @apply bg-primary-500 text-white;
   }
@@ -89,57 +102,69 @@
     @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12;
   }
 
+  /* Cards */
   .card {
-    @apply bg-white rounded-2xl border border-gray-100 p-5
-      shadow-sm hover:shadow-md transition-all duration-300
+    @apply bg-white rounded-2xl border border-slate-100 p-5
+      text-slate-900
+      shadow-soft hover:shadow-soft-lg transition-all duration-300
       flex-col overflow-hidden;
   }
 
   .card-dark {
-    @apply bg-neutral-900/90 text-white rounded-2xl
-      border border-white/[0.03] p-5
-      shadow-md hover:shadow-lg transition-all duration-300
+    @apply bg-[#0b1222]/[0.96] text-slate-50 rounded-2xl
+      border border-white/[0.04] p-5
+      shadow-soft-xl hover:shadow-soft-2xl transition-all duration-300
       flex-col overflow-hidden;
   }
 
+  /* Grid */
   .grid-default {
     @apply grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))];
   }
 
+  /* Buttons: primary is unmistakable, secondary is quieter but visible */
   .btn {
     @apply inline-flex items-center justify-center gap-2
       rounded-xl font-medium border border-transparent
-      transition-all duration-200 cursor-pointer;
+      transition-all duration-200 cursor-pointer
+      text-[0.94rem] sm:text-[1rem];
   }
 
   .btn-primary {
     @extend .btn;
-    @apply bg-primary-500 text-white hover:bg-primary-600
-      active:scale-[0.97] shadow-md hover:shadow-lg;
+    @apply bg-primary-500 text-white
+      hover:bg-primary-600
+      active:scale-[0.97]
+      shadow-soft hover:shadow-soft-lg
+      contrast-more:border-primary-600;
   }
 
   .btn-soft {
     @extend .btn;
-    @apply bg-primary-50 text-primary-600 hover:bg-primary-100;
+    @apply bg-primary-50 text-primary-600
+      hover:bg-primary-100 hover:text-primary-600;
   }
 
   .btn-outline {
     @extend .btn;
-    @apply border-gray-200 text-gray-700
-      hover:bg-gray-50 hover:text-gray-900;
+    @apply border-slate-200 text-slate-800
+      hover:bg-slate-50 hover:text-slate-900;
   }
 
+  /* Section titles: consistent and accessible */
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold
-      tracking-tight text-gray-900 leading-snug
+    @apply text-3xl sm:text-[1.75rem] md:text-4xl lg:text-5xl font-extrabold
+      tracking-tight text-slate-900 leading-tight
       mb-8 md:mb-10 text-center;
   }
 
+  /* Gradient text */
   .text-gradient {
     @apply bg-gradient-to-r from-[#f15264] to-[#d93f50]
       bg-clip-text text-transparent;
   }
 
+  /* Accessibility */
   .sr-only {
     @apply absolute w-px h-px overflow-hidden -left-px
       whitespace-nowrap opacity-0;
@@ -175,5 +200,54 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+/* ===== GLOBAL READABILITY & THEME HELPERS ===== */
+
+@layer base {
+  /* Content areas: clean, soft background */
+  main,
+  .page-bg,
+  .site-body {
+    @apply bg-gradient-to-b from-slate-50 to-[#f6f7f9] text-slate-900;
+  }
+
+  /* Dark accent areas (hero/CTA): consistent and premium */
+  .dark-accent,
+  .hero-bg,
+  .cta-bg {
+    @apply bg-gradient-to-b from-[#0b1222] to-[#050916] text-slate-100
+      border-white/[0.02];
+  }
+
+  /* Ensure links are visible on dark sections */
+  .dark-accent a,
+  .hero-bg a,
+  .cta-bg a {
+    @apply text-primary-50 underline;
+  }
+
+  /* Improve small text: readable, never muddy */
+  small,
+  .text-muted {
+    @apply text-[0.82rem] sm:text-[0.9rem] text-slate-600;
+  }
+
+  /* Shadow utilities (semantic helpers) */
+  .shadow-soft {
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.07);
+  }
+
+  .shadow-soft-lg {
+    box-shadow: 0 18px 60px rgba(15, 23, 42, 0.11);
+  }
+
+  .shadow-soft-xl {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .shadow-soft-2xl {
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
   }
 }

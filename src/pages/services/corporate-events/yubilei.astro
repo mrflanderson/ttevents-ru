@@ -1,0 +1,43 @@
+---
+import Layout from "@/components/Layout.astro";
+
+const pageTitle =
+    "Юбилей компании — TT Events";
+const pageDescription =
+    "TT Events организует юбилеи компаний: торжественные программы, истории бренда, награждение, медиа.";
+const keywords = "юбилей компании, торжественное мероприятие, юбилей компании москва";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/services/corporate-events/yubilei"
+>
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a href="/services" class="hover:text-primary">Услуги</a> / <a href="/services/corporate-events" class="hover:text-primary">Корпоративные мероприятия</a> / <span class="font-medium text-text">Юбилей компании</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">
+                    Юбилей компании
+                </h1>
+                <p class="text-lg text-text-light mb-8">
+                    Юбилей — это шанс показать историю компании, усилить гордость сотрудников
+                    и отправить чёткий сигнал рынку.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Торжественная программа, поздравления, награждение.</li>
+                    <li>Сторителлинг о компании, видеоролики, презентации.</li>
+                    <li>Имиджевый банкет, шоу, медиа, пресc-сопровождение.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить юбилей</a>
+                    <a href="/services/corporate-events" class="btn-outline">← Все корпоративные мероприятия</a>
+                </div>
+                <p class="text-sm text-text-light">Примеры → <a href="/case" class="underline hover:text-primary">/case</a></p>
+            </div>
+        </section>
+    </div>
+</Layout>

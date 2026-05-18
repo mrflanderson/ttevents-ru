@@ -1,0 +1,115 @@
+---
+import Layout from "../../components/Layout.astro";
+import Hero from "../../components/Hero.astro";
+
+const pageTitle =
+    "Фестивали и городские события — TT Events (hub)";
+const pageDescription =
+    "TT Events организует фестивали, городские праздники, спортивные и общественные мероприятия на открытых площадках.";
+const keywords =
+    "фестивали, городские мероприятия, организация фестивалей, спортивные мероприятия, городские праздники";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/services/festivals"
+>
+    <div class="page-service w-full overflow-x-hidden">
+        <Hero
+            title="Фестивали и городские события"
+            subtitle="Крупные открытые площадки, сложные сценарии и тысячи гостей. Безопасность, логистика, имидж.";
+            ctaText="Обсудить проект"
+            ctaHref="/kontakty"
+            backgroundImage="/images/pexels-pavel-danilyuk-6405655_2.jpg"
+        />
+
+        <!-- Intro -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-lg text-text-light mb-4">
+                    Фестивали и городские события — это масштаб, публичность и ответственность.
+                    Мы создаём события, которые работают на имидж бренда, власти, территорий и продуктов.
+                </p>
+                <p class="text-lg text-text-light">
+                    В этом разделе — форматы фестивалей, городских праздников, спортивных и общественных мероприятий.
+                </p>
+            </div>
+        </section>
+
+        <!-- Child services -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title mb-12">Форматы фестивалей и городских событий</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden">
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/festivals/city-events" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/pexels-pavel-danilyuk-6405655_2.jpg" alt="City events" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">City Events</h3>
+                                <p class="text-text-light text-sm">Городские мероприятия, открытия, фуд-парки, арт-программы и публичные активности.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/festivals/sports" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/sport-event.jpg" alt="Спортивные мероприятия" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Спортивные мероприятия</h3>
+                                <p class="text-text-light text-sm">Старты, забег, корпоративные лиги, гонки, family-зоны.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/festivals/public-holidays" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/pexels-pavel-danilyuk-6405655_2.jpg" alt="Публичные праздники" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Публичные праздники</h3>
+                                <p class="text-text-light text-sm">Государственные праздники, городские даты, официальные программы и концерты.</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back -->
+        <section class="py-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-text-light">
+                    <span>
+                        ← <a href="/services" class="underline hover:text-primary">Все услуги</a>
+                    </span>
+                    <span>
+                        Кейсы фестивалей: <a href="/case" class="underline hover:text-primary">/case</a>
+                    </span>
+                    <span>
+                        Для бизнеса: <a href="/for-business" class="underline hover:text-primary">/for-business</a>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 md:py-24 bg-dark text-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Обсудить проект
+                </h2>
+                <p class="text-lg text-gray-300 mb-6">
+                    Расскажите о задаче — мы предложим решение для вашего фестиваля или городского мероприятия.
+                </p>
+                <a href="/kontakty" class="btn-primary w-full sm:w-auto inline-flex justify-center min-h-[44px]">Обсудить проект</a>
+            </div>
+        </section>
+    </div>
+</Layout>

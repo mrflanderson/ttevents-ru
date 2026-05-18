@@ -1,0 +1,103 @@
+---
+import Layout from "../components/Layout.astro";
+import PageHero from "../components/sections/PageHero.astro";
+import CTASection from "../components/sections/CTASection.astro";
+
+const pageTitle = "Для бизнеса — TT Events";
+const pageDescription =
+    "TT Events для бизнеса: решения для HR, маркетинга, PR, закупок. Корпоративы, MICE, тимбилдинги, фестивали.";
+const keywords = "event агентство для бизнеса, B2B event, корпоративные мероприятия B2B";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/for-business"
+>
+    <div class="page-service">
+        <PageHero
+            title="TT Events для бизнеса"
+            subtitle="Event-решения для HR, маркетинга, PR и закупок. От концепции до отчёта."
+            cta={{ label: "Запросить предложение", href: "/kontakty" }}
+            backgroundImage="/images/del2_2.jpg"
+        />
+
+        <!-- Intro -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-lg text-text-light mb-4">
+                    TT Events работает с крупным бизнесом и госсектором: понятные процессы, договоры, тендеры, отчётность.
+                </p>
+                <p class="text-lg text-text-light">
+                    Ниже — как мы можем быть полезны разным подразделениям вашей компании.
+                    Посмотрите наши направления: корпоративы, MICE, тимбилдинг, фестивали, media.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sections -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title mb-12">Для кого мы работаем</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- For HR -->
+                    <article class="bg-white rounded-xl shadow-card p-6">
+                        <h3 class="text-xl font-heading font-semibold mb-2">Для HR</h3>
+                        <p class="text-text-light text-sm">
+                            Тимбилдинги, onboarding, корпоративы, wellness-форматы. Решения для вовлечённости, удержания, культуры.
+                        </p>
+                    </article>
+
+                    <!-- For Marketing -->
+                    <article class="bg-white rounded-xl shadow-card p-6">
+                        <h3 class="text-xl font-heading font-semibold mb-2">Для Маркетинга</h3>
+                        <p class="text-text-light text-sm">
+                            Launch events, презентации, имиджевые мероприятия, активации, интеграция с digital.
+                        </p>
+                    </article>
+
+                    <!-- For PR -->
+                    <article class="bg-white rounded-xl shadow-card p-6">
+                        <h3 class="text-xl font-heading font-semibold mb-2">Для PR</h3>
+                        <p class="text-text-light text-sm">
+                            Конференции, форумы, медиа-события, VIP-мероприятия, работа со спикерами и СМИ.
+                        </p>
+                    </article>
+
+                    <!-- For Procurement -->
+                    <article class="bg-white rounded-xl shadow-card p-6">
+                        <h3 class="text-xl font-heading font-semibold mb-2">Для Закупок / Тендеров</h3>
+                        <p class="text-text-light text-sm">
+                            Работа по тендерной процедуре, документация, сметы, отчётность, гарантии, реестры.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internal links to hubs -->
+        <section class="py-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row gap-x-6 gap-y-4 text-sm text-text-light">
+                    <a href="/services" class="underline hover:text-primary">Все услуги</a>
+                    <a href="/services/corporate-events" class="underline hover:text-primary">Корпоративные мероприятия</a>
+                    <a href="/services/mice-business" class="underline hover:text-primary">Деловые мероприятия / MICE</a>
+                    <a href="/services/team-building" class="underline hover:text-primary">Тимбилдинг</a>
+                    <a href="/services/festivals" class="underline hover:text-primary">Фестивали</a>
+                    <a href="/media" class="underline hover:text-primary">Event + Media</a>
+                    <a href="/case" class="underline hover:text-primary">Кейсы</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <CTASection
+            title="Запросить предложение"
+            description="Опишите задачу — мы подготовим коммерческое предложение и варианты реализации."
+            button1Label="Связаться с нами"
+            button1Href="/kontakty"
+            button1Type="primary"
+        />
+    </div>
+</Layout>

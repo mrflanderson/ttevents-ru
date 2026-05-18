@@ -1,0 +1,89 @@
+---
+// Universal CTA section for inner pages
+// Variants: dark (default), primary-gradient, light
+interface Props {
+  title?: string;
+  description?: string;
+  variant?: "dark" | "primary-gradient" | "light";
+  button1Label?: string;
+  button1Href?: string;
+  button1Type?: "primary" | "ghost" | "outline";
+  button2Label?: string;
+  button2Href?: string;
+  showPhone?: boolean;
+  showEmail?: boolean;
+  email?: string;
+  phone?: string;
+}
+
+const {
+  title = "Свяжитесь с нами",
+  description = "Предложим формат и рассчитаем бюджет в течение 1 дня.",
+  variant = "dark",
+  button1Label = "Обсудить проект",
+  button1Href = "https://t.me/ttevents",
+  button1Type = "primary",
+  button2Label = "Оставить заявку",
+  button2Href = "/kontakty",
+  showPhone = false,
+  showEmail = true,
+  email = "mail@ttevents.ru",
+  phone = "+7 (916) 906-44-90",
+} = Astro.props;
+
+// Computed classes
+const wrapperClass = variant === "dark"
+  ? "bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white"
+  : variant === "primary-gradient"
+    ? "bg-gradient-to-r from-primary to-primary-dark text-white"
+    : "bg-gray-50 text-gray-900";
+
+const btn1Class = button1Type === "primary"
+  ? "inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/25 hover:shadow-xl transition-all duration-300"
+  : "inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-semibold bg-white hover:bg-gray-100 text-primary shadow-lg hover:shadow-xl transition-all duration-300";
+
+const btn2Class =
+  "inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-semibold bg-white/10 border-2 border-white/20 hover:bg-white hover:text-primary text-white backdrop-blur-sm shadow-lg transition-all duration-300";
+
+const isLight = variant === "light";
+const accentTextClass = isLight ? "text-primary" : "text-primary";
+---
+
+<section class={`relative min-h-[300px] py-20 ${wrapperClass} overflow-hidden`}>
+  <!-- Subtle pattern -->
+  <div class="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
+      {title}
+    </h2>
+    <p class={`mb-10 max-w-xl mx-auto ${isLight ? "text-gray-500" : "text-gray-300"}`}>
+      {description}
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+      {button1Label && button1Href && (
+        <a href={button1Href} class={btn1Class}>
+          {button1Label}
+        </a>
+      )}
+      {button2Label && button2Href && (
+        <a href={button2Href} class={btn2Class}>
+          {button2Label}
+        </a>
+      )}
+    </div>
+
+    {showPhone && (
+      <p class="text-sm text-gray-400 mb-1">
+        Позвоните: <a href={`tel:${phone}`} class="font-medium underline">{phone}</a>
+      </p>
+    )}
+
+    {showEmail && (
+      <p class="text-sm text-gray-400">
+        Напишите: <a href={`mailto:${email}`} class={`${accentTextClass} underline`}>{email}</a>
+      </p>
+    )}
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import Layout from "../../components/Layout.astro";
+
+const pageTitle = "Видеопродакшн — TT Events";
+const pageDescription = "TT Events организует видеопродакшн для мероприятий: съёмка, монтаж, графика, пресс-ролики.";
+const keywords = "видеопродакшн, съёмка мероприятий, event видеопродакшн";
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords} canonicalURL="/media/video-production">
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a href="/media" class="hover:text-primary">Media</a> / <span class="font-medium text-text">Видеопродакшн</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">Видеопродакшн</h1>
+                <p class="text-lg text-text-light mb-8">
+                    Профессиональная видеосъёмка мероприятий, имиджевые ролики, пресс-ролики, event-репортажи.
+                    Контент для вашего бренда — от идеи до финального монтажа.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Съёмка мероприятий: конференции, фестивали, корпоративы.</li>
+                    <li>Имиджевые и презентационные ролики.</li>
+                    <li>Монтаж, цветокоррекция, графика.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить видеопроект</a>
+                    <a href="/media" class="btn-outline">← Media</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</Layout>

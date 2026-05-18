@@ -1,109 +1,140 @@
----
 // src/components/client/MobileMenu.astro
-// Client-side mobile menu handler (runs via is:inline script, no Astro hydration directive)
----
+// Client-side mobile menu behavior.
+// - Synced with Header.astro routes and structure.
+// - Reliable toggle, smooth animation, auto-close on link click.
 
-<div class="mobile-menu-handler">
-    <style>
-        .main-nav.active {
-            display: flex;
-        }
-
-        .mobile-menu-toggle.active span:first-child {
-            transform: translateY(6px) rotate(45deg);
-        }
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .mobile-menu-toggle.active span:last-child {
-            transform: translateY(-6px) rotate(-45deg);
-        }
-    </style>
-
-    <script is:inline>
-        (function () {
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            const nav = document.getElementById('mobile-main-nav') || document.querySelector('.main-nav');
-            if (!toggle || !nav) return;
-
-            let previousElement = document.activeElement;
-
-            function getFocusableElements(container) {
-                return Array.from(
-                    container.querySelectorAll(
-                        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-                    )
-                );
-            }
-
-            function openMenu() {
-                previousElement = document.activeElement;
-                nav.classList.add('active');
-                toggle.classList.add('active');
-                toggle.setAttribute('aria-expanded', 'true');
-                toggle.setAttribute('aria-label', 'Закрыть меню');
-
-                const firstFocusable = getFocusableElements(nav)[0];
-                (firstFocusable || nav).focus();
-            }
-
-            function closeMenu() {
-                nav.classList.remove('active');
-                toggle.classList.remove('active');
-                toggle.setAttribute('aria-expanded', 'false');
-                toggle.setAttribute('aria-label', 'Открыть меню');
-
-                if (previousElement && document.body.contains(previousElement)) {
-                    previousElement.focus();
-                } else {
-                    toggle.focus();
-                }
-            }
-
-            toggle.addEventListener('click', () => {
-                const isOpen = nav.classList.contains('active');
-                if (isOpen) closeMenu();
-                else openMenu();
-            });
-
-            const accordions = document.querySelectorAll('[data-mobile-accordion]');
-            accordions.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    const targetId = btn.getAttribute('aria-controls');
-                    const menu = targetId ? document.getElementById(targetId) : null;
-                    if (!menu) return;
-
-                    const expanded = btn.getAttribute('aria-expanded') === 'true';
-                    btn.setAttribute('aria-expanded', String(!expanded));
-                    menu.classList.toggle('hidden');
-                });
-            });
-
-            nav.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    e.preventDefault();
-                    closeMenu();
-                    toggle.focus();
-                    return;
-                }
-
-                if (e.key === 'Tab') {
-                    const focusables = getFocusableElements(nav);
-                    if (!focusables.length) return;
-
-                    const first = focusables[0];
-                    const last = focusables[focusables.length - 1];
-                    const current = document.activeElement;
-
-                    if (e.shiftKey && current === first) {
-                        e.preventDefault();
-                        last.focus();
-                    } else if (!e.shiftKey && current === last) {
-                        e.preventDefault();
-                        first.focus();
-                    }
-                }
-            });
-        })();
-    </script>
+<div id="mobile-menu-root" class="sr-only">
+  <!-- This component exists only to attach behavior via a script. -->
 </div>
+
+<script is:inline>
+  (function () {
+    // Guard: ensure we are on mobile-size and elements exist.
+    const mobileButton = document.getElementById('mobile-menu-button');
+    const mobileNav = document.getElementById('mobile-main-nav');
+    if (!mobileButton || !mobileNav) return;
+
+    const accordionButtons = mobileNav.querySelectorAll('[data-mobile-accordion]');
+    const mobileLinks = mobileNav.querySelectorAll('a[data-mobile-nav-link]');
+
+    let previousElement = null;
+    let isOpen = false;
+
+    // Helpers for smooth expand/collapse
+    function getMaxHeight(el) {
+      const h = el.scrollHeight;
+      return Math.min(h, 900);
+    }
+
+    function ensureTransitionStyles() {
+      if (mobileNav.dataset._mmInit === '1') return;
+      mobileNav.dataset._mmInit = '1';
+
+      Object.assign(mobileNav.style, {
+        maxHeight: '0px',
+        opacity: '0',
+        overflowY: 'auto',
+        transition: 'max-height 0.25s ease-out, opacity 0.22s ease-out'
+      });
+    }
+
+    function openMenu() {
+      ensureTransitionStyles();
+      isOpen = true;
+      previousElement = document.activeElement;
+
+      mobileButton.setAttribute('aria-expanded', 'true');
+      mobileButton.setAttribute('aria-label', 'Закрыть меню');
+      mobileNav.style.display = 'block';
+
+      const mh = getMaxHeight(mobileNav);
+      mobileNav.style.maxHeight = '0px';
+      mobileNav.offsetHeight; // reflow
+      mobileNav.style.maxHeight = mh + 'px';
+      mobileNav.style.opacity = '1';
+    }
+
+    function closeMenu(restoreFocus = true) {
+      if (!isOpen && mobileNav.style.display === 'none') return;
+      isOpen = false;
+
+      mobileButton.setAttribute('aria-expanded', 'false');
+      mobileButton.setAttribute('aria-label', 'Открыть меню');
+      mobileNav.style.maxHeight = '0px';
+      mobileNav.style.opacity = '0';
+
+      setTimeout(() => {
+        mobileNav.style.display = 'none';
+      }, 250);
+
+      if (restoreFocus && previousElement && document.body.contains(previousElement)) {
+        previousElement.focus();
+      }
+    }
+
+    function toggleMenu() {
+      if (isOpen) closeMenu();
+      else openMenu();
+    }
+
+    // Toggle button
+    mobileButton.addEventListener('click', () => {
+      toggleMenu();
+    });
+
+    // Accordion: Направления / sub-items
+    accordionButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('aria-controls');
+        const menu = targetId ? document.getElementById(targetId) : null;
+        if (!menu) return;
+
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+        if (!isExpanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          menu.style.display = 'flex';
+          const mh = getMaxHeight(menu);
+          menu.style.maxHeight = '0px';
+          menu.offsetHeight;
+          menu.style.maxHeight = mh + 'px';
+          menu.style.opacity = '1';
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+          menu.style.maxHeight = '0px';
+          menu.style.opacity = '0';
+          setTimeout(() => {
+            menu.style.display = 'none';
+          }, 220);
+        }
+      });
+    });
+
+    // Close menu when a nav link is clicked
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        // Short delay to allow navigation while closing menu
+        setTimeout(() => closeMenu(), 60);
+      });
+    });
+
+    // Escape key closes menu
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        closeMenu();
+        mobileButton.focus();
+      }
+    });
+
+    // Optional: close when clicking outside mobile menu
+    document.addEventListener('mousedown', (e) => {
+      if (!isOpen) return;
+      const target = e.target;
+      const isInside = mobileNav.contains(target);
+      const isButton = target === mobileButton || mobileButton.contains(target);
+      if (!isInside && !isButton) {
+        closeMenu();
+      }
+    });
+  })();
+</script>

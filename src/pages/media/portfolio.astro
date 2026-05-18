@@ -1,0 +1,32 @@
+---
+import Layout from "../../components/Layout.astro";
+
+const pageTitle = "Media-портфолио — TT Events";
+const pageDescription = "Portfolio медиа-проектов TT Events: ролики, трансляции, спецпроекты, event-репортажи.";
+const keywords = "media портфолио, видеопортфолио, event media";
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords} canonicalURL="/media/portfolio">
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a href="/media" class="hover:text-primary">Media</a> / <span class="font-medium text-text">Media-портфолио</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">Media-портфолио</h1>
+                <p class="text-lg text-text-light mb-8">
+                    Портфолио медиа-проектов TT Events: ролики, трансляции, спецпроекты, event-репортажи.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Корпоративные ролики и case-study.</li>
+                    <li>Live-трансляции, мульти-камера, режиссура.</li>
+                    <li>Контент для PR, соцсетей, медиа-партнёров.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить проект</a>
+                    <a href="/media" class="btn-outline">← Media</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</Layout>

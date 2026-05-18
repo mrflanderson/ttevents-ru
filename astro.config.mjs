@@ -89,6 +89,100 @@ export default defineConfig({
     // General legacy
     "/old": { status: 301, destination: "/" },
 
+    // Corporate events hub
+    "/korporativy-moskva": {
+      status: 301,
+      destination: "/services/corporate-events",
+    },
+    "/novogodniy-korporativ": {
+      status: 301,
+      destination: "/services/corporate-events/novogodnie",
+    },
+    "/art-korporativ": {
+      status: 301,
+      destination: "/services/corporate-events/art",
+    },
+    "/immersivnyj-korporativ": {
+      status: 301,
+      destination: "/services/corporate-events/immersivnye",
+    },
+    "/yubilej-kompanii": {
+      status: 301,
+      destination: "/services/corporate-events/yubilei",
+    },
+    "/korporativ-na-prirode": {
+      status: 301,
+      destination: "/services/corporate-events/na-prirode",
+    },
+
+    // Business & MICE
+    "/event-agentstvo-moskva": { status: 301, destination: "/for-business" },
+    "/organizaciya-meropriyatij-v-moskve": {
+      status: 301,
+      destination: "/services/corporate-events",
+    },
+    "/delovye-meropriyatiya": {
+      status: 301,
+      destination: "/services/mice-business",
+    },
+    "/mice-delovoj-turizm": {
+      status: 301,
+      destination: "/services/mice-business",
+    },
+
+    // Festivals & city events
+    "/festivali": { status: 301, destination: "/services/festivals" },
+    "/festivaly-i-gorodskie-meropriyatiya": {
+      status: 301,
+      destination: "/services/festivals",
+    },
+
+    // Media & production
+    "/videoproduction": { status: 301, destination: "/media/video-production" },
+    "/video-portfolio": { status: 301, destination: "/media/portfolio" },
+    "/mediaproekty": { status: 301, destination: "/media" },
+    "/onlajn-meropriyatiya": {
+      status: 301,
+      destination: "/media/online-events",
+    },
+
+    // Tenders
+    "/tendery": { status: 301, destination: "/tenders" },
+
+    // Team-building legacy → /services/team-building*
+    "/timbilding-moskva": {
+      status: 301,
+      destination: "/services/team-building",
+    },
+    "/timbilding-na-prirode": {
+      status: 301,
+      destination: "/services/team-building",
+    },
+    "/aktivnye-timbildingi": {
+      status: 301,
+      destination: "/services/team-building/aktivnye",
+    },
+    "/kreativnye-timbildingi": {
+      status: 301,
+      destination: "/services/team-building/kreativnye",
+    },
+    "/kvesty-i-igry": {
+      status: 301,
+      destination: "/services/team-building/kvesty-i-igry",
+    },
+    "/intellektualnye-igry": {
+      status: 301,
+      destination: "/services/team-building/kvesty-i-igry",
+    },
+    "/sportivnye-meropriyatiya": {
+      status: 301,
+      destination: "/services/festivals/sports",
+    },
+    "/turisticheskie-i-ekskursionnye-meropriyatiya": {
+      status: 301,
+      destination: "/services/festivals/city-events",
+    },
+
     // Blog legacy paths → /blog/[slug] or /blog
     "/blog-3-trenda": {
       status: 301,

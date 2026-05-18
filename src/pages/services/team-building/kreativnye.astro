@@ -1,0 +1,33 @@
+---
+import Layout from "@/components/Layout.astro";
+
+const pageTitle = "Креативные тимбилдинги — TT Events";
+const pageDescription = "TT Events организует креативные тимбилдинги: арт, кулинария, медиа, дизайн, креатив-лабы.";
+const keywords = "креативный тимбилдинг, арт тимбилдинг, нестандартный тимбилдинг";
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords} canonicalURL="/services/team-building/kreativnye">
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a href="/services" class="hover:text-primary">Услуги</a> / <a href="/services/team-building" class="hover:text-primary">Тимбилдинг</a> / <span class="font-medium text-text">Креативные тимбилдинги</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">Креативные тимбилдинги</h1>
+                <p class="text-lg text-text-light mb-8">
+                    Форматы, где команда создаёт, экспериментирует, проявляет себя: арт, кулинария, медиа, дизайн, креатив-лабы.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Авторские программы и мастер-классы.</li>
+                    <li>Пространство для творчества и коллаборации.</li>
+                    <li>Результат: новый опыт команды и контент для бренда.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить тимбилдинг</a>
+                    <a href="/services/team-building" class="btn-outline">← Тимбилдинг</a>
+                </div>
+                <p class="text-sm text-text-light">Примеры → <a href="/case" class="underline hover:text-primary">/case</a></p>
+            </div>
+        </section>
+    </div>
+</Layout>

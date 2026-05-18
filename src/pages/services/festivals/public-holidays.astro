@@ -1,0 +1,34 @@
+---
+import Layout from "@/components/Layout.astro";
+
+const pageTitle = "Публичные праздники — TT Events";
+const pageDescription = "TT Events организует публичные и государственные праздники: городские даты, концерты, официальные программы.";
+const keywords = "публичные праздники, государственный праздник, городской праздник";
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords} canonicalURL="/services/festivals/public-holidays">
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a href="/services" class="hover:text-primary">Услуги</a> / <a href="/services/festivals" class="hover:text-primary">Фестивали</a> / <span class="font-medium text-text">Публичные праздники</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">Публичные праздники</h1>
+                <p class="text-lg text-text-light mb-8">
+                    Городские и государственные праздники, официальные программы, концерты.
+                    Публичность, протокол, безопасность, масштаб.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Работа с протоколом и официальными программами.</li>
+                    <li>Мульти-сценарий, массовость, безопасность.</li>
+                    <li>Интеграция с городскими службами и партнёрами.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить проект</a>
+                    <a href="/services/festivals" class="btn-outline">← Фестивали</a>
+                </div>
+                <p class="text-sm text-text-light">Примеры → <a href="/case" class="underline hover:text-primary">/case</a></p>
+            </div>
+        </section>
+    </div>
+</Layout>

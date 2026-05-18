@@ -1,0 +1,51 @@
+---
+import Layout from "@/components/Layout.astro";
+
+const pageTitle =
+    "Новогодние корпоративные мероприятия — TT Events";
+const pageDescription =
+    "TT Events организует новогодние корпоративы: концепция, площадка, программа, шоу, кейтеринг. Более 500 праздников.";
+const keywords =
+    "новогодний корпоратив, новогоднее мероприятие, корпоратив на новый год";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/services/corporate-events/novogodnie"
+>
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a
+                        href="/services" class="hover:text-primary">Услуги</a> / <a
+                        href="/services/corporate-events" class="hover:text-primary">Корпоративные мероприятия</a> / <span class="font-medium text-text">Новогодние корпоративы</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">
+                    Новогодние корпоративы
+                </h1>
+                <p class="text-lg text-text-light mb-8">
+                    Новогодний корпоратив — главный праздник года. Мы создаём сценарии, площадки и шоу-программы,
+                    которые запоминаются и работают на имидж вашей компании.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Концепция и сценарий под вашу культуру.</li>
+                    <li>Подбор площадки и кейтеринга: от лофтов до отелей и дворцов.</li>
+                    <li>Шоу, антураж, конкурсы, интерактивы, ведущие.</li>
+                    <li>Техническое и медиа-обеспечение, свет, звук, видео.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить новогодний корпоратив</a>
+                    <a href="/services/corporate-events" class="btn-outline">← Все корпоративные мероприятия</a>
+                </div>
+                <div class="mt-8">
+                    <p class="text-sm text-text-light">
+                        Примеры в портфолио → <a href="/case" class="underline hover:text-primary">/case</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</Layout>

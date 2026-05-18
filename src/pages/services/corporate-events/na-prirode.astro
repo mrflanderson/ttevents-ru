@@ -1,0 +1,46 @@
+---
+import Layout from "@/components/Layout.astro";
+
+const pageTitle =
+    "Корпоратив на природе — TT Events";
+const pageDescription =
+    "TT Events организует корпоративы на природе: летние праздники, глэминг, пикники, локации под ключ.";
+const keywords =
+    "корпоратив на природе, выездной корпоратив, летний корпоратив";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/services/corporate-events/na-prirode"
+>
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a href="/services" class="hover:text-primary">Услуги</a> / <a href="/services/corporate-events" class="hover:text-primary">Корпоративные мероприятия</a> / <span class="font-medium text-text">Корпоратив на природе</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">
+                    Корпоратив на природе
+                </h1>
+                <p class="text-lg text-text-light mb-8">
+                    Выездные мероприятия, летние праздники, шашлыки, глэминг и фестивальные площадки для вашей команды.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Подбор площадок: загородные клубы, усадьбы, локации с палатками и тентами.</li>
+                    <li>Формат «под ключ»: кейтеринг, сцена, свет, звук, программа.</li>
+                    <li>Детский досуг, анимация и развлечения.</li>
+                    <li>Логистика гостей, трансфер, безопасность.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить корпоратив на природе</a>
+                    <a href="/services/corporate-events" class="btn-outline">← Все корпоративные мероприятия</a>
+                </div>
+                <p class="text-sm text-text-light">
+                    Примеры кейсов → <a href="/case" class="underline hover:text-primary">/case</a>
+                </p>
+            </div>
+        </section>
+    </div>
+</Layout>

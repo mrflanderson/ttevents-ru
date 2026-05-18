@@ -1,0 +1,33 @@
+---
+import Layout from "@/components/Layout.astro";
+
+const pageTitle = "Семинары и тренинги — TT Events";
+const pageDescription = "TT Events организует семинары и тренинги: площадки, техобеспечение, контент, сопровождение.";
+const keywords = "семинар, тренинг, обучение, бизнес-обучение";
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords} canonicalURL="/services/mice-business/seminars">
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a href="/services" class="hover:text-primary">Услуги</a> / <a href="/services/mice-business" class="hover:text-primary">Деловые мероприятия</a> / <span class="font-medium text-text">Семинары и тренинги</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">Семинары и тренинги</h1>
+                <p class="text-lg text-text-light mb-8">
+                    Обучающие мероприятия с полным техническим и логистическим сопровождением.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Подбор площадок, оборудование, зоны для воркшопов.</li>
+                    <li>Материалы, полиграфия, проекции, записи.</li>
+                    <li>Координация спикеров, тайминга и процессов.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить семинар</a>
+                    <a href="/services/mice-business" class="btn-outline">← Деловые мероприятия</a>
+                </div>
+                <p class="text-sm text-text-light">Примеры → <a href="/case" class="underline hover:text-primary">/case</a></p>
+            </div>
+        </section>
+    </div>
+</Layout>

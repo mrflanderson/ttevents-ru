@@ -1,0 +1,172 @@
+---
+import Layout from "../../components/Layout.astro";
+import Hero from "../../components/Hero.astro";
+
+const pageTitle =
+    "Услуги TT Events — корпоративы, тимбилдинги, MICE, фестивали";
+const pageDescription =
+    "Event-агентство полного цикла: корпоративные мероприятия, бизнес-события, тимбилдинги, фестивали и медиа-продукция в Москве и по всей России.";
+const keywords =
+    "event агентство москва, организация мероприятий, корпоративы, тимбилдинг, конференции, фестивали";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/services"
+>
+    <div class="page-service">
+        <Hero
+            title="Направления услуг TT Events"
+            subtitle="Event-агентство полного цикла: от корпоратива до городского фестиваля. Более 2000 проектов с 2006 года."
+            ctaText="Обсудить проект"
+            ctaHref="/kontakty"
+            backgroundImage="/images/cases-hero-bg.jpg"
+        />
+
+        <!-- Intro -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-lg text-text-light mb-4">
+                    TT Events — event-агентство полного цикла с производственным уровнем исполнения.
+                    Мы не просто «организаторы праздников», мы создаём события, которые решают бизнес-задачи,
+                    укрепляют команды и работают на имидж вашей компании.
+                </p>
+                <p class="text-lg text-text-light">
+                    Ниже — четыре ключевых направления. Выберите одно, чтобы увидеть конкретные форматы, кейсы и условия.
+                </p>
+            </div>
+        </section>
+
+        <!-- Hubs Grid -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title mb-12 text-center">Выберите направление</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Corporate Events -->
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/corporate-events" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img
+                                    src="/images/big_corp_2.jpg"
+                                    alt="Корпоративные мероприятия"
+                                    width="600"
+                                    height="300"
+                                    loading="lazy"
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">
+                                    Корпоративные мероприятия
+                                </h3>
+                                <p class="text-text-light text-sm">
+                                    Новогодние, летние, на природе, арт-форматы, юбилеи компаний и иммерсивные события.
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- MICE / Business -->
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/mice-business" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img
+                                    src="/images/del2_2.jpg"
+                                    alt="Деловые мероприятия и MICE"
+                                    width="600"
+                                    height="300"
+                                    loading="lazy"
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">
+                                    Деловые мероприятия / MICE
+                                </h3>
+                                <p class="text-text-light text-sm">
+                                    Конференции, форумы, презентации, launch events, семинары и стратегические сессии.
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Team Building -->
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/team-building" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img
+                                    src="/images/it_teambuilding.jpg"
+                                    alt="Тимбилдинг"
+                                    width="600"
+                                    height="300"
+                                    loading="lazy"
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">
+                                    Тимбилдинг
+                                </h3>
+                                <p class="text-text-light text-sm">
+                                    Активные, креативные и игровые форматы для команд любого размера.
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Festivals & City -->
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/festivals" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img
+                                    src="/images/pexels-pavel-danilyuk-6405655_2.jpg"
+                                    alt="Фестивали и городские события"
+                                    width="600"
+                                    height="300"
+                                    loading="lazy"
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">
+                                    Фестивали и городские события
+                                </h3>
+                                <p class="text-text-light text-sm">
+                                    Городские праздники, спортивные события, публичные фестивали и открытые площадки.
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases CTA -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-dark font-heading mb-4">
+                    Посмотрите наши кейсы
+                </h2>
+                <p class="text-lg text-text-light mb-6">
+                    Портфолио реализованных проектов: корпоративы, форумы, фестивали, media. Все кейсы с результатами. → /cases
+                </p>
+                <a href="/case" class="btn-primary">Портфолио и кейсы</a>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 md:py-24 bg-dark text-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Обсудить проект
+                </h2>
+                <p class="text-lg text-gray-300 mb-6">
+                    Опишите задачу — мы предложим формат, бюджет и сроки. Отвечаем в течение 1 рабочего дня.
+                </p>
+                <a href="/kontakty" class="btn-primary">Написать менеджеру</a>
+            </div>
+        </section>
+    </div>
+</Layout>

@@ -1,145 +1,52 @@
 ---
+// Layout.astro: thin wrapper that delegates to BaseLayout and keeps existing behavior.
+// All pages use this component; BaseLayout is the single source of truth for SEO shell.
+
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
-import MobileMenu from "./client/MobileMenu.astro"; // client:visible директива в самом компоненте
+import MobileMenu from "./client/MobileMenu.astro";
 import "../styles/global.css";
 
 interface Props {
-    title?: string;
-    description?: string;
-    keywords?: string;
-    ogTitle?: string;
-    ogDescription?: string;
-    ogImage?: string;
-    canonicalURL?: string;
-    jsonLd?: object; // Дополнительный JSON-LD для конкретных страниц (Article, Event и т.д.)
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  canonicalURL?: string; // legacy prop name (still used across pages)
+  jsonLd?: object;
 }
 
 const {
-    title = "TT Events — организация корпоративных мероприятий в Москве",
-    description = "TT Events — event-агентство полного цикла в Москве. Более 2000 проектов с 2006 года: корпоративы, тимбилдинги, launch events, фестивали и арт-концепции.",
-    keywords = "организация корпоративных мероприятий, event агентство москва, tt events, тимбилдинг, корпоратив",
-    ogTitle,
-    ogDescription,
-    ogImage,
-    canonicalURL = Astro.url.pathname,
-    jsonLd,
+  title,
+  description,
+  keywords,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  canonicalURL,
+  jsonLd,
 } = Astro.props;
-
-const fullTitle = title.includes("TT Events") ? title : `${title} | TT Events`;
-
-// JSON-LD Structured Data — только для существующих ресурсов
-const siteUrl = "https://ttevents.ru";
-const organizationName = "TT Events";
-const organizationUrl = `${siteUrl}`;
-
-const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: organizationName,
-    url: organizationUrl,
-    logo: `${siteUrl}/favicon.svg`,
-    description: "Event-агентство полного цикла в Москве",
-    address: {
-        "@type": "PostalAddress",
-        addressLocality: "Москва",
-        addressCountry: "RU",
-    },
-    contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "customer service",
-        availableLanguage: "Russian",
-    },
-};
-
-// Search endpoint пока отсутствует — JSON-LD для WebSite будет добавлен после создания /search
-// const websiteSchema = { ... };
-
-const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    name: "Navigation",
-    itemListElement: [
-        {
-            "@type": "ListItem",
-            position: 1,
-            name: "Главная",
-            item: `${siteUrl}/`,
-        },
-    ],
-};
 ---
 
-<!doctype html>
-<html lang="ru">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Astro" />
-
-        <!-- Primary Meta Tags -->
-        <title>{fullTitle}</title>
-        <meta name="title" content={fullTitle} />
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
-        <meta name="author" content="TT Events" />
-        <meta name="robots" content="index, follow" />
-
-        <!-- Canonical URL -->
-        <link rel="canonical" href={`https://ttevents.ru${canonicalURL}`} />
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta
-            property="og:url"
-            content={`https://ttevents.ru${canonicalURL}`}
-        />
-        <meta property="og:title" content={ogTitle || fullTitle} />
-        <meta
-            property="og:description"
-            content={ogDescription || description}
-        />
-        {ogImage && <meta property="og:image" content={ogImage} />}
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta
-            property="twitter:url"
-            content={`https://ttevents.ru${canonicalURL}`}
-        />
-        <meta property="twitter:title" content={ogTitle || fullTitle} />
-        <meta property="twitter:description" content={ogDescription || description} />
-        {ogImage && <meta property="twitter:image" content={ogImage} />}
-
-        <!-- Favicon -->
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-        <!-- Fonts — font-display:swap для устранения FOUT (Flash of Unstyled Text) -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
-
-        <!-- JSON-LD Structured Data — только для валидных схем -->
-        <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(organizationSchema)}</script>
-        <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(breadcrumbSchema)}</script>
-
-        <!-- Page-specific JSON-LD (Article, Event и т.д.) -->
-        {jsonLd && (
-            <script is:inline type="application/ld+json" class="sr-only">{JSON.stringify(jsonLd)}</script>
-        )}
-    </head>
-    <body class="bg-gray-50 min-h-screen flex flex-col">
-        <Header />
-
-        <main class="flex-grow">
-            <slot />
-        </main>
-
-        <Footer />
-
-        <MobileMenu />
-    </body>
-</html>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImage={ogImage}
+  canonical={canonicalURL}
+  jsonLd={jsonLd}
+>
+  <!-- Inject existing header, footer, mobile menu into BaseLayout body -->
+  <Header />
+  <main class="flex-1">
+    <slot />
+  </main>
+  <Footer />
+  <MobileMenu />
+</BaseLayout>
+---

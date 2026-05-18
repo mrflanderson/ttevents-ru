@@ -1,8 +1,8 @@
 ---
 import Layout from "../components/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import Hero from "../components/Hero.astro";
-import FAQ from "../components/FAQ.astro";
+import PageHero from "../components/sections/PageHero.astro";
+import FAQSection from "../components/sections/FAQSection.astro";
 
 const pageTitle =
     "Тимбилдинги в Москве — активные и креативные мероприятия для команды | TT Events";
@@ -50,11 +50,10 @@ const faqItems = [
 >
     <div class="page-service">
         <!-- Hero Section -->
-        <Hero
+        <PageHero
             title="Тимбилдинги в Москве"
             subtitle="Активные и креативные форматы для сплочения команды. От 10 до 500+ участников."
-            ctaText="Обсудить формат"
-            ctaHref="/kontakty"
+            cta={{ label: "Обсудить формат", href: "/kontakty" }}
             backgroundImage="/images/timbilding-bg.jpg"
         />
 
@@ -164,7 +163,16 @@ const faqItems = [
             </div>
         </section>
 
+        <!-- Hub link -->
+        <section class="py-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-sm text-text-light">
+                    Все тимбилдинги → <a href="/services/team-building" class="underline hover:text-primary">/services/team-building</a>
+                </p>
+            </div>
+        </section>
+
         <!-- FAQ Section -->
-        <FAQ items={faqItems} />
+        <FAQSection items={faqItems} />
     </div>
 </Layout>

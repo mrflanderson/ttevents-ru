@@ -1,5 +1,6 @@
 ---
 import Layout from "../components/Layout.astro";
+import PageHero from "../components/sections/PageHero.astro";
 
 const pageTitle =
     "Активный тимбилдинг для сотрудников в Москве — организация под ключ | TT Events";
@@ -13,35 +14,21 @@ const heroImage = "/images/it_teambuilding.jpg";
 
 <Layout title={pageTitle} description={pageDescription} keywords={keywords}>
     <!-- Hero Section -->
-    <section
-        class="relative min-h-[600px] md:min-h-[700px] flex items-center text-white overflow-hidden"
-    >
-        <img
-            src={heroImage}
-            alt="Активный тимбилдинг"
-            class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-black/50"></div>
-        <div
-            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
-        >
-            <div class="max-w-[800px]">
-                <h1
-                    class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6"
-                >
-                    Активный тимбилдинг для сотрудников в Москве
-                </h1>
-                <p class="text-lg md:text-xl text-white/90 mb-10">
-                    Спортивные турниры, корпоративные спартакиады, командные
-                    квесты и полосы препятствий. Опыт 15+ лет. Рассчитаем
-                    программу за 24 часа.
-                </p>
-                <a
-                    href="/kontakty"
-                    class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                    >Получить расчёт бюджета</a
-                >
-            </div>
+    <PageHero
+        title="Активный тимбилдинг для сотрудников в Москве"
+        subtitle="Спортивные турниры, корпоративные спартакиады, командные квесты и полосы препятствий. Опыт 15+ лет. Рассчитаем программу за 24 часа."
+        cta={{ label: "Получить расчёт бюджета", href: "/kontakty" }}
+        backgroundImage={heroImage}
+    />
+
+    <section class="py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-sm text-text-light">
+                Все активные тимбилдинги →
+                <a href="/services/team-building/aktivnye" class="underline hover:text-primary">
+                    /services/team-building/aktivnye
+                </a>
+            </p>
         </div>
     </section>
 </Layout>

@@ -1,0 +1,96 @@
+---
+import Layout from "../../components/Layout.astro";
+import Hero from "../../components/Hero.astro";
+
+const pageTitle = "Event + Media — TT Events";
+const pageDescription =
+    "TT Events — event + media агентство: видеопродакшн, онлайн-мероприятия, медиа-портфолио, контент-производство.";
+const keywords = "event media, медиапродукция, видеопродакшн, онлайн мероприятия";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/media"
+>
+    <div class="page-service">
+        <Hero
+            title="Event + Media"
+            subtitle="Мы не просто организуем события — мы создаём контент и медиа, которые усиливают ваш бренд."
+            ctaText="Обсудить проект"
+            ctaHref="/kontakty"
+            backgroundImage="/images/reel_1.jpg"
+        />
+
+        <!-- Intro -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-lg text-text-light mb-4">
+                    TT Events — это не только организация мероприятий, но и полноценное media-направление.
+                    Мы снимаем, режиссировать, транслируем, монтируем и создаём контент для ваших событий.
+                </p>
+                <p class="text-lg text-text-light">
+                    Ниже — ключевые медиа-направления. Выберите одно, чтобы увидеть форматы, кейсы и возможности.
+                </p>
+            </div>
+        </section>
+
+        <!-- Media directions -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title mb-12 text-center">Направления</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/media/video-production" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/reel_1.jpg" alt="Видеопродакшн" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Видеопродакшн</h3>
+                                <p class="text-text-light text-sm">Съёмка мероприятий, имиджевые ролики, пресс-киты, event-репортажи.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/media/online-events" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/conf_2_1.jpg" alt="Онлайн-мероприятия" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Онлайн-мероприятия</h3>
+                                <p class="text-text-light text-sm">Live-трансляции, гибридные события, мульти-камера, онлайн-интерактивы.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/media/portfolio" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/big_corp_2.jpg" alt="Медиа-портфолио" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Media-портфолио</h3>
+                                <p class="text-text-light text-sm">Портфолио медиа-проектов: ролики, трансляции, спецпроекты.</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 md:py-24 bg-dark text-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Обсудить медиа-проект
+                </h2>
+                <p class="text-lg text-gray-300 mb-6">
+                    Расскажите о задаче — мы предложим решение: от идеи и сценария до реализации.
+                </p>
+                <a href="/kontakty" class="btn-primary">Обсудить проект</a>
+            </div>
+        </section>
+    </div>
+</Layout>

@@ -1,7 +1,9 @@
 ---
 import Layout from "../components/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import FAQ from "../components/FAQ.astro";
+import PageHero from "../components/sections/PageHero.astro";
+import FAQSection from "../components/sections/FAQSection.astro";
+import CTASection from "../components/sections/CTASection.astro";
 
 const pageTitle =
     "Арт-корпоратив в Москве — креативная вечеринка и концептуальное мероприятие | TT Events";
@@ -42,46 +44,12 @@ const faqItems = [
     canonicalURL="/art-korporativ"
 >
     <!-- Hero Section -->
-    <section
-        class="relative min-h-[500px] md:min-h-[600px] flex items-center text-white overflow-hidden"
-    >
-        <img
-            src="/images/art-hero.jpg"
-            alt="Арт-корпоратив — креативная вечеринка"
-            class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-black/50"></div>
-
-        <div
-            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
-        >
-            <div class="max-w-[800px]">
-                <nav class="text-sm text-text-light mb-4">
-                    <a href="/" class="hover:text-primary">Главная</a> / <a
-                        href="/korporativy-moskva"
-                        class="hover:text-primary">Услуги</a
-                    > / <span class="font-medium text-text">Арт-корпоратив</span
-                    >
-                </nav>
-                <h1
-                    class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6"
-                >
-                    Арт-корпоратив в Москве
-                </h1>
-                <p class="text-lg md:text-xl text-white/90 mb-10">
-                    Организация арт-корпоративов под ключ: креативные вечеринки,
-                    иммерсивные шоу, тематические мероприятия. Полное
-                    сопровождение и мультимедийный продакшн.
-                </p>
-                <a
-                    href="/kontakty"
-                    class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                    Обсудить проект
-                </a>
-            </div>
-        </div>
-    </section>
+    <PageHero
+        title="Арт-корпоратив в Москве"
+        subtitle="Организация арт-корпоративов под ключ: креативные вечеринки, иммерсивные шоу, тематические мероприятия. Полное сопровождение и мультимедийный продакшн."
+        cta={{ label: "Обсудить проект", href: "/kontakty" }}
+        backgroundImage="/images/art-hero.jpg"
+    />
 
     <!-- Content Section -->
     <section class="py-16 md:py-24">
@@ -177,71 +145,26 @@ const faqItems = [
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-16 md:py-24 bg-gray-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2
-                    class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
-                >
-                    Часто задаваемые вопросы
-                </h2>
-            </div>
-
-            <div class="space-y-4">
-                {
-                    faqItems.map((item) => (
-                        <div class="bg-white rounded-xl p-6 shadow-card">
-                            <details>
-                                <summary class="font-heading font-semibold cursor-pointer text-dark mb-2">
-                                    {item.question}
-                                </summary>
-                                <p class="text-text-light">{item.answer}</p>
-                            </details>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
+    <FAQSection items={faqItems} />
 
     <!-- CTA Section -->
-    <section
-        class="relative min-h-[400px] flex items-center text-white overflow-hidden py-24"
-    >
-        <img
-            src="/images/art-hero.jpg"
-            alt=""
-            class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-primary/80"></div>
+    <CTASection
+        title="Свяжитесь с нами"
+        description="Предложим формат и рассчитаем бюджет в течение 1 дня"
+        button1Label="+7 (916) 906-44-90"
+        button1Href="tel:+79169064490"
+        button1Type="primary"
+        button2Label="Оставить заявку"
+        button2Href="/kontakty"
+        showPhone={false}
+        showEmail={false}
+    />
 
-        <div
-            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center"
-        >
-            <h2
-                class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6"
-            >
-                Свяжитесь с нами
-            </h2>
-            <p class="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                Предложим формат и рассчитаем бюджет в течение 1 дня
+    <section class="py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-sm text-text-light">
+                Все корпоративные мероприятия → <a href="/services/corporate-events" class="underline hover:text-primary">/services/corporate-events</a>
             </p>
-            <div
-                class="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            >
-                <a
-                    href="tel:+79169064490"
-                    class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-white hover:bg-white/90 text-primary shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
-                >
-                    +7 (916) 906-44-90
-                </a>
-                <a
-                    href="/kontakty"
-                    class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
-                >
-                    Оставить заявку
-                </a>
-            </div>
         </div>
     </section>
 </Layout>

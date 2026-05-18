@@ -16,54 +16,12 @@ const navItems: NavSection[] = [
         label: "Главная"
     },
     {
-        href: "/korporativy-moskva",
-        label: "Корпоративные мероприятия",
+        label: "Направления",
         children: [
-            { href: "/novogodniy-korporativ", label: "Новогодний корпоратив" },
-            { href: "/letnij-korporativ", label: "Летний корпоратив" },
-            { href: "/korporativ-na-prirode", label: "Корпоратив на природе" },
-            { href: "/art-korporativ", label: "Тематический корпоратив" },
-            { href: "/yubilej-kompanii", label: "Юбилей компании" },
-            { href: "/immersivnyj-korporativ", label: "Иммерсивные мероприятия" },
-            { href: "/intellektualnye-igry", label: "Интеллектуальные игры" }
-        ]
-    },
-    {
-        href: "/delovye-meropriyatiya",
-        label: "Деловые мероприятия",
-        children: [
-            { href: "/konferencii-i-forumy", label: "Конференции и форумы" },
-            { href: "/strategicheskie-sessii-i-vorkshopy", label: "Стратегические сессии" },
-            { href: "/seminary-i-treningi", label: "Семинары и тренинги" },
-            { href: "/mice-delovoj-turizm", label: "MICE и Деловой туризм" },
-            { href: "/prezentacii-novyh-produktov-launch-events", label: "Презентации новых продуктов" },
-            { href: "/master-klassy", label: "Мастер-классы" }
-        ]
-    },
-    {
-        href: "/timbilding-moskva",
-        label: "Тимбилдинг",
-        children: [
-            { href: "/aktivnye-timbildingi", label: "Активные тимбилдинги" },
-            { href: "/kreativnye-timbildingi", label: "Креативные тимбилдинги" },
-            { href: "/timbilding-na-prirode", label: "Тимбилдинг на природе" }
-        ]
-    },
-    {
-        href: "/festivali",
-        label: "Фестивали",
-        children: [
-            { href: "/festivali", label: "Фестивали и городские события" },
-            { href: "/gosudarstvennye-prazdniki", label: "Государственные праздники" }
-        ]
-    },
-    {
-        href: "/mediaproekty",
-        label: "Медиапроекты",
-        children: [
-            { href: "/mediaproekty", label: "Медиапроекты" },
-            { href: "/videoproduction", label: "Видеопродакшн" },
-            { href: "/video-portfolio", label: "Видео мероприятий" }
+            { href: "/services/corporate-events", label: "Корпоративные мероприятия" },
+            { href: "/services/mice-business", label: "MICE и деловые события" },
+            { href: "/services/team-building", label: "Тимбилдинг" },
+            { href: "/services/festivals", label: "Фестивали и городские события" }
         ]
     },
     {
@@ -71,16 +29,20 @@ const navItems: NavSection[] = [
         label: "Кейсы"
     },
     {
-        href: "/blog",
-        label: "Блог"
+        href: "/media",
+        label: "Media"
     },
     {
-        href: "/o-nas",
-        label: "О нас"
+        href: "/for-business",
+        label: "Для бизнеса"
     },
     {
-        href: "/tendery",
-        label: "Тендеры"
+        href: "/faq",
+        label: "FAQ"
+    },
+    {
+        href: "/kontakty",
+        label: "Контакты"
     }
 ];
 ---
@@ -122,12 +84,9 @@ const navItems: NavSection[] = [
                 </svg>
             </a>
 
-            <!-- Desktop navigation -->
-            <nav
-                class="hidden md:block"
-                aria-label="Основная навигация"
-            >
-                <div class="flex items-center gap-8">
+            <!-- Desktop navigation + CTA -->
+            <div class="hidden md:flex items-center gap-8">
+                <nav aria-label="Основная навигация" class="flex items-center gap-8">
                     {navItems.map((section) => {
                         const hasChildren = section.children && section.children.length > 0;
                         const menuId = hasChildren ? `menu-${section.label.toLowerCase().replace(/[^\wа-яё]/gi, '').trim()}` : null;
@@ -175,8 +134,18 @@ const navItems: NavSection[] = [
                             </div>
                         );
                     })}
-                </div>
-            </nav>
+                </nav>
+
+                <!-- CTA -->
+                <a
+                    href="https://t.me/ttevents"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#f15264] rounded-lg hover:bg-[#e04155] transition-colors"
+                >
+                    Обсудить проект
+                </a>
+            </div>
 
             <!-- Mobile menu button with proper accessibility -->
             <button
@@ -194,92 +163,106 @@ const navItems: NavSection[] = [
 
             <!-- Mobile navigation wrapper -->
             <div
-                class="md:hidden absolute left-0 right-0 top-full bg-white border-b shadow-lg flex-col py-4 px-4 main-nav hidden"
-                id="mobile-main-nav"
-                aria-label="Основная навигация (мобильное меню)"
-                role="region"
+              class="md:hidden absolute left-0 right-0 top-full bg-white border-b border-gray-100 shadow-lg overflow-y-auto"
+              id="mobile-main-nav"
+              aria-label="Основная навигация (мобильное меню)"
+              role="region"
+              style="
+                max-height: 0;
+                opacity: 0;
+                display: none;
+                transition: max-height 0.25s ease-out, opacity 0.22s ease-out;
+                padding-top: 0;
+                padding-bottom: 0;
+              "
             >
-                <nav>
-                    <ul
-                        class="flex flex-col gap-2 list-none p-0 m-0 w-full"
-                    >
-                        {navItems.map((section) => {
-                            const hasChildren = section.children && section.children.length > 0;
-                            const submenuId = hasChildren ? `mobile-menu-${section.label.toLowerCase().replace(/[^\wа-яё]/gi, '').trim()}` : null;
+              <nav>
+                <ul
+                  class="flex flex-col gap-2 list-none p-0 m-0 w-full px-4 pt-3 pb-4"
+                >
+                  {navItems.map((section) => {
+                    const hasChildren = section.children && section.children.length > 0;
+                    const submenuId = hasChildren ? `mobile-menu-${section.label.toLowerCase().replace(/[^\\wа-яё]/gi, '').trim()}` : null;
 
-                            return (
-                                <li class="relative">
-                                    {section.href && !hasChildren ? (
-                                        <a
-                                            href={section.href}
-                                            class="block py-2 text-base font-medium text-text hover:text-primary transition-colors duration-200"
-                                        >
-                                            {section.label}
-                                        </a>
-                                    ) : hasChildren ? (
-                                        <>
-                                            <button
-                                                type="button"
-                                                class="w-full flex justify-between items-center py-2 text-base font-medium text-text hover:text-primary transition-colors duration-200"
-                                                aria-controls={submenuId}
-                                                aria-expanded="false"
-                                                aria-haspopup="true"
-                                                aria-label={`${section.label}, открыть подменю`}
-                                                data-mobile-accordion
-                                            >
-                                                {section.label}
-                                            </button>
-                                            <ul
-                                                id={submenuId}
-                                                class="hidden mt-1 mb-1 pl-2 flex flex-col gap-1 border-l border-gray-100"
-                                                aria-label={section.label}
-                                            >
-                                                {section.children.map((child) => (
-                                                    <li>
-                                                        <a
-                                                            href={child.href}
-                                                            class="block py-1 text-sm text-text hover:text-primary transition-colors duration-200"
-                                                        >
-                                                            {child.label}
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </>
-                                    ) : (
-                                        <span class="block py-2 text-base font-medium text-text cursor-default">
-                                            {section.label}
-                                        </span>
-                                    )}
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </nav>
+                    return (
+                      <li class="relative">
+                        {section.href && !hasChildren ? (
+                          <a
+                            href={section.href}
+                            class="block min-h-[44px] px-2 py-2.5 text-[15px] font-medium text-gray-800 hover:text-primary transition-colors duration-150 rounded"
+                            data-mobile-nav-link
+                          >
+                            {section.label}
+                          </a>
+                        ) : hasChildren ? (
+                          <>
+                            <button
+                              type="button"
+                              class="w-full flex justify-between items-center min-h-[44px] px-2 py-2.5 text-[15px] font-medium text-gray-800 hover:text-primary transition-colors duration-150 rounded"
+                              aria-controls={submenuId}
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-label={`${section.label}, открыть подменю`}
+                              data-mobile-accordion
+                            >
+                              <span>{section.label}</span>
+                              <span class="ml-2 w-5 h-5 flex items-center justify-center">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                              </span>
+                            </button>
+                            <div
+                              id={submenuId}
+                              class="mt-1 mb-1 pl-2 border-l border-gray-100 flex flex-col gap-1 overflow-hidden"
+                              style="max-height:0; opacity:0; transition: max-height 0.22s ease, opacity 0.18s ease;"
+                              aria-label={section.label}
+                            >
+                              {section.children.map((child) => (
+                                <a
+                                  href={child.href}
+                                  class="block min-h-[44px] px-2 py-1.5 text-[15px] text-gray-700 hover:text-primary transition-colors duration-150 rounded"
+                                  data-mobile-nav-link
+                                >
+                                  {child.label}
+                                </a>
+                              ))}
+                            </div>
+                          </>
+                        ) : (
+                          <span class="block min-h-[44px] px-2 py-2.5 text-[15px] font-medium text-gray-700">
+                            {section.label}
+                          </span>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
             </div>
+          </div>
         </div>
-    </div>
-</header>
+      </header>
 
 <script>
     // Desktop dropdown accessibility: hover-friendly + keyboard support
-    document.addEventListener('DOMContentLoaded', () => {
+    (function () {
         const header = document.querySelector('header');
         if (!header) return;
 
-        const dropdowns: { button: HTMLButtonElement; menu: HTMLElement }[] = [];
+        const dropdowns = [];
 
-        header.querySelectorAll('[data-dropdown-trigger]').forEach((el: HTMLElement) => {
-            const btn = el as HTMLButtonElement;
+        header.querySelectorAll('[data-dropdown-trigger]').forEach((el) => {
+            const btn = el;
             const menu = btn.parentElement?.querySelector('ul[id]');
             if (!menu) return;
             dropdowns.push({ button: btn, menu });
         });
 
-        // Mouse: hover to show (keep existing feel)
+        // Mouse: hover to show
         header.addEventListener('mouseenter', (e) => {
-            const t = e.target as HTMLElement;
-            const btn = t?.closest<HTMLButtonElement>('[data-dropdown-trigger]');
+            const t = e.target;
+            const btn = t?.closest('[data-dropdown-trigger]');
             if (!btn) return;
             const dd = dropdowns.find((d) => d.button === btn);
             if (!dd) return;
@@ -314,7 +297,7 @@ const navItems: NavSection[] = [
             });
         });
 
-        // Keyboard: Enter, Space, ArrowDown -> open and move focus; Escape -> close
+        // Keyboard handling
         dropdowns.forEach((dd) => {
             const links = Array.from(dd.menu.querySelectorAll('a'));
             dd.button.addEventListener('keydown', (e) => {
@@ -343,10 +326,9 @@ const navItems: NavSection[] = [
                 }
             });
 
-            // Arrow navigation inside dropdown
             dd.menu.addEventListener('keydown', (e) => {
                 const key = e.key;
-                const current = document.activeElement as HTMLElement;
+                const current = document.activeElement;
                 const idx = links.indexOf(current);
 
                 if (key === 'ArrowDown') {
@@ -367,5 +349,127 @@ const navItems: NavSection[] = [
                 }
             });
         });
-    });
+
+        // Mobile menu logic: reliable toggle, smooth open/close, auto-close on link
+        const mobileButton = document.getElementById('mobile-menu-button');
+        const mobileNav = document.getElementById('mobile-main-nav');
+        const accordionButtons = header.querySelectorAll('[data-mobile-accordion]');
+        const mobileLinks = header.querySelectorAll('[data-mobile-nav-link]');
+
+        let previousElement = null;
+        let isOpen = false;
+
+        function getMaxHeight(el) {
+            const s = getComputedStyle(el);
+            const scrollH = el.scrollHeight;
+            // Clamp to a sane range so animation is smooth but not insane
+            return Math.min(scrollH, 900);
+        }
+
+        function openMobileMenu() {
+            if (!mobileButton || !mobileNav) return;
+            isOpen = true;
+            previousElement = document.activeElement;
+
+            mobileButton.setAttribute('aria-expanded', 'true');
+            mobileButton.setAttribute('aria-label', 'Закрыть меню');
+            mobileNav.style.display = 'block';
+
+            const mh = getMaxHeight(mobileNav);
+            mobileNav.style.maxHeight = '0px';
+
+            // Force reflow so transition triggers
+            mobileNav.offsetHeight;
+
+            mobileNav.style.maxHeight = mh + 'px';
+            mobileNav.style.opacity = '1';
+        }
+
+        function closeMobileMenu(restoreFocus = true) {
+            if (!mobileButton || !mobileNav) return;
+            isOpen = false;
+
+            mobileButton.setAttribute('aria-expanded', 'false');
+            mobileButton.setAttribute('aria-label', 'Открыть меню');
+            mobileNav.style.maxHeight = '0px';
+            mobileNav.style.opacity = '0';
+
+            // After transition, fully hide
+            setTimeout(() => {
+                mobileNav.style.display = 'none';
+            }, 250);
+
+            if (restoreFocus && previousElement && document.body.contains(previousElement)) {
+                previousElement.focus();
+            }
+        }
+
+        function toggleMobileMenu() {
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        }
+
+        // Accordion behavior for submenus inside mobile menu
+        function toggleAccordion(btn) {
+            const targetId = btn.getAttribute('aria-controls');
+            const menu = targetId ? document.getElementById(targetId) : null;
+            if (!menu) return;
+
+            const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+            if (!isExpanded) {
+                // Expand with animation
+                btn.setAttribute('aria-expanded', 'true');
+                menu.style.display = 'flex';
+                const mh = getMaxHeight(menu);
+                menu.style.maxHeight = '0px';
+                menu.offsetHeight;
+                menu.style.maxHeight = mh + 'px';
+                menu.style.opacity = '1';
+            } else {
+                // Collapse
+                btn.setAttribute('aria-expanded', 'false');
+                menu.style.maxHeight = '0px';
+                menu.style.opacity = '0';
+                setTimeout(() => {
+                    menu.style.display = 'none';
+                }, 220);
+            }
+        }
+
+        // Close mobile menu when clicking any navigation link inside it
+        function handleMobileLinkClick() {
+            // Allow navigation, but close menu after a short delay
+            setTimeout(closeMobileMenu, 60);
+        }
+
+        if (mobileButton) {
+            mobileButton.addEventListener('click', () => {
+                toggleMobileMenu();
+            });
+        }
+
+        accordionButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                toggleAccordion(btn);
+            });
+        });
+
+        mobileLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                handleMobileLinkClick();
+            });
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isOpen) {
+                closeMobileMenu();
+                mobileButton.focus();
+            }
+        });
+    })();
 </script>

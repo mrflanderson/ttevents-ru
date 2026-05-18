@@ -1,636 +1,421 @@
 ---
 import Layout from "../components/Layout.astro";
-import ServiceCard from "../components/ServiceCard.astro";
 import CaseCard from "../components/CaseCard.astro";
 import VideoEmbed from "../components/VideoEmbed.astro";
+import FAQSection from "../components/sections/FAQSection.astro";
+import ProcessSteps from "../components/sections/ProcessSteps.astro";
+import CTASection from "../components/sections/CTASection.astro";
 
+// SEO
 const pageTitle =
-    "TT Events — event-агентство полного цикла в Москве с 2006 года";
+  "TT Events — корпоративные мероприятия, MICE, фестивали и продакшн";
 const pageDescription =
-    "Организация корпоративных мероприятий, тимбилдингов, деловых форумов, фестивалей и launch events в Москве. Более 2000 проектов. Свой театр, видеопродакшн, сценарии под бизнес-задачи.";
+  "TT Events — организация корпоративных мероприятий, MICE, фестивалей и медиа-продакшна в Москве и по России. Event + media + production под ключ.";
 const keywords =
-    "организация корпоративных мероприятий, event агентство москва, tt events, тимбилдинг для компаний, проведение деловых событий, корпоратив в москве";
+  "TT Events, корпоратив, мероприятия, MICE, тимбилдинг, фестиваль, event-агентство, продакшн, live";
 
-const services = [
-    {
-        title: "Корпоративные мероприятия",
-        href: "/korporativy-moskva",
-        image: "/images/big_corp_2.jpg",
-        count: 450,
-    },
-    {
-        title: "Тимбилдинги",
-        href: "/timbilding-moskva",
-        image: "/images/it_teambuilding.jpg",
-        count: 380,
-    },
-    {
-        title: "Новогодние корпоративы",
-        href: "/novogodniy-korporativ",
-        image: "/images/corp_tort.jpg",
-        count: 520,
-    },
-    {
-        title: "Деловые мероприятия",
-        href: "/delovye-meropriyatiya",
-        image: "/images/del2_2.jpg",
-        count: 290,
-    },
-    {
-        title: "Launch Events",
-        href: "/prezentacii-novyh-produktov-launch-events",
-        image: "/images/dela_prez_prog.jpg",
-        count: 180,
-    },
-    {
-        title: "Фестивали",
-        href: "/festivaly-i-gorodskie-meropriyatiya",
-        image: "/images/pexels-pavel-danilyuk-6405655_2.jpg",
-        count: 150,
-    },
+// Core cases (from your existing /case pages)
+const topCases = [
+  {
+    title: "Art-pop для «Метриум» — Новый год 2026",
+    href: "/case/artpop",
+    image: "/images/12_12_artpop_1m_blondmp4_20260217_040321853_2.jpg",
+  },
+  {
+    title: "Ретро-фестиваль «Время надежд» — Звенигород 2025",
+    href: "/case/vremnadezhdfest2025",
+    image: "/images/vrem_nad_cover.jpg",
+  },
+  {
+    title: "Open-air в Гребнево — SLAVA SKRIPKA",
+    href: "/case/open-air-slava-skripka-bober-2025",
+    image: "/images/bobr.jpg",
+  },
 ];
 
-const topCases = [
-    {
-        title: "Art-pop для «Метриум» — Новый год 2026",
-        href: "/case/artpop",
-        image: "/images/12_12_artpop_1m_blondmp4_20260217_040321853_2.jpg",
-    },
-    {
-        title: "Ретро-фестиваль «Время надежд» — Звенигород 2025",
-        href: "/case/vremnadezhdfest2025",
-        image: "/images/vrem_nad_cover.jpg",
-    },
-    {
-        title: "Open-air в Гребнево — SLAVA SKRIPKA",
-        href: "/case/open-air-slava-skripka-bober-2025",
-        image: "/images/bobr.jpg",
-    },
+// Metrics (concrete, no fluff)
+const metrics = [
+  { value: "15+", label: "лет на рынке" },
+  { value: "2 000+", label: "проектов" },
+  { value: "50 000+", label: "гостей" },
+  { value: "100+", label: "корпоративных клиентов" },
+];
+
+// 4 ecosystem pillars (what we do)
+const pillars = [
+  {
+    title: "Корпоративные мероприятия",
+    desc: "Концепции, сценарии и продакшн под задачи бизнеса.",
+    href: "/services/corporate-events",
+  },
+  {
+    title: "MICE и деловые события",
+    desc: "Конференции, форумы, презентации и B2B-мероприятия.",
+    href: "/services/mice-business",
+  },
+  {
+    title: "Тимбилдинг",
+    desc: "Иммерсивные и активные форматы для команд.",
+    href: "/services/team-building",
+  },
+  {
+    title: "Фестивали и городские события",
+    desc: "Open-air, городские фестивали и публичные пространства.",
+    href: "/services/festivals",
+  },
+];
+
+// Partners: using existing images
+const partners = [
+  "/images/logo_sber.jpg",
+  "/images/logo_gazprom.png",
+  "/images/rzhd.jpg",
+  "/images/vdnh.png",
+  "/images/rosatom.png",
 ];
 ---
 
 <Layout
-    title={pageTitle}
-    description={pageDescription}
-    keywords={keywords}
-    ogTitle={pageTitle}
-    ogDescription={pageDescription}
+  title={pageTitle}
+  description={pageDescription}
+  keywords={keywords}
+  ogTitle={pageTitle}
+  ogDescription={pageDescription}
+  canonicalURL="/"
 >
-    <div class="page-content">
-        <!-- Hero Section -->
-        <section
-            class="relative min-h-[600px] md:min-h-[700px] flex items-center text-white overflow-hidden"
-        >
-            <video
-                autoplay
-                loop
-                muted
-                playsinline
-                preload="auto"
-                poster="/video/hero_new2.png"
-                class="absolute inset-0 w-full h-full object-cover"
+  <div class="min-h-screen bg-white w-full overflow-x-hidden">
+
+    <!-- HERO -->
+    <section class="relative min-h-[650px] flex items-center text-white overflow-hidden overflow-x-hidden">
+      <!-- Video background -->
+      <!-- Video background -->
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        poster="/video/hero_new2.png"
+        class="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/video/hero_new2.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-black/50"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-[860px]">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 leading-tight">
+            События, которые работают на&nbsp;бизнес
+          </h1>
+          <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
+            TT Events — корпоративы, MICE, фестивали и продакшн. От концепции до трансляции и контента.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 items-center w-full">
+            <a
+              href="https://t.me/ttevents"
+              class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300 min-h-[44px]">
+              Обсудить проект
+            </a>
+            <a
+              href="/case"
+              class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-lg font-semibold bg-white/10 border-2 border-white/20 hover:bg-white hover:text-primary text-white backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 min-h-[44px]">
+              Смотреть кейсы
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS + CLIENTS (social proof) -->
+    <section class="py-10 bg-gray-50 border-y border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Metrics */}
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-10">
+          <div>
+            <p class="text-sm text-gray-500">TT Events</p>
+            <h2 class="mt-1 text-xl font-semibold text-gray-900">
+              Партнёр для сложных проектов
+            </h2>
+          </div>
+          <div class="flex flex-wrap gap-x-10 gap-y-3 text-sm text-gray-700">
+            {metrics.map((m) => (
+              <div class="flex flex-col">
+                <span class="text-2xl font-semibold text-gray-900">{m.value}</span>
+                <span class="text-xs text-gray-500">{m.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Clients strip (monochrome style via filters) */}
+        <div class="mt-4">
+          <p class="text-xs text-gray-400 mb-3">
+            Нам доверяют лидеры рынка и государственные структуры
+          </p>
+          <div class="flex flex-wrap items-center gap-6">
+            {partners.map((src) => (
+              <img
+                src={src}
+                alt="Партнёр TT Events"
+                class="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 DIRECTION HUBS (WHAT WE DO) -->
+    <section id="directions" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-10">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-3">
+            Направления
+          </h2>
+          <p class="text-lg text-gray-500 max-w-2xl">
+            TT Events создаёт экосистему: от корпоративных событий до фестивалей и&nbsp;деловых форматов.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 overflow-hidden">
+          {pillars.map((p) => (
+            <a
+              href={p.href}
+              class="group block rounded-xl border border-gray-100 p-6 bg-white hover:shadow-soft transition-all duration-300"
             >
-                <source src="/video/hero_new2.mp4" type="video/mp4" />
-            </video>
-            <div class="absolute inset-0 bg-black/50"></div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                {p.title}
+              </h3>
+              <p class="text-sm text-gray-500 mb-4">{p.desc}</p>
+              <span class="inline-flex items-center text-sm text-primary font-medium group-hover:underline">
+                Подробнее →
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
 
-            <div
-                class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
+    <!-- FEATURED CASES -->
+    <section id="cases" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-10">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-3">
+              Ключевые проекты
+            </h2>
+            <p class="text-lg text-gray-500 max-w-xl">
+              Масштабные события, которые работают на имидж и бизнес. Показываем отобранное.
+            </p>
+          </div>
+          <a
+            href="/case"
+            class="hidden sm:inline-flex items-center text-sm text-primary font-medium hover:underline"
+          >
+            Все кейсы →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden">
+          {topCases.map((c) => (
+            <CaseCard
+              title={c.title}
+              href={c.href}
+              image={c.image}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT + MEDIA (cinematic) -->
+    <section id="media" class="relative py-24 text-white overflow-hidden">
+      {/* Cinematic background */}
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
+      ></div>
+      <div class="absolute inset-0 opacity-[0.06] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:26px_26px]"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center overflow-hidden">
+        <div>
+          <p class="text-xs tracking-widest text-gray-400 mb-3">
+            EVENT + MEDIA
+          </p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
+            Событие не заканчивается площадкой
+          </h2>
+          <p class="text-lg text-gray-200 mb-6 max-w-xl">
+            TT Events — event + media в одном продакшне. Мы создаём контент и атмосферу, которые живут после мероприятия.
+          </p>
+          <ul class="mb-8 space-y-2 text-gray-200">
+            <li>• Авторская режиссура</li>
+            <li>• Видеостил и live-трансляции</li>
+            <li>• Backstage и контент-стратегия</li>
+            <li>• SDE / second screen / интерактив</li>
+          </ul>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a
+              href="/media"
+              class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300"
             >
-                <div class="max-w-[800px]">
-                    <h1
-                        class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6"
-                    >
-                        Организация корпоративных мероприятий в Москве
-                    </h1>
-                    <p class="text-lg md:text-xl text-white/90 mb-10">
-                        Event-агентство полного цикла с 2006 года. Более 2000
-                        проектов: корпоративы, тимбилдинги, launch events,
-                        фестивали.
-                    </p>
-                    <a
-                        href="/kontakty"
-                        class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                        Получить расчёт бюджета
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="py-16 md:py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2
-                        class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
-                    >
-                        Форматы мероприятий
-                    </h2>
-                    <p class="text-lg text-text-light max-w-2xl mx-auto">
-                        TT Events организует события любого масштаба — от
-                        камерных VIP-встреч на 50 человек до городских
-                        фестивалей на 2000+ гостей.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {services.map((service) => <ServiceCard {...service} />)}
-                </div>
-
-                <div class="text-center mt-12">
-                    <a
-                        href="/korporativy-moskva"
-                        class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                        Смотреть все услуги →
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Us Section -->
-        <section class="py-16 md:py-24 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2
-                        class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
-                    >
-                        Почему мы
-                    </h2>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
-                    <div
-                        class="bg-white rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300"
-                    >
-                        <div class="text-primary text-4xl font-bold mb-4">
-                            01
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold mb-2">
-                            15 лет успеха
-                        </h3>
-                        <p class="text-text-light">
-                            С 2006 года мы провели более 2000 мероприятий. Это
-                            безупречная репутация и опыт, который невозможно
-                            купить.
-                        </p>
-                    </div>
-
-                    <div
-                        class="bg-white rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300"
-                    >
-                        <div class="text-primary text-4xl font-bold mb-4">
-                            02
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold mb-2">
-                            Свой ресурс
-                        </h3>
-                        <p class="text-text-light">
-                            Наш «Театр Традиций» — это эксклюзивный контент. Мы
-                            работали на Олимпиадах в Сочи и Ванкувере.
-                        </p>
-                    </div>
-
-                    <div
-                        class="bg-white rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300"
-                    >
-                        <div class="text-primary text-4xl font-bold mb-4">
-                            03
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold mb-2">
-                            Без границ
-                        </h3>
-                        <p class="text-text-light">
-                            Мы создаем атмосферу, которая ломает шаблоны.
-                            События, которые усиливают команду изнутри.
-                        </p>
-                    </div>
-
-                    <div
-                        class="bg-white rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300"
-                    >
-                        <div class="text-primary text-4xl font-bold mb-4">
-                            04
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold mb-2">
-                            Масштабные идеи
-                        </h3>
-                        <p class="text-text-light">
-                            Мы превращаем обычные события в грандиозные шоу.
-                            Инновации и внимание к деталям в каждом мгновении.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Cases Section -->
-        <section class="py-16 md:py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2
-                        class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
-                    >
-                        Наши кейсы
-                    </h2>
-                    <p class="text-lg text-text-light max-w-2xl mx-auto">
-                        Реализованные проекты для крупных холдингов и компаний.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {
-                        topCases.map((caseItem) => (
-                            <CaseCard
-                                title={caseItem.title}
-                                href={caseItem.href}
-                                image={caseItem.image}
-                            />
-                        ))
-                    }
-                </div>
-
-                <div class="text-center mt-12">
-                    <a
-                        href="/case"
-                        class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                        Смотреть все кейсы →
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Video Section -->
-        <section class="py-16 md:py-24 bg-gray-50">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2
-                        class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
-                    >
-                        Видео
-                    </h2>
-                    <p class="text-lg text-text-light max-w-2xl mx-auto">
-                        Посмотрите, как мы создаём мероприятия — от идеи до реализации.
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-xl overflow-hidden shadow-card">
-                    <VideoEmbed rutubeId="e8a81853494652009fc0f58c40bea73b" />
-                </div>
-            </div>
-        </section>
-
-        <!-- Process Section -->
-        <section class="py-16 md:py-24 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2
-                        class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
-                    >
-                        Как мы работаем
-                    </h2>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
-                >
-                    <div class="bg-white rounded-xl p-6 shadow-card">
-                        <div class="text-primary text-2xl font-bold mb-3">
-                            01
-                        </div>
-                        <h3 class="text-lg font-heading font-semibold mb-2">
-                            Концепция
-                        </h3>
-                        <p class="text-text-light text-sm">
-                            Анализ задач бренда, аудитории и формата. Создание
-                            сценария и визуальной стратегии.
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-xl p-6 shadow-card">
-                        <div class="text-primary text-2xl font-bold mb-3">
-                            02
-                        </div>
-                        <h3 class="text-lg font-heading font-semibold mb-2">
-                            Площадка
-                        </h3>
-                        <p class="text-text-light text-sm">
-                            Лофты, арт-галереи, концертные пространства,
-                            нестандартные площадки в Москве.
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-xl p-6 shadow-card">
-                        <div class="text-primary text-2xl font-bold mb-3">
-                            03
-                        </div>
-                        <h3 class="text-lg font-heading font-semibold mb-2">
-                            Техника
-                        </h3>
-                        <p class="text-text-light text-sm">
-                            Профессиональный свет, звук, LED-экраны,
-                            спецэффекты.
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-xl p-6 shadow-card">
-                        <div class="text-primary text-2xl font-bold mb-3">
-                            04
-                        </div>
-                        <h3 class="text-lg font-heading font-semibold mb-2">
-                            Декор
-                        </h3>
-                        <p class="text-text-light text-sm">
-                            Кастомные фотозоны, арт-инсталляции, брендированные
-                            зоны.
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-xl p-6 shadow-card">
-                        <div class="text-primary text-2xl font-bold mb-3">
-                            05
-                        </div>
-                        <h3 class="text-lg font-heading font-semibold mb-2">
-                            Продакшн
-                        </h3>
-                        <p class="text-text-light text-sm">
-                            Персональный менеджер проекта + контроль всех
-                            процессов.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section class="py-16 md:py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2
-                        class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
-                    >
-                        Бюджет события
-                    </h2>
-                    <p class="text-lg text-text-light max-w-2xl mx-auto">
-                        Ориентировочная стоимость «под ключ» в сезоне 2026:
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div
-                        class="bg-white rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 text-center"
-                    >
-                        <div class="text-primary text-4xl font-bold mb-2">
-                            50
-                        </div>
-                        <div class="text-text-light text-sm mb-4">гостей</div>
-                        <div class="text-dark text-2xl font-bold mb-6">
-                            от 900 000 ₽
-                        </div>
-                    </div>
-
-                    <div
-                        class="bg-white rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 text-center"
-                    >
-                        <div class="text-primary text-4xl font-bold mb-2">
-                            100
-                        </div>
-                        <div class="text-text-light text-sm mb-4">гостей</div>
-                        <div class="text-dark text-2xl font-bold mb-6">
-                            от 1,5 млн ₽
-                        </div>
-                    </div>
-
-                    <div
-                        class="bg-white rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 text-center"
-                    >
-                        <div class="text-primary text-4xl font-bold mb-2">
-                            200+
-                        </div>
-                        <div class="text-text-light text-sm mb-4">гостей</div>
-                        <div class="text-dark text-2xl font-bold mb-6">
-                            от 2,5 млн ₽
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12">
-                    <a
-                        href="/kontakty"
-                        class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                        Рассчитать стоимость проекта
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="py-16 md:py-24 bg-gray-50">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2
-                        class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
-                    >
-                        Часто задаваемые вопросы
-                    </h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="bg-white rounded-xl p-6 shadow-card">
-                        <h3 class="text-lg font-heading font-semibold mb-3">
-                            Сколько стоит корпоратив в Москве в 2026?
-                        </h3>
-                        <p class="text-text-light">
-                            Средний чек под ключ — от 15–22 тыс. ₽ на человека.
-                            50 гостей ≈ 850–1,4 млн ₽, 100 гостей ≈ 1,4–2,8 млн
-                            ₽, 200+ ≈ 2,3–7+ млн ₽. Точную цифру даём после
-                            брифа за 1 день.
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-xl p-6 shadow-card">
-                        <h3 class="text-lg font-heading font-semibold mb-3">
-                            За сколько реально организовать новогодний
-                            корпоратив?
-                        </h3>
-                        <p class="text-text-light">
-                            Идеально — за 4–6 месяцев (лучшие площадки и артисты
-                            разбирают заранее). Реально — от 45 дней (есть
-                            проверенные локации и свой штат).
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-xl p-6 shadow-card">
-                        <h3 class="text-lg font-heading font-semibold mb-3">
-                            Работаете только в Москве или по всей России?
-                        </h3>
-                        <p class="text-text-light">
-                            По всей России и СНГ. Основная команда в Москве, но
-                            логистику и локальных подрядчиков выстраиваем за 2–3
-                            недели.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Partners Section -->
-        <section class="py-16 md:py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2
-                        class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4"
-                    >
-                        Наши партнеры
-                    </h2>
-                    <p class="text-lg text-text-light max-w-2xl mx-auto">
-                        Мы работаем с именитыми компаниями и представителями
-                        рынка
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center"
-                >
-                    <img
-                        src="/images/logo_aop_t.webp"
-                        alt="АОП"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/dkpng.png"
-                        alt="ДКПНГ"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/logo_imzylovo.jpg"
-                        alt="Измайлово"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/logo_mos_zezony.png"
-                        alt="Московские зёрнышки"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/rosatom.png"
-                        alt="Росатом"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/vdnh.png"
-                        alt="ВДНХ"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/logo_kolomenskoe.jpg"
-                        alt="Коломенское"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/rzhd.jpg"
-                        alt="РЖД"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/logo_sber.jpg"
-                        alt="Сбер"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/logo_lukoil.webp"
-                        alt="Лукойл"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/vdnh_expo.png"
-                        alt="ВДНХ Экспо"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/logo_russian_postsvg.png"
-                        alt="Российская почта"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/logo_gazprom.png"
-                        alt="Газпром"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                    <img
-                        src="/images/gostinyj-dvor-logo.png"
-                        alt="Гостиный двор"
-                        class="h-16 w-auto mx-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <!-- Contact CTA Section — контрастный дизайн с тёмным фоном -->
-        <section
-            class="relative min-h-[400px] flex items-center text-white overflow-hidden py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"
-        >
-            <!-- Декоративный паттерн -->
-            <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-
-            <div
-                class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center"
+              Смотреть media
+            </a>
+            <a
+              href="/kontakty"
+              class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold border-2 border-white/20 hover:bg-white/10 text-white transition-all duration-300"
             >
-                <!-- Бейдж -->
-                <span class="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary/20 border border-primary/30 text-sm font-medium text-white">
-                    Более 2000 проектов
-                </span>
+              Обсудить задачу
+            </a>
+          </div>
+        </div>
 
-                <h2
-                    class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6"
-                >
-                    Свяжитесь с нами
-                </h2>
-                <p
-                    class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
-                >
-                    Предложим формат и рассчитаем бюджет в течение 1 дня.
-                    Бесплатная консультация без обязательств.
-                </p>
+        {/* Cinematic media strip */}
+        <div class="flex flex-col gap-4">
+          <div class="rounded-xl overflow-hidden bg-black/40 border border-white/10">
+            <VideoEmbed rutubeId="e8a81853494652009fc0f58c40bea73b" />
+          </div>
+          <p class="text-xs text-gray-400">
+            Посмотрите, как мы создаём мероприятия — от идеи до реализации.
+          </p>
+        </div>
+      </div>
+    </section>
 
-                <!-- Контакты -->
-                <div
-                    class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
-                >
-                    <a
-                        href="tel:+79169064490"
-                        class="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/25 hover:shadow-xl transition-all duration-300 text-lg"
-                    >
-                        <span class="w-5 h-5">📞</span>
-                        +7 (916) 906-44-90
-                    </a>
-                    <a
-                        href="/kontakty"
-                        class="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold bg-white/10 border-2 border-white/20 hover:bg-white hover:text-primary text-white backdrop-blur-sm shadow-lg transition-all duration-300 text-lg"
-                    >
-                        <span>✉️</span>
-                        Оставить заявку
-                    </a>
-                </div>
+    <!-- WHY US (concrete, no fluff) -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-10">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-3">
+            Почему выбирают TT Events
+          </h2>
+          <p class="text-lg text-gray-500 max-w-2xl">
+            Без воды. По делу. Вот что нас отличает.
+          </p>
+        </div>
 
-                <!-- Email -->
-                <p class="text-gray-400 text-sm">
-                    Или напишите нам на&nbsp;
-                    <a href="mailto:mail@ttevents.ru" class="text-primary hover:text-white transition-colors duration-200 underline font-medium">
-                        mail@ttevents.ru
-                    </a>
-                </p>
-            </div>
-        </section>
-    </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 overflow-hidden">
+          <div class="flex flex-col">
+            <div class="text-primary text-3xl font-bold mb-2">01</div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Собственный продакшн и режиссура
+            </h3>
+            <p class="text-sm text-gray-500">
+              Сценарии, видео, постановка, техническая реализация и контент-команда — в&nbsp;одном pipeline.
+            </p>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="text-primary text-3xl font-bold mb-2">02</div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Проекты федерального уровня
+            </h3>
+            <p class="text-sm text-gray-500">
+              Фестивали, государственные события, корпоративы и open-air по всей России.
+            </p>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="text-primary text-3xl font-bold mb-2">03</div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              End-to-end от концепции до отчёта
+            </h3>
+            <p class="text-sm text-gray-500">
+              Единое окно связи, прозрачный бюджет, чёткие сроки и KPI.
+            </p>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="text-primary text-3xl font-bold mb-2">04</div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Контент, который живёт после мероприятия
+            </h3>
+            <p class="text-sm text-gray-500">
+              Фото-, видео-, media-стратегия и интеграции в коммуникации клиента.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <ProcessSteps
+      id="process"
+      title="Как мы работаем"
+      subtitle="От задачи до реализации. Без лишних шагов."
+      steps={[{
+        label: "Бриф",
+        description: "1–2 рабочих встречи, чек-листы и KPI.",
+      }, {
+        label: "Концепция и сценарий",
+        description: "Визуальная стратегия, moodboard, структура формата.",
+      }, {
+        label: "Продакшн и техника",
+        description: "Свет, звук, сценография, медиа, режиссура.",
+      }, {
+        label: "Реализация",
+        description: "Полная координация и управление на площадке.",
+      }, {
+        label: "Контент и отчёт",
+        description: "Медиа, highlights, отчётность, архив проекта.",
+      }]}
+    />
+
+
+    <!-- FAQ -->
+    <FAQSection
+      title="Часто задаваемые вопросы"
+      items={[{
+        question: "Сколько стоит корпоратив в Москве в 2026?",
+        answer: "Средний чек под ключ — от 15–22 тыс. ₽ на человека. 50 гостей ≈ 850–1,4 млн ₽, 100 гостей ≈ 1,4–2,8 млн ₽, 200+ ≈ 2,3–7+ млн ₽. Точную цифру даём после брифа за 1 день.",
+      }, {
+        question: "За сколько реально организовать новогодний корпоратив?",
+        answer: "Идеально — за 4–6 месяцев. Реально — от 45 дней (есть проверенные локации и свой штат).",
+      }, {
+        question: "Работаете только в Москве или по всей России?",
+        answer: "По всей России и СНГ. Основная команда в Москве, логистику и подрядчиков выстраиваем за 2–3 недели.",
+      }]} />
+
+
+    <!-- FINAL CTA -->
+    <section id="cta" class="relative py-24 text-white overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+      <div class="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary/20 border border-primary/30 text-sm font-medium text-white">
+          Более 2000 проектов
+        </span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4">
+          Готовы обсудить ваш проект
+        </h2>
+        <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
+          Расскажите задачу — предложим 3 формата и рассчитаем бюджет в течение 1 дня.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href="tel:+79169064490"
+            class="w-full sm:w-auto group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/25 hover:shadow-xl transition-all duration-300 min-h-[48px]"
+          >
+            Обсудить проект
+          </a>
+          <a
+            href="/kontakty"
+            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold bg-white/10 border-2 border-white/20 hover:bg-white hover:text-primary text-white backdrop-blur-sm shadow-lg transition-all duration-300"
+          >
+            Оставить заявку
+          </a>
+        </div>
+
+        <p class="mt-6 text-gray-400 text-sm">
+          Или напишите нам на
+          <a
+            href="mailto:mail@ttevents.ru"
+            class="text-primary hover:text-white transition-colors duration-200 underline font-medium"
+          >
+            mail@ttevents.ru
+          </a>
+        </p>
+      </div>
+    </section>
+
+  </div>
 </Layout>

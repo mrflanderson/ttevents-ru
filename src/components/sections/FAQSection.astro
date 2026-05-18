@@ -1,0 +1,38 @@
+---
+// Universal FAQ section (compact, no walls)
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  items: FAQItem[];
+}
+
+const { title = "Часто задаваемые вопросы", items } = Astro.props;
+---
+
+<section class="py-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-10">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-3">
+        {title}
+      </h2>
+    </div>
+
+    <div class="space-y-3">
+      {items.map((item) => (
+        <details class="group rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
+          <summary class="list-none cursor-pointer text-sm font-semibold text-gray-900 flex items-center justify-between">
+            {item.question}
+            <span class="text-xs text-gray-400">+</span>
+          </summary>
+          <p class="mt-2 text-sm text-gray-600">
+            {item.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

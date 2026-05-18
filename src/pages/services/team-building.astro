@@ -1,0 +1,115 @@
+---
+import Layout from "../../components/Layout.astro";
+import Hero from "../../components/Hero.astro";
+
+const pageTitle =
+    "Тимбилдинг — TT Events (hub)";
+const pageDescription =
+    "TT Events организует тимбилдинги для команд: активные, креативные, квесты и игры. От 20 до 1500+ участников.";
+const keywords =
+    "тимбилдинг, тимбилдинг москва, team building, активные тимбилдинги, тимбилдинг на природе";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/services/team-building"
+>
+    <div class="page-service w-full overflow-x-hidden">
+        <Hero
+            title="Тимбилдинг"
+            subtitle="Форматы для команд, где важен результат: сплочение, доверие, коммуникация, мотивация."
+            ctaText="Обсудить проект"
+            ctaHref="/kontakty"
+            backgroundImage="/images/it_teambuilding.jpg"
+        />
+
+        <!-- Intro -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-lg text-text-light mb-4">
+                    Мы проектируем тимбилдинги так, чтобы они решали реальные задачи:
+                    улучшали коммуникацию, вовлекали новичков, снимали напряжение и укрепляли доверие.
+                </p>
+                <p class="text-lg text-text-light">
+                    В этом разделе — основные форматы: активные, креативные и квесты с играми.
+                </p>
+            </div>
+        </section>
+
+        <!-- Child services -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title mb-12">Форматы тимбилдинга</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden">
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/team-building/aktivnye" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/it_teambuilding.jpg" alt="Активные тимбилдинги" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Активные тимбилдинги</h3>
+                                <p class="text-text-light text-sm">Спорт, ориентирование, гонки, экшн-форматы.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/team-building/kreativnye" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/it_teambuilding.jpg" alt="Креативные тимбилдинги" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Креативные тимбилдинги</h3>
+                                <p class="text-text-light text-sm">Арт, кулинария, медиа, дизайн, креатив-лабы.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/team-building/kvesty-i-igry" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/it_teambuilding.jpg" alt="Квесты и игры" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Квесты и игры</h3>
+                                <p class="text-text-light text-sm">Логика, детектив, миссии, живые сценарии.</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back -->
+        <section class="py-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-text-light">
+                    <span>
+                        ← <a href="/services" class="underline hover:text-primary">Все услуги</a>
+                    </span>
+                    <span>
+                        Кейсы тимбилдингов: <a href="/case" class="underline hover:text-primary">/case</a>
+                    </span>
+                    <span>
+                        Для бизнеса: <a href="/for-business" class="underline hover:text-primary">/for-business</a>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 md:py-24 bg-dark text-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Обсудить проект
+                </h2>
+                <p class="text-lg text-gray-300 mb-6">
+                    Опишите команду и задачу — мы предложем формат и программу под ваш коллектив.
+                </p>
+                <a href="/kontakty" class="btn-primary w-full sm:w-auto inline-flex justify-center min-h-[44px]">Обсудить проект</a>
+            </div>
+        </section>
+    </div>
+</Layout>

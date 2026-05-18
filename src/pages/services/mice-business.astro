@@ -1,0 +1,139 @@
+---
+import Layout from "../../components/Layout.astro";
+import Hero from "../../components/Hero.astro";
+
+const pageTitle =
+    "Деловые мероприятия и MICE — TT Events (hub)";
+const pageDescription =
+    "TT Events организует деловые мероприятия: конференции, форумы, презентации, семинары, стратегические сессии и launch events.";
+const keywords =
+    "деловые мероприятия, MICE, конференции, форумы, презентации, семинары, launch events";
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/services/mice-business"
+>
+    <div class="page-service w-full overflow-x-hidden">
+        <Hero
+            title="Деловые мероприятия и MICE"
+            subtitle="Конференции, форумы, презентации и launch events на уровне. От 50 до 10 000+ участников."
+            ctaText="Обсудить проект"
+            ctaHref="/kontakty"
+            backgroundImage="/images/del2_2.jpg"
+        />
+
+        <!-- Intro -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-lg text-text-light mb-4">
+                    Деловое событие — это репутация компании, сигнал рынку и инструмент управления.
+                    TT Events реализует проекты, где каждая деталь работает на результат.
+                </p>
+                <p class="text-lg text-text-light">
+                    В этом разделе — форматы бизнес-событий: от классической конференции до комплексных форумов, launch events и стратегических сессий.
+                </p>
+            </div>
+        </section>
+
+        <!-- Child services -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title mb-12">Форматы деловых мероприятий</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden">
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/mice-business/konferencii" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/conf_2_1.jpg" alt="Конференции" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Конференции</h3>
+                                <p class="text-text-light text-sm">Модерация, техобеспечение, сценография, регистрация, контент.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/mice-business/forums" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/conf_2_1.jpg" alt="Форумы" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Форумы</h3>
+                                <p class="text-text-light text-sm">Многочисленные площадки, сложные программы, координация сотен спикеров.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/mice-business/launch-events" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/dela_prez_prog.jpg" alt="Launch events" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Launch Events</h3>
+                                <p class="text-text-light text-sm">Презентации продуктов, запусков и обновлений бренда.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/mice-business/seminars" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/conf_2_1.jpg" alt="Семинары" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Семинары и тренинги</h3>
+                                <p class="text-text-light text-sm">Обучающие события с полным техническим и логистическим сопровождением.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden">
+                        <a href="/services/mice-business/strategy-sessions" class="block text-inherit no-underline">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/images/conf_2_1.jpg" alt="Стратегические сессии" width="600" height="300" loading="lazy" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-heading font-semibold mb-2">Стратегические сессии</h3>
+                                <p class="text-text-light text-sm">Фасилитация, пространство, тайминг, визуализация и динамика.</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back -->
+        <section class="py-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-text-light">
+                    <span>
+                        ← <a href="/services" class="underline hover:text-primary">Все услуги</a>
+                    </span>
+                    <span>
+                        Кейсы деловых событий: <a href="/case" class="underline hover:text-primary">/case</a>
+                    </span>
+                    <span>
+                        Для бизнеса: <a href="/for-business" class="underline hover:text-primary">/for-business</a>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 md:py-24 bg-dark text-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Обсудить проект
+                </h2>
+                <p class="text-lg text-gray-300 mb-6">
+                    Расскажите о задаче — подготовим концепцию и смету для вашей конференции, форума или launch event.
+                </p>
+                <a href="/kontakty" class="btn-primary w-full sm:w-auto inline-flex justify-center min-h-[44px]">Обсудить проект</a>
+            </div>
+        </section>
+    </div>
+</Layout>

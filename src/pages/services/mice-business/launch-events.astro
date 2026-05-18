@@ -1,0 +1,34 @@
+---
+import Layout from "@/components/Layout.astro";
+
+const pageTitle = "Launch Events — TT Events";
+const pageDescription = "TT Events организует launch events и презентации продуктов: шоу, медиа, имидж и опыт.";
+const keywords = "launch event, презентация продукта, презентация москва";
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={keywords} canonicalURL="/services/mice-business/launch-events">
+    <div class="page-service">
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm text-text-light mb-4">
+                    <a href="/" class="hover:text-primary">Главная</a> / <a href="/services" class="hover:text-primary">Услуги</a> / <a href="/services/mice-business" class="hover:text-primary">Деловые мероприятия</a> / <span class="font-medium text-text">Launch Events</span>
+                </nav>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark font-heading mb-6">Launch Events</h1>
+                <p class="text-lg text-text-light mb-8">
+                    Презентации продуктов, сервисов и обновлений бренда как шоу: визуал, динамика, медиа.
+                    Создаём событие, которое хочется обсуждать и показывать.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-text-light mb-8">
+                    <li>Концепция, сценарий, режиссура.</li>
+                    <li>Сценография, шоу, интерактив, live-форматы.</li>
+                    <li>Видео, прямые трансляции, PR-сопровождение.</li>
+                </ul>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="/kontakty" class="btn-primary">Обсудить презентацию</a>
+                    <a href="/services/mice-business" class="btn-outline">← Деловые мероприятия</a>
+                </div>
+                <p class="text-sm text-text-light">Примеры → <a href="/case" class="underline hover:text-primary">/case</a></p>
+            </div>
+        </section>
+    </div>
+</Layout>

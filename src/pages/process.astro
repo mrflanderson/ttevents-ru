@@ -1,0 +1,59 @@
+---
+import Layout from "../components/Layout.astro";
+import PageHero from "../components/sections/PageHero.astro";
+import ProcessSteps from "../components/sections/ProcessSteps.astro";
+
+const pageTitle = "Как мы работаем — TT Events";
+const pageDescription =
+    "Процесс работы TT Events: бриф, концепция, бюджет, производство, реализация, контент и отчёт.";
+const keywords = "процесс работы event агентства, этапы организации мероприятий";
+
+const steps = [
+    {
+        number: 1,
+        label: "Brief",
+        description: "Мы обсуждаем задачу, цели, бюджет, сроки, аудиторию и ожидания. Фиксируем результат в брифе.",
+    },
+    {
+        number: 2,
+        label: "Concept",
+        description: "Разрабатываем концепцию: сценарий, стиль, программа, форматы взаимодействия.",
+    },
+    {
+        number: 3,
+        label: "Budget",
+        description: "Формируем детальную смету. Прозрачные позиции, обоснование, варианты экономии.",
+    },
+    {
+        number: 4,
+        label: "Production",
+        description: "Запускаем производство: площадки, подрядчики, контент, медиа, логистика.",
+    },
+    {
+        number: 5,
+        label: "Implementation",
+        description: "Реализация мероприятия: режиссура, координация, контроль качества на всех этапах.",
+    },
+    {
+        number: 6,
+        label: "Content & Reporting",
+        description: "После события: медиа, контент, фото/видео, отчёт, рекомендации.",
+    },
+];
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    keywords={keywords}
+    canonicalURL="/process"
+>
+    <div class="page-service">
+        <PageHero
+            title="Как мы работаем"
+            subtitle="Понятный процесс от задачи до реализации. Мы проходим шесть шагов, чтобы результат был предсказуемым."
+        />
+
+        <ProcessSteps steps={steps} />
+    </div>
+</Layout>
