@@ -1,5 +1,6 @@
 ---
 import Layout from "../components/Layout.astro";
+import Hero from "../components/Hero.astro";
 import CaseCard from "../components/CaseCard.astro";
 import VideoEmbed from "../components/VideoEmbed.astro";
 import FAQSection from "../components/sections/FAQSection.astro";
@@ -65,13 +66,20 @@ const pillars = [
   },
 ];
 
-// Partners: using existing images
+// Partners: using existing images from /public/images/
 const partners = [
-  "/images/logo_sber.jpg",
-  "/images/logo_gazprom.png",
-  "/images/rzhd.jpg",
-  "/images/vdnh.png",
-  "/images/rosatom.png",
+  { name: "Сбер", src: "/images/logo_sber.jpg" },
+  { name: "Газпром", src: "/images/logo_gazprom.png" },
+  { name: "РЖД", src: "/images/rzhd.jpg" },
+  { name: "ВДНХ", src: "/images/vdnh.png" },
+  { name: "Росатом", src: "/images/rosatom.png" },
+  { name: "Лукойл", src: "/images/logo_lukoil.webp" },
+  { name: "Почта России", src: "/images/logo_russian_postsvg.png" },
+  { name: "АОП Т", src: "/images/logo_aop_t.webp" },
+  { name: "Коломенское", src: "/images/logo_kolomenskoe.jpg" },
+  { name: "Измайлово", src: "/images/logo_imzylovo.jpg" },
+  { name: "Плюс", src: "/images/logo_plus.png" },
+  { name: "Гостиный двор", src: "/images/gostinyj-dvor-logo.png" },
 ];
 ---
 
@@ -85,80 +93,60 @@ const partners = [
 >
   <div class="min-h-screen bg-white w-full overflow-x-hidden">
 
-    <!-- HERO -->
-    <section class="relative min-h-[650px] flex items-center text-white overflow-hidden overflow-x-hidden">
-      <!-- Video background -->
-      <!-- Video background -->
-      <video
-        autoplay
-        loop
-        muted
-        playsinline
-        preload="metadata"
-        poster="/video/hero_new2.png"
-        class="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/video/hero_new2.mp4" type="video/mp4" />
-      </video>
-      <div class="absolute inset-0 bg-black/50"></div>
-
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div class="max-w-[860px]">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 leading-tight">
-            События, которые работают на&nbsp;бизнес
-          </h1>
-          <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
-            TT Events — корпоративы, MICE, фестивали и продакшн. От концепции до трансляции и контента.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 items-center w-full">
-            <a
-              href="https://t.me/ttevents"
-              class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-lg font-semibold bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300 min-h-[44px]">
-              Обсудить проект
-            </a>
-            <a
-              href="/case"
-              class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-lg font-semibold bg-white/10 border-2 border-white/20 hover:bg-white hover:text-primary text-white backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 min-h-[44px]">
-              Смотреть кейсы
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Hero
+      title="События, которые работают на&nbsp;бизнес"
+      subtitle="TT Events — корпоративы, MICE, фестивали и продакшн. От концепции до трансляции и контента."
+      ctaText="Обсудить проект"
+      ctaHref="https://t.me/ttevents"
+      ctaSecondaryText="Смотреть кейсы"
+      ctaSecondaryHref="/case"
+      videoSrc="/video/hero_new2.mp4"
+      poster="/video/hero_new2.png"
+    />
 
     <!-- METRICS + CLIENTS (social proof) -->
-    <section class="py-10 bg-gray-50 border-y border-gray-100">
+    <section class="py-12 md:py-16 bg-gray-50 border-y border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Metrics */}
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-10">
+        {/* Metrics row */}
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 lg:gap-8 mb-12">
           <div>
             <p class="text-sm text-gray-500">TT Events</p>
-            <h2 class="mt-1 text-xl font-semibold text-gray-900">
+            <h2 class="mt-1 text-xl md:text-2xl lg:text-3xl font-heading font-bold text-gray-900 leading-tight">
               Партнёр для сложных проектов
             </h2>
           </div>
-          <div class="flex flex-wrap gap-x-10 gap-y-3 text-sm text-gray-700">
+          {/* Grid-based metrics — 2 cols mobile, 4 cols desktop */}
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {metrics.map((m) => (
-              <div class="flex flex-col">
-                <span class="text-2xl font-semibold text-gray-900">{m.value}</span>
-                <span class="text-xs text-gray-500">{m.label}</span>
+              <div class="text-center lg:text-left">
+                <span class="block text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-none">
+                  {m.value}
+                </span>
+                <span class="mt-1 block text-xs sm:text-sm text-gray-500">
+                  {m.label}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Clients strip (monochrome style via filters) */}
-        <div class="mt-4">
-          <p class="text-xs text-gray-400 mb-3">
+        {/* Clients strip */}
+        <div class="border-t border-gray-200 pt-8">
+          <p class="text-xs sm:text-sm text-gray-400 mb-4 text-center lg:text-left">
             Нам доверяют лидеры рынка и государственные структуры
           </p>
-          <div class="flex flex-wrap items-center gap-6">
-            {partners.map((src) => (
-              <img
-                src={src}
-                alt="Партнёр TT Events"
-                class="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale"
-              />
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8">
+            {partners.map((p) => (
+              <div class="flex-shrink-0 w-[100px] sm:w-[120px]">
+                <img
+                  src={p.src}
+                  alt={`Партнёр ${p.name}`}
+                  class="h-7 sm:h-8 lg:h-10 w-auto max-w-[120px] opacity-60 hover:opacity-100 transition-opacity duration-200 grayscale-[30%] hover:grayscale-0"
+                  loading="lazy"
+                  width="120"
+                  height="32"
+                />
+              </div>
             ))}
           </div>
         </div>

@@ -5,57 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://ttevents.ru",
   integrations: [sitemap()],
-  content: {
-    collections: {
-      blog: {
-        type: "content",
-        schema: {
-          title: { type: "string" },
-          description: { type: "string" },
-          date: { type: "string", transform: "date" },
-          published: { type: "boolean", default: true },
-          coverImage: { type: "string" },
-          tags: { type: "array", items: { type: "string" } },
-        },
-      },
-      cases: {
-        type: "content",
-        schema: {
-          title: { type: "string" },
-          description: { type: "string" },
-          date: { type: "string", transform: "date", optional: true },
-          published: { type: "boolean", default: true },
-          coverImage: { type: "string" },
-          tags: { type: "array", items: { type: "string" }, default: [] },
-          client: { type: "string", optional: true },
-          budget: { type: "string", optional: true },
-        },
-      },
-      services: {
-        type: "content",
-        schema: {
-          title: { type: "string" },
-          description: { type: "string" },
-          icon: {
-            type: "enum",
-            values: [
-              "briefcase",
-              "team",
-              "tree",
-              "building",
-              "rocket",
-              "camera",
-            ],
-          },
-          relatedLinks: {
-            type: "array",
-            items: { type: "string" },
-            optional: true,
-          },
-        },
-      },
-    },
-  },
+
   build: {
     assets: "static",
     clientLocals: "lazy",

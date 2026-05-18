@@ -1,38 +1,59 @@
 ---
-interface Props {
-    partners: Array<{ name: string; image: string }>;
-}
+type Props = {
+  partners: Array<{ name: string; image: string }>;
+};
 
 const { partners } = Astro.props;
 
-// Дублируем партнёров для бесконечной прокрутки
+// Дублируем партнёров для бесконечной прокрутки (десктоп)
 const doubled = [...partners, ...partners];
 ---
 
-<section class="py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-            class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-dark font-heading"
-        >
-            Наши партнеры
-        </h2>
-        <div class="overflow-hidden relative">
-            <div class="flex gap-10 animate-scroll">
-                {
-                    doubled.map((partner) => (
-                        <div class="flex-shrink-0 w-[150px] h-[80px] flex items-center justify-center">
-                            <img
-                                src={partner.image}
-                                alt={partner.name}
-                                width="150"
-                                height="80"
-                                loading="lazy"
-                                class="max-w-full max-h-full object-contain"
-                            />
-                        </div>
-                    ))
-                }
-            </div>
+<section class="py-12 md:py-16 bg-white" aria-label="Наши партнёры">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2
+      class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-center mb-8 md:mb-12 text-gray-900"
+    >
+      Наши партнеры
+    </h2>
+
+    {/* Mobile: show 3-4 logos in a grid (no animation for better UX) */}
+    <div class="grid grid-cols-3 md:hidden gap-4 sm:gap-6 mb-6">
+      {partners.slice(0, 6).map((partner) => (
+        <div class="flex items-center justify-center">
+          <img
+            src={partner.image}
+            alt={`Партнёр ${partner.name}`}
+            class="h-8 sm:h-10 w-auto max-w-[100px] opacity-70 hover:opacity-100 transition-opacity grayscale-[30%] hover:grayscale-0"
+            loading="lazy"
+            width="120"
+            height="40"
+          />
         </div>
+      ))}
     </div>
+
+    {/* Desktop: infinite scroll carousel */}
+    <div class="hidden md:block overflow-hidden relative">
+      {/* Gradient fade edges */}
+      <div class="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white to-transparent"></div>
+      <div class="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white to-transparent"></div>
+
+      <div class="flex gap-8 md:gap-10 animate-scroll">
+        {
+          doubled.map((partner) => (
+            <div class="flex-shrink-0 w-[140px] h-[60px] flex items-center justify-center">
+              <img
+                src={partner.image}
+                alt={`Партнёр ${partner.name}`}
+                class="h-8 md:h-10 w-auto max-w-[120px] opacity-60 hover:opacity-100 transition-opacity duration-200 grayscale-[30%] hover:grayscale-0"
+                width="140"
+                height="40"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </section>

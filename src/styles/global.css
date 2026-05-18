@@ -28,6 +28,12 @@
   --radius-2xl: 1.5rem;
   --radius-xl: 1.25rem;
   --radius-lg: 1rem;
+
+  /* Custom shadows */
+  --shadow-soft: 0 12px 40px rgb(15 23 42 / 0.07);
+  --shadow-soft-lg: 0 18px 60px rgb(15 23 42 / 0.11);
+  --shadow-soft-xl: 0 20px 60px rgb(0 0 0 / 0.35);
+  --shadow-soft-2xl: 0 30px 100px rgb(0 0 0 / 0.55);
 }
 
 /* ===== BASE LAYOUT & TYPOGRAPHY ===== */
@@ -53,13 +59,13 @@
   h5,
   h6 {
     font-family: "Exo 2", var(--font-sans);
-    @apply tracking-tight text-slate-900;
+    @apply tracking-tight text-inherit;
   }
 
   h1 {
     @apply text-[1.5625rem] sm:text-[1.95rem] md:text-[2.4rem] lg:text-[2.75rem] font-extrabold leading-tight;
   }
-  \n h2 {
+  h2 {
     @apply text-[1.44rem] sm:text-[1.7rem] md:text-[2rem] font-bold leading-snug;
   }
 
@@ -106,14 +112,14 @@
   .card {
     @apply bg-white rounded-2xl border border-slate-100 p-5
       text-slate-900
-      shadow-soft hover:shadow-soft-lg transition-all duration-300
+      shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-soft-lg)] transition-all duration-300
       flex-col overflow-hidden;
   }
 
   .card-dark {
     @apply bg-[#0b1222]/[0.96] text-slate-50 rounded-2xl
       border border-white/[0.04] p-5
-      shadow-soft-xl hover:shadow-soft-2xl transition-all duration-300
+      shadow-[var(--shadow-soft-xl)] hover:shadow-[var(--shadow-soft-2xl)] transition-all duration-300
       flex-col overflow-hidden;
   }
 
@@ -135,7 +141,7 @@
     @apply bg-primary-500 text-white
       hover:bg-primary-600
       active:scale-[0.97]
-      shadow-soft hover:shadow-soft-lg
+      shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-soft-lg)]
       contrast-more:border-primary-600;
   }
 
@@ -176,6 +182,14 @@
 @layer utilities {
   .animate-scroll {
     animation: scroll 30s linear infinite;
+  }
+
+  /* Pause animation on user preference for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll {
+      animation-duration: 60s;
+      animation-iteration-count: 2;
+    }
   }
 
   @keyframes scroll {
@@ -232,22 +246,5 @@
   small,
   .text-muted {
     @apply text-[0.82rem] sm:text-[0.9rem] text-slate-600;
-  }
-
-  /* Shadow utilities (semantic helpers) */
-  .shadow-soft {
-    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.07);
-  }
-
-  .shadow-soft-lg {
-    box-shadow: 0 18px 60px rgba(15, 23, 42, 0.11);
-  }
-
-  .shadow-soft-xl {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-  }
-
-  .shadow-soft-2xl {
-    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
   }
 }
